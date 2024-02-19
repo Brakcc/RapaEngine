@@ -34,3 +34,4 @@ C:\Users\c.strappazzonmarques\Desktop\Rapa\Rapa\obj\Debug\net6.0\Rapa.pdb
 C:\Users\c.strappazzonmarques\Desktop\Rapa\Rapa\obj\Debug\net6.0\Rapa.genruntimeconfig.cache
 C:\Users\c.strappazzonmarques\Desktop\Rapa\Rapa\obj\Debug\net6.0\ref\Rapa.dll
 C:\Users\c.strappazzonmarques\Desktop\Rapa\Rapa\bin\Debug\net6.0\Content\ArtContent\Fonts\fontTest.xnb
+C:\Users\c.strappazzonmarques\Desktop\Rapa\Rapa\bin\Debug\net6.0\Content\ArtContent\BackGrounds\UnitTileTest.xnb

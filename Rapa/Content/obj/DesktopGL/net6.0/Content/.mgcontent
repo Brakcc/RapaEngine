@@ -6,6 +6,7 @@
   <SourceFiles>
     <File>C:/Users/c.strappazzonmarques/Desktop/Rapa/Rapa/Content/ArtContent/BackGrounds/BackGround1.png</File>
     <File>C:/Users/c.strappazzonmarques/Desktop/Rapa/Rapa/Content/ArtContent/BackGrounds/TextTileMap.png</File>
+    <File>C:/Users/c.strappazzonmarques/Desktop/Rapa/Rapa/Content/ArtContent/BackGrounds/UnitTileTest.png</File>
     <File>C:/Users/c.strappazzonmarques/Desktop/Rapa/Rapa/Content/ArtContent/Buttons/Buttons.png</File>
     <File>C:/Users/c.strappazzonmarques/Desktop/Rapa/Rapa/Content/ArtContent/Chara/CharaBaseIdle.png</File>
     <File>C:/Users/c.strappazzonmarques/Desktop/Rapa/Rapa/Content/ArtContent/Chara/RezIDLE.jpg</File>
@@ -16,6 +17,7 @@
     <File>C:/Users/c.strappazzonmarques/Desktop/Rapa/Rapa/Content/ArtContent/TextTileMap.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
