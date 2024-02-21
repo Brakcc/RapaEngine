@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Rapa.RapaGame.GameContent.PlayerInfo;
 using Rapa.RapaGame.RapaduraEngine.CameraManagement;
 using Rapa.RapaGame.RapaduraEngine.Entities.Sprites;
 using Rapa.RapaGame.RapaduraEngine.Entities.Sprites.Animations;
@@ -20,11 +21,11 @@ public class GameState : State
 
     private float timer;
 
-    private Player.Player player;
-    private Player.Player playerplayerplayer;
+    private Player player;
+    private Player playerplayerplayer;
     private Camera camera;
 
-    private SolidSprite text;
+    //private SolidSprite text;
     private List<Rectangle> colliders;
 
     public GameState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content, SpriteBatch spriteBatch) : base(game, graphicsDevice, content, spriteBatch)
@@ -45,19 +46,19 @@ public class GameState : State
         };
         var back = new Dictionary<string, Animation>
         {
-            {"back", new Animation(_content.Load<Texture2D>("ArtContent/BackGrounds/TextTileMap"), 1, 1f, 0f) }
+            {"back", new Animation(_content.Load<Texture2D>("ArtContent/BackGrounds/UnitTileTest"), 1, 1f, 1f) }
         };
         var front = new Dictionary<string, Animation>
         {
-            {"front", new Animation(_content.Load<Texture2D>("ArtContent/BackGrounds/UnitTileTest"), 1, 1f, 0.55f)}
+            {"front", new Animation(_content.Load<Texture2D>("ArtContent/BackGrounds/UnitTileTest"), 1, 1f, 1f)}
         };
 
         camera = new Camera();
 
         //Appel du Perso
-        player = new Player.Player(anims)
+        player = new Player(anims)
         {
-            position = new Vector2(0, 36),
+            Position = new Vector2(0, 36),
             input = new Inputs
             {
                 Up = Keys.Z,
@@ -70,9 +71,9 @@ public class GameState : State
             speed = 10f
         };
 
-        playerplayerplayer = new Player.Player(anims)
+        playerplayerplayer = new Player(anims)
         {
-            position = new Vector2(100, 0),
+            Position = new Vector2(1000, 1000),
             input = new Inputs
             {
                 Up = Keys.Up,
@@ -103,43 +104,43 @@ public class GameState : State
             },
         };
 
-        /*_hollowSprites = new List<HollowSprite>
+        _hollowSprites = new List<HollowSprite>
         {
             new(back)
             {
-                position = new Vector2(-100, -100),
+                Position = new Vector2(-86, -100)
             },
             new(back)
             {
-                position = new Vector2(-500, -500),
+                Position = new Vector2(-500, -500)
             },
-        };*/
+        };
 
         _solidSprites = new List<SolidSprite>
         {
             new(front)
             {
-                position = new Vector2(0, 0)
+                Position = new Vector2(0, 0)
             },
             new(front)
             {
-                position = new Vector2(24, 0)
+                Position = new Vector2(24, 0)
             },
             new(front)
             {
-                position = new Vector2(48, 0)
+                Position = new Vector2(48, 0)
             },
             new(front)
             {
-                position = new Vector2(72, 0)
+                Position = new Vector2(72, 0)
             },
             new(front)
             {
-                position = new Vector2(96, 0)
+                Position = new Vector2(96, 0)
             },
             new(front)
             {
-                position = new Vector2(120, 0)
+                Position = new Vector2(120, 0)
             }
         };
     }
@@ -150,7 +151,7 @@ public class GameState : State
         
         foreach (var para in parallaxes)
         {
-            para.Draw(gameTime, spriteBatch);
+            //para.Draw(gameTime, spriteBatch);
         }
         
         spriteBatch.End();
@@ -161,13 +162,13 @@ public class GameState : State
         
         foreach (var s in _solidSprites)
         {
-            s.Draw(gameTime, spriteBatch);
+            s.Draw(spriteBatch);
         }
         
-        /*foreach(var hollow in _hollowSprites)
+        foreach(var hollow in _hollowSprites)
         {
             hollow.Draw(spriteBatch);
-        }*/
+        }
 
         //text.Draw(spriteBatch);
 
@@ -187,13 +188,10 @@ public class GameState : State
             _game.ChangeState(new MenuState(_game, _graphicsDevice, _content, _spriteBatch));
         }
 
-        /*foreach (var hollow in _hollowSprites)
+        foreach (var hollow in _hollowSprites)
         {
             hollow.Update(gameTime);
-        }*/
-
-        player.Update(gameTime, new List<SolidSprite> { text });
-
+        }
         //text.Update(gameTime, null);
 
         foreach (var para in parallaxes)
@@ -204,6 +202,8 @@ public class GameState : State
         {
             s.Update(gameTime);
         }
+        
+        player.Update(gameTime, _solidSprites);
         
         //suivi du joueur avec la cam
         camera.Follow(player);
@@ -223,9 +223,9 @@ public class GameState : State
                 solidSprites.RemoveAt(i);
                 i--;
             }
-            if (sprite is Player)
+            if (sprite is PlayerInfo)
             {
-                var player = sprite as Player;
+                var player = sprite as PlayerInfo;
                 if (player.hasDied)
                 {
                     Restart();

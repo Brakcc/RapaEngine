@@ -7,21 +7,21 @@ using Rapa.RapaGame.RapaduraEngine.Entities.Sprites.Animations;
 
 namespace Rapa.RapaGame.RapaduraEngine.Entities.Sprites;
 
-public class HollowSprite : AbstractEntity
+public sealed class HollowSprite : AbstractEntity
 {
     #region fields
-        
-    protected AnimationManager animationManager;
-    protected Dictionary<string, Animation> animation;
-    protected Vector2 pos;
+
+    private readonly AnimationManager animationManager;
+    private readonly Dictionary<string, Animation> animation;
+    private readonly Vector2 pos;
         
     #endregion
 
     #region inits
-    public Vector2 position
+    public Vector2 Position
     {
         get => pos;
-        set
+        init
         {
             pos = value;
             if (animationManager != null)
@@ -34,7 +34,7 @@ public class HollowSprite : AbstractEntity
 
     public bool isRemoved = false;
 
-    public Rectangle rectangle => new((int)position.X, (int)position.Y, animation.Values.First()._frameWidth, animation.Values.First()._frameHeight);
+    public Rectangle rectangle => new((int)Position.X, (int)Position.Y, animation.Values.First()._frameWidth, animation.Values.First()._frameHeight);
 
     public HollowSprite(Dictionary<string, Animation> animations)
     {
@@ -44,16 +44,16 @@ public class HollowSprite : AbstractEntity
     #endregion
 
     #region Methodes
-    public virtual void Update(GameTime gameTime, List<HollowSprite> sprite) 
+    public void Update(GameTime gameTime, List<HollowSprite> sprite) 
     {
         Animate();
     }
 
-    public virtual void Animate() 
+    private static void Animate() 
     { 
     }
 
-    public virtual void Draw(SpriteBatch spriteBatch)
+    public void Draw(SpriteBatch spriteBatch)
     {
         if (animationManager != null)
         {

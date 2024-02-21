@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Rapa.RapaGame.GameContent.Player;
+using Rapa.RapaGame.GameContent.PlayerInfo;
 using Rapa.RapaGame.RapaduraEngine.Entities.Sprites;
 using Vector2 = Microsoft.Xna.Framework.Vector2;
 

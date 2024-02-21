@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework.Input;
 using Rapa.RapaGame.RapaduraEngine.Entities.Sprites;
 using Rapa.RapaGame.RapaduraEngine.InputSettings;
 
-namespace Rapa.RapaGame.GameContent.Player;
+namespace Rapa.RapaGame.GameContent.PlayerInfo;
 
 public class NewPlayer : NormalSprite
 {

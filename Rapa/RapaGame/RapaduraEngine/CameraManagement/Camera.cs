@@ -1,5 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
-using Rapa.RapaGame.GameContent.Player;
+using Rapa.RapaGame.GameContent.PlayerInfo;
 
 namespace Rapa.RapaGame.RapaduraEngine.CameraManagement;
 
@@ -15,8 +15,8 @@ public class Camera
             0);
 
         var pos = Matrix.CreateTranslation(
-            -target.position.X + target.rectangle.Width / 2,
-            -target.position.Y + target.rectangle.Height / 2,
+            -target.Position.X + target.rectangle.Width / 2,
+            -target.Position.Y + target.rectangle.Height / 2,
             0);
 
         Transform = pos * offset;

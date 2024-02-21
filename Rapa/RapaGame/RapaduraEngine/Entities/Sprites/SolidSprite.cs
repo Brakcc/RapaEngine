@@ -4,21 +4,22 @@ using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Rapa.RapaGame.RapaduraEngine.Entities.Sprites.Animations;
-using Vector2 = Microsoft.Xna.Framework.Vector2;
 
 namespace Rapa.RapaGame.RapaduraEngine.Entities.Sprites;
 
 public class SolidSprite : AbstractEntity
 {
     #region fields
-    protected AnimationManager animationManager;
-    protected Dictionary<string, Animation> animation;
-    protected Vector2 pos;
+    
+    protected readonly AnimationManager animationManager;
+    protected readonly Dictionary<string, Animation> animation;
+    private Vector2 pos;
 
     #endregion
 
     #region inits
-    public Vector2 position
+    
+    public Vector2 Position
     {
         get => pos;
         set
@@ -32,22 +33,19 @@ public class SolidSprite : AbstractEntity
 
     public bool isRemoved = false;
 
-    public Rectangle rectangle => new((int)position.X, (int)position.Y, animation.Values.First()._frameWidth, animation.Values.First()._frameHeight);
+    public Rectangle rectangle => new((int)Position.X, (int)Position.Y, animation.Values.First()._frameWidth, animation.Values.First()._frameHeight);
 
     public SolidSprite(Dictionary<string, Animation> animations)
     {
         animation = animations;
         animationManager = new AnimationManager(animation.First().Value);
     }
+    
     #endregion
 
     #region methodes
-    public virtual void Update(GameTime gameTime, List<SolidSprite> sprite)
-    {
-        Animate();
-    }
 
-    public virtual void Animate()
+    protected virtual void Animate()
     {
 
     }
@@ -69,37 +67,35 @@ public class SolidSprite : AbstractEntity
     {
 
     }
+    
     #endregion
 
     #region Collision
+    
     protected bool IsTouchingLeft(SolidSprite sprite)
-    {
-        return rectangle.Right + velocity.X > sprite.rectangle.Left &&
-               rectangle.Left < sprite.rectangle.Left &&
-               rectangle.Bottom > sprite.rectangle.Top &&
-               rectangle.Top < sprite.rectangle.Bottom;
-    }
+        => rectangle.Right + velocity.X > sprite.rectangle.Left &&
+           rectangle.Left < sprite.rectangle.Left && 
+           rectangle.Bottom > sprite.rectangle.Top &&
+           rectangle.Top < sprite.rectangle.Bottom;
+    
     protected bool IsTouchingRight(SolidSprite sprite)
-    {
-        return rectangle.Left + velocity.X < sprite.rectangle.Right &&
-               rectangle.Right > sprite.rectangle.Right &&
-               rectangle.Bottom > sprite.rectangle.Top &&
-               rectangle.Top < sprite.rectangle.Bottom;
-    }
+       => rectangle.Left + velocity.X < sprite.rectangle.Right &&
+          rectangle.Right > sprite.rectangle.Right &&
+          rectangle.Bottom > sprite.rectangle.Top &&
+          rectangle.Top < sprite.rectangle.Bottom;
+    
     protected bool IsTouchingTop(SolidSprite sprite)
-    {
-        return rectangle.Bottom + velocity.X > sprite.rectangle.Top &&
-               rectangle.Top < sprite.rectangle.Top &&
-               rectangle.Right > sprite.rectangle.Left &&
-               rectangle.Left < sprite.rectangle.Right;
-    }
-    protected bool IsTouchingBottom(SolidSprite sprite)
-    {
-        return rectangle.Top + velocity.X < sprite.rectangle.Bottom &&
-               rectangle.Bottom > sprite.rectangle.Bottom &&
-               rectangle.Right > sprite.rectangle.Left &&
-               rectangle.Left < sprite.rectangle.Right;
-    }
+        => rectangle.Bottom + velocity.X > sprite.rectangle.Top &&
+           rectangle.Top < sprite.rectangle.Top &&
+           rectangle.Right > sprite.rectangle.Left &&
+           rectangle.Left < sprite.rectangle.Right;
+    
+    protected bool IsTouchingBottom(SolidSprite sprite) 
+        => rectangle.Top + velocity.X < sprite.rectangle.Bottom &&
+           rectangle.Bottom > sprite.rectangle.Bottom &&
+           rectangle.Right > sprite.rectangle.Left &&
+           rectangle.Left < sprite.rectangle.Right;
+    
     #endregion
         
         
