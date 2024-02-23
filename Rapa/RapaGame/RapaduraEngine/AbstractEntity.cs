@@ -3,9 +3,9 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Rapa.RapaGame.RapaduraEngine;
 
-public abstract class AbstractEntity
+public abstract class Entity
 {
     public abstract void Update(GameTime gameTime);
 
-    public abstract void Draw(GameTime gameTime, SpriteBatch spriteBatch);
+    public abstract void Draw(SpriteBatch spriteBatch);
 }

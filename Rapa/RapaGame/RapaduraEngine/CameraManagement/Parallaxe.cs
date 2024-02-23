@@ -8,18 +8,18 @@ using Vector2 = Microsoft.Xna.Framework.Vector2;
 
 namespace Rapa.RapaGame.RapaduraEngine.CameraManagement;
 
-public class Parallaxe : AbstractEntity
+public class Parallaxe : Entity
 {
     #region fields
-    private bool _constantSpeed;
+    private readonly bool _constantSpeed;
     private float _layer;
-    private float _scrollingSpeed;
-    private List<NormalSprite> _sprites;
-    private readonly Player _player;
+    private readonly float _scrollingSpeed;
+    private readonly List<NormalSprite> _sprites;
+    private readonly SolidSprite _player;
     private float _speed;
     public float layer
     {
-        get { return _layer; }
+        get => _layer;
         set
         {
             _layer = value;
@@ -30,27 +30,27 @@ public class Parallaxe : AbstractEntity
         }
     }
         
-    public Parallaxe(Texture2D texture, Player player, float scrollingSpeed, bool constantSpeed = false)
+    public Parallaxe(Texture2D texture, SolidSprite player, float scrollingSpeed, bool constantSpeed = false)
         : this(new List<Texture2D> { texture, texture }, player, scrollingSpeed, constantSpeed)
     {
 
     }
 
-    public Parallaxe(List<Texture2D> textures, Player player, float scrolingSpeed, bool constantSpeed = false)
+    public Parallaxe(IReadOnlyList<Texture2D> textures, SolidSprite player, float scrollingSpeed, bool constantSpeed = false)
     {
         _player = player;
         _sprites = new List<NormalSprite>();
 
-        for (int i = 0; i < textures.Count; i++) 
+        for (var i = 0; i < textures.Count; i++) 
         {
             var texture = textures[i];
             _sprites.Add(new NormalSprite(texture)
             {
-                position = new Vector2(-i * texture.Width - Math.Min(i, i + 1), Game1.ScreenHeight - texture.Height),
+                position = new Vector2(-i * texture.Width - Math.Min(i, i + 1), Game1.ScreenHeight - texture.Height)
             });
         }
 
-        _scrollingSpeed = scrolingSpeed;
+        _scrollingSpeed = scrollingSpeed;
         _constantSpeed = constantSpeed;
     }
 
@@ -60,11 +60,11 @@ public class Parallaxe : AbstractEntity
         CheckPosition();
     }
 
-    public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
+    public override void Draw(SpriteBatch spriteBatch)
     {
         foreach (var sprite in _sprites)
         {
-            sprite.Draw(gameTime, spriteBatch);
+            sprite.Draw(spriteBatch);
         }
     }
 
@@ -85,18 +85,18 @@ public class Parallaxe : AbstractEntity
 
     private void CheckPosition()
     {
-        for (int i = 0; i < _sprites.Count;i++)
+        for (var i = 0; i < _sprites.Count;i++)
         {
             var sprite = _sprites[i];
-            if (sprite.rectangle.Right <= 0 && _speed > 0)
+            if (sprite.rectangle.Right > 0 || !(_speed > 0))
+                continue;
+            
+            var index = i - 1;
+            if (index < 0)
             {
-                var index = i - 1;
-                if (index < 0)
-                {
-                    index = _sprites.Count - 1;
-                }
-                sprite.position.X = _sprites[index].rectangle.Right - (_speed * 2);
+                index = _sprites.Count - 1;
             }
+            sprite.position.X = _sprites[index].rectangle.Right - _speed * 2;
         }
     }
     #endregion

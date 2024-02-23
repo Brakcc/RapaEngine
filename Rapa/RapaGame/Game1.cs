@@ -18,8 +18,8 @@ public class Game1 : Game
 
     public static Random random;
 
-    public static int ScreenWidth { get; private set; }
-    public static int ScreenHeight { get; private set; }
+    public static int ScreenWidth { get; set; }
+    public static int ScreenHeight { get; set; }
     
     private static readonly Color color = Color.Wheat;
 
@@ -92,7 +92,7 @@ public class Game1 : Game
     {
         GraphicsDevice.Clear(color);
 
-        currentState.Draw(gameTime, spriteBatch);
+        currentState.Draw(spriteBatch);
 
         base.Draw(gameTime);
     }

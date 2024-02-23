@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Rapa.RapaGame.RapaduraEngine.Entities.Sprites;
 using Rapa.RapaGame.RapaduraEngine.Entities.Sprites.Animations;
@@ -77,12 +76,6 @@ public sealed class Player : SolidSprite
         animationManager.Update(gameTime);
 
         Position += velocity;
-        //pos.X = Math.Clamp(position.X, 0, Game1.screenWidth - rectangle.Width);
-    }
-
-    public override void Draw(SpriteBatch spriteBatch)
-    {
-        base.Draw(spriteBatch);
     }
 
     private void MoveX(Vector2 dirSpeed)

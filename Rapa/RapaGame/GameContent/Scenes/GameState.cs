@@ -148,7 +148,7 @@ public class GameState : State
         };
     }
 
-    public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
+    public override void Draw(SpriteBatch spriteBatch)
     {
         spriteBatch.Begin(SpriteSortMode.BackToFront, null, SamplerState.PointClamp);
         
@@ -160,7 +160,7 @@ public class GameState : State
         spriteBatch.End();
 
         spriteBatch.Begin(SpriteSortMode.BackToFront, transformMatrix: camera.Transform);
-            
+
         player.Draw(spriteBatch);
         
         foreach (var s in _solidSprites)
@@ -215,25 +215,5 @@ public class GameState : State
         {
             timer = 0f;
         }
-
-        //compteurs d'entitées
-        /*for (int i = 0; i < solidSprites.Count; i++)
-        {
-            var sprite = solidSprites[i];
-
-            if (sprite.isRemoved)
-            {
-                solidSprites.RemoveAt(i);
-                i--;
-            }
-            if (sprite is PlayerInfo)
-            {
-                var player = sprite as PlayerInfo;
-                if (player.hasDied)
-                {
-                    Restart();
-                }
-            }
-        }*/
     }
 }

@@ -7,7 +7,7 @@ using Rapa.RapaGame.RapaduraEngine.Entities.Sprites.Animations;
 
 namespace Rapa.RapaGame.RapaduraEngine.Entities.Sprites;
 
-public sealed class HollowSprite : AbstractEntity
+public sealed class HollowSprite : Entity
 {
     #region fields
 
@@ -44,16 +44,12 @@ public sealed class HollowSprite : AbstractEntity
     #endregion
 
     #region Methodes
-    public void Update(GameTime gameTime, List<HollowSprite> sprite) 
-    {
-        Animate();
-    }
 
     private static void Animate() 
     { 
     }
 
-    public void Draw(SpriteBatch spriteBatch)
+    public override void Draw(SpriteBatch spriteBatch)
     {
         if (animationManager != null)
         {
@@ -64,12 +60,8 @@ public sealed class HollowSprite : AbstractEntity
 
     public override void Update(GameTime gameTime)
     {
-            
+        Animate();
     }
-
-    public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
-    {
-            
-    }
+    
     #endregion
 }

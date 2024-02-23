@@ -7,7 +7,7 @@ using Rapa.RapaGame.RapaduraEngine.Entities.Sprites.Animations;
 
 namespace Rapa.RapaGame.RapaduraEngine.Entities.Sprites;
 
-public class SolidSprite : AbstractEntity
+public class SolidSprite : Entity
 {
     #region fields
     
@@ -50,7 +50,7 @@ public class SolidSprite : AbstractEntity
 
     }
 
-    public virtual void Draw(SpriteBatch spriteBatch)
+    public override void Draw(SpriteBatch spriteBatch)
     {
         if (animationManager != null)
         {
@@ -60,10 +60,6 @@ public class SolidSprite : AbstractEntity
     }
 
     public override void Update(GameTime gameTime)
-    {
-
-    }
-    public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
     {
 
     }

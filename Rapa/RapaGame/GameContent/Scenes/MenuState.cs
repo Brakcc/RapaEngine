@@ -14,7 +14,7 @@ namespace Rapa.RapaGame.GameContent.Scenes;
 public class MenuState : State
 {
     #region fields
-    
+
     private readonly List<Button> _components;
     private readonly HollowSprite _hollow;
     private readonly GraphicsDeviceManager _graphicsDeviceManager;
@@ -22,6 +22,8 @@ public class MenuState : State
     private bool _isFullScreened;
 
     #endregion
+    
+    #region constructor
     
     public MenuState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content, SpriteBatch spriteBatch, GraphicsDeviceManager graphManager) : base(game, graphicsDevice, content, spriteBatch)
     {
@@ -74,17 +76,22 @@ public class MenuState : State
         
         var anims = new Dictionary<string, Animation>
         {
-            {"back", new Animation(_content.Load<Texture2D>("ArtContent/BackGrounds/BackGround1"), 1, 1f, 0f) },
+            {"back", new Animation(_content.Load<Texture2D>("ArtContent/TextTileMap"), 1, 1f, 0.5f) }
         };
         
-        _hollow = new HollowSprite(anims);
+        _hollow = new HollowSprite(anims)
+        {
+            Position = new Vector2(ScreenWidth / 2f, ScreenHeight / 2f)
+        };
         
         _graphicsDeviceManager = graphManager;
 
-        _canvas = new Canvas(graphicsDevice, 1280, 720);
+        _canvas = new Canvas(graphicsDevice, 720, 1280);
 
         _isFullScreened = false;
     }
+    
+    #endregion
 
     #region methodes
 
@@ -106,19 +113,17 @@ public class MenuState : State
         SetFullScreen();
     }
     
-    public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
+    public override void Draw(SpriteBatch spriteBatch)
     {
         _canvas.OnActivate();
-        
-        //spriteBatch.Begin();
-        //_hollow.Draw(gameTime, spriteBatch);
-        //spriteBatch.End();
 
         spriteBatch.Begin();
 
+        _hollow.Draw(spriteBatch);
+        
         foreach (var component in _components) 
         {
-            component.Draw(gameTime, spriteBatch);
+            component.Draw(spriteBatch);
         }
         spriteBatch.End();
         
@@ -126,6 +131,8 @@ public class MenuState : State
     }
     public override void Update(GameTime gameTime) 
     {
+        _hollow.Update(gameTime);
+        
         foreach (var component in _components)
         {
             component.Update(gameTime);
@@ -134,6 +141,11 @@ public class MenuState : State
     public override void PostUpdate(GameTime gameTime)
     {
         //not used now
+    }
+
+    public override void OnInit()
+    {
+        SetFullScreen();
     }
 
     private void SetResolution(int height, int width)
@@ -154,6 +166,9 @@ public class MenuState : State
             _graphicsDeviceManager.ApplyChanges();
             _canvas.SetDestRect();
             _isFullScreened = true;
+
+            ScreenWidth = _graphicsDeviceManager.PreferredBackBufferWidth;
+            ScreenHeight = _graphicsDeviceManager.PreferredBackBufferHeight;
         }
         else
         {
@@ -163,6 +178,9 @@ public class MenuState : State
             _graphicsDeviceManager.ApplyChanges();
             _canvas.SetDestRect();
             _isFullScreened = false;
+            
+            ScreenWidth = _graphicsDeviceManager.PreferredBackBufferWidth;
+            ScreenHeight = _graphicsDeviceManager.PreferredBackBufferHeight;
         }
     }
     

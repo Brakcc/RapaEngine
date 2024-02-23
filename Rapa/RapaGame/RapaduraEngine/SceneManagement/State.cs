@@ -17,9 +17,11 @@ public abstract class State
 
     #region methodes
         
-    public abstract void Draw(GameTime gameTime, SpriteBatch spriteBatch);
+    public abstract void Draw(SpriteBatch spriteBatch);
 
     public abstract void PostUpdate(GameTime gameTime);
+    
+    public virtual void OnInit() {}
 
     protected State(Game1 game, GraphicsDevice graphicsDevice, ContentManager content, SpriteBatch spriteBatch)
     {

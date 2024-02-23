@@ -3,26 +3,21 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Rapa.RapaGame.RapaduraEngine.Entities.Sprites;
 
-public class NormalSprite : AbstractEntity
+public class NormalSprite : Entity
 {
     #region fields, Inits et constructeur
-    protected float _layer { get; set; }
-    protected Texture2D _texture;
+
+    private float _layer { get; set; }
+    private readonly Texture2D _texture;
     public Vector2 position;
 
     public float layer
     {
-        get { return _layer; } 
-        set { _layer = value; }
+        get => _layer;
+        set => _layer = value;
     }
 
-    public Rectangle rectangle
-    {
-        get
-        {
-            return new ((int)position.X, (int)position.Y, _texture.Width, _texture.Height);
-        }
-    }
+    public Rectangle rectangle => new ((int)position.X, (int)position.Y, _texture.Width, _texture.Height);
 
     public NormalSprite(Texture2D texture)
     {
@@ -36,7 +31,7 @@ public class NormalSprite : AbstractEntity
             
     }
 
-    public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
+    public override void Draw(SpriteBatch spriteBatch)
     {
         spriteBatch.Draw(_texture, position, null, Color.White, 0, new Vector2(0, 0), 1f, SpriteEffects.None, layer);
     }

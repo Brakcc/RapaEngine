@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Rapa.RapaGame.RapaduraEngine.InputSettings;
 
-public class Button : AbstractEntity
+public class Button : Entity
 {
     #region fields
     
@@ -23,8 +23,6 @@ public class Button : AbstractEntity
     #region properties
     
     public event EventHandler Click;
-
-    public bool clicked { get; }
 
     public Color penColor { get; init; }
 
@@ -44,7 +42,7 @@ public class Button : AbstractEntity
         _font = fo;
     }
 
-    public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
+    public override void Draw(SpriteBatch spriteBatch)
     {
         var color = Color.White;
 
