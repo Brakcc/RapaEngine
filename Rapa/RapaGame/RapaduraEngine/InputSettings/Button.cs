@@ -8,81 +8,81 @@ namespace Rapa.RapaGame.RapaduraEngine.InputSettings;
 public class Button : AbstractEntity
 {
     #region fields
-    private MouseState currentMouse;
-    private MouseState previousMouse;
+    
+    private MouseState _currentMouse;
+    private MouseState _previousMouse;
 
-    private SpriteFont font;
+    private readonly SpriteFont _font;
 
-    private bool isHoverIng;
+    private bool _isHoverIng;
 
-    private Texture2D texture;
+    private readonly Texture2D _texture;
+    
     #endregion
 
     #region properties
+    
     public event EventHandler Click;
 
-    public bool clicked { get; private set; }
+    public bool clicked { get; }
 
-    public Color penColor { get; set; }
+    public Color penColor { get; init; }
 
-    public Vector2 position { get; set; }
+    public Vector2 position { get; init; }
 
-    public Rectangle rectangle
-    { 
-        get
-        {
-            return new Rectangle((int)position.X, (int)position.Y, texture.Width, texture.Height);
-        }
-    }
+    private Rectangle rectangle => new((int)position.X, (int)position.Y, _texture.Width, _texture.Height);
 
-    public string text { get; set; }
+    public string text { get; init; }
+    
     #endregion
 
     #region methodes
+    
     public Button(Texture2D text, SpriteFont fo)
     {
-        texture = text;
-        font = fo;
+        _texture = text;
+        _font = fo;
     }
 
     public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
     {
         var color = Color.White;
 
-        if (isHoverIng)
+        if (_isHoverIng)
         {
-            color = Color.Cyan;
+            color = Color.MonoGameOrange;
         }
 
-        spriteBatch.Draw(texture, rectangle, color);
+        spriteBatch.Draw(_texture, rectangle, color);
 
-        if (!string.IsNullOrEmpty(text))
-        {
-            var x = (rectangle.X + (rectangle.Width / 2)) - (font.MeasureString(text).X / 2);
-            var y = (rectangle.Y + (rectangle.Height / 2)) - (font.MeasureString(text).Y / 2);
+        if (string.IsNullOrEmpty(text))
+            return;
+        
+        var x = rectangle.X + rectangle.Width / 2f - _font.MeasureString(text).X / 2;
+        var y = rectangle.Y + rectangle.Height / 2f - _font.MeasureString(text).Y / 2;
 
-            spriteBatch.DrawString(font, text, new Vector2(x, y), penColor);
-        }
+        spriteBatch.DrawString(_font, text, new Vector2(x, y), penColor);
     }
 
     public override void Update(GameTime gameTime)
     {
-        previousMouse = currentMouse;
-        currentMouse = Mouse.GetState();
+        _previousMouse = _currentMouse;
+        _currentMouse = Mouse.GetState();
 
-        var mouseRectangle = new Rectangle(currentMouse.X, currentMouse.Y, 1, 1);
+        var mouseRectangle = new Rectangle(_currentMouse.X, _currentMouse.Y, 1, 1);
 
-        isHoverIng = false;
+        _isHoverIng = false;
 
-        if (mouseRectangle.Intersects(rectangle))
+        if (!mouseRectangle.Intersects(rectangle))
+            return;
+        
+        _isHoverIng = true;
+
+        if (_currentMouse.LeftButton == ButtonState.Released && _previousMouse.LeftButton == ButtonState.Pressed)
         {
-            isHoverIng = true;
-
-            if (currentMouse.LeftButton == ButtonState.Released && previousMouse.LeftButton == ButtonState.Pressed)
-            {
-                Click?.Invoke(this, new EventArgs());
-            }
+            Click?.Invoke(this, EventArgs.Empty);
         }
     }
+    
     #endregion
 }

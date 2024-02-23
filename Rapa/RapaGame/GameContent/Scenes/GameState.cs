@@ -14,7 +14,8 @@ namespace Rapa.RapaGame.GameContent.Scenes;
 
 public class GameState : State
 {
-  
+    private readonly GraphicsDeviceManager _graphManager;
+    
     private List<HollowSprite> _hollowSprites;
     private List<SolidSprite> _solidSprites;
     private List<Parallaxe> parallaxes;
@@ -28,8 +29,10 @@ public class GameState : State
     //private SolidSprite text;
     private List<Rectangle> colliders;
 
-    public GameState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content, SpriteBatch spriteBatch) : base(game, graphicsDevice, content, spriteBatch)
+    public GameState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content, SpriteBatch spriteBatch, GraphicsDeviceManager graphManager) : base(game, graphicsDevice, content, spriteBatch)
     {
+        _graphManager = graphManager;
+        
         Restart();
     }
 
@@ -185,7 +188,7 @@ public class GameState : State
 
         if (Keyboard.GetState().IsKeyDown(Keys.Escape))
         {
-            _game.ChangeState(new MenuState(_game, _graphicsDevice, _content, _spriteBatch));
+            _game.ChangeState(new MenuState(_game, _graphicsDevice, _content, _spriteBatch, _graphManager));
         }
 
         foreach (var hollow in _hollowSprites)

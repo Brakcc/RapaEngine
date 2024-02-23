@@ -8,26 +8,22 @@ namespace Rapa.RapaGame;
 
 public class Game1 : Game
 {
-    private GraphicsDeviceManager _graphics;
+    private readonly GraphicsDeviceManager _graphics;
     private SpriteBatch spriteBatch;
-
     private State currentState;
     private State nextState;
-    public void ChangeState(State state)
-    {
-        nextState = state;
-    }
 
     //private TiledMap tileMap;
     //private TiledMapRenderer tileMapRenderer;
 
     public static Random random;
 
-    public static int screenWidth;
-    public static int screenHeight;
-    private static Color color = Color.Wheat;
+    public static int ScreenWidth { get; private set; }
+    public static int ScreenHeight { get; private set; }
+    
+    private static readonly Color color = Color.Wheat;
 
-    private bool hasStarted;
+    private readonly bool hasStarted;
 
     public Game1()
     {
@@ -46,9 +42,12 @@ public class Game1 : Game
 
     protected override void Initialize()
     {
-        screenHeight = _graphics.PreferredBackBufferHeight;
-        screenWidth = _graphics.PreferredBackBufferWidth;
+        ScreenHeight = _graphics.PreferredBackBufferHeight;
+        ScreenWidth = _graphics.PreferredBackBufferWidth;
+        
+        _graphics.ApplyChanges();
 
+        LoadContent();
         base.Initialize();
     }
 
@@ -60,7 +59,12 @@ public class Game1 : Game
 
     private void AllStates()
     {
-        currentState = new MenuState(this, _graphics.GraphicsDevice, Content, spriteBatch);
+        currentState = new MenuState(this, _graphics.GraphicsDevice, Content, spriteBatch, _graphics);
+    }
+    
+    public void ChangeState(State state)
+    {
+        nextState = state;
     }
 
     protected override void Update(GameTime gameTime)

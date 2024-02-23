@@ -8,10 +8,10 @@ public abstract class State
 {
     #region fields
         
-    protected ContentManager _content;
-    protected GraphicsDevice _graphicsDevice;
-    protected SpriteBatch _spriteBatch;
-    protected Game1 _game;
+    protected readonly ContentManager _content;
+    protected readonly GraphicsDevice _graphicsDevice;
+    protected readonly SpriteBatch _spriteBatch;
+    protected readonly Game1 _game;
         
     #endregion
 
