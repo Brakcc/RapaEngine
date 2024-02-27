@@ -11,7 +11,7 @@ using static Rapa.RapaGame.Game1;
 
 namespace Rapa.RapaGame.GameContent.Scenes;
 
-public class MenuState : State
+public sealed class MenuState : State
 {
     #region fields
 
@@ -33,8 +33,8 @@ public class MenuState : State
         var newGameButton = new Button(buttonTexture, buttonFont)
         {
             penColor = Color.DarkRed,
-            position = new Vector2(ScreenWidth / 2f - buttonTexture.Width / 2f,
-                ScreenHeight / 2f - buttonTexture.Height / 2f - 100),
+            position = new Vector2(CurrentScreenWidth / 2f - buttonTexture.Width / 2f,
+                CurrentScreenHeight / 2f - buttonTexture.Height / 2f - 100),
             text = "New Game"
         };
         newGameButton.Click += NewGame;
@@ -42,17 +42,18 @@ public class MenuState : State
         var loadGameButton = new Button(buttonTexture, buttonFont)
         {
             penColor = Color.DarkRed,
-            position = new Vector2(ScreenWidth / 2f - buttonTexture.Width / 2f,
-                ScreenHeight / 2f - buttonTexture.Height / 2f),
+            position = new Vector2(CurrentScreenWidth / 2f - buttonTexture.Width / 2f,
+                CurrentScreenHeight / 2f - buttonTexture.Height / 2f),
             text = "Load Game"
         };
         loadGameButton.Click += LoadGame;
+        loadGameButton.Click += OnFullScreen;
 
         var quitGameButton = new Button(buttonTexture, buttonFont)
         {
             penColor = Color.DarkRed,
-            position = new Vector2(ScreenWidth / 2f - buttonTexture.Width / 2f,
-                ScreenHeight / 2f - buttonTexture.Height / 2f + 100),
+            position = new Vector2(CurrentScreenWidth / 2f - buttonTexture.Width / 2f,
+                CurrentScreenHeight / 2f - buttonTexture.Height / 2f + 100),
             text = "quit"
         };
         quitGameButton.Click += QuitGame;
@@ -60,8 +61,8 @@ public class MenuState : State
         var fullScreenButton = new Button(buttonTexture, buttonFont)
         {
             penColor = Color.DarkRed,
-            position = new Vector2(ScreenWidth / 2f - buttonTexture.Width / 2f,
-                ScreenHeight / 2f - buttonTexture.Height / 2f + 200),
+            position = new Vector2(CurrentScreenWidth / 2f - buttonTexture.Width / 2f,
+                CurrentScreenHeight / 2f - buttonTexture.Height / 2f + 200),
             text = "fullScreen"
         };
         fullScreenButton.Click += OnFullScreen;
@@ -81,14 +82,16 @@ public class MenuState : State
         
         _hollow = new HollowSprite(anims)
         {
-            Position = new Vector2(ScreenWidth / 2f, ScreenHeight / 2f)
+            Position = new Vector2(CurrentScreenWidth / 2f, CurrentScreenHeight / 2f)
         };
         
         _graphicsDeviceManager = graphManager;
 
-        _canvas = new Canvas(graphicsDevice, 720, 1280);
+        _canvas = new Canvas(graphicsDevice, CurrentScreenHeight, CurrentScreenWidth);
 
         _isFullScreened = false;
+        
+        SetResolution(CurrentScreenHeight, CurrentScreenWidth);
     }
     
     #endregion
@@ -145,7 +148,7 @@ public class MenuState : State
 
     public override void OnInit()
     {
-        SetFullScreen();
+        _canvas.OnActivate();
     }
 
     private void SetResolution(int height, int width)
@@ -167,20 +170,20 @@ public class MenuState : State
             _canvas.SetDestRect();
             _isFullScreened = true;
 
-            ScreenWidth = _graphicsDeviceManager.PreferredBackBufferWidth;
-            ScreenHeight = _graphicsDeviceManager.PreferredBackBufferHeight;
+            CurrentScreenWidth = _graphicsDeviceManager.PreferredBackBufferWidth;
+            CurrentScreenHeight = _graphicsDeviceManager.PreferredBackBufferHeight;
         }
         else
         {
-            _graphicsDeviceManager.PreferredBackBufferHeight = 720;
-            _graphicsDeviceManager.PreferredBackBufferWidth = 1280;
+            _graphicsDeviceManager.PreferredBackBufferHeight = TargetScreenHeight;
+            _graphicsDeviceManager.PreferredBackBufferWidth = TargetScreenWidth;
             _game.Window.IsBorderless = false;
             _graphicsDeviceManager.ApplyChanges();
             _canvas.SetDestRect();
             _isFullScreened = false;
             
-            ScreenWidth = _graphicsDeviceManager.PreferredBackBufferWidth;
-            ScreenHeight = _graphicsDeviceManager.PreferredBackBufferHeight;
+            CurrentScreenWidth = _graphicsDeviceManager.PreferredBackBufferWidth;
+            CurrentScreenHeight = _graphicsDeviceManager.PreferredBackBufferHeight;
         }
     }
     

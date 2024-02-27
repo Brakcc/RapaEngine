@@ -10,8 +10,8 @@ public class Camera
     public void Follow (Player target)
     {
         var offset = Matrix.CreateTranslation(
-            Game1.ScreenWidth / 2,
-            Game1.ScreenHeight / 2,
+            Game1.CurrentScreenWidth / 2,
+            Game1.CurrentScreenHeight / 2,
             0);
 
         var pos = Matrix.CreateTranslation(

@@ -46,7 +46,7 @@ public class Parallaxe : Entity
             var texture = textures[i];
             _sprites.Add(new NormalSprite(texture)
             {
-                position = new Vector2(-i * texture.Width - Math.Min(i, i + 1), Game1.ScreenHeight - texture.Height)
+                position = new Vector2(-i * texture.Width - Math.Min(i, i + 1), Game1.CurrentScreenHeight - texture.Height)
             });
         }
 

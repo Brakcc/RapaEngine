@@ -52,7 +52,7 @@ public sealed class Player : SolidSprite
 
                 if ( /*velocity.Y > 0 && */IsTouchingTop(sprite))
                 {
-                    Console.WriteLine(1);
+                    //Console.WriteLine(1);
                     directionalSpeedY.X = 0;
                 }
                 else
@@ -60,7 +60,7 @@ public sealed class Player : SolidSprite
 
                 if ( /*velocity.Y < 0 && */IsTouchingBottom(sprite))
                 {
-                    Console.WriteLine(2);
+                    //Console.WriteLine(2);
                     directionalSpeedY.Y = 0;
                 }
                 else
@@ -71,7 +71,7 @@ public sealed class Player : SolidSprite
         MoveX(directionalSpeedX);
         MoveY(directionalSpeedY);
         
-        Console.WriteLine(velocity);
+        //Console.WriteLine(velocity);
         Animate();
         animationManager.Update(gameTime);
 

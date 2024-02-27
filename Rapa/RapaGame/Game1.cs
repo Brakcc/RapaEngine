@@ -18,8 +18,11 @@ public class Game1 : Game
 
     public static Random random;
 
-    public static int ScreenWidth { get; set; }
-    public static int ScreenHeight { get; set; }
+    public static int TargetScreenWidth { get; private set; }
+    public static int TargetScreenHeight { get; private set; }
+    
+    public static int CurrentScreenWidth { get; set; }
+    public static int CurrentScreenHeight { get; set; }
     
     private static readonly Color color = Color.Wheat;
 
@@ -35,15 +38,18 @@ public class Game1 : Game
 
         hasStarted = true;
 
-        _graphics.PreferredBackBufferWidth = 1280;
-        _graphics.PreferredBackBufferHeight = 720;
+        TargetScreenWidth = 320;
+        TargetScreenHeight = 180;
+        
+        _graphics.PreferredBackBufferWidth = TargetScreenWidth;
+        _graphics.PreferredBackBufferHeight = TargetScreenHeight;
         _graphics.ApplyChanges();
     }
 
     protected override void Initialize()
     {
-        ScreenHeight = _graphics.PreferredBackBufferHeight;
-        ScreenWidth = _graphics.PreferredBackBufferWidth;
+        CurrentScreenHeight = _graphics.PreferredBackBufferHeight;
+        CurrentScreenWidth = _graphics.PreferredBackBufferWidth;
         
         _graphics.ApplyChanges();
 
