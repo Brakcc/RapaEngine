@@ -11,7 +11,7 @@ public abstract class State
     protected readonly ContentManager _content;
     protected readonly GraphicsDevice _graphicsDevice;
     protected readonly SpriteBatch _spriteBatch;
-    protected readonly Game1 _game;
+    protected readonly Rapadura _game;
         
     #endregion
 
@@ -23,7 +23,7 @@ public abstract class State
     
     public virtual void OnInit() {}
 
-    protected State(Game1 game, GraphicsDevice graphicsDevice, ContentManager content, SpriteBatch spriteBatch)
+    protected State(Rapadura game, GraphicsDevice graphicsDevice, ContentManager content, SpriteBatch spriteBatch)
     {
         _game = game;
         _graphicsDevice = graphicsDevice;

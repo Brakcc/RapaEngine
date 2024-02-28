@@ -9,7 +9,7 @@ using Rapa.RapaGame.RapaduraEngine.Entities.Sprites;
 using Rapa.RapaGame.RapaduraEngine.Entities.Sprites.Animations;
 using Rapa.RapaGame.RapaduraEngine.InputSettings;
 using Rapa.RapaGame.RapaduraEngine.SceneManagement;
-using static Rapa.RapaGame.Game1;
+using static Rapa.RapaGame.Rapadura;
 
 namespace Rapa.RapaGame.GameContent.Scenes;
 
@@ -31,7 +31,7 @@ public class GameState : State
     //private SolidSprite text;
     private List<Rectangle> colliders;
 
-    public GameState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content, SpriteBatch spriteBatch, GraphicsDeviceManager graphManager) : base(game, graphicsDevice, content, spriteBatch)
+    public GameState(Rapadura game, GraphicsDevice graphicsDevice, ContentManager content, SpriteBatch spriteBatch, GraphicsDeviceManager graphManager) : base(game, graphicsDevice, content, spriteBatch)
     {
         _graphManager = graphManager;
         _canvas = new Canvas(_graphicsDevice, CurrentScreenHeight, CurrentScreenWidth);

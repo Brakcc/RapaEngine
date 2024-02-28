@@ -1,25 +1,19 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Rapa.RapaGame.GameContent.Scenes;
+using Rapa.RapaGame.RapaduraEngine;
 using Rapa.RapaGame.RapaduraEngine.SceneManagement;
 
 namespace Rapa.RapaGame;
 
-public class Game1 : Game
+public class Rapadura : Engine
 {
-    private readonly GraphicsDeviceManager _graphics;
     private SpriteBatch spriteBatch;
     private State currentState;
     private State nextState;
 
-    //private TiledMap tileMap;
-    //private TiledMapRenderer tileMapRenderer;
-
-    public static Random random;
-
-    public static int TargetScreenWidth { get; private set; }
-    public static int TargetScreenHeight { get; private set; }
+    public const int RenderScreenWidth = 320;
+    public const int RenderScreenHeight = 180;
     
     public static int CurrentScreenWidth { get; set; }
     public static int CurrentScreenHeight { get; set; }
@@ -28,30 +22,29 @@ public class Game1 : Game
 
     private readonly bool hasStarted;
 
-    public Game1()
+    public Rapadura() : base(10, 10, 10, 10, "Rapadura", false, true)
     {
-        _graphics = new GraphicsDeviceManager(this);
         Content.RootDirectory = "Content";
         IsMouseVisible = true;
 
-        random = new Random();
-
         hasStarted = true;
-
-        TargetScreenWidth = 320;
-        TargetScreenHeight = 180;
         
-        _graphics.PreferredBackBufferWidth = TargetScreenWidth;
-        _graphics.PreferredBackBufferHeight = TargetScreenHeight;
-        _graphics.ApplyChanges();
+        Graphics.PreferredBackBufferWidth = RenderScreenWidth;
+        Graphics.PreferredBackBufferHeight = RenderScreenHeight;
+        Graphics.ApplyChanges();
     }
 
+    public static void OnRun()
+    {
+        Instance.RunGame();
+    }
+    
     protected override void Initialize()
     {
-        CurrentScreenHeight = _graphics.PreferredBackBufferHeight;
-        CurrentScreenWidth = _graphics.PreferredBackBufferWidth;
+        CurrentScreenHeight = Graphics.PreferredBackBufferHeight;
+        CurrentScreenWidth = Graphics.PreferredBackBufferWidth;
         
-        _graphics.ApplyChanges();
+        Graphics.ApplyChanges();
 
         LoadContent();
         base.Initialize();
@@ -65,7 +58,7 @@ public class Game1 : Game
 
     private void AllStates()
     {
-        currentState = new MenuState(this, _graphics.GraphicsDevice, Content, spriteBatch, _graphics);
+        currentState = new MenuState(this, Graphics.GraphicsDevice, Content, spriteBatch, Graphics);
     }
     
     public void ChangeState(State state)

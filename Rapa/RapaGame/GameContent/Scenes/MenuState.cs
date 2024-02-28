@@ -7,7 +7,7 @@ using Rapa.RapaGame.RapaduraEngine.Entities.Sprites;
 using Rapa.RapaGame.RapaduraEngine.Entities.Sprites.Animations;
 using Rapa.RapaGame.RapaduraEngine.InputSettings;
 using Rapa.RapaGame.RapaduraEngine.SceneManagement;
-using static Rapa.RapaGame.Game1;
+using static Rapa.RapaGame.Rapadura;
 
 namespace Rapa.RapaGame.GameContent.Scenes;
 
@@ -26,7 +26,7 @@ public sealed class MenuState : State
     
     #region constructor
     
-    public MenuState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content, SpriteBatch spriteBatch, GraphicsDeviceManager graphManager) : base(game, graphicsDevice, content, spriteBatch)
+    public MenuState(Rapadura game, GraphicsDevice graphicsDevice, ContentManager content, SpriteBatch spriteBatch, GraphicsDeviceManager graphManager) : base(game, graphicsDevice, content, spriteBatch)
     {
         var buttonTexture = _content.Load<Texture2D>("ArtContent/Buttons/Buttons");
         var buttonFont = _content.Load<SpriteFont>("ArtContent/Fonts/fontTest");
@@ -184,8 +184,8 @@ public sealed class MenuState : State
         }
         else
         {
-            _graphicsDeviceManager.PreferredBackBufferHeight = TargetScreenHeight;
-            _graphicsDeviceManager.PreferredBackBufferWidth = TargetScreenWidth;
+            _graphicsDeviceManager.PreferredBackBufferHeight = RenderScreenHeight;
+            _graphicsDeviceManager.PreferredBackBufferWidth = RenderScreenWidth;
             _game.Window.IsBorderless = false;
             _graphicsDeviceManager.ApplyChanges();
             _canvas.SetDestRect();

@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Rapa.RapaGame.RapaduraEngine;
+namespace Rapa.RapaGame.RapaduraEngine.Entities;
 
 public abstract class Entity
 {

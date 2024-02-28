@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Rapa.RapaGame.GameContent.PlayerInfo;
+using Rapa.RapaGame.RapaduraEngine.Entities;
 using Rapa.RapaGame.RapaduraEngine.Entities.Sprites;
 using Vector2 = Microsoft.Xna.Framework.Vector2;
 
@@ -46,7 +47,7 @@ public class Parallaxe : Entity
             var texture = textures[i];
             _sprites.Add(new NormalSprite(texture)
             {
-                position = new Vector2(-i * texture.Width - Math.Min(i, i + 1), Game1.CurrentScreenHeight - texture.Height)
+                position = new Vector2(-i * texture.Width - Math.Min(i, i + 1), Rapadura.CurrentScreenHeight - texture.Height)
             });
         }
 
