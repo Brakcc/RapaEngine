@@ -17,6 +17,7 @@ public sealed class MenuState : State
 
     private readonly List<Button> _components;
     private readonly HollowSprite _hollow;
+    private readonly SolidSprite _solid;
     private readonly GraphicsDeviceManager _graphicsDeviceManager;
     private readonly Canvas _canvas;
     private bool _isFullScreened;
@@ -70,19 +71,24 @@ public sealed class MenuState : State
         _components = new List<Button>
         {
             newGameButton,
-            loadGameButton,
+            //loadGameButton,
             quitGameButton,
             fullScreenButton
         };
         
         var anims = new Dictionary<string, Animation>
         {
-            {"back", new Animation(_content.Load<Texture2D>("ArtContent/TextTileMap"), 1, 1f, 0.5f) }
+            {"back", new Animation(_content.Load<Texture2D>("ArtContent/BackGrounds/UnitTileTest"), 1, 1f, 0.5f) }
         };
         
         _hollow = new HollowSprite(anims)
         {
             Position = new Vector2(CurrentScreenWidth / 2f, CurrentScreenHeight / 2f)
+        };
+        
+        _solid = new SolidSprite(anims)
+        {
+            Position = new Vector2(CurrentScreenWidth / 2f - 16, CurrentScreenHeight / 2f)
         };
         
         _graphicsDeviceManager = graphManager;
@@ -108,7 +114,8 @@ public sealed class MenuState : State
     }
     private void QuitGame(object sender, EventArgs e)
     {
-        _game.Exit();
+        //_game.Exit();
+        SetFullScreen();
     }
 
     private void OnFullScreen(object sender, EventArgs e)
@@ -120,9 +127,10 @@ public sealed class MenuState : State
     {
         _canvas.OnActivate();
 
-        spriteBatch.Begin();
+        spriteBatch.Begin(samplerState: SamplerState.PointClamp);
 
         _hollow.Draw(spriteBatch);
+        _solid.Draw(spriteBatch);
         
         foreach (var component in _components) 
         {
@@ -132,9 +140,10 @@ public sealed class MenuState : State
         
         _canvas.Draw(spriteBatch);
     }
-    public override void Update(GameTime gameTime) 
+    public override void Update(GameTime gameTime)
     {
         _hollow.Update(gameTime);
+        _solid.Update(gameTime);
         
         foreach (var component in _components)
         {

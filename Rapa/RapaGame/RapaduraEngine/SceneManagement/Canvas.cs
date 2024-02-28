@@ -43,7 +43,7 @@ public class Canvas
     {
         _graphDevice.SetRenderTarget(null);
         _graphDevice.Clear(Color.Black);
-        spriteBatch.Begin();
+        spriteBatch.Begin(samplerState: SamplerState.PointClamp);
         spriteBatch.Draw(_target, _rect, Color.White);
         spriteBatch.End();
     }

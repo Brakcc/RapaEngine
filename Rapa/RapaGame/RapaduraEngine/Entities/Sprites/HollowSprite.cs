@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using Rapa.RapaGame.RapaduraEngine.Entities.Sprites.Animations;
 
 namespace Rapa.RapaGame.RapaduraEngine.Entities.Sprites;
@@ -13,15 +14,17 @@ public sealed class HollowSprite : Entity
 
     private readonly AnimationManager animationManager;
     private readonly Dictionary<string, Animation> animation;
-    private readonly Vector2 pos;
-        
+    private Vector2 pos;
+
+    private bool _canMove;
+    
     #endregion
 
     #region inits
     public Vector2 Position
     {
         get => pos;
-        init
+        set
         {
             pos = value;
             if (animationManager != null)
@@ -40,6 +43,8 @@ public sealed class HollowSprite : Entity
     {
         animation = animations;
         animationManager = new AnimationManager(animation.First().Value);
+
+        _canMove = true;
     }
     #endregion
 
@@ -61,6 +66,17 @@ public sealed class HollowSprite : Entity
     public override void Update(GameTime gameTime)
     {
         Animate();
+
+        if (Keyboard.GetState().IsKeyDown(Keys.Space) && _canMove)
+        {
+            _canMove = false;
+            Position += new Vector2(0, 1);
+        }
+
+        if (Keyboard.GetState().IsKeyUp(Keys.Space) && !_canMove)
+        {
+            _canMove = true;
+        }
     }
     
     #endregion
