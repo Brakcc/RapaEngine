@@ -20,7 +20,6 @@ public sealed class MenuState : State
     private readonly HollowSprite _hollow;
     private readonly SolidSprite _solid;
     private readonly GraphicsDeviceManager _graphicsDeviceManager;
-    private readonly Canvas _canvas;
 
     #endregion
     
@@ -92,8 +91,6 @@ public sealed class MenuState : State
         };
         
         _graphicsDeviceManager = graphManager;
-
-        _canvas = new Canvas(graphicsDevice, CurrentScreenHeight, CurrentScreenWidth);
     }
     
     #endregion
@@ -145,11 +142,6 @@ public sealed class MenuState : State
     public override void PostUpdate(GameTime gameTime)
     {
         //not used now
-    }
-
-    public override void OnInit()
-    {
-        _canvas.OnActivate();
     }
     
     #endregion

@@ -107,6 +107,6 @@ public class Rapadura : CoreEngine
 
     private const int WindowStartScreenWidth = 1920;
     private const int WindowStartScreenHeight = 1080;
-    
+
     #endregion
 }

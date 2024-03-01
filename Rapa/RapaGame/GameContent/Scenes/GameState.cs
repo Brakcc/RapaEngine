@@ -9,14 +9,12 @@ using Rapa.RapaGame.RapaduraEngine.Entities.Sprites;
 using Rapa.RapaGame.RapaduraEngine.Entities.Sprites.Animations;
 using Rapa.RapaGame.RapaduraEngine.InputSettings;
 using Rapa.RapaGame.RapaduraEngine.SceneManagement;
-using static Rapa.RapaGame.Rapadura;
 
 namespace Rapa.RapaGame.GameContent.Scenes;
 
 public class GameState : State
 {
     private readonly GraphicsDeviceManager _graphManager;
-    private readonly Canvas _canvas;
     
     private List<HollowSprite> _hollowSprites;
     private List<SolidSprite> _solidSprites;
@@ -34,8 +32,6 @@ public class GameState : State
     public GameState(Rapadura game, GraphicsDevice graphicsDevice, ContentManager content, SpriteBatch spriteBatch, GraphicsDeviceManager graphManager) : base(game, graphicsDevice, content, spriteBatch)
     {
         _graphManager = graphManager;
-        _canvas = new Canvas(_graphicsDevice, CurrentScreenHeight, CurrentScreenWidth);
-        SetResolution(CurrentScreenHeight, CurrentScreenWidth);
         
         Restart();
     }
@@ -156,8 +152,6 @@ public class GameState : State
 
     public override void Draw(SpriteBatch spriteBatch)
     {
-        _canvas.OnActivate();
-        
         spriteBatch.Begin(SpriteSortMode.BackToFront, null, SamplerState.PointClamp);
         
         foreach (var para in parallaxes)
@@ -184,8 +178,6 @@ public class GameState : State
         //text.Draw(spriteBatch);
 
         spriteBatch.End();
-        
-        _canvas.Draw(spriteBatch);
     }
     public override void PostUpdate(GameTime gameTime)
     {
@@ -225,13 +217,5 @@ public class GameState : State
         {
             timer = 0f;
         }
-    }
-    
-    private void SetResolution(int height, int width)
-    {
-        _graphManager.PreferredBackBufferHeight = height;
-        _graphManager.PreferredBackBufferWidth = width;
-        _graphManager.ApplyChanges();
-        _canvas.SetDestRect();
     }
 }
