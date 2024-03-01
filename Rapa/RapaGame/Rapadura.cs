@@ -6,34 +6,35 @@ using Rapa.RapaGame.RapaduraEngine.SceneManagement;
 
 namespace Rapa.RapaGame;
 
-public class Rapadura : Engine
+public class Rapadura : CoreEngine
 {
-    private SpriteBatch spriteBatch;
-    private State currentState;
-    private State nextState;
-
-    public const int RenderScreenWidth = 320;
-    public const int RenderScreenHeight = 180;
+    #region Accessors
     
-    public static int CurrentScreenWidth { get; set; }
-    public static int CurrentScreenHeight { get; set; }
+    public static int CurrentScreenWidth { get; private set; }
+    public static int CurrentScreenHeight { get; private set; }
+
+    private bool hasStarted { get; }
     
-    private static readonly Color color = Color.Wheat;
+    #endregion
 
-    private readonly bool hasStarted;
-
-    public Rapadura() : base(10, 10, 10, 10, "Rapadura", false, true)
+    #region constructors
+    
+    public Rapadura() : base(
+        RenderScreenWidth,
+        RenderScreenHeight,
+        WindowStartScreenWidth,
+        WindowStartScreenHeight,
+        "Rapadura",
+        false,
+        true)
     {
-        Content.RootDirectory = "Content";
-        IsMouseVisible = true;
-
         hasStarted = true;
-        
-        Graphics.PreferredBackBufferWidth = RenderScreenWidth;
-        Graphics.PreferredBackBufferHeight = RenderScreenHeight;
-        Graphics.ApplyChanges();
     }
 
+    #endregion
+    
+    #region methodes
+    
     public static void OnRun()
     {
         Instance.RunGame();
@@ -80,19 +81,32 @@ public class Rapadura : Engine
 
         //verif du lacement du exe
         if (!hasStarted)
-        {
             return;
-        }
 
         base.Update(gameTime);
     }
 
-    protected override void Draw(GameTime gameTime)
+    protected override void RenderCore()
     {
-        GraphicsDevice.Clear(color);
-
+        GraphicsDevice.Clear(ClearColor);
+        GraphicsDevice.SetRenderTarget(null);
+        GraphicsDevice.Viewport = Viewport;
         currentState.Draw(spriteBatch);
-
-        base.Draw(gameTime);
     }
+    
+    #endregion
+    
+    #region fields
+    
+    private SpriteBatch spriteBatch;
+    private State currentState;
+    private State nextState;
+
+    private const int RenderScreenWidth = 320;
+    private const int RenderScreenHeight = 180;
+
+    private const int WindowStartScreenWidth = 1920;
+    private const int WindowStartScreenHeight = 1080;
+    
+    #endregion
 }

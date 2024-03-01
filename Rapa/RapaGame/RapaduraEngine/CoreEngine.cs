@@ -9,19 +9,21 @@ using Rapa.RapaGame.RapaduraEngine.SceneManagement;
 
 namespace Rapa.RapaGame.RapaduraEngine;
 
-public class Engine : Game
+public class CoreEngine : Game
 {
-	public static Engine Instance { get; private set; }
+	#region accessors
+	
+	public static CoreEngine Instance { get; private set; }
 
 	public static GraphicsDeviceManager Graphics { get; private set; }
 
-	public static int Width { get; private set; }
+	private static int BaseRenderWidth { get; set; }
 
-	public static int Height { get; private set; }
+	private static int BaseRenderHeight { get; set; }
 
-	public static int ViewWidth { get; private set; }
+	private static int ViewWidth { get; set; }
 
-	public static int ViewHeight { get; private set; }
+	private static int ViewHeight { get; set; }
 
 	public static int ViewPadding
 	{
@@ -35,22 +37,32 @@ public class Engine : Game
 
 	public static float DeltaTime { get; private set; }
 
-	public static float RawDeltaTime { get; private set; }
+	private static float RawDeltaTime { get; set; }
 
-	public static ulong FrameCounter { get; private set; }
+	private static ulong FrameCounter { get; set; }
 
 	public static string ContentDirectory => Path.Combine(AssemblyDirectory, Instance.Content.RootDirectory);
 	
-	public static Random Random { get; set; }
+	public static Scene Scene
+	{
+		get => Instance.scene;
+		set => Instance.nextScene = value;
+	}
 
-	protected Engine(int width, int height, int windowWidth, int windowHeight, string windowTitle, bool fullscreen, bool vsync)
+	protected static Viewport Viewport { get; private set; }
+	
+	public static Random Random { get; set; }
+	
+	#endregion
+
+	#region constructor
+	
+	protected CoreEngine(int renderWidth, int renderHeight, int windowWidth, int windowHeight, string windowTitle, bool fullscreen, bool vsync)
 	{
 		Instance = this;
-		Window.Title = windowTitle;
-		Title = windowTitle;
-		Width = width;
-		Height = height;
-		ClearColor = Color.Black;
+		BaseRenderWidth = renderWidth;
+		BaseRenderHeight = renderHeight;
+		ClearColor = Color.Wheat;
 		Random = new Random();
 		InactiveSleepTime = new TimeSpan(0L);
 		Graphics = new GraphicsDeviceManager(this);
@@ -63,25 +75,36 @@ public class Engine : Game
 		Graphics.PreferredDepthStencilFormat = DepthFormat.Depth24Stencil8;
 		Window.AllowUserResizing = true;
 		Window.ClientSizeChanged += OnClientSizeChanged;
+		Window.Title = windowTitle;
+		Title = windowTitle;
 		if (fullscreen)
 		{
+			Graphics.PreferredBackBufferWidth = renderWidth;
+			Graphics.PreferredBackBufferHeight = renderHeight;
+			Graphics.ApplyChanges();
 			Graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
 			Graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
+			Graphics.ApplyChanges();
 			Graphics.IsFullScreen = true;
 		}
 		else
 		{
-			Graphics.PreferredBackBufferWidth = windowWidth;
-			Graphics.PreferredBackBufferHeight = windowHeight;
+			Graphics.PreferredBackBufferWidth = renderWidth;
+			Graphics.PreferredBackBufferHeight = renderHeight;
+			SetWindowed(windowWidth, windowHeight);
 			Graphics.IsFullScreen = false;
 		}
 
 		Content.RootDirectory = "Content";
-		IsMouseVisible = false;
-		ExitOnEscapeKeypress = true;
+		IsMouseVisible = true;
+		ExitOnEscapeKeypress = false;
 		GCSettings.LatencyMode = GCLatencyMode.SustainedLowLatency;
 	}
 
+	#endregion
+	
+	#region methodes
+	
 	#region AddOns stab
 
 	private void OnClientSizeChanged(object sender, EventArgs e)
@@ -213,14 +236,6 @@ public class Engine : Game
 		GC.WaitForPendingFinalizers();
 		TimeRate = 1f;
 	}
-	
-	public static Scene Scene
-	{
-		get => Instance.scene;
-		set => Instance.nextScene = value;
-	}
-	
-	public static Viewport Viewport { get; private set; }
 
 	public static void SetWindowed(int width, int height)
 	{
@@ -231,12 +246,11 @@ public class Engine : Game
 			Graphics.PreferredBackBufferHeight = height;
 			Graphics.IsFullScreen = false;
 			Graphics.ApplyChanges();
-			Console.WriteLine(string.Concat("WINDOW-", width, "x", height));
 			resizing = false;
 		}
 	}
 
-	public static void SetFullscreen()
+	public static void SetFullScreen()
 	{
 		resizing = true;
 		Graphics.PreferredBackBufferWidth = Graphics.GraphicsDevice.Adapter.CurrentDisplayMode.Width;
@@ -250,21 +264,21 @@ public class Engine : Game
 	{
 		var num = (float)GraphicsDevice.PresentationParameters.BackBufferWidth;
 		var num2 = (float)GraphicsDevice.PresentationParameters.BackBufferHeight;
-		if (num / Width > num2 / Height)
+		if (num / BaseRenderWidth > num2 / BaseRenderHeight)
 		{
-			ViewWidth = (int)(num2 / Height * Width);
+			ViewWidth = (int)(num2 / BaseRenderHeight * BaseRenderWidth);
 			ViewHeight = (int)num2;
 		}
 		else
 		{
 			ViewWidth = (int)num;
-			ViewHeight = (int)(num / Width * Height);
+			ViewHeight = (int)(num / BaseRenderWidth * BaseRenderHeight);
 		}
 
 		var num3 = ViewHeight / (float)ViewWidth;
 		ViewWidth -= ViewPadding * 2;
 		ViewHeight -= (int)(num3 * ViewPadding * 2f);
-		ScreenMatrix = Matrix.CreateScale(ViewWidth / (float)Width);
+		ScreenMatrix = Matrix.CreateScale(ViewWidth / (float)BaseRenderWidth);
 		Viewport = new Viewport
 		{
 			X = (int)(num / 2f - ViewWidth / 2f),
@@ -275,7 +289,11 @@ public class Engine : Game
 			MaxDepth = 1f
 		};
 	}
+	
+	#endregion
 
+	#region fields
+	
 	public string Title;
 
 	public Version Version;
@@ -286,9 +304,9 @@ public class Engine : Game
 
 	private static bool resizing;
 
-	public static float TimeRate = 1f;
+	private static float TimeRate = 1f;
 
-	public static float TimeRateB = 1f;
+	private const float TimeRateB = 1f;
 
 	public static float FreezeTimer;
 
@@ -300,13 +318,15 @@ public class Engine : Game
 
 	private static readonly string AssemblyDirectory = Path.GetDirectoryName(Assembly.GetEntryAssembly()?.Location);
 
-	public static Color ClearColor;
+	protected static Color ClearColor;
 
-	public static bool ExitOnEscapeKeypress;
+	private static bool ExitOnEscapeKeypress;
 
 	private Scene scene;
 
 	private Scene nextScene;
 
 	public static Matrix ScreenMatrix;
+	
+	#endregion
 }

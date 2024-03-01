@@ -8,6 +8,7 @@ using Rapa.RapaGame.RapaduraEngine.Entities.Sprites.Animations;
 using Rapa.RapaGame.RapaduraEngine.InputSettings;
 using Rapa.RapaGame.RapaduraEngine.SceneManagement;
 using static Rapa.RapaGame.Rapadura;
+using static Rapa.RapaGame.RapaduraEngine.CoreEngine;
 
 namespace Rapa.RapaGame.GameContent.Scenes;
 
@@ -20,7 +21,6 @@ public sealed class MenuState : State
     private readonly SolidSprite _solid;
     private readonly GraphicsDeviceManager _graphicsDeviceManager;
     private readonly Canvas _canvas;
-    private bool _isFullScreened;
 
     #endregion
     
@@ -94,10 +94,6 @@ public sealed class MenuState : State
         _graphicsDeviceManager = graphManager;
 
         _canvas = new Canvas(graphicsDevice, CurrentScreenHeight, CurrentScreenWidth);
-
-        _isFullScreened = false;
-        
-        SetResolution(CurrentScreenHeight, CurrentScreenWidth);
     }
     
     #endregion
@@ -115,18 +111,16 @@ public sealed class MenuState : State
     private void QuitGame(object sender, EventArgs e)
     {
         //_game.Exit();
-        SetFullScreen();
+        SetWindowed(500, 350);
     }
 
-    private void OnFullScreen(object sender, EventArgs e)
+    private static void OnFullScreen(object sender, EventArgs e)
     {
         SetFullScreen();
     }
     
     public override void Draw(SpriteBatch spriteBatch)
     {
-        _canvas.OnActivate();
-
         spriteBatch.Begin(samplerState: SamplerState.PointClamp);
 
         _hollow.Draw(spriteBatch);
@@ -137,8 +131,6 @@ public sealed class MenuState : State
             component.Draw(spriteBatch);
         }
         spriteBatch.End();
-        
-        _canvas.Draw(spriteBatch);
     }
     public override void Update(GameTime gameTime)
     {
@@ -158,42 +150,6 @@ public sealed class MenuState : State
     public override void OnInit()
     {
         _canvas.OnActivate();
-    }
-
-    private void SetResolution(int height, int width)
-    {
-        _graphicsDeviceManager.PreferredBackBufferHeight = height;
-        _graphicsDeviceManager.PreferredBackBufferWidth = width;
-        _graphicsDeviceManager.ApplyChanges();
-        _canvas.SetDestRect();
-    }
-
-    private void SetFullScreen()
-    {
-        if (!_isFullScreened)
-        {
-            _graphicsDeviceManager.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
-            _graphicsDeviceManager.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
-            _game.Window.IsBorderless = true;
-            _graphicsDeviceManager.ApplyChanges();
-            _canvas.SetDestRect();
-            _isFullScreened = true;
-
-            CurrentScreenWidth = _graphicsDeviceManager.PreferredBackBufferWidth;
-            CurrentScreenHeight = _graphicsDeviceManager.PreferredBackBufferHeight;
-        }
-        else
-        {
-            _graphicsDeviceManager.PreferredBackBufferHeight = RenderScreenHeight;
-            _graphicsDeviceManager.PreferredBackBufferWidth = RenderScreenWidth;
-            _game.Window.IsBorderless = false;
-            _graphicsDeviceManager.ApplyChanges();
-            _canvas.SetDestRect();
-            _isFullScreened = false;
-            
-            CurrentScreenWidth = _graphicsDeviceManager.PreferredBackBufferWidth;
-            CurrentScreenHeight = _graphicsDeviceManager.PreferredBackBufferHeight;
-        }
     }
     
     #endregion
