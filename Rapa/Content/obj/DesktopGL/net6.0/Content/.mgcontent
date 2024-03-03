@@ -14,9 +14,11 @@
     <File>C:/Users/cleme/Documents/Projects/RapaEngine/Rapa/Content/ArtContent/Chara/TestChara.png</File>
     <File>C:/Users/cleme/Documents/Projects/RapaEngine/Rapa/Content/ArtContent/Chara/walljump2.png</File>
     <File>C:/Users/cleme/Documents/Projects/RapaEngine/Rapa/Content/ArtContent/Fonts/fontTest.spritefont</File>
+    <File>C:/Users/cleme/Documents/Projects/RapaEngine/Rapa/Content/ArtContent/Shaders/File.fx</File>
     <File>C:/Users/cleme/Documents/Projects/RapaEngine/Rapa/Content/ArtContent/TextTileMap.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

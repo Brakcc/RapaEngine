@@ -25,6 +25,10 @@ public class CoreEngine : Game
 
 	private static int ViewHeight { get; set; }
 
+	protected RenderTarget2D RenderScreen { get; set; }
+
+	protected Rectangle RenderRect => _renderRect;
+
 	public static int ViewPadding
 	{
 		get => viewPadding;
@@ -49,7 +53,7 @@ public class CoreEngine : Game
 		set => Instance.nextScene = value;
 	}
 
-	protected static Viewport Viewport { get; private set; }
+	private static Viewport Viewport { get; set; }
 	
 	public static Random Random { get; set; }
 	
@@ -76,6 +80,7 @@ public class CoreEngine : Game
 		Window.AllowUserResizing = true;
 		Window.ClientSizeChanged += OnClientSizeChanged;
 		Window.Title = windowTitle;
+		Window.AllowAltF4 = true;
 		Title = windowTitle;
 		if (fullscreen)
 		{
@@ -94,7 +99,8 @@ public class CoreEngine : Game
 			SetWindowed(windowWidth, windowHeight);
 			Graphics.IsFullScreen = false;
 		}
-
+		RenderScreen = new RenderTarget2D(GraphicsDevice, renderWidth, renderHeight);
+		
 		Content.RootDirectory = "Content";
 		IsMouseVisible = true;
 		ExitOnEscapeKeypress = false;
@@ -113,6 +119,8 @@ public class CoreEngine : Game
 			return;
 		
 		resizing = true;
+		
+		GetRectTarget();
 		Graphics.PreferredBackBufferWidth = Window.ClientBounds.Width;
 		Graphics.PreferredBackBufferHeight = Window.ClientBounds.Height;
 		UpdateView();
@@ -154,7 +162,13 @@ public class CoreEngine : Game
 	}
 
 	#endregion
-	
+
+	protected override void Initialize()
+	{
+		GetRectTarget();
+		base.Initialize();
+	}
+
 	protected override void Update(GameTime gameTime)
 	{
 		RawDeltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -189,6 +203,12 @@ public class CoreEngine : Game
 
 	protected override void Draw(GameTime gameTime)
 	{
+		GraphicsDevice.Viewport = Viewport;
+
+		GraphicsDevice.SetRenderTarget(RenderScreen);
+		GraphicsDevice.Clear(ClearColor);
+		//currentState.Draw(spriteBatch);
+		
 		RenderCore();
 		base.Draw(gameTime);
 
@@ -239,27 +259,38 @@ public class CoreEngine : Game
 
 	public static void SetWindowed(int width, int height)
 	{
-		if (width > 0 && height > 0)
-		{
-			resizing = true;
-			Graphics.PreferredBackBufferWidth = width;
-			Graphics.PreferredBackBufferHeight = height;
-			Graphics.IsFullScreen = false;
-			Graphics.ApplyChanges();
-			resizing = false;
-		}
+		if (width <= 0 || height <= 0)
+			return;
+		
+		Graphics.PreferredBackBufferWidth = width;
+		Graphics.PreferredBackBufferHeight = height;
+		Graphics.IsFullScreen = false;
+		Graphics.ApplyChanges();
 	}
 
 	public static void SetFullScreen()
 	{
-		resizing = true;
 		Graphics.PreferredBackBufferWidth = Graphics.GraphicsDevice.Adapter.CurrentDisplayMode.Width;
 		Graphics.PreferredBackBufferHeight = Graphics.GraphicsDevice.Adapter.CurrentDisplayMode.Height;
 		Graphics.IsFullScreen = true;
 		Graphics.ApplyChanges();
-		resizing = false;
 	}
 
+	private void GetRectTarget()
+	{
+		var size = Graphics.GraphicsDevice.Viewport.Bounds.Size;
+
+		var scaleX = (float)size.X / RenderScreen.Width;
+		var scaleY = (float)size.Y / RenderScreen.Height;
+		var scale = Math.Min(scaleX, scaleY);
+
+		_renderRect.Width = (int)(RenderScreen.Width * scale);
+		_renderRect.Height = (int)(RenderScreen.Height * scale);
+
+		_renderRect.X = (size.X - _renderRect.Width) / 2;
+		_renderRect.Y = (size.Y - _renderRect.Height) / 2;
+	}
+	
 	private void UpdateView()
 	{
 		var num = (float)GraphicsDevice.PresentationParameters.BackBufferWidth;
@@ -318,7 +349,7 @@ public class CoreEngine : Game
 
 	private static readonly string AssemblyDirectory = Path.GetDirectoryName(Assembly.GetEntryAssembly()?.Location);
 
-	protected static Color ClearColor;
+	private static Color ClearColor;
 
 	private static bool ExitOnEscapeKeypress;
 
@@ -327,6 +358,8 @@ public class CoreEngine : Game
 	private Scene nextScene;
 
 	public static Matrix ScreenMatrix;
+
+	private Rectangle _renderRect;
 	
 	#endregion
 }

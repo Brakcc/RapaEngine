@@ -42,19 +42,19 @@ public class Rapadura : CoreEngine
     
     protected override void Initialize()
     {
-        CurrentScreenHeight = Graphics.PreferredBackBufferHeight;
-        CurrentScreenWidth = Graphics.PreferredBackBufferWidth;
+        CurrentScreenHeight = RenderScreenHeight;
+        CurrentScreenWidth = RenderScreenWidth;
         
         Graphics.ApplyChanges();
-
-        LoadContent();
+        AllStates();
+        
         base.Initialize();
     }
 
     protected override void LoadContent()
     {
+        _eff = Content.Load<Effect>("ArtContent/Shaders/File");
         spriteBatch = new SpriteBatch(GraphicsDevice);
-        AllStates();
     }
 
     private void AllStates()
@@ -88,10 +88,13 @@ public class Rapadura : CoreEngine
 
     protected override void RenderCore()
     {
-        GraphicsDevice.Clear(ClearColor);
-        GraphicsDevice.SetRenderTarget(null);
-        GraphicsDevice.Viewport = Viewport;
         currentState.Draw(spriteBatch);
+        
+        GraphicsDevice.SetRenderTarget(null);
+        GraphicsDevice.Clear(Color.Black);
+        spriteBatch.Begin(samplerState: SamplerState.PointClamp);
+        spriteBatch.Draw(RenderScreen, RenderRect, Color.White);
+        spriteBatch.End();
     }
     
     #endregion
@@ -102,11 +105,13 @@ public class Rapadura : CoreEngine
     private State currentState;
     private State nextState;
 
+    private Effect _eff;
+
     private const int RenderScreenWidth = 320;
     private const int RenderScreenHeight = 180;
 
-    private const int WindowStartScreenWidth = 1920;
-    private const int WindowStartScreenHeight = 1080;
+    private const int WindowStartScreenWidth = 720;
+    private const int WindowStartScreenHeight = 480;
 
     #endregion
 }

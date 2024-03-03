@@ -4,19 +4,21 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/c.strappazzonmarques/Desktop/Rapa/Rapa/Content/ArtContent/BackGrounds/BackGround1.png</File>
-    <File>C:/Users/c.strappazzonmarques/Desktop/Rapa/Rapa/Content/ArtContent/BackGrounds/TextTileMap.png</File>
-    <File>C:/Users/c.strappazzonmarques/Desktop/Rapa/Rapa/Content/ArtContent/BackGrounds/UnitTileTest.png</File>
-    <File>C:/Users/c.strappazzonmarques/Desktop/Rapa/Rapa/Content/ArtContent/Buttons/Buttons.png</File>
-    <File>C:/Users/c.strappazzonmarques/Desktop/Rapa/Rapa/Content/ArtContent/Chara/CharaBaseIdle.png</File>
-    <File>C:/Users/c.strappazzonmarques/Desktop/Rapa/Rapa/Content/ArtContent/Chara/RezIDLE.jpg</File>
-    <File>C:/Users/c.strappazzonmarques/Desktop/Rapa/Rapa/Content/ArtContent/Chara/run1.png</File>
-    <File>C:/Users/c.strappazzonmarques/Desktop/Rapa/Rapa/Content/ArtContent/Chara/TestChara.png</File>
-    <File>C:/Users/c.strappazzonmarques/Desktop/Rapa/Rapa/Content/ArtContent/Chara/walljump2.png</File>
-    <File>C:/Users/c.strappazzonmarques/Desktop/Rapa/Rapa/Content/ArtContent/Fonts/fontTest.spritefont</File>
-    <File>C:/Users/c.strappazzonmarques/Desktop/Rapa/Rapa/Content/ArtContent/TextTileMap.png</File>
+    <File>C:/Users/cleme/Documents/Projects/RapaEngine/Rapa/Content/ArtContent/BackGrounds/BackGround1.png</File>
+    <File>C:/Users/cleme/Documents/Projects/RapaEngine/Rapa/Content/ArtContent/BackGrounds/TextTileMap.png</File>
+    <File>C:/Users/cleme/Documents/Projects/RapaEngine/Rapa/Content/ArtContent/BackGrounds/UnitTileTest.png</File>
+    <File>C:/Users/cleme/Documents/Projects/RapaEngine/Rapa/Content/ArtContent/Buttons/Buttons.png</File>
+    <File>C:/Users/cleme/Documents/Projects/RapaEngine/Rapa/Content/ArtContent/Chara/CharaBaseIdle.png</File>
+    <File>C:/Users/cleme/Documents/Projects/RapaEngine/Rapa/Content/ArtContent/Chara/RezIDLE.jpg</File>
+    <File>C:/Users/cleme/Documents/Projects/RapaEngine/Rapa/Content/ArtContent/Chara/run1.png</File>
+    <File>C:/Users/cleme/Documents/Projects/RapaEngine/Rapa/Content/ArtContent/Chara/TestChara.png</File>
+    <File>C:/Users/cleme/Documents/Projects/RapaEngine/Rapa/Content/ArtContent/Chara/walljump2.png</File>
+    <File>C:/Users/cleme/Documents/Projects/RapaEngine/Rapa/Content/ArtContent/Fonts/fontTest.spritefont</File>
+    <File>C:/Users/cleme/Documents/Projects/RapaEngine/Rapa/Content/ArtContent/Shaders/File.fx</File>
+    <File>C:/Users/cleme/Documents/Projects/RapaEngine/Rapa/Content/ArtContent/TextTileMap.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

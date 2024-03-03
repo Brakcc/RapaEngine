@@ -129,6 +129,12 @@
 /processorParam:TextureFormat=Compressed
 /build:ArtContent/Fonts/fontTest.spritefont
 
+#begin ArtContent/Shaders/File.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/processorParam:DebugMode=Auto
+/build:ArtContent/Shaders/File.fx
+
 #begin ArtContent/TextTileMap.png
 /importer:TextureImporter
 /processor:TextureProcessor

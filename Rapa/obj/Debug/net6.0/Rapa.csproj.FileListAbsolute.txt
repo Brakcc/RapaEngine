@@ -72,3 +72,4 @@ C:\Users\cleme\Documents\Projects\RapaEngine\Rapa\bin\Debug\net6.0\runtimes\win-
 C:\Users\cleme\Documents\Projects\RapaEngine\Rapa\obj\Debug\net6.0\Rapa.csproj.CopyComplete
 C:\Users\cleme\Documents\Projects\RapaEngine\Rapa\obj\Debug\net6.0\Rapa.genruntimeconfig.cache
 C:\Users\cleme\Documents\Projects\RapaEngine\Rapa\obj\Debug\net6.0\ref\Rapa.dll
+C:\Users\cleme\Documents\Projects\RapaEngine\Rapa\bin\Debug\net6.0\Content\ArtContent\Shaders\File.xnb
