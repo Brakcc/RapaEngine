@@ -13,22 +13,13 @@ public class SolidSprite : Entity
     
     protected readonly AnimationManager animationManager;
     protected readonly Dictionary<string, Animation> animation;
-    private Vector2 pos;
 
     #endregion
 
     #region inits
     
-    public Vector2 Position
-    {
-        get => pos;
-        set
-        {
-            pos = value;
-            if (animationManager != null)
-                animationManager.position = pos;
-        }
-    }
+    //public override Vector2 Position { get; set; }
+
     public Vector2 velocity;
 
     public bool isRemoved = false;
@@ -38,7 +29,7 @@ public class SolidSprite : Entity
     public SolidSprite(Dictionary<string, Animation> animations)
     {
         animation = animations;
-        animationManager = new AnimationManager(animation.First().Value);
+        animationManager = new AnimationManager(animation.First().Value, this);
     }
     
     #endregion

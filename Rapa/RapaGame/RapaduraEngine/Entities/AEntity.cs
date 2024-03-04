@@ -1,11 +1,54 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Rapa.RapaGame.RapaduraEngine.Components;
 
 namespace Rapa.RapaGame.RapaduraEngine.Entities;
 
 public abstract class Entity
 {
-    public abstract void Update(GameTime gameTime);
+    #region properties
 
-    public abstract void Draw(SpriteBatch spriteBatch);
+    public Vector2 Position { get; set; }
+
+    private List<Component> Components { get; init; }
+    
+    #endregion
+
+    #region constructors
+
+    protected Entity() {}
+    
+    protected Entity(List<Component> components)
+    {
+        Components = components;
+    }
+
+    #endregion
+    
+    #region methodes
+
+    public virtual void Update(GameTime gameTime)
+    {
+        if (Components.Count == 0)
+            return;
+
+        foreach (var comps in Components)
+        {
+            comps.Update(gameTime);
+        }
+    }
+
+    public virtual void Draw(SpriteBatch spriteBatch)
+    {
+        if (Components.Count == 0)
+            return;
+
+        foreach (var comps in Components)
+        {
+            comps.Draw(spriteBatch);
+        }
+    }
+    
+    #endregion
 }

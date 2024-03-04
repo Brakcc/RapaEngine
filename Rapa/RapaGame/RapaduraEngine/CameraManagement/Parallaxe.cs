@@ -12,6 +12,7 @@ namespace Rapa.RapaGame.RapaduraEngine.CameraManagement;
 public class Parallaxe : Entity
 {
     #region fields
+    
     private readonly bool _constantSpeed;
     private float _layer;
     private readonly float _scrollingSpeed;
@@ -26,7 +27,7 @@ public class Parallaxe : Entity
             _layer = value;
             foreach (var sprite in _sprites)
             {
-                sprite.layer = _layer;
+                sprite.Layer = _layer;
             }
         }
     }
@@ -37,7 +38,7 @@ public class Parallaxe : Entity
 
     }
 
-    public Parallaxe(IReadOnlyList<Texture2D> textures, SolidSprite player, float scrollingSpeed, bool constantSpeed = false)
+    private Parallaxe(IReadOnlyList<Texture2D> textures, SolidSprite player, float scrollingSpeed, bool constantSpeed = false)
     {
         _player = player;
         _sprites = new List<NormalSprite>();
@@ -47,7 +48,7 @@ public class Parallaxe : Entity
             var texture = textures[i];
             _sprites.Add(new NormalSprite(texture)
             {
-                position = new Vector2(-i * texture.Width - Math.Min(i, i + 1), Rapadura.CurrentScreenHeight - texture.Height)
+                Position = new Vector2(-i * texture.Width - Math.Min(i, i + 1), Rapadura.CurrentScreenHeight - texture.Height)
             });
         }
 
@@ -80,7 +81,7 @@ public class Parallaxe : Entity
 
         foreach (var sprite in _sprites)
         {
-            sprite.position.X -= _speed;
+            sprite.Position = sprite.Position with { X = _speed };
         }
     }
 
@@ -89,7 +90,7 @@ public class Parallaxe : Entity
         for (var i = 0; i < _sprites.Count;i++)
         {
             var sprite = _sprites[i];
-            if (sprite.rectangle.Right > 0 || !(_speed > 0))
+            if (sprite.Rect.Right > 0 || !(_speed > 0))
                 continue;
             
             var index = i - 1;
@@ -97,8 +98,10 @@ public class Parallaxe : Entity
             {
                 index = _sprites.Count - 1;
             }
-            sprite.position.X = _sprites[index].rectangle.Right - _speed * 2;
+
+            sprite.Position = sprite.Position with { X = _sprites[index].Rect.Right - _speed * 2 };
         }
     }
+    
     #endregion
 }

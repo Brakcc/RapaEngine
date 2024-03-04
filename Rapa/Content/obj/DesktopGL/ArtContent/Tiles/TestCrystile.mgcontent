@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/cleme/Documents/Projects/RapaEngine/Rapa/Content/ArtContent/Tiles/TestCrystile.png</SourceFile>
-  <SourceTime>2024-03-03T22:29:08.941398+01:00</SourceTime>
-  <DestFile>C:/Users/cleme/Documents/Projects/RapaEngine/Rapa/Content/bin/DesktopGL/ArtContent/Tiles/TestCrystile.xnb</DestFile>
-  <DestTime>2024-03-04T01:46:15.3308943+01:00</DestTime>
+  <SourceFile>C:/Users/c.strappazzonmarques/Desktop/Rapa/Rapa/Content/ArtContent/Tiles/TestCrystile.png</SourceFile>
+  <SourceTime>2024-03-04T10:05:22.3406572+01:00</SourceTime>
+  <DestFile>C:/Users/c.strappazzonmarques/Desktop/Rapa/Rapa/Content/bin/DesktopGL/ArtContent/Tiles/TestCrystile.xnb</DestFile>
+  <DestTime>2024-03-04T11:16:15.0952012+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T13:44:56+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

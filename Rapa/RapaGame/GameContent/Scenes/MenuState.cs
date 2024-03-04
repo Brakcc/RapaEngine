@@ -35,7 +35,7 @@ public sealed class MenuState : State
             //PenColor = Color.DarkRed,
             Position = new Vector2(CurrentScreenWidth / 2f - buttonTexture.Width / 2f,
                 CurrentScreenHeight / 2f - buttonTexture.Height / 2f - 24),
-            text = "New Game"
+            Text = "New Game"
         };
         newGameButton.Click += NewGame;
 
@@ -44,7 +44,7 @@ public sealed class MenuState : State
             //PenColor = Color.DarkRed,
             Position = new Vector2(CurrentScreenWidth / 2f - buttonTexture.Width / 2f,
                 CurrentScreenHeight / 2f - buttonTexture.Height / 2f),
-            text = "Load Game"
+            Text = "Load Game"
         };
         loadGameButton.Click += LoadGame;
         loadGameButton.Click += OnFullScreen;
@@ -54,7 +54,7 @@ public sealed class MenuState : State
             //PenColor = Color.DarkRed,
             Position = new Vector2(CurrentScreenWidth / 2f - buttonTexture.Width / 2f,
                 CurrentScreenHeight / 2f - buttonTexture.Height / 2f + 24),
-            text = "quit"
+            Text = "quit"
         };
         quitGameButton.Click += QuitGame;
 
@@ -63,7 +63,7 @@ public sealed class MenuState : State
             //PenColor = Color.DarkRed,
             Position = new Vector2(CurrentScreenWidth / 2f - buttonTexture.Width / 2f,
                 CurrentScreenHeight / 2f - buttonTexture.Height / 2f + 48),
-            text = "fullScreen"
+            Text = "fullScreen"
         };
         fullScreenButton.Click += OnFullScreen;
         

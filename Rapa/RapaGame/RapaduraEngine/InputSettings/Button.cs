@@ -8,36 +8,19 @@ namespace Rapa.RapaGame.RapaduraEngine.InputSettings;
 
 public class Button : Entity
 {
-    #region fields
-    
-    private MouseState _currentMouse;
-    private MouseState _previousMouse;
-
-    private readonly SpriteFont _font;
-
-    private bool _isHoverIng;
-
-    private readonly Texture2D _texture;
-    
-    #endregion
-
     #region properties
-    
-    public event EventHandler Click;
 
     public Color PenColor { get; init; }
-
-    public Vector2 Position { get; init; }
     
     public Vector2 FontSize { get; init; }
 
-    private Rectangle rectangle => new((int)Position.X, (int)Position.Y, _texture.Width, _texture.Height);
+    private Rectangle Rectangle => new((int)Position.X, (int)Position.Y, _texture.Width, _texture.Height);
 
-    public string text { get; init; }
+    public string Text { get; init; }
     
     #endregion
 
-    #region methodes
+    #region constructor
     
     public Button(Texture2D text, SpriteFont fo)
     {
@@ -45,6 +28,10 @@ public class Button : Entity
         _font = fo;
     }
 
+    #endregion
+    
+    #region methodes
+    
     public override void Draw(SpriteBatch spriteBatch)
     {
         var color = Color.White;
@@ -54,15 +41,15 @@ public class Button : Entity
             color = Color.MonoGameOrange;
         }
 
-        spriteBatch.Draw(_texture, rectangle, color);
+        spriteBatch.Draw(_texture, Rectangle, color);
 
-        if (string.IsNullOrEmpty(text))
+        if (string.IsNullOrEmpty(Text))
             return;
         
-        var x = rectangle.X + rectangle.Width / 2f - _font.MeasureString(text).X / 2;
-        var y = rectangle.Y + rectangle.Height / 2f - _font.MeasureString(text).Y / 2;
+        var x = Rectangle.X + Rectangle.Width / 2f - _font.MeasureString(Text).X / 2;
+        var y = Rectangle.Y + Rectangle.Height / 2f - _font.MeasureString(Text).Y / 2;
 
-        spriteBatch.DrawString(_font, text, new Vector2(x, y), PenColor);
+        spriteBatch.DrawString(_font, Text, new Vector2(x, y), PenColor);
     }
 
     public override void Update(GameTime gameTime)
@@ -74,7 +61,7 @@ public class Button : Entity
 
         _isHoverIng = false;
 
-        if (!mouseRectangle.Intersects(rectangle))
+        if (!mouseRectangle.Intersects(Rectangle))
             return;
         
         _isHoverIng = true;
@@ -85,5 +72,19 @@ public class Button : Entity
         }
     }
     
+    #endregion
+    
+    #region fields
+    
+    public event EventHandler Click;
+    
+    private readonly Texture2D _texture;
+    private readonly SpriteFont _font;
+                  
+    private MouseState _currentMouse;
+    private MouseState _previousMouse;
+              
+    private bool _isHoverIng;
+                  
     #endregion
 }

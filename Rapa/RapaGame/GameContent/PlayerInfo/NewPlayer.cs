@@ -21,7 +21,7 @@ public class NewPlayer : NormalSprite
     {
         Move();
         velocity = Vector2.Zero;
-        position += velocity;
+        Position += velocity;
 
         base.Update(gameTime);
     }

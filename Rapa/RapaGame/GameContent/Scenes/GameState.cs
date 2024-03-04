@@ -15,6 +15,8 @@ namespace Rapa.RapaGame.GameContent.Scenes;
 public class GameState : State
 {
     private readonly GraphicsDeviceManager _graphManager;
+
+    private List<NormalSprite> _normalSprite;
     
     private List<HollowSprite> _hollowSprites;
     private List<SolidSprite> _solidSprites;
@@ -23,11 +25,7 @@ public class GameState : State
     private float timer;
 
     private Player player;
-    private Player playerplayerplayer;
     private Camera camera;
-
-    //private SolidSprite text;
-    private List<Rectangle> colliders;
 
     public GameState(Rapadura game, GraphicsDevice graphicsDevice, ContentManager content, SpriteBatch spriteBatch, GraphicsDeviceManager graphManager) : base(game, graphicsDevice, content, spriteBatch)
     {
@@ -38,16 +36,12 @@ public class GameState : State
 
     private void Restart()
     {
-        colliders = new List<Rectangle>();
-
-        
-            
         //Inits des anims des Components
         var anims = new Dictionary<string, Animation>
         {
             { "Idle", new Animation(_content.Load<Texture2D>("ArtContent/Chara/TestChara"), 5, 0.2f, 0.8f) },
             { "WalkRight", new Animation(_content.Load<Texture2D>("ArtContent/Chara/TestChara"), 5, 0.2f, 0.8f) },
-            { "WalkLeft" , new Animation(_content.Load<Texture2D>("ArtContent/Chara/TestChara"), 5, 0.2f, 0.8f)}
+            { "WalkLeft" , new Animation(_content.Load<Texture2D>("ArtContent/Chara/TestChara"), 5, 0.2f, 0.8f) }
         };
         var back = new Dictionary<string, Animation>
         {
@@ -55,7 +49,17 @@ public class GameState : State
         };
         var front = new Dictionary<string, Animation>
         {
-            {"front", new Animation(_content.Load<Texture2D>("ArtContent/BackGrounds/UnitTileTest"), 1, 1f, 1f)}
+            {"front", new Animation(_content.Load<Texture2D>("ArtContent/BackGrounds/UnitTileTest"), 1, 1f, 1f) }
+        };
+
+        var sands = new[]
+        {
+            _content.Load<Texture2D>("ArtContent/Tiles/SandTiles/TestSandTile1"),
+            _content.Load<Texture2D>("ArtContent/Tiles/SandTiles/TestSandTile2"),
+            _content.Load<Texture2D>("ArtContent/Tiles/SandTiles/TestSandTile3"),
+            _content.Load<Texture2D>("ArtContent/Tiles/SandTiles/TestSandTile4"),
+            _content.Load<Texture2D>("ArtContent/Tiles/SandTiles/TestSandTile5"),
+            _content.Load<Texture2D>("ArtContent/Tiles/SandTiles/TestSandTile6")
         };
 
         camera = new Camera();
@@ -76,77 +80,36 @@ public class GameState : State
             speed = 10f
         };
 
-        playerplayerplayer = new Player(anims)
+        _normalSprite = new List<NormalSprite>
         {
-            Position = new Vector2(1000, 1000),
-            input = new Inputs
-            {
-                Up = Keys.Up,
-                Down = Keys.Down,
-                Left = Keys.Left,
-                Right = Keys.Right,
-                Jump = Keys.Space,
-                Special = Keys.CapsLock
-            },
-            speed = 1f
+            new(sands[0]) {Position = Vector2.Zero},
+            new(sands[1]) {Position = new Vector2(8, 0)},
+            new(sands[2]) {Position = new Vector2(16, 0)},
+            new(sands[3]) {Position = new Vector2(24, 0)},
+            new(sands[4]) {Position = new Vector2(32, 0)},
+            new(sands[5]) {Position = new Vector2(40, 0)}
         };
-
-        /*text = new SolidSprite(anims)
-        {
-            position = new Vector2(50, 5),
-        };*/
-
 
         parallaxes = new List<Parallaxe>
         {
-            new(_content.Load<Texture2D>("ArtContent/BackGrounds/BackGround1"), player, 8f)
-            {
-                layer = 0f
-            },
-            new(_content.Load<Texture2D>("ArtContent/BackGrounds/TextTileMap"), player, 5f)
-            {
-                layer = 0.5f
-            },
+            new(_content.Load<Texture2D>("ArtContent/BackGrounds/BackGround1"), player, 8f) { layer = 0f }, 
+            new(_content.Load<Texture2D>("ArtContent/BackGrounds/TextTileMap"), player, 5f) { layer = 0.5f },
         };
 
         _hollowSprites = new List<HollowSprite>
         {
-            new(back)
-            {
-                Position = new Vector2(-86, -100)
-            },
-            new(back)
-            {
-                Position = new Vector2(-500, -500)
-            },
+            new(back) { Position = new Vector2(-86, -100) }, 
+            new(back) { Position = new Vector2(-500, -500) }
         };
 
         _solidSprites = new List<SolidSprite>
         {
-            new(front)
-            {
-                Position = new Vector2(0, 0)
-            },
-            new(front)
-            {
-                Position = new Vector2(24, 0)
-            },
-            new(front)
-            {
-                Position = new Vector2(48, 0)
-            },
-            new(front)
-            {
-                Position = new Vector2(72, 0)
-            },
-            new(front)
-            {
-                Position = new Vector2(96, 0)
-            },
-            new(front)
-            {
-                Position = new Vector2(120, 0)
-            }
+            new(front) { Position = new Vector2(0, 0) },
+            new(front) { Position = new Vector2(24, 0) },
+            new(front) { Position = new Vector2(48, 0) },
+            new(front) { Position = new Vector2(72, 0) },
+            new(front) { Position = new Vector2(96, 0) },
+            new(front) { Position = new Vector2(120, 0) }
         };
     }
 
@@ -167,22 +130,26 @@ public class GameState : State
         
         foreach (var s in _solidSprites)
         {
-            s.Draw(spriteBatch);
+            //s.Draw(spriteBatch);
         }
         
         foreach(var hollow in _hollowSprites)
         {
-            hollow.Draw(spriteBatch);
+            //hollow.Draw(spriteBatch);
         }
 
-        //text.Draw(spriteBatch);
+        foreach (var normal in _normalSprite)
+        {
+            normal.Draw(spriteBatch);
+        }
 
         spriteBatch.End();
     }
+    
     public override void PostUpdate(GameTime gameTime)
     {
-            
     }
+    
     public override void Update(GameTime gameTime)
     {
         //timer utilisable
@@ -195,9 +162,8 @@ public class GameState : State
 
         foreach (var hollow in _hollowSprites)
         {
-            hollow.Update(gameTime);
+            //hollow.Update(gameTime);
         }
-        //text.Update(gameTime, null);
 
         foreach (var para in parallaxes)
         {
@@ -205,7 +171,12 @@ public class GameState : State
         }
         foreach (var s in _solidSprites)
         {
-            s.Update(gameTime);
+            //s.Update(gameTime);
+        }
+
+        foreach (var normal in _normalSprite)
+        {
+            //normal.Update(gameTime);
         }
         
         player.Update(gameTime, _solidSprites);

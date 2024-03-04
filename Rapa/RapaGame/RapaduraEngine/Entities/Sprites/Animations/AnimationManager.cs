@@ -5,56 +5,69 @@ namespace Rapa.RapaGame.RapaduraEngine.Entities.Sprites.Animations;
 
 public class AnimationManager
 {
-    private Animation animation;
-
-    private float timer;
-
-    public Vector2 position { get; set; }
-
-    public AnimationManager(Animation anim)
+    #region constructor
+    
+    public AnimationManager(Animation anim, Entity entityRef)
     {
-        animation = anim;
+        _animation = anim;
+        _entityRef = entityRef;
     }
 
+    #endregion
+    
+    #region methodes
+    
     public void Draw(SpriteBatch spriteBatch)
     {
-        spriteBatch.Draw(animation._texture,
-            position,
-            new Rectangle(animation._currentFrame * animation._frameWidth,
+        spriteBatch.Draw(_animation._texture,
+            _entityRef.Position,
+            new Rectangle(_animation._currentFrame * _animation._frameWidth,
                 0,
-                animation._frameWidth,
-                animation._frameHeight),
-            Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, animation._layer);
+                _animation._frameWidth,
+                _animation._frameHeight),
+            Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, _animation._layer);
     }
 
     public void Play(Animation anim) 
     {
-        if (animation == anim)
+        if (_animation == anim)
         {
             return;
         }
-        animation = anim;
-        animation._currentFrame = 0;
-        timer = 0;
+        _animation = anim;
+        _animation._currentFrame = 0;
+        _timer = 0;
     }
     public void Stop() 
     {
-        timer = 0;
-        animation._currentFrame = 0;
+        _timer = 0;
+        _animation._currentFrame = 0;
     }
 
     public void Update(GameTime gameTime) 
     {
-        timer += (float)gameTime.ElapsedGameTime.TotalSeconds;
-        if (timer > animation._frameSpeed) 
+        _timer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+        if (_timer > _animation._frameSpeed) 
         {
-            timer = 0;
-            animation._currentFrame++;
+            _timer = 0;
+            _animation._currentFrame++;
                 
-            if (animation._currentFrame >= animation._frameCount) 
+            if (_animation._currentFrame >= _animation._frameCount) 
             { 
-                animation._currentFrame = 0;
+                _animation._currentFrame = 0;
             }
         }
     }
+    
+    #endregion
+    
+    #region fields
+                  
+    private Animation _animation;
+    
+    private float _timer;
+    
+    private readonly Entity _entityRef;
+              
+    #endregion
 }

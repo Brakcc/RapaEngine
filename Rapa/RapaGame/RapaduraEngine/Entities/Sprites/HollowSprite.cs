@@ -9,42 +9,29 @@ namespace Rapa.RapaGame.RapaduraEngine.Entities.Sprites;
 
 public sealed class HollowSprite : Entity
 {
-    #region fields
-
-    private readonly AnimationManager animationManager;
-    private readonly Dictionary<string, Animation> animation;
-    private readonly Vector2 pos;
-
-    //private bool _canMove;
-    
-    #endregion
-
-    #region inits
-    public Vector2 Position
-    {
-        get => pos;
-        init
-        {
-            pos = value;
-            if (animationManager != null)
-            {
-                animationManager.position = pos;
-            }   
-        }
-    }
-    public Vector2 velocity;
+    #region Accessors
 
     public bool isRemoved = false;
 
     public Rectangle rectangle => new((int)Position.X, (int)Position.Y, animation.Values.First()._frameWidth, animation.Values.First()._frameHeight);
 
+    #endregion
+    
+    #region Constructor
+    
     public HollowSprite(Dictionary<string, Animation> animations)
     {
         animation = animations;
-        animationManager = new AnimationManager(animation.First().Value);
+        animationManager = new AnimationManager(animation.First().Value, this);
 
         //_canMove = true;
     }
+
+    public HollowSprite(Texture2D texture)
+    {
+        
+    }
+
     #endregion
 
     #region Methodes
@@ -78,5 +65,15 @@ public sealed class HollowSprite : Entity
         }*/
     }
     
+    #endregion
+    
+    #region fields
+              
+    private readonly AnimationManager animationManager;
+    private readonly Dictionary<string, Animation> animation;
+    public Vector2 velocity;
+              
+    //private bool _canMove;
+                  
     #endregion
 }

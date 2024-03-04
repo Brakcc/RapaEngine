@@ -5,35 +5,40 @@ namespace Rapa.RapaGame.RapaduraEngine.Entities.Sprites;
 
 public class NormalSprite : Entity
 {
-    #region fields, Inits et constructeur
+    #region accessors
 
-    private float _layer { get; set; }
-    private readonly Texture2D _texture;
-    public Vector2 position;
+    public float Layer { get; set; }
 
-    public float layer
-    {
-        get => _layer;
-        set => _layer = value;
-    }
+    public Rectangle Rect => new ((int)Position.X, (int)Position.Y, _texture.Width, _texture.Height);
 
-    public Rectangle rectangle => new ((int)position.X, (int)position.Y, _texture.Width, _texture.Height);
-
+    #endregion
+    
+    #region constructor
+    
     public NormalSprite(Texture2D texture)
     {
         _texture = texture;
     }
+    
     #endregion
 
     #region methodes
+    
     public override void Update(GameTime gameTime)
     {
-            
     }
 
     public override void Draw(SpriteBatch spriteBatch)
     {
-        spriteBatch.Draw(_texture, position, null, Color.White, 0, new Vector2(0, 0), 1f, SpriteEffects.None, layer);
+        spriteBatch.Draw(_texture, Position, null, Color.White, 0, new Vector2(0, 0), 1f, SpriteEffects.None, Layer);
+        base.Draw(spriteBatch);
     }
+    
+    #endregion
+    
+    #region fields
+    
+    private readonly Texture2D _texture;
+    
     #endregion
 }
