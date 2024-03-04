@@ -8,6 +8,7 @@
     <File>C:/Users/cleme/Documents/Projects/RapaEngine/Rapa/Content/ArtContent/BackGrounds/TextTileMap.png</File>
     <File>C:/Users/cleme/Documents/Projects/RapaEngine/Rapa/Content/ArtContent/BackGrounds/UnitTileTest.png</File>
     <File>C:/Users/cleme/Documents/Projects/RapaEngine/Rapa/Content/ArtContent/Buttons/Buttons.png</File>
+    <File>C:/Users/cleme/Documents/Projects/RapaEngine/Rapa/Content/ArtContent/Buttons/TestButton.png</File>
     <File>C:/Users/cleme/Documents/Projects/RapaEngine/Rapa/Content/ArtContent/Chara/CharaBaseIdle.png</File>
     <File>C:/Users/cleme/Documents/Projects/RapaEngine/Rapa/Content/ArtContent/Chara/RezIDLE.jpg</File>
     <File>C:/Users/cleme/Documents/Projects/RapaEngine/Rapa/Content/ArtContent/Chara/run1.png</File>
@@ -16,8 +17,11 @@
     <File>C:/Users/cleme/Documents/Projects/RapaEngine/Rapa/Content/ArtContent/Fonts/fontTest.spritefont</File>
     <File>C:/Users/cleme/Documents/Projects/RapaEngine/Rapa/Content/ArtContent/Shaders/File.fx</File>
     <File>C:/Users/cleme/Documents/Projects/RapaEngine/Rapa/Content/ArtContent/TextTileMap.png</File>
+    <File>C:/Users/cleme/Documents/Projects/RapaEngine/Rapa/Content/ArtContent/Tiles/TestCrystile.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

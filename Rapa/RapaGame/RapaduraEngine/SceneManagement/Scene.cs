@@ -1,6 +1,6 @@
 ﻿namespace Rapa.RapaGame.RapaduraEngine.SceneManagement;
 
-public class Scene
+public abstract class Scene
 {
     #region methodes
     

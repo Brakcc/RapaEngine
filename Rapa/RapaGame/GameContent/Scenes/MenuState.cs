@@ -17,7 +17,7 @@ public sealed class MenuState : State
     #region fields
 
     private readonly List<Button> _components;
-    private readonly HollowSprite _hollow;
+    private readonly List<HollowSprite> _hollows;
     private readonly SolidSprite _solid;
     private readonly GraphicsDeviceManager _graphicsDeviceManager;
 
@@ -27,22 +27,22 @@ public sealed class MenuState : State
     
     public MenuState(Rapadura game, GraphicsDevice graphicsDevice, ContentManager content, SpriteBatch spriteBatch, GraphicsDeviceManager graphManager) : base(game, graphicsDevice, content, spriteBatch)
     {
-        var buttonTexture = _content.Load<Texture2D>("ArtContent/Buttons/Buttons");
+        var buttonTexture = _content.Load<Texture2D>("ArtContent/Buttons/TestButton");
         var buttonFont = _content.Load<SpriteFont>("ArtContent/Fonts/fontTest");
 
         var newGameButton = new Button(buttonTexture, buttonFont)
         {
-            penColor = Color.DarkRed,
-            position = new Vector2(CurrentScreenWidth / 2f - buttonTexture.Width / 2f,
-                CurrentScreenHeight / 2f - buttonTexture.Height / 2f - 100),
+            //PenColor = Color.DarkRed,
+            Position = new Vector2(CurrentScreenWidth / 2f - buttonTexture.Width / 2f,
+                CurrentScreenHeight / 2f - buttonTexture.Height / 2f - 24),
             text = "New Game"
         };
         newGameButton.Click += NewGame;
 
         var loadGameButton = new Button(buttonTexture, buttonFont)
         {
-            penColor = Color.DarkRed,
-            position = new Vector2(CurrentScreenWidth / 2f - buttonTexture.Width / 2f,
+            //PenColor = Color.DarkRed,
+            Position = new Vector2(CurrentScreenWidth / 2f - buttonTexture.Width / 2f,
                 CurrentScreenHeight / 2f - buttonTexture.Height / 2f),
             text = "Load Game"
         };
@@ -51,18 +51,18 @@ public sealed class MenuState : State
 
         var quitGameButton = new Button(buttonTexture, buttonFont)
         {
-            penColor = Color.DarkRed,
-            position = new Vector2(CurrentScreenWidth / 2f - buttonTexture.Width / 2f,
-                CurrentScreenHeight / 2f - buttonTexture.Height / 2f + 100),
+            //PenColor = Color.DarkRed,
+            Position = new Vector2(CurrentScreenWidth / 2f - buttonTexture.Width / 2f,
+                CurrentScreenHeight / 2f - buttonTexture.Height / 2f + 24),
             text = "quit"
         };
         quitGameButton.Click += QuitGame;
 
         var fullScreenButton = new Button(buttonTexture, buttonFont)
         {
-            penColor = Color.DarkRed,
-            position = new Vector2(CurrentScreenWidth / 2f - buttonTexture.Width / 2f,
-                CurrentScreenHeight / 2f - buttonTexture.Height / 2f + 200),
+            //PenColor = Color.DarkRed,
+            Position = new Vector2(CurrentScreenWidth / 2f - buttonTexture.Width / 2f,
+                CurrentScreenHeight / 2f - buttonTexture.Height / 2f + 48),
             text = "fullScreen"
         };
         fullScreenButton.Click += OnFullScreen;
@@ -77,17 +77,22 @@ public sealed class MenuState : State
         
         var anims = new Dictionary<string, Animation>
         {
-            {"back", new Animation(_content.Load<Texture2D>("ArtContent/BackGrounds/UnitTileTest"), 1, 1f, 0.5f) }
+            {"back", new Animation(_content.Load<Texture2D>("ArtContent/Tiles/TestCrystile"), 1, 1f, 0.5f) }
         };
-        
-        _hollow = new HollowSprite(anims)
+
+        _hollows = new List<HollowSprite>
         {
-            Position = new Vector2(CurrentScreenWidth / 2f, CurrentScreenHeight / 2f)
+            new(anims) {Position = new Vector2(CurrentScreenWidth / 2f, CurrentScreenHeight / 2f)},
+            new(anims) {Position = new Vector2(CurrentScreenWidth / 2f - 8, CurrentScreenHeight / 2f)},
+            new(anims) {Position = new Vector2(CurrentScreenWidth / 2f - 16, CurrentScreenHeight / 2f)},
+            new(anims) {Position = new Vector2(CurrentScreenWidth / 2f + 8, CurrentScreenHeight / 2f)},
+            new(anims) {Position = new Vector2(CurrentScreenWidth / 2f + 16, CurrentScreenHeight / 2f)},
+            new(anims) {Position = new Vector2(CurrentScreenWidth / 2f + 16, CurrentScreenHeight / 2f - 8)}
         };
         
         _solid = new SolidSprite(anims)
         {
-            Position = new Vector2(CurrentScreenWidth / 2f - 16, CurrentScreenHeight / 2f)
+            Position = new Vector2(CurrentScreenWidth / 2f - 8, CurrentScreenHeight / 2f)
         };
         
         _graphicsDeviceManager = graphManager;
@@ -120,7 +125,10 @@ public sealed class MenuState : State
     {
         spriteBatch.Begin(samplerState: SamplerState.PointClamp);
 
-        _hollow.Draw(spriteBatch);
+        foreach (var hollow in _hollows)
+        {
+            hollow.Draw(spriteBatch);
+        }
         _solid.Draw(spriteBatch);
         
         foreach (var component in _components) 
@@ -131,7 +139,10 @@ public sealed class MenuState : State
     }
     public override void Update(GameTime gameTime)
     {
-        _hollow.Update(gameTime);
+        foreach (var hollow in _hollows)
+        {
+            hollow.Update(gameTime);
+        }
         _solid.Update(gameTime);
         
         foreach (var component in _components)

@@ -25,11 +25,13 @@ public class Button : Entity
     
     public event EventHandler Click;
 
-    public Color penColor { get; init; }
+    public Color PenColor { get; init; }
 
-    public Vector2 position { get; init; }
+    public Vector2 Position { get; init; }
+    
+    public Vector2 FontSize { get; init; }
 
-    private Rectangle rectangle => new((int)position.X, (int)position.Y, _texture.Width, _texture.Height);
+    private Rectangle rectangle => new((int)Position.X, (int)Position.Y, _texture.Width, _texture.Height);
 
     public string text { get; init; }
     
@@ -60,7 +62,7 @@ public class Button : Entity
         var x = rectangle.X + rectangle.Width / 2f - _font.MeasureString(text).X / 2;
         var y = rectangle.Y + rectangle.Height / 2f - _font.MeasureString(text).Y / 2;
 
-        spriteBatch.DrawString(_font, text, new Vector2(x, y), penColor);
+        spriteBatch.DrawString(_font, text, new Vector2(x, y), PenColor);
     }
 
     public override void Update(GameTime gameTime)
