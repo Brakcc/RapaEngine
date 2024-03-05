@@ -49,6 +49,16 @@ public abstract class Entity
             comps.Draw(spriteBatch);
         }
     }
+
+    public void AddComponent(Component comp)
+    {
+        Components.Add(comp);
+    }
+    
+    public void RemoveComponent(Component comp)
+    {
+        Components.Remove(comp);
+    }
     
     #endregion
 }
