@@ -19,7 +19,7 @@ public abstract class Entity
 
     protected Entity() {}
     
-    protected Entity(List<Component> components)
+    protected Entity(List<Component> components = null)
     {
         Components = components;
     }

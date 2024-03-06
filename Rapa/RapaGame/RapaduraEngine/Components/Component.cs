@@ -11,6 +11,15 @@ public abstract class Component
     private Entity EntityRef { get; init; }
 
     #endregion
+
+    #region constructor
+
+    protected Component(Entity entityRef)
+    {
+        EntityRef = entityRef;
+    }
+    
+    #endregion
     
     #region methodes
     
