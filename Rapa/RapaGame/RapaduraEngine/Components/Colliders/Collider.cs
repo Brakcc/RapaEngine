@@ -1,6 +1,6 @@
 ﻿namespace Rapa.RapaGame.RapaduraEngine.Components.Colliders;
 
-public class BoxCollider : Component
+public abstract class Collider : Component
 {
     
 }
