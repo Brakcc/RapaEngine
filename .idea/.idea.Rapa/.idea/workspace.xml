@@ -8,10 +8,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f0714bac-edba-468d-9430-461c15a3c0e4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Rapa/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Rapa/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Rapa/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/GameContent/Scenes/MenuState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/GameContent/Scenes/MenuState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/Rapadura.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/Rapadura.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Components/Component.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Components/Component.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Components/Sprites/BaseSprite.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Components/Sprites/BaseSprite.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rapa/bin/Debug/net6.0/Rapa.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/bin/Debug/net6.0/Rapa.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rapa/bin/Debug/net6.0/Rapa.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/bin/Debug/net6.0/Rapa.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.assets.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/ref/Rapa.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/ref/Rapa.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/refint/Rapa.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/refint/Rapa.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/obj/Rapa.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Rapa.csproj.nuget.dgspec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/obj/Rapa.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Rapa.csproj.nuget.g.props" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/project.assets.json" afterDir="false" />
@@ -60,9 +72,9 @@
   },
   "keyToStringList": {
     "rider.external.source.directories": [
-      "C:\\Users\\cleme\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache",
-      "C:\\Users\\cleme\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache",
-      "C:\\Users\\cleme\\AppData\\Local\\Symbols\\src"
+      "C:\\Users\\c.strappazzonmarques\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache",
+      "C:\\Users\\c.strappazzonmarques\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache",
+      "C:\\Users\\c.strappazzonmarques\\AppData\\Local\\Symbols\\src"
     ]
   }
 }]]></component>
@@ -113,6 +125,7 @@
       <workItem from="1709672818568" duration="1222000" />
       <workItem from="1709730202278" duration="1368000" />
       <workItem from="1709765248626" duration="2932000" />
+      <workItem from="1709822224776" duration="5284000" />
     </task>
     <servers />
   </component>

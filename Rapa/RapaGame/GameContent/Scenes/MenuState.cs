@@ -21,12 +21,16 @@ public sealed class MenuState : State
     private readonly SolidSprite _solid;
     private readonly GraphicsDeviceManager _graphicsDeviceManager;
 
+    private readonly Effect _eff;
+
     #endregion
     
     #region constructor
     
     public MenuState(Rapadura game, GraphicsDevice graphicsDevice, ContentManager content, SpriteBatch spriteBatch, GraphicsDeviceManager graphManager) : base(game, graphicsDevice, content, spriteBatch)
     {
+        _eff = Instance.Content.Load<Effect>("ArtContent/Shaders/File");
+        
         var buttonTexture = _content.Load<Texture2D>("ArtContent/Buttons/TestButton");
         var buttonFont = _content.Load<SpriteFont>("ArtContent/Fonts/fontTest");
 
@@ -129,12 +133,12 @@ public sealed class MenuState : State
         {
             hollow.Draw(spriteBatch);
         }
-        _solid.Draw(spriteBatch);
         
         foreach (var component in _components) 
         {
             component.Draw(spriteBatch);
         }
+        
         spriteBatch.End();
     }
     public override void Update(GameTime gameTime)

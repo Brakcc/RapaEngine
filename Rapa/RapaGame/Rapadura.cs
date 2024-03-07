@@ -53,7 +53,6 @@ public class Rapadura : CoreEngine
 
     protected override void LoadContent()
     {
-        _eff = Content.Load<Effect>("ArtContent/Shaders/File");
         spriteBatch = new SpriteBatch(GraphicsDevice);
     }
 
@@ -104,8 +103,6 @@ public class Rapadura : CoreEngine
     private SpriteBatch spriteBatch;
     private State currentState;
     private State nextState;
-
-    private Effect _eff;
 
     private const int RenderScreenWidth = 320;
     private const int RenderScreenHeight = 180;

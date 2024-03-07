@@ -8,7 +8,7 @@ public abstract class Component
 {
     #region properties
 
-    private Entity EntityRef { get; init; }
+    protected Entity EntityRef { get; init; }
 
     #endregion
 
