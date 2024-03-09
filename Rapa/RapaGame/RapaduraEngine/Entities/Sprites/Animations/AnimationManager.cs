@@ -47,16 +47,16 @@ public class AnimationManager
     public void Update(GameTime gameTime) 
     {
         _timer += (float)gameTime.ElapsedGameTime.TotalSeconds;
-        if (_timer > _animation._frameSpeed) 
-        {
-            _timer = 0;
-            _animation._currentFrame++;
-                
-            if (_animation._currentFrame >= _animation._frameCount) 
-            { 
-                _animation._currentFrame = 0;
-            }
-        }
+        if (!(_timer > _animation._frameSpeed))
+            return;
+        
+        _timer = 0;
+        _animation._currentFrame++;
+
+        if (_animation._currentFrame < _animation._frameCount)
+            return;
+        
+        _animation._currentFrame = 0;
     }
     
     #endregion
