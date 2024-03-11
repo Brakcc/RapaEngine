@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Rapa.RapaGame.RapaduraEngine.Entities.Sprites.Animations;
+using Rapa.RapaGame.RapaduraEngine.Components.Sprites.Animations;
 
 namespace Rapa.RapaGame.RapaduraEngine.Entities.Sprites;
 

@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Rapa.RapaGame.RapaduraEngine.Components;
@@ -11,17 +11,15 @@ public abstract class Entity
 
     public Vector2 Position { get; set; }
 
-    private List<Component> Components { get; init; }
+    protected ComponentList Components { get; init; }
     
     #endregion
 
     #region constructors
 
-    protected Entity() {}
-    
-    protected Entity(List<Component> components = null)
+    protected Entity()
     {
-        Components = components;
+        Console.WriteLine("Added");
     }
 
     #endregion
@@ -30,34 +28,22 @@ public abstract class Entity
 
     public virtual void Update(GameTime gameTime)
     {
-        if (Components.Count == 0)
-            return;
-
-        foreach (var comps in Components)
-        {
-            comps.Update(gameTime);
-        }
+        Components.Update(gameTime);
     }
 
     public virtual void Draw(SpriteBatch spriteBatch)
     {
-        if (Components.Count == 0)
-            return;
-
-        foreach (var comps in Components)
-        {
-            comps.Draw(spriteBatch);
-        }
+        Components.Draw(spriteBatch);
     }
-
+    
     public void AddComponent(Component comp)
     {
-        Components.Add(comp);
+        Components.AddComponent(comp);
     }
     
     public void RemoveComponent(Component comp)
     {
-        Components.Remove(comp);
+        Components.RemoveComponent(comp);
     }
     
     #endregion

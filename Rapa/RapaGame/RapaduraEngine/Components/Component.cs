@@ -9,6 +9,10 @@ public abstract class Component
     #region properties
 
     protected Entity EntityRef { get; init; }
+    
+    public bool Active { get; private set; }
+    
+    public bool Visible { get; private set; }
 
     #endregion
 
@@ -17,20 +21,35 @@ public abstract class Component
     protected Component(Entity entityRef)
     {
         EntityRef = entityRef;
+        Active = true;
+        Visible = true;
+    }
+
+    protected Component(Entity entityRef, bool active, bool visible)
+    {
+        EntityRef = entityRef;
+        Active = active;
+        Visible = visible;
     }
     
     #endregion
     
     #region methodes
     
+    public virtual void Init() {}
+    
     public virtual void Update(GameTime gameTime) {}
 
     public virtual void Draw(SpriteBatch spriteBatch) {}
 
-    public void RemoveSelf()
-    {
-        EntityRef?.RemoveComponent(this);
-    }
+    public virtual void End() {}
+    
+    public void SetActive(bool active) => Active = active;
+    
+    public void SetVisible(bool visible) => Visible = visible;
+    
+    public void RemoveSelf() => EntityRef?.RemoveComponent(this);
+    
     
     #endregion
 }

@@ -1,5 +1,9 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using Rapa.RapaGame.RapaduraEngine.Components;
+using Rapa.RapaGame.RapaduraEngine.Components.Sprites;
 
 namespace Rapa.RapaGame.RapaduraEngine.Entities.Sprites;
 
@@ -9,15 +13,16 @@ public class NormalSprite : Entity
 
     public float Layer { get; set; }
 
-    public Rectangle Rect => new ((int)Position.X, (int)Position.Y, _texture.Width, _texture.Height);
-
     #endregion
     
     #region constructor
     
     public NormalSprite(Texture2D texture)
     {
-        _texture = texture;
+        Components = new ComponentList(this, new List<Component>
+        {
+            new BaseSprite(this, texture, Layer)
+        });
     }
     
     #endregion
@@ -26,19 +31,22 @@ public class NormalSprite : Entity
     
     public override void Update(GameTime gameTime)
     {
-    }
+        if (Keyboard.GetState().IsKeyDown(Keys.D))
+            Components.GetComponent<BaseSprite>().SetVisible(false);
 
-    public override void Draw(SpriteBatch spriteBatch)
-    {
-        spriteBatch.Draw(_texture, Position, null, Color.White, 0, new Vector2(0, 0), 1f, SpriteEffects.None, Layer);
-        base.Draw(spriteBatch);
+        if (!Keyboard.GetState().IsKeyDown(Keys.P))
+            return;
+        
+        if (Components.TryGetComponent<AnimatedSprite>(out var test))
+            test.SetVisible(false);
+
     }
     
     #endregion
     
     #region fields
     
-    private readonly Texture2D _texture;
+    //Zero :D
     
     #endregion
 }

@@ -46,10 +46,10 @@ public class Parallaxe : Entity
         for (var i = 0; i < textures.Count; i++) 
         {
             var texture = textures[i];
-            _sprites.Add(new NormalSprite(texture)
+            /*_sprites.Add(new NormalSprite(texture)
             {
                 Position = new Vector2(-i * texture.Width - Math.Min(i, i + 1), Rapadura.CurrentScreenHeight - texture.Height)
-            });
+            });*/
         }
 
         _scrollingSpeed = scrollingSpeed;
@@ -59,7 +59,7 @@ public class Parallaxe : Entity
     public override void Update(GameTime gameTime)
     {
         ApplySpeed(gameTime);
-        CheckPosition();
+        //CheckPosition();
     }
 
     public override void Draw(SpriteBatch spriteBatch)
@@ -85,7 +85,7 @@ public class Parallaxe : Entity
         }
     }
 
-    private void CheckPosition()
+    /*private void CheckPosition()
     {
         for (var i = 0; i < _sprites.Count;i++)
         {
@@ -101,7 +101,7 @@ public class Parallaxe : Entity
 
             sprite.Position = sprite.Position with { X = _sprites[index].Rect.Right - _speed * 2 };
         }
-    }
+    }*/
     
     #endregion
 }

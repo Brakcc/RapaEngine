@@ -1,7 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Rapa.RapaGame.RapaduraEngine.Entities;
 
-namespace Rapa.RapaGame.RapaduraEngine.Entities.Sprites.Animations;
+namespace Rapa.RapaGame.RapaduraEngine.Components.Sprites.Animations;
 
 public class AnimationManager
 {

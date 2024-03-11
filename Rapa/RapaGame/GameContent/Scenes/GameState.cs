@@ -5,8 +5,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Rapa.RapaGame.GameContent.PlayerInfo;
 using Rapa.RapaGame.RapaduraEngine.CameraManagement;
+using Rapa.RapaGame.RapaduraEngine.Components.Sprites.Animations;
 using Rapa.RapaGame.RapaduraEngine.Entities.Sprites;
-using Rapa.RapaGame.RapaduraEngine.Entities.Sprites.Animations;
 using Rapa.RapaGame.RapaduraEngine.InputSettings;
 using Rapa.RapaGame.RapaduraEngine.SceneManagement;
 

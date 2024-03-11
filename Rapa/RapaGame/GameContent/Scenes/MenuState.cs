@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Rapa.RapaGame.RapaduraEngine.Components.Sprites.Animations;
 using Rapa.RapaGame.RapaduraEngine.Entities.Sprites;
-using Rapa.RapaGame.RapaduraEngine.Entities.Sprites.Animations;
 using Rapa.RapaGame.RapaduraEngine.InputSettings;
 using Rapa.RapaGame.RapaduraEngine.SceneManagement;
 using static Rapa.RapaGame.Rapadura;
@@ -17,7 +17,7 @@ public sealed class MenuState : State
     #region fields
 
     private readonly List<Button> _components;
-    private readonly List<HollowSprite> _hollows;
+    private readonly List<NormalSprite> _hollows;
     private readonly SolidSprite _solid;
     private readonly GraphicsDeviceManager _graphicsDeviceManager;
 
@@ -80,14 +80,16 @@ public sealed class MenuState : State
             {"back", new Animation(_content.Load<Texture2D>("ArtContent/Tiles/TestCrystile"), 1, 1f, 0.5f) }
         };
 
-        _hollows = new List<HollowSprite>
+        var testText = _content.Load<Texture2D>("ArtContent/Tiles/TestCrystile");
+
+        _hollows = new List<NormalSprite>
         {
-            new(anims) {Position = new Vector2(CurrentScreenWidth / 2f, CurrentScreenHeight / 2f)},
-            new(anims) {Position = new Vector2(CurrentScreenWidth / 2f - 8, CurrentScreenHeight / 2f)},
-            new(anims) {Position = new Vector2(CurrentScreenWidth / 2f - 16, CurrentScreenHeight / 2f)},
-            new(anims) {Position = new Vector2(CurrentScreenWidth / 2f + 8, CurrentScreenHeight / 2f)},
-            new(anims) {Position = new Vector2(CurrentScreenWidth / 2f + 16, CurrentScreenHeight / 2f)},
-            new(anims) {Position = new Vector2(CurrentScreenWidth / 2f + 16, CurrentScreenHeight / 2f - 8)}
+            new(testText) {Position = new Vector2(CurrentScreenWidth / 2f, CurrentScreenHeight / 2f)},
+            new(testText) {Position = new Vector2(CurrentScreenWidth / 2f - 8, CurrentScreenHeight / 2f)},
+            new(testText) {Position = new Vector2(CurrentScreenWidth / 2f - 16, CurrentScreenHeight / 2f)},
+            new(testText) {Position = new Vector2(CurrentScreenWidth / 2f + 8, CurrentScreenHeight / 2f)},
+            new(testText) {Position = new Vector2(CurrentScreenWidth / 2f + 16, CurrentScreenHeight / 2f)},
+            new(testText) {Position = new Vector2(CurrentScreenWidth / 2f + 16, CurrentScreenHeight / 2f - 8)}
         };
         
         _solid = new SolidSprite(anims)

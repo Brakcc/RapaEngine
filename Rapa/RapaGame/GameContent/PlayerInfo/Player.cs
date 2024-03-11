@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using Rapa.RapaGame.RapaduraEngine.Components.Sprites.Animations;
 using Rapa.RapaGame.RapaduraEngine.Entities.Sprites;
-using Rapa.RapaGame.RapaduraEngine.Entities.Sprites.Animations;
 using Rapa.RapaGame.RapaduraEngine.InputSettings;
 
 namespace Rapa.RapaGame.GameContent.PlayerInfo;
