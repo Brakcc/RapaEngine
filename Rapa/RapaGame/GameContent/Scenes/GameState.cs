@@ -6,7 +6,8 @@ using Microsoft.Xna.Framework.Input;
 using Rapa.RapaGame.GameContent.PlayerInfo;
 using Rapa.RapaGame.RapaduraEngine.CameraManagement;
 using Rapa.RapaGame.RapaduraEngine.Components.Sprites.Animations;
-using Rapa.RapaGame.RapaduraEngine.Entities.Sprites;
+using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Props;
+using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Solids;
 using Rapa.RapaGame.RapaduraEngine.InputSettings;
 using Rapa.RapaGame.RapaduraEngine.SceneManagement;
 
@@ -16,9 +17,9 @@ public class GameState : State
 {
     private readonly GraphicsDeviceManager _graphManager;
 
-    private List<NormalSprite> _normalSprite;
+    private List<NormalProp> _normalSprite;
     
-    private List<HollowSprite> _hollowSprites;
+    private List<AnimatedProp> _hollowSprites;
     private List<SolidSprite> _solidSprites;
     private List<Parallaxe> parallaxes;
 
@@ -80,7 +81,7 @@ public class GameState : State
             speed = 10f
         };
 
-        _normalSprite = new List<NormalSprite>
+        _normalSprite = new List<NormalProp>
         {
             new(sands[0]) {Position = Vector2.Zero},
             new(sands[1]) {Position = new Vector2(8, 0)},
@@ -96,7 +97,7 @@ public class GameState : State
             new(_content.Load<Texture2D>("ArtContent/BackGrounds/TextTileMap"), player, 5f) { layer = 0.5f },
         };
 
-        _hollowSprites = new List<HollowSprite>
+        _hollowSprites = new List<AnimatedProp>
         {
             new(back) { Position = new Vector2(-86, -100) }, 
             new(back) { Position = new Vector2(-500, -500) }

@@ -2,7 +2,8 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Rapa.RapaGame.RapaduraEngine.Components.Sprites.Animations;
-using Rapa.RapaGame.RapaduraEngine.Entities.Sprites;
+using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Props;
+using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Solids;
 using Rapa.RapaGame.RapaduraEngine.InputSettings;
 
 namespace Rapa.RapaGame.GameContent.PlayerInfo;
@@ -72,7 +73,7 @@ public sealed class Player : SolidSprite
         
         //Console.WriteLine(velocity);
         Animate();
-        animationManager.Update(gameTime);
+        Animator.Update(gameTime);
 
         Position += velocity;
     }
@@ -106,13 +107,13 @@ public sealed class Player : SolidSprite
         switch (velocity.X)
         {
             case 0 when velocity.Y == 0:
-                animationManager.Play(animation["Idle"]);
+                Animator.Play(animation["Idle"]);
                 break;
             case > 0:
-                animationManager.Play(animation["WalkRight"]);
+                Animator.Play(animation["WalkRight"]);
                 break;
             case < 0:
-                animationManager.Play(animation["WalkLeft"]);
+                Animator.Play(animation["WalkLeft"]);
                 break;
         }
 

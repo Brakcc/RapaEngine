@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 
-namespace Rapa.RapaGame.RapaduraEngine.MapManagement;
+namespace Rapa.RapaGame.RapaduraEngine.SceneManagement.MapManagement;
 
 public class TileMapManager
 {

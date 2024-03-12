@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Rapa.RapaGame.RapaduraEngine.Components.Sprites;
 using Rapa.RapaGame.RapaduraEngine.Components.Sprites.Animations;
-using Rapa.RapaGame.RapaduraEngine.Entities.Sprites;
+using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Props;
+using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Solids;
 using Rapa.RapaGame.RapaduraEngine.InputSettings;
 using Rapa.RapaGame.RapaduraEngine.SceneManagement;
 using static Rapa.RapaGame.Rapadura;
@@ -17,7 +19,7 @@ public sealed class MenuState : State
     #region fields
 
     private readonly List<Button> _components;
-    private readonly List<NormalSprite> _hollows;
+    private readonly List<NormalProp> _hollows;
     private readonly SolidSprite _solid;
     private readonly GraphicsDeviceManager _graphicsDeviceManager;
 
@@ -81,16 +83,19 @@ public sealed class MenuState : State
         };
 
         var testText = _content.Load<Texture2D>("ArtContent/Tiles/TestCrystile");
+        var testText2 = _content.Load<Texture2D>("ArtContent/Tiles/SandTiles/TestSandTile1");
 
-        _hollows = new List<NormalSprite>
+        _hollows = new List<NormalProp>
         {
-            new(testText) {Position = new Vector2(CurrentScreenWidth / 2f, CurrentScreenHeight / 2f)},
+            new(testText) {Position = new Vector2(CurrentScreenWidth / 2f, CurrentScreenHeight / 2f), Layer = 3},
             new(testText) {Position = new Vector2(CurrentScreenWidth / 2f - 8, CurrentScreenHeight / 2f)},
             new(testText) {Position = new Vector2(CurrentScreenWidth / 2f - 16, CurrentScreenHeight / 2f)},
             new(testText) {Position = new Vector2(CurrentScreenWidth / 2f + 8, CurrentScreenHeight / 2f)},
             new(testText) {Position = new Vector2(CurrentScreenWidth / 2f + 16, CurrentScreenHeight / 2f)},
             new(testText) {Position = new Vector2(CurrentScreenWidth / 2f + 16, CurrentScreenHeight / 2f - 8)}
         };
+        
+        _hollows[1].AddComponent(new BaseSprite(_hollows[1], testText2, 1));
         
         _solid = new SolidSprite(anims)
         {

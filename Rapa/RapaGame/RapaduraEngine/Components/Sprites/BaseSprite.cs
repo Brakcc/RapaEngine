@@ -4,7 +4,7 @@ using Rapa.RapaGame.RapaduraEngine.Entities;
 
 namespace Rapa.RapaGame.RapaduraEngine.Components.Sprites;
 
-public class BaseSprite : Component
+public sealed class BaseSprite : Component
 {
     #region constructor
     

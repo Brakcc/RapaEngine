@@ -1,23 +1,24 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Rapa.RapaGame.RapaduraEngine.Components;
 using Rapa.RapaGame.RapaduraEngine.Components.Sprites;
 
-namespace Rapa.RapaGame.RapaduraEngine.Entities.Sprites;
+namespace Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Props;
 
-public class NormalSprite : Entity
+public class NormalProp : Entity
 {
     #region accessors
 
-    public float Layer { get; set; }
+    public float Layer { get; init; }
 
     #endregion
     
     #region constructor
     
-    public NormalSprite(Texture2D texture)
+    public NormalProp(Texture2D texture)
     {
         Components = new ComponentList(this, new List<Component>
         {
@@ -36,10 +37,14 @@ public class NormalSprite : Entity
 
         if (!Keyboard.GetState().IsKeyDown(Keys.P))
             return;
-        
-        if (Components.TryGetComponent<AnimatedSprite>(out var test))
-            test.SetVisible(false);
 
+        if (Components.TryGetComponent<AnimatedSprite>(out var test))
+        {
+            test.SetVisible(false);
+            return;
+        }
+        
+        Console.WriteLine("Nope");
     }
     
     #endregion

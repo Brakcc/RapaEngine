@@ -4,7 +4,8 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Rapa.RapaGame.GameContent.PlayerInfo;
 using Rapa.RapaGame.RapaduraEngine.Entities;
-using Rapa.RapaGame.RapaduraEngine.Entities.Sprites;
+using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Props;
+using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Solids;
 using Vector2 = Microsoft.Xna.Framework.Vector2;
 
 namespace Rapa.RapaGame.RapaduraEngine.CameraManagement;
@@ -16,7 +17,7 @@ public class Parallaxe : Entity
     private readonly bool _constantSpeed;
     private float _layer;
     private readonly float _scrollingSpeed;
-    private readonly List<NormalSprite> _sprites;
+    private readonly List<NormalProp> _sprites;
     private readonly SolidSprite _player;
     private float _speed;
     public float layer
@@ -27,7 +28,7 @@ public class Parallaxe : Entity
             _layer = value;
             foreach (var sprite in _sprites)
             {
-                sprite.Layer = _layer;
+                //sprite.Layer = _layer;
             }
         }
     }
@@ -41,12 +42,12 @@ public class Parallaxe : Entity
     private Parallaxe(IReadOnlyList<Texture2D> textures, SolidSprite player, float scrollingSpeed, bool constantSpeed = false)
     {
         _player = player;
-        _sprites = new List<NormalSprite>();
+        _sprites = new List<NormalProp>();
 
         for (var i = 0; i < textures.Count; i++) 
         {
             var texture = textures[i];
-            /*_sprites.Add(new NormalSprite(texture)
+            /*_sprites.Add(new NormalProp(texture)
             {
                 Position = new Vector2(-i * texture.Width - Math.Min(i, i + 1), Rapadura.CurrentScreenHeight - texture.Height)
             });*/

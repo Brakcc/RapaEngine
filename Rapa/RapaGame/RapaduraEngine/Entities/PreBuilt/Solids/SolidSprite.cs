@@ -5,13 +5,13 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Rapa.RapaGame.RapaduraEngine.Components.Sprites.Animations;
 
-namespace Rapa.RapaGame.RapaduraEngine.Entities.Sprites;
+namespace Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Solids;
 
 public class SolidSprite : Entity
 {
     #region fields
     
-    protected readonly AnimationManager animationManager;
+    protected readonly Animator Animator;
     protected readonly Dictionary<string, Animation> animation;
 
     #endregion
@@ -29,7 +29,7 @@ public class SolidSprite : Entity
     public SolidSprite(Dictionary<string, Animation> animations)
     {
         animation = animations;
-        animationManager = new AnimationManager(animation.First().Value, this);
+        Animator = new Animator(animation.First().Value, this);
     }
     
     #endregion
@@ -43,9 +43,9 @@ public class SolidSprite : Entity
 
     public override void Draw(SpriteBatch spriteBatch)
     {
-        if (animationManager != null)
+        if (Animator != null)
         {
-            animationManager.Draw(spriteBatch);
+            Animator.Draw(spriteBatch);
         }
         else throw new Exception("no animation set up");
     }

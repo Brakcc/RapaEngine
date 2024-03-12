@@ -4,11 +4,11 @@ using Rapa.RapaGame.RapaduraEngine.Entities;
 
 namespace Rapa.RapaGame.RapaduraEngine.Components.Sprites.Animations;
 
-public class AnimationManager
+public class Animator
 {
     #region constructor
     
-    public AnimationManager(Animation anim, Entity entityRef)
+    public Animator(Animation anim, Entity entityRef)
     {
         _animation = anim;
         _entityRef = entityRef;

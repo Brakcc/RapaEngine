@@ -84,3 +84,9 @@ C:\Users\c.strappazzonmarques\Desktop\Rapa\Rapa\bin\Debug\net6.0\Content\ArtCont
 C:\Users\c.strappazzonmarques\Desktop\Rapa\Rapa\bin\Debug\net6.0\Content\ArtContent\Tiles\SandTiles\TestSandTile4.xnb
 C:\Users\c.strappazzonmarques\Desktop\Rapa\Rapa\bin\Debug\net6.0\Content\ArtContent\Tiles\SandTiles\TestSandTile5.xnb
 C:\Users\c.strappazzonmarques\Desktop\Rapa\Rapa\bin\Debug\net6.0\Content\ArtContent\Tiles\SandTiles\TestSandTile6.xnb
+C:\Users\cleme\Documents\Projects\RapaEngine\Rapa\bin\Debug\net6.0\Content\ArtContent\Tiles\SandTiles\TestSandTile1.xnb
+C:\Users\cleme\Documents\Projects\RapaEngine\Rapa\bin\Debug\net6.0\Content\ArtContent\Tiles\SandTiles\TestSandTile2.xnb
+C:\Users\cleme\Documents\Projects\RapaEngine\Rapa\bin\Debug\net6.0\Content\ArtContent\Tiles\SandTiles\TestSandTile3.xnb
+C:\Users\cleme\Documents\Projects\RapaEngine\Rapa\bin\Debug\net6.0\Content\ArtContent\Tiles\SandTiles\TestSandTile4.xnb
+C:\Users\cleme\Documents\Projects\RapaEngine\Rapa\bin\Debug\net6.0\Content\ArtContent\Tiles\SandTiles\TestSandTile5.xnb
+C:\Users\cleme\Documents\Projects\RapaEngine\Rapa\bin\Debug\net6.0\Content\ArtContent\Tiles\SandTiles\TestSandTile6.xnb
