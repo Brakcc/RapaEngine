@@ -18,7 +18,7 @@ public class Parallaxe : Entity
     private float _layer;
     private readonly float _scrollingSpeed;
     private readonly List<NormalProp> _sprites;
-    private readonly SolidSprite _player;
+    private readonly Solid _player;
     private float _speed;
     public float layer
     {
@@ -33,13 +33,13 @@ public class Parallaxe : Entity
         }
     }
         
-    public Parallaxe(Texture2D texture, SolidSprite player, float scrollingSpeed, bool constantSpeed = false)
+    public Parallaxe(Texture2D texture, Solid player, float scrollingSpeed, bool constantSpeed = false)
         : this(new List<Texture2D> { texture, texture }, player, scrollingSpeed, constantSpeed)
     {
 
     }
 
-    private Parallaxe(IReadOnlyList<Texture2D> textures, SolidSprite player, float scrollingSpeed, bool constantSpeed = false)
+    private Parallaxe(IReadOnlyList<Texture2D> textures, Solid player, float scrollingSpeed, bool constantSpeed = false)
     {
         _player = player;
         _sprites = new List<NormalProp>();

@@ -117,7 +117,7 @@ public class ComponentList
                     _toAdd.Add(component);
                 break;
             case CompLockMode.DefaultError:
-                Console.WriteLine("Cant modify the componentList in the mode");
+                Console.WriteLine("Cant modify the componentLists in the mode");
                 break;
             default:
                 throw new Exception("How did u managed to get this error wtf ?");
@@ -139,7 +139,7 @@ public class ComponentList
                     _toRemove.Add(component);
                 break;
             case CompLockMode.DefaultError:
-                Console.WriteLine("Cant modify the componentList in the mode");
+                Console.WriteLine("Cant modify the componentLists in the mode");
                 break;
             default:
                 throw new Exception("How did u managed to get this error wtf ?");

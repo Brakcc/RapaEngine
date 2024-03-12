@@ -45,6 +45,8 @@ public class NormalProp : Entity
         }
         
         Console.WriteLine("Nope");
+        
+        base.Update(gameTime);
     }
     
     #endregion

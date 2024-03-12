@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/cleme/Documents/Projects/RapaEngine/Rapa/Content/ArtContent/Buttons/TestButton.png</SourceFile>
-  <SourceTime>2024-03-04T01:44:51.5008679+01:00</SourceTime>
-  <DestFile>C:/Users/cleme/Documents/Projects/RapaEngine/Rapa/Content/bin/DesktopGL/Content/ArtContent/Buttons/TestButton.xnb</DestFile>
-  <DestTime>2024-03-12T00:22:16.3192006+01:00</DestTime>
+  <SourceFile>C:/Users/c.strappazzonmarques/Desktop/Rapa/Rapa/Content/ArtContent/Buttons/TestButton.png</SourceFile>
+  <SourceTime>2024-03-04T10:05:22.3366596+01:00</SourceTime>
+  <DestFile>C:/Users/c.strappazzonmarques/Desktop/Rapa/Rapa/Content/bin/DesktopGL/Content/ArtContent/Buttons/TestButton.xnb</DestFile>
+  <DestTime>2024-03-12T11:44:10.084541+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T13:44:56+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

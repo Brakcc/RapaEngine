@@ -7,7 +7,7 @@ using Rapa.RapaGame.RapaduraEngine.Components.Sprites.Animations;
 
 namespace Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Solids;
 
-public class SolidSprite : Entity
+public class Solid : Entity
 {
     #region fields
     
@@ -26,7 +26,7 @@ public class SolidSprite : Entity
 
     public Rectangle rectangle => new((int)Position.X, (int)Position.Y, animation.Values.First()._frameWidth, animation.Values.First()._frameHeight);
 
-    public SolidSprite(Dictionary<string, Animation> animations)
+    public Solid(Dictionary<string, Animation> animations)
     {
         animation = animations;
         Animator = new Animator(animation.First().Value, this);
@@ -59,25 +59,25 @@ public class SolidSprite : Entity
 
     #region Collision
     
-    protected bool IsTouchingLeft(SolidSprite sprite)
+    protected bool IsTouchingLeft(Solid sprite)
         => rectangle.Right + velocity.X > sprite.rectangle.Left &&
            rectangle.Left < sprite.rectangle.Left && 
            rectangle.Bottom > sprite.rectangle.Top &&
            rectangle.Top < sprite.rectangle.Bottom;
     
-    protected bool IsTouchingRight(SolidSprite sprite)
+    protected bool IsTouchingRight(Solid sprite)
        => rectangle.Left + velocity.X < sprite.rectangle.Right &&
           rectangle.Right > sprite.rectangle.Right &&
           rectangle.Bottom > sprite.rectangle.Top &&
           rectangle.Top < sprite.rectangle.Bottom;
     
-    protected bool IsTouchingTop(SolidSprite sprite)
+    protected bool IsTouchingTop(Solid sprite)
         => rectangle.Bottom + velocity.X > sprite.rectangle.Top &&
            rectangle.Top < sprite.rectangle.Top &&
            rectangle.Right > sprite.rectangle.Left &&
            rectangle.Left < sprite.rectangle.Right;
     
-    protected bool IsTouchingBottom(SolidSprite sprite) 
+    protected bool IsTouchingBottom(Solid sprite) 
         => rectangle.Top + velocity.X < sprite.rectangle.Bottom &&
            rectangle.Bottom > sprite.rectangle.Bottom &&
            rectangle.Right > sprite.rectangle.Left &&

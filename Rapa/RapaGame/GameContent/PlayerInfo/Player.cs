@@ -8,7 +8,7 @@ using Rapa.RapaGame.RapaduraEngine.InputSettings;
 
 namespace Rapa.RapaGame.GameContent.PlayerInfo;
 
-public sealed class Player : SolidSprite
+public sealed class Player : Solid
 {
     #region fields
     
@@ -31,7 +31,7 @@ public sealed class Player : SolidSprite
 
     #region methodes
     
-    public void Update(GameTime gameTime, List<SolidSprite> sprites)
+    public void Update(GameTime gameTime, List<Solid> sprites)
     {
         if (sprites != null)
         {

@@ -43,6 +43,8 @@ public sealed class AnimatedProp : Entity
         {
             _canMove = true;
         }
+        
+        base.Update(gameTime);
     }
     
     #endregion

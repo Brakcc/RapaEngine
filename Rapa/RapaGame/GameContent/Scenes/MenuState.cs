@@ -20,7 +20,7 @@ public sealed class MenuState : State
 
     private readonly List<Button> _components;
     private readonly List<NormalProp> _hollows;
-    private readonly SolidSprite _solid;
+    private readonly Solid _solid;
     private readonly GraphicsDeviceManager _graphicsDeviceManager;
 
     #endregion
@@ -97,7 +97,7 @@ public sealed class MenuState : State
         
         _hollows[1].AddComponent(new BaseSprite(_hollows[1], testText2, 1));
         
-        _solid = new SolidSprite(anims)
+        _solid = new Solid(anims)
         {
             Position = new Vector2(CurrentScreenWidth / 2f - 8, CurrentScreenHeight / 2f)
         };

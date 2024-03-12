@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Rapa.RapaGame.RapaduraEngine.Components;
 
@@ -19,13 +18,18 @@ public abstract class Entity
 
     protected Entity()
     {
-        Console.WriteLine("Added");
+        //lien avec EntityPool à faire pour tracker l'entity
     }
 
     #endregion
     
     #region methodes
 
+    public virtual void Init()
+    {
+        Components.InitList();
+    }
+    
     public virtual void Update(GameTime gameTime)
     {
         Components.Update(gameTime);
@@ -34,6 +38,11 @@ public abstract class Entity
     public virtual void Draw(SpriteBatch spriteBatch)
     {
         Components.Draw(spriteBatch);
+    }
+
+    public virtual void End()
+    {
+        Components.EndList();
     }
     
     public void AddComponent(Component comp)

@@ -20,7 +20,7 @@ public class GameState : State
     private List<NormalProp> _normalSprite;
     
     private List<AnimatedProp> _hollowSprites;
-    private List<SolidSprite> _solidSprites;
+    private List<Solid> _solidSprites;
     private List<Parallaxe> parallaxes;
 
     private float timer;
@@ -103,7 +103,7 @@ public class GameState : State
             new(back) { Position = new Vector2(-500, -500) }
         };
 
-        _solidSprites = new List<SolidSprite>
+        _solidSprites = new List<Solid>
         {
             new(front) { Position = new Vector2(0, 0) },
             new(front) { Position = new Vector2(24, 0) },
