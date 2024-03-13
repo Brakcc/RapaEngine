@@ -19,15 +19,17 @@ public abstract class Entity
     protected Entity()
     {
         //lien avec EntityPool à faire pour tracker l'entity
+        Start();
     }
 
     #endregion
     
     #region methodes
 
-    public virtual void Init()
+    private void Start() => Init();
+    protected virtual void Init()
     {
-        Components.InitList();
+        Components?.InitList();
     }
     
     public virtual void Update(GameTime gameTime)
@@ -42,7 +44,7 @@ public abstract class Entity
 
     public virtual void End()
     {
-        Components.EndList();
+        Components?.EndList();
     }
     
     public void AddComponent(Component comp)

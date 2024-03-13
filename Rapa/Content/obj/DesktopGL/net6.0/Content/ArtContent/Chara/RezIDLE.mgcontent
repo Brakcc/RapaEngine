@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/c.strappazzonmarques/Desktop/Rapa/Rapa/Content/ArtContent/Chara/RezIDLE.jpg</SourceFile>
-  <SourceTime>2024-02-06T10:20:42.9574458+01:00</SourceTime>
-  <DestFile>C:/Users/c.strappazzonmarques/Desktop/Rapa/Rapa/Content/bin/DesktopGL/Content/ArtContent/Chara/RezIDLE.xnb</DestFile>
-  <DestTime>2024-03-12T11:44:10.1736626+01:00</DestTime>
+  <SourceFile>C:/Users/cleme/Documents/Projects/RapaEngine/Rapa/Content/ArtContent/Chara/RezIDLE.jpg</SourceFile>
+  <SourceTime>2024-02-07T00:49:08.4854218+01:00</SourceTime>
+  <DestFile>C:/Users/cleme/Documents/Projects/RapaEngine/Rapa/Content/bin/DesktopGL/Content/ArtContent/Chara/RezIDLE.xnb</DestFile>
+  <DestTime>2024-03-12T23:36:47.6189372+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T13:44:56+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

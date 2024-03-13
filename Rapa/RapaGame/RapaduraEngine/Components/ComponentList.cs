@@ -52,6 +52,9 @@ public class ComponentList
 
     public void InitList()
     {
+        if (_components == null)
+            return;
+        
         foreach (var comp in _components)
         {
             comp.Init();
@@ -96,6 +99,9 @@ public class ComponentList
 
     public void EndList()
     {
+        if (_components == null)
+            return;
+        
         foreach (var comp in _components)
         {
             comp.End();

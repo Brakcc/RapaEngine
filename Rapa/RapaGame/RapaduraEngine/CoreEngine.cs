@@ -5,6 +5,7 @@ using System.Runtime;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Rapa.RapaGame.RapaduraEngine.Mathematics;
 using Rapa.RapaGame.RapaduraEngine.SceneManagement;
 
 namespace Rapa.RapaGame.RapaduraEngine;
@@ -15,7 +16,9 @@ public class CoreEngine : Game
 	
 	public static CoreEngine Instance { get; private set; }
 
-	public static GraphicsDeviceManager Graphics { get; private set; }
+	protected static GraphicsDeviceManager Graphics { get; private set; }
+
+	protected static SpriteBatch SpriteBatch { get; private set; }
 
 	private static int BaseRenderWidth { get; set; }
 
@@ -55,7 +58,7 @@ public class CoreEngine : Game
 
 	private static Viewport Viewport { get; set; }
 	
-	public static Random Random { get; set; }
+	public static Random Random { get; private set; }
 	
 	#endregion
 
@@ -105,6 +108,9 @@ public class CoreEngine : Game
 		IsMouseVisible = true;
 		ExitOnEscapeKeypress = false;
 		GCSettings.LatencyMode = GCLatencyMode.SustainedLowLatency;
+		SpriteBatch = new SpriteBatch(GraphicsDevice);
+		
+		Drawer.InitDrawer(SpriteBatch);
 	}
 
 	#endregion

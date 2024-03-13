@@ -134,6 +134,18 @@
 /processorParam:TextureFormat=Color
 /build:ArtContent/Chara/walljump2.png
 
+#begin ArtContent/DefaultPixel.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:ArtContent/DefaultPixel.png
+
 #begin ArtContent/Fonts/fontTest.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor

@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Rapa.RapaGame.RapaduraEngine;
 using Rapa.RapaGame.RapaduraEngine.Components.Sprites;
 using Rapa.RapaGame.RapaduraEngine.Components.Sprites.Animations;
 using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Props;
 using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Solids;
 using Rapa.RapaGame.RapaduraEngine.InputSettings;
+using Rapa.RapaGame.RapaduraEngine.Mathematics;
 using Rapa.RapaGame.RapaduraEngine.SceneManagement;
 using static Rapa.RapaGame.Rapadura;
 using static Rapa.RapaGame.RapaduraEngine.CoreEngine;
@@ -103,6 +105,8 @@ public sealed class MenuState : State
         };
         
         _graphicsDeviceManager = graphManager;
+
+        _pos = new Vector2(160, 5);
     }
     
     #endregion
@@ -142,6 +146,8 @@ public sealed class MenuState : State
             component.Draw(spriteBatch);
         }
         
+        Drawer.DrawParticule(_pos);
+        
         spriteBatch.End();
     }
     public override void Update(GameTime gameTime)
@@ -156,11 +162,27 @@ public sealed class MenuState : State
         {
             component.Update(gameTime);
         }
+
+        if (_timer == 0)
+        {
+            _pos += new Vector2(CoreEngine.Random.Next(-1, 2), 1);
+            _timer = 25;
+        }
+
+        _timer--;
     }
     public override void PostUpdate(GameTime gameTime)
     {
         //not used now
     }
     
+    #endregion
+
+    #region fields
+
+    private Vector2 _pos;
+
+    private float _timer;
+
     #endregion
 }

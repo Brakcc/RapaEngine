@@ -53,12 +53,11 @@ public class Rapadura : CoreEngine
 
     protected override void LoadContent()
     {
-        spriteBatch = new SpriteBatch(GraphicsDevice);
     }
 
     private void AllStates()
     {
-        currentState = new MenuState(this, Graphics.GraphicsDevice, Content, spriteBatch, Graphics);
+        currentState = new MenuState(this, Graphics.GraphicsDevice, Content, SpriteBatch, Graphics);
     }
     
     public void ChangeState(State state)
@@ -87,20 +86,19 @@ public class Rapadura : CoreEngine
 
     protected override void RenderCore()
     {
-        currentState.Draw(spriteBatch);
+        currentState.Draw(SpriteBatch);
         
         GraphicsDevice.SetRenderTarget(null);
         GraphicsDevice.Clear(Color.Black);
-        spriteBatch.Begin(samplerState: SamplerState.PointClamp);
-        spriteBatch.Draw(RenderScreen, RenderRect, Color.White);
-        spriteBatch.End();
+        SpriteBatch.Begin(samplerState: SamplerState.PointClamp);
+        SpriteBatch.Draw(RenderScreen, RenderRect, Color.White);
+        SpriteBatch.End();
     }
     
     #endregion
     
     #region fields
     
-    private SpriteBatch spriteBatch;
     private State currentState;
     private State nextState;
 
