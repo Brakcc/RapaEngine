@@ -8,92 +8,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f0714bac-edba-468d-9430-461c15a3c0e4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Rapa/Content/ArtContent/DefaultPixel.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Rapa/Content/bin/DesktopGL/ArtContent/DefaultPixel.xnb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Rapa/Content/bin/DesktopGL/Content/ArtContent/DefaultPixel.xnb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/ArtContent/DefaultPixel.mgcontent" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/DefaultPixel.mgcontent" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Mathematics/Calculus.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Mathematics/Drawer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Rapa/bin/Debug/net6.0/Content/ArtContent/DefaultPixel.xnb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Physics/Lighting/Light.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/SceneManagement/Packers/CollisionsTracker.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Rapa/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Rapa/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa.sln.DotSettings" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa.sln.DotSettings" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Content/Content.mgcb" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/Content.mgcb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Content/bin/DesktopGL/ArtContent/Chara/TestChara.xnb" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/bin/DesktopGL/ArtContent/Chara/TestChara.xnb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Content/bin/DesktopGL/ArtContent/Tiles/SandTiles/TestSandTile6.xnb" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/bin/DesktopGL/ArtContent/Tiles/SandTiles/TestSandTile6.xnb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Content/bin/DesktopGL/ArtContent/Tiles/TestCrystile.xnb" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/bin/DesktopGL/ArtContent/Tiles/TestCrystile.xnb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/.mgstats" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/.mgstats" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/ArtContent/BackGrounds/BackGround1.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/ArtContent/BackGrounds/BackGround1.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/ArtContent/BackGrounds/TextTileMap.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/ArtContent/BackGrounds/TextTileMap.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/ArtContent/BackGrounds/UnitTileTest.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/ArtContent/BackGrounds/UnitTileTest.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/ArtContent/Buttons/Buttons.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/ArtContent/Buttons/Buttons.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/ArtContent/Buttons/TestButton.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/ArtContent/Buttons/TestButton.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/ArtContent/Chara/CharaBaseIdle.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/ArtContent/Chara/CharaBaseIdle.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/ArtContent/Chara/RezIDLE.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/ArtContent/Chara/RezIDLE.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/ArtContent/Chara/TestChara.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/ArtContent/Chara/TestChara.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/ArtContent/Chara/run1.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/ArtContent/Chara/run1.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/ArtContent/Chara/walljump2.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/ArtContent/Chara/walljump2.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/ArtContent/Fonts/fontTest.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/ArtContent/Fonts/fontTest.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/ArtContent/Shaders/File.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/ArtContent/Shaders/File.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/ArtContent/TextTileMap.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/ArtContent/TextTileMap.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/ArtContent/Tiles/SandTiles/TestSandTile1.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/ArtContent/Tiles/SandTiles/TestSandTile1.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/ArtContent/Tiles/SandTiles/TestSandTile2.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/ArtContent/Tiles/SandTiles/TestSandTile2.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/ArtContent/Tiles/SandTiles/TestSandTile3.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/ArtContent/Tiles/SandTiles/TestSandTile3.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/ArtContent/Tiles/SandTiles/TestSandTile4.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/ArtContent/Tiles/SandTiles/TestSandTile4.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/ArtContent/Tiles/SandTiles/TestSandTile5.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/ArtContent/Tiles/SandTiles/TestSandTile5.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/ArtContent/Tiles/SandTiles/TestSandTile6.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/ArtContent/Tiles/SandTiles/TestSandTile6.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/ArtContent/Tiles/TestCrystile.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/ArtContent/Tiles/TestCrystile.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/.mgstats" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/.mgstats" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/BackGrounds/BackGround1.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/BackGrounds/BackGround1.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/BackGrounds/TextTileMap.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/BackGrounds/TextTileMap.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/BackGrounds/UnitTileTest.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/BackGrounds/UnitTileTest.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/Buttons/Buttons.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/Buttons/Buttons.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/Buttons/TestButton.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/Buttons/TestButton.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/Chara/CharaBaseIdle.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/Chara/CharaBaseIdle.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/Chara/RezIDLE.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/Chara/RezIDLE.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/Chara/TestChara.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/Chara/TestChara.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/Chara/run1.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/Chara/run1.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/Chara/walljump2.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/Chara/walljump2.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/Fonts/fontTest.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/Fonts/fontTest.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/Shaders/File.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/Shaders/File.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/TextTileMap.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/TextTileMap.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/Tiles/SandTiles/TestSandTile1.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/Tiles/SandTiles/TestSandTile1.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/Tiles/SandTiles/TestSandTile2.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/Tiles/SandTiles/TestSandTile2.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/Tiles/SandTiles/TestSandTile3.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/Tiles/SandTiles/TestSandTile3.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/Tiles/SandTiles/TestSandTile4.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/Tiles/SandTiles/TestSandTile4.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/Tiles/SandTiles/TestSandTile5.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/Tiles/SandTiles/TestSandTile5.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/Tiles/SandTiles/TestSandTile6.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/Tiles/SandTiles/TestSandTile6.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/Tiles/TestCrystile.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/Tiles/TestCrystile.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/GameContent/Scenes/MenuState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/GameContent/Scenes/MenuState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/Rapadura.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/Rapadura.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Calculus/Drawer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Calculus/Ease.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Mathematics/Ease.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Components/ComponentList.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Components/ComponentList.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/CoreEngine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/CoreEngine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Entities/Entity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Entities/Entity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Mathematics/Calculus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Mathematics/Calculus.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Mathematics/Ease.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Mathematics/Ease.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/bin/Debug/net6.0/Rapa.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/bin/Debug/net6.0/Rapa.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/bin/Debug/net6.0/Rapa.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/bin/Debug/net6.0/Rapa.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/bin/Debug/net6.0/Rapa.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/bin/Debug/net6.0/Rapa.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.csproj.AssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.csproj.FileListAbsolute.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.genruntimeconfig.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.genruntimeconfig.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/apphost.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/ref/Rapa.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/ref/Rapa.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/refint/Rapa.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/refint/Rapa.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/obj/Rapa.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Rapa.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/obj/Rapa.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Rapa.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/rider.project.model.nuget.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,9 +31,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/777f4218e4a0469dbc075c5f54bf5f721c5a00/0c/c19f0e8a/GraphicsAdapter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/02e45a41b756dd147fc39297df7649d86fa245e7/src/coreclr/System.Private.CoreLib/src/System/Math.CoreCLR.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/02e45a41b756dd147fc39297df7649d86fa245e7/src/libraries/System.Private.CoreLib/src/System/Math.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/777f4218e4a0469dbc075c5f54bf5f721c5a00/ec/5b8e241b/Game.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Entities/PreBuilt/Solids/SolidSprite.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
@@ -199,6 +126,7 @@
       <workItem from="1710234572558" duration="5288000" />
       <workItem from="1710278922189" duration="4538000" />
       <workItem from="1710291641654" duration="5369000" />
+      <workItem from="1710367962141" duration="6570000" />
     </task>
     <servers />
   </component>
