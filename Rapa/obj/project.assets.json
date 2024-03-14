@@ -102,19 +102,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\cleme\\.nuget\\packages\\": {}
+    "C:\\Users\\c.strappazzonmarques\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\cleme\\Documents\\Projects\\RapaEngine\\Rapa\\Rapa.csproj",
+      "projectUniqueName": "C:\\Users\\c.strappazzonmarques\\Desktop\\Rapa\\Rapa\\Rapa.csproj",
       "projectName": "Rapa",
-      "projectPath": "C:\\Users\\cleme\\Documents\\Projects\\RapaEngine\\Rapa\\Rapa.csproj",
-      "packagesPath": "C:\\Users\\cleme\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\cleme\\Documents\\Projects\\RapaEngine\\Rapa\\obj\\",
+      "projectPath": "C:\\Users\\c.strappazzonmarques\\Desktop\\Rapa\\Rapa\\Rapa.csproj",
+      "packagesPath": "C:\\Users\\c.strappazzonmarques\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\c.strappazzonmarques\\Desktop\\Rapa\\Rapa\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\cleme\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\c.strappazzonmarques\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -165,7 +165,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }
