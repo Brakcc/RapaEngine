@@ -4,7 +4,7 @@ namespace Rapa.RapaGame.RapaduraEngine.Components.Colliders.ColliderTypes;
 
 public class BoxCollider : Collider
 {
-    public BoxCollider(Entity entityRef) : base(entityRef)
+    public BoxCollider(Entity entityRef, int width, int height) : base(entityRef, width, height)
     {
     }
 }
