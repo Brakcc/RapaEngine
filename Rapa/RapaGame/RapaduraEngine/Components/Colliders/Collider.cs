@@ -1,4 +1,5 @@
-﻿using Rapa.RapaGame.RapaduraEngine.Entities;
+﻿using Microsoft.Xna.Framework;
+using Rapa.RapaGame.RapaduraEngine.Entities;
 
 namespace Rapa.RapaGame.RapaduraEngine.Components.Colliders;
 
@@ -8,29 +9,212 @@ public abstract class Collider
 
     public Entity EntityRef { get; private init; }
     
-    public int Width { get; private init; }
+    public abstract float Width { get; set; }
     
-    public int Height { get; private init; }
+    public abstract float Height { get; set; }
+    
+    public abstract float Top { get; protected set; }
+    
+    public abstract float Bottom { get; protected set; }
+    
+    public abstract float Right { get; protected set; }
+    
+    public abstract float Left { get; protected set; }
 
+    public float CenterX
+    {
+        get => Left + Width / 2;
+        private set => Left = value - Width / 2;
+    }
+
+    public float CenterY
+    {
+        get => Top + Height / 2;
+        private set => Top = value - Height / 2;
+    }
+
+    public Vector2 TopLeft
+    {
+        get => new(Left, Top);
+        set
+        {
+            Left = value.X;
+            Top = value.Y;
+        }
+    }
+
+    public Vector2 TopCenter
+    {
+        get => new(Center.X, Top);
+        set
+        {
+            CenterX = value.X;
+            Top = value.Y;
+        }
+    }
+
+    public Vector2 TopRight
+    {
+        get => new(Right, Top);
+        set
+        {
+            Right = value.X;
+            Top = value.Y;
+        }
+    }
+
+    public Vector2 CenterLeft
+    {
+        get => new(Left, CenterY);
+        set
+        {
+            Left = value.X;
+            CenterY = value.Y;
+        }
+    }
+    
+    public Vector2 Center
+    {
+        get => new(CenterX, CenterY);
+        set
+        {
+            CenterX = value.X;
+            CenterY = value.Y;
+        }
+    }
+
+    public Vector2 CenterRight
+    {
+        get => new(Right, CenterY);
+        set
+        {
+            Right = value.X;
+            CenterY = value.Y;
+        }
+    }
+
+    public Vector2 BottomLeft
+    {
+        get => new(Left, Bottom);
+        set
+        {
+            Left = value.X;
+            Bottom = value.Y;
+        }
+    }
+
+    public Vector2 BottomCenter
+    {
+        get => new(CenterX, Bottom);
+        set
+        {
+            CenterX = value.X;
+            Bottom = value.Y;
+        }
+    }
+
+    public Vector2 BottomRight
+    {
+        get => new(Right, Bottom);
+        set
+        {
+            Right = value.X;
+            Bottom = value.Y;
+        }
+    }
+
+    public Vector2 EntityDepPosition => EntityRef?.Position ?? position;
+
+    public float EntityDepX
+    {
+        get
+        {
+            if (EntityRef != null)
+                return position.X + EntityRef.X;
+
+            return position.X;
+        }
+    }
+    
+    public float EntityDepY
+    {
+        get
+        {
+            if (EntityRef != null)
+                return position.Y + EntityRef.Y;
+
+            return position.Y;
+        }
+    }
+    
+    public float EntityDepTop
+    {
+        get
+        {
+            if (EntityRef != null)
+                return Top + EntityRef.Y;
+
+            return Top;
+        }
+    }
+    
+    public float EntityDepBottom
+    {
+        get
+        {
+            if (EntityRef != null)
+                return Bottom + EntityRef.Y;
+
+            return Bottom;
+        }
+    }
+    
+    public float EntityDepLeft
+    {
+        get
+        {
+            if (EntityRef != null)
+                return Left + EntityRef.X;
+
+            return Left;
+        }
+    }
+    
+    public float EntityDepRight
+    {
+        get
+        {
+            if (EntityRef != null)
+                return Right + EntityRef.X;
+
+            return Right;
+        }
+    }
+
+    public Rectangle Boundaries => new Rectangle((int)EntityDepX, (int)EntityDepY, (int)Width, (int)Height);
+    
     #endregion
     
     #region constructor
     
-    protected Collider(Entity entityRef, int width, int height)
+    protected Collider(Entity entityRef, float xPos = 0, float yPos = 0)
     {
         EntityRef = entityRef;
-        Width = width;
-        Height = height;
+        position.X = xPos;
+        position.Y = yPos;
     }
     
     #endregion
 
     #region methodes
 
-    public void Collide()
-    {
-        
-    }
+    public abstract void Collide();
+
+    #endregion
+
+    #region fields
+
+    protected Vector2 position;
 
     #endregion
 }

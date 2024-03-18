@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Rapa.RapaGame.RapaduraEngine.Components;
+using Rapa.RapaGame.RapaduraEngine.Components.Colliders;
 
 namespace Rapa.RapaGame.RapaduraEngine.Entities;
 
@@ -8,9 +9,263 @@ public abstract class Entity
 {
     #region properties
 
-    public Vector2 Position { get; set; }
-
     protected ComponentList Components { get; init; }
+    
+    public float X
+    {
+        get => Position.X;
+        set => Position.X = value;
+    }
+    
+    public float Y
+    {
+        get => Position.Y;
+        set => Position.Y = value;
+    }
+
+    public Collider Collider
+    {
+        get => _collider;
+        set => _collider = value;
+    }
+
+    public float Width
+    {
+        get
+        {
+            if (Collider == null)
+                return 0;
+
+            return Collider.Width;
+        }
+    }
+
+    public float Height
+    {
+        get
+        {
+            if (Collider == null)
+                return 0;
+
+            return Collider.Height;
+        }
+    }
+
+    public float Top
+    {
+        get
+        {
+            if (Collider == null)
+                return Position.Y;
+
+            return Position.Y + Collider.Top;
+        }
+        set
+        {
+            if (Collider == null)
+            {
+                Position.Y = value;
+                return;
+            }
+
+            Position.Y = value - Collider.Top;
+        }
+    }
+
+    public float Bottom
+    {
+        get
+        {
+            if (Collider == null)
+                return Position.Y;
+
+            return Position.Y + Collider.Bottom;
+        }
+        set
+        {
+            if (Collider == null)
+            {
+                Position.Y = value;
+                return;
+            }
+
+            Position.Y = value - Collider.Bottom;
+        }
+    }
+    
+    public float Left
+    {
+        get
+        {
+            if (Collider == null)
+                return Position.X;
+
+            return Position.X + Collider.Left;
+        }
+        set
+        {
+            if (Collider == null)
+            {
+                Position.X = value;
+                return;
+            }
+
+            Position.X = value - Collider.Left;
+        }
+    }
+    
+    public float Right
+    {
+        get
+        {
+            if (Collider == null)
+                return Position.X;
+
+            return Position.X + Collider.Right;
+        }
+        set
+        {
+            if (Collider == null)
+            {
+                Position.X = value;
+                return;
+            }
+
+            Position.X = value - Collider.Right;
+        }
+    }
+
+    public float CenterX
+    {
+        get
+        {
+            if (Collider == null)
+                return Position.X;
+
+            return Position.X + Collider.CenterX;
+        }
+        set
+        {
+            if (Collider == null)
+            {
+                Position.X = value;
+                return;
+            }
+
+            Position.X = value - Collider.CenterX;
+        }
+    }
+    
+    public float CenterY
+    {
+        get
+        {
+            if (Collider == null)
+                return Position.Y;
+
+            return Position.Y + Collider.CenterY;
+        }
+        set
+        {
+            if (Collider == null)
+            {
+                Position.Y = value;
+                return;
+            }
+
+            Position.Y = value - Collider.CenterY;
+        }
+    }
+
+    public Vector2 TopLeft
+    {
+        get => new Vector2(Left, Top);
+        set
+        {
+            Left = value.X;
+            Top = value.Y;
+        }
+    }
+    
+    public Vector2 TopCenter
+    {
+        get => new Vector2(CenterX, Top);
+        set
+        {
+            CenterX = value.X;
+            Top = value.Y;
+        }
+    }
+    
+    public Vector2 TopRight
+    {
+        get => new Vector2(Right, Top);
+        set
+        {
+            Right = value.X;
+            Top = value.Y;
+        }
+    }
+    
+    public Vector2 CenterLeft
+    {
+        get => new Vector2(Left, CenterY);
+        set
+        {
+            Left = value.X;
+            CenterY = value.Y;
+        }
+    }
+    
+    public Vector2 Center
+    {
+        get => new Vector2(CenterX, CenterY);
+        set
+        {
+            CenterX = value.X;
+            CenterY = value.Y;
+        }
+    }
+    
+    public Vector2 CenterRight
+    {
+        get => new Vector2(Right, CenterY);
+        set
+        {
+            Right = value.X;
+            CenterY = value.Y;
+        }
+    }
+    
+    public Vector2 BottomLeft
+    {
+        get => new Vector2(Left, Bottom);
+        set
+        {
+            Left = value.X;
+            Bottom = value.Y;
+        }
+    }
+    
+    public Vector2 BottomCenter
+    {
+        get => new Vector2(CenterX, Bottom);
+        set
+        {
+            CenterX = value.X;
+            Bottom = value.Y;
+        }
+    }
+    
+    public Vector2 BottomRight
+    {
+        get => new Vector2(Right, Bottom);
+        set
+        {
+            Right = value.X;
+            Bottom = value.Y;
+        }
+    }
     
     #endregion
 
@@ -57,5 +312,15 @@ public abstract class Entity
         Components.RemoveComponent(comp);
     }
     
+    #endregion
+    
+    #region fields
+
+    public Vector2 Position;
+
+    private Collider _collider;
+
+    public bool collidable;
+
     #endregion
 }
