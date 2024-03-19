@@ -193,7 +193,7 @@ public abstract class Collider
         }
     }
 
-    public Rectangle Boundaries => new Rectangle((int)EntityDepX, (int)EntityDepY, (int)Width, (int)Height);
+    public Rectangle Boundaries => new((int)EntityDepX, (int)EntityDepY, (int)Width, (int)Height);
     
     #endregion
     

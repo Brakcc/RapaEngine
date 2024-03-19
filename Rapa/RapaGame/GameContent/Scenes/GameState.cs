@@ -86,12 +86,12 @@ public class GameState : State
 
         _normalSprite = new List<NormalProp>
         {
-            new(sands[0], 8, 8) {Position = Vector2.Zero},
-            new(sands[1], 8, 8) {Position = new Vector2(8, 0)},
-            new(sands[2], 8, 8) {Position = new Vector2(16, 0)},
-            new(sands[3], 8, 8) {Position = new Vector2(24, 0)},
-            new(sands[4], 8, 8) {Position = new Vector2(32, 0)},
-            new(sands[5], 8, 8) {Position = new Vector2(40, 0)}
+            new(sands[0], 8, 8, debugMode:true) {Position = Vector2.Zero},
+            new(sands[1], 8, 8, debugMode:true) {Position = new Vector2(8, 0)},
+            new(sands[2], 8, 8, debugMode:true) {Position = new Vector2(16, 0)},
+            new(sands[3], 8, 8, debugMode:true) {Position = new Vector2(24, 0)},
+            new(sands[4], 8, 8, debugMode:true) {Position = new Vector2(32, 0)},
+            new(sands[5], 8, 8, debugMode:true) {Position = new Vector2(40, 0)}
         };
 
         parallaxes = new List<Parallaxe>
@@ -102,39 +102,24 @@ public class GameState : State
 
         _hollowSprites = new List<AnimatedProp>
         {
-            new(back, 8, 8) { Position = new Vector2(50, 0) }, 
-            new(back, 8, 8) { Position = new Vector2(60, 0) }
+            new(back, 8, 8, debugMode:true) { Position = new Vector2(50, 0) }, 
+            new(back, 8, 8, debugMode:true) { Position = new Vector2(60, 0) }
         };
 
         _solidSprites = new List<Solid>
         {
-            new(testText) { Position = new Vector2(0, 8) },
-            new(testText) { Position = new Vector2(24, 8) },
-            new(testText) { Position = new Vector2(48, 8) },
-            new(testText) { Position = new Vector2(72, 8) },
-            new(testText) { Position = new Vector2(96, 8) },
-            new(testText) { Position = new Vector2(120, 8) }
+            new(testText, debugMode:true) { Position = new Vector2(0, 8) },
+            new(testText, debugMode:true) { Position = new Vector2(24, 8) },
+            new(testText, debugMode:true) { Position = new Vector2(48, 8) },
+            new(testText, debugMode:true) { Position = new Vector2(72, 8) },
+            new(testText, debugMode:true) { Position = new Vector2(96, 8) },
+            new(testText, debugMode:true) { Position = new Vector2(120, 8) }
         };
     }
 
     public override void Draw(SpriteBatch spriteBatch)
     {
         spriteBatch.Begin(SpriteSortMode.BackToFront, transformMatrix: camera.Transform);
-        
-        foreach (var s in _solidSprites)
-        {
-            Drawer.DrawHollowRect(s.X, s.Y, s.Width, s.Height, Color.Red);
-        }
-        
-        foreach(var hollow in _hollowSprites)
-        {
-            Drawer.DrawHollowRect(hollow.X, hollow.Y, hollow.Width, hollow.Height, Color.Green);
-        }
-
-        foreach (var normal in _normalSprite)
-        {
-            Drawer.DrawHollowRect(normal.X, normal.Y, normal.Width, normal.Height, Color.Blue);
-        }
         
         foreach (var s in _solidSprites)
         {

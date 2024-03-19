@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Rapa.RapaGame.RapaduraEngine.Components;
 using Rapa.RapaGame.RapaduraEngine.Components.Colliders;
+using Rapa.RapaGame.RapaduraEngine.Mathematics;
 using Rapa.RapaGame.RapaduraEngine.Physics.CollisionPhysics;
 
 namespace Rapa.RapaGame.RapaduraEngine.Entities;
@@ -162,7 +163,7 @@ public abstract class Entity
 
     public Vector2 TopLeft
     {
-        get => new Vector2(Left, Top);
+        get => new(Left, Top);
         set
         {
             Left = value.X;
@@ -172,7 +173,7 @@ public abstract class Entity
     
     public Vector2 TopCenter
     {
-        get => new Vector2(CenterX, Top);
+        get => new(CenterX, Top);
         set
         {
             CenterX = value.X;
@@ -182,7 +183,7 @@ public abstract class Entity
     
     public Vector2 TopRight
     {
-        get => new Vector2(Right, Top);
+        get => new(Right, Top);
         set
         {
             Right = value.X;
@@ -192,7 +193,7 @@ public abstract class Entity
     
     public Vector2 CenterLeft
     {
-        get => new Vector2(Left, CenterY);
+        get => new(Left, CenterY);
         set
         {
             Left = value.X;
@@ -202,7 +203,7 @@ public abstract class Entity
     
     public Vector2 Center
     {
-        get => new Vector2(CenterX, CenterY);
+        get => new(CenterX, CenterY);
         set
         {
             CenterX = value.X;
@@ -212,7 +213,7 @@ public abstract class Entity
     
     public Vector2 CenterRight
     {
-        get => new Vector2(Right, CenterY);
+        get => new(Right, CenterY);
         set
         {
             Right = value.X;
@@ -222,7 +223,7 @@ public abstract class Entity
     
     public Vector2 BottomLeft
     {
-        get => new Vector2(Left, Bottom);
+        get => new(Left, Bottom);
         set
         {
             Left = value.X;
@@ -232,7 +233,7 @@ public abstract class Entity
     
     public Vector2 BottomCenter
     {
-        get => new Vector2(CenterX, Bottom);
+        get => new(CenterX, Bottom);
         set
         {
             CenterX = value.X;
@@ -242,7 +243,7 @@ public abstract class Entity
     
     public Vector2 BottomRight
     {
-        get => new Vector2(Right, Bottom);
+        get => new(Right, Bottom);
         set
         {
             Right = value.X;
@@ -254,16 +255,15 @@ public abstract class Entity
 
     #region constructors
 
-    protected Entity()
-    {
-        //lien avec EntityPool à faire pour tracker l'entity
-        Start();
-    }
-
-    protected Entity(float width, float height)
+    protected Entity(float width = 0, float height = 0, bool debugMode = false)
     {
         _width = width;
         _height = height;
+
+        _debugMode = debugMode;
+        
+        //lien avec EntityPool à faire pour tracker l'entity
+        Start();
     }
 
     #endregion
@@ -284,6 +284,17 @@ public abstract class Entity
     public virtual void Draw(SpriteBatch spriteBatch)
     {
         Components.Draw(spriteBatch);
+        
+        if (!_debugMode)
+            return;
+
+        if (Collider != null)
+        {
+            Collider.Draw(Color.Firebrick);
+            return;
+        }
+
+        Drawer.DrawHollowRect(X, Y, Width, Height, Color.LawnGreen);
     }
 
     public virtual void End()
@@ -312,14 +323,16 @@ public abstract class Entity
     #region fields
 
     public Vector2 Position;
+    
+    private Collider _collider;
 
     private readonly float _width;
 
     private readonly float _height;
-    
-    private Collider _collider;
 
     public bool collidable;
+
+    private readonly bool _debugMode;
 
     #endregion
 }

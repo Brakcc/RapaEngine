@@ -61,7 +61,7 @@ public class BoxCollider : Collider
 
     public override void Draw(Color color)
     {
-        Drawer.DrawHollowRect(EntityDepX, EntityDepY, Width, Height, Color.Red);
+        Drawer.DrawHollowRect(Boundaries, Color.Red);
     }
 
     public override bool Collide(Vector2 point)

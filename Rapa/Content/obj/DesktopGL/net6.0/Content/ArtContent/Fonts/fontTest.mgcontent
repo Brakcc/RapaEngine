@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/cleme/Documents/Projects/RapaEngine/Rapa/Content/ArtContent/Fonts/fontTest.spritefont</SourceFile>
-  <SourceTime>2024-02-07T00:49:08.4914056+01:00</SourceTime>
-  <DestFile>C:/Users/cleme/Documents/Projects/RapaEngine/Rapa/Content/bin/DesktopGL/Content/ArtContent/Fonts/fontTest.xnb</DestFile>
-  <DestTime>2024-03-12T23:36:47.9974953+01:00</DestTime>
+  <SourceFile>C:/Users/c.strappazzonmarques/Desktop/Rapa/Rapa/Content/ArtContent/Fonts/fontTest.spritefont</SourceFile>
+  <SourceTime>2024-02-06T10:20:43.5676648+01:00</SourceTime>
+  <DestFile>C:/Users/c.strappazzonmarques/Desktop/Rapa/Rapa/Content/bin/DesktopGL/Content/ArtContent/Fonts/fontTest.xnb</DestFile>
+  <DestTime>2024-03-19T12:21:59.6215719+01:00</DestTime>
   <Importer>FontDescriptionImporter</Importer>
   <ImporterTime>2022-07-26T13:44:56+02:00</ImporterTime>
   <Processor>FontDescriptionProcessor</Processor>

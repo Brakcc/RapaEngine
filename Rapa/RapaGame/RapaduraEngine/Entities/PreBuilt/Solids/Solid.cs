@@ -20,7 +20,7 @@ public class Solid : Entity
     
     #region constructor
 
-    public Solid(Texture2D texture, float width = 0, float height = 0) : base(width, height)
+    public Solid(Texture2D texture, float width = 0, float height = 0, bool debugMode = false) : base(width, height, debugMode)
     {
         Components = new ComponentList(this, new List<Component>
         {
@@ -30,7 +30,7 @@ public class Solid : Entity
         collidable = true;
     }
     
-    public Solid(Dictionary<string, Animation> animations, float width = 0, float height = 0) : base(width, height)
+    public Solid(Dictionary<string, Animation> animations, float width = 0, float height = 0, bool debugMode = false) : base(width, height, debugMode)
     {
         Components = new ComponentList(this, new List<Component>
         {
@@ -61,12 +61,6 @@ public class Solid : Entity
         Console.WriteLine("Nope");
         
         base.Update(gameTime);
-    }
-
-    public override void Draw(SpriteBatch spriteBatch)
-    {
-        base.Draw(spriteBatch);
-        Collider.Draw(Color.Firebrick);
     }
     
     #endregion

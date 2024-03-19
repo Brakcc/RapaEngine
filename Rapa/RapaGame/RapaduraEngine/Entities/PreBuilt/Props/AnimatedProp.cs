@@ -19,7 +19,7 @@ public sealed class AnimatedProp : Entity
     
     #region Constructor
     
-    public AnimatedProp(Dictionary<string, Animation> animations, float width = 0, float height = 0) : base(width, height)
+    public AnimatedProp(Dictionary<string, Animation> animations, float width = 0, float height = 0, bool debugMode = false) : base(width, height, debugMode)
     {
         Components = new ComponentList(this, new List<Component>
         {
@@ -47,12 +47,6 @@ public sealed class AnimatedProp : Entity
         }
         
         base.Update(gameTime);
-    }
-    
-    public override void Draw(SpriteBatch spriteBatch)
-    {
-        base.Draw(spriteBatch);
-        Drawer.DrawHollowRect(X, Y, Width, Height, Color.Green);
     }
     
     #endregion

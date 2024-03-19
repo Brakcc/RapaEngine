@@ -69,7 +69,7 @@ public class CoreEngine : Game
 		Instance = this;
 		BaseRenderWidth = renderWidth;
 		BaseRenderHeight = renderHeight;
-		ClearColor = Color.Wheat;
+		ClearColor = new Color(3, 2, 6, 255);
 		Random = new Random();
 		InactiveSleepTime = new TimeSpan(0L);
 		Graphics = new GraphicsDeviceManager(this);
