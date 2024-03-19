@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Rapa.RapaGame.RapaduraEngine.Components.Sprites.Animations;
 using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Solids;
@@ -22,7 +23,7 @@ public sealed class Player : Solid
     
     #region constructor
     
-    public Player(Dictionary<string, Animation> animations) : base(animations)
+    public Player(Texture2D texture) : base(texture)
     {
     }
     
@@ -32,47 +33,19 @@ public sealed class Player : Solid
     
     public void Update(GameTime gameTime, List<Solid> sprites)
     {
-        if (sprites != null)
-        {
-            foreach (var sprite in sprites)
-            {
-                if (sprite == this)
-                    continue;
+        directionalSpeedX.Y = speed;
+            
+        directionalSpeedX.X = speed;
 
-                if (/*velocity.X > 0 && */IsTouchingLeft(sprite))
-                    directionalSpeedX.Y = 0;
-                else
-                    directionalSpeedX.Y = speed;
-                
-                if (/*velocity.X < 0 && */IsTouchingRight(sprite))
-                    directionalSpeedX.X = 0;
-                else
-                    directionalSpeedX.X = speed;
+        directionalSpeedY.X = speed;
 
-                if ( /*velocity.Y > 0 && */IsTouchingTop(sprite))
-                {
-                    //Console.WriteLine(1);
-                    directionalSpeedY.X = 0;
-                }
-                else
-                    directionalSpeedY.X = speed;
-
-                if ( /*velocity.Y < 0 && */IsTouchingBottom(sprite))
-                {
-                    //Console.WriteLine(2);
-                    directionalSpeedY.Y = 0;
-                }
-                else
-                    directionalSpeedY.Y = speed;
-            }
-        }
-        
+        directionalSpeedY.Y = speed;
+    
         MoveX(directionalSpeedX);
         MoveY(directionalSpeedY);
         
         //Console.WriteLine(velocity);
-        Animate();
-        Animator.Update(gameTime);
+        //Animate();
 
         Position += velocity;
     }
@@ -101,7 +74,7 @@ public sealed class Player : Solid
             velocity.Y = 0;
     }
 
-    protected override void Animate()
+    /*protected override void Animate()
     {
         switch (velocity.X)
         {
@@ -117,7 +90,7 @@ public sealed class Player : Solid
         }
 
         base.Animate();
-    }
+    }*/
     
     #endregion
 }

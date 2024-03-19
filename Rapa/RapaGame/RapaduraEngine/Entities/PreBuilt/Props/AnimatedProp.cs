@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Rapa.RapaGame.RapaduraEngine.Components;
 using Rapa.RapaGame.RapaduraEngine.Components.Sprites;
 using Rapa.RapaGame.RapaduraEngine.Components.Sprites.Animations;
+using Rapa.RapaGame.RapaduraEngine.Mathematics;
 
 namespace Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Props;
 
@@ -17,7 +19,7 @@ public sealed class AnimatedProp : Entity
     
     #region Constructor
     
-    public AnimatedProp(Dictionary<string, Animation> animations)
+    public AnimatedProp(Dictionary<string, Animation> animations, float width = 0, float height = 0) : base(width, height)
     {
         Components = new ComponentList(this, new List<Component>
         {
@@ -45,6 +47,12 @@ public sealed class AnimatedProp : Entity
         }
         
         base.Update(gameTime);
+    }
+    
+    public override void Draw(SpriteBatch spriteBatch)
+    {
+        base.Draw(spriteBatch);
+        Drawer.DrawHollowRect(X, Y, Width, Height, Color.Green);
     }
     
     #endregion

@@ -5,12 +5,13 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Rapa.RapaGame.RapaduraEngine.Components;
 using Rapa.RapaGame.RapaduraEngine.Components.Sprites;
+using Rapa.RapaGame.RapaduraEngine.Mathematics;
 
 namespace Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Props;
 
 public class NormalProp : Entity
 {
-    #region accessors
+    #region properties
 
     public float Layer { get; init; }
 
@@ -18,21 +19,22 @@ public class NormalProp : Entity
     
     #region constructor
     
-    public NormalProp(Texture2D texture)
+    public NormalProp(Texture2D texture, float width = 0, float height = 0) : base(width, height)
     {
         Components = new ComponentList(this, new List<Component>
         {
             new BaseSprite(this, texture, Layer)
         });
+        collidable = false;
     }
-    
+
     #endregion
 
     #region methodes
     
     public override void Update(GameTime gameTime)
     {
-        if (Keyboard.GetState().IsKeyDown(Keys.D))
+        if (Keyboard.GetState().IsKeyDown(Keys.Enter))
             Components.GetComponent<BaseSprite>().SetVisible(false);
 
         if (!Keyboard.GetState().IsKeyDown(Keys.P))
@@ -48,7 +50,13 @@ public class NormalProp : Entity
         
         base.Update(gameTime);
     }
-    
+
+    public override void Draw(SpriteBatch spriteBatch)
+    {
+        base.Draw(spriteBatch);
+        Drawer.DrawHollowRect(X, Y, Width, Height, Color.Green);
+    }
+
     #endregion
     
     #region fields

@@ -1,87 +1,79 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using Rapa.RapaGame.RapaduraEngine.Components;
+using Rapa.RapaGame.RapaduraEngine.Components.Colliders.ColliderTypes;
+using Rapa.RapaGame.RapaduraEngine.Components.Sprites;
 using Rapa.RapaGame.RapaduraEngine.Components.Sprites.Animations;
 
 namespace Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Solids;
 
 public class Solid : Entity
 {
-    #region fields
-    
-    protected readonly Animator Animator;
-    protected readonly Dictionary<string, Animation> animation;
+    #region properties
+
+    public float Layer { get; init; }
 
     #endregion
-
-    #region inits
     
-    //public override Vector2 Position { get; set; }
+    #region constructor
 
-    public Vector2 velocity;
-
-    public bool isRemoved = false;
-
-    public Rectangle rectangle => new((int)Position.X, (int)Position.Y, animation.Values.First()._frameWidth, animation.Values.First()._frameHeight);
-
-    public Solid(Dictionary<string, Animation> animations)
+    public Solid(Texture2D texture, float width = 0, float height = 0) : base(width, height)
     {
-        animation = animations;
-        Animator = new Animator(animation.First().Value, this);
+        Components = new ComponentList(this, new List<Component>
+        {
+            new BaseSprite(this, texture, Layer)
+        });
+        Collider = new BoxCollider(this, 8, 8, X, Y);
+        collidable = true;
+    }
+    
+    public Solid(Dictionary<string, Animation> animations, float width = 0, float height = 0) : base(width, height)
+    {
+        Components = new ComponentList(this, new List<Component>
+        {
+            new AnimatedSprite(this, animations, Layer)
+        });
+        Collider = new BoxCollider(this, 8, 8, X, Y);
+        collidable = true;
     }
     
     #endregion
 
     #region methodes
 
-    protected virtual void Animate()
+    public override void Update(GameTime gameTime)
     {
+        if (Keyboard.GetState().IsKeyDown(Keys.Enter))
+            Components.GetComponent<BaseSprite>().SetVisible(false);
 
+        if (!Keyboard.GetState().IsKeyDown(Keys.P))
+            return;
+
+        if (Components.TryGetComponent<AnimatedSprite>(out var test))
+        {
+            test.SetVisible(false);
+            return;
+        }
+        
+        Console.WriteLine("Nope");
+        
+        base.Update(gameTime);
     }
 
     public override void Draw(SpriteBatch spriteBatch)
     {
-        if (Animator != null)
-        {
-            Animator.Draw(spriteBatch);
-        }
-        else throw new Exception("no animation set up");
-    }
-
-    public override void Update(GameTime gameTime)
-    {
-
+        base.Draw(spriteBatch);
+        Collider.Draw(Color.Firebrick);
     }
     
     #endregion
+    
+    #region fields
 
-    #region Collision
-    
-    protected bool IsTouchingLeft(Solid sprite)
-        => rectangle.Right + velocity.X > sprite.rectangle.Left &&
-           rectangle.Left < sprite.rectangle.Left && 
-           rectangle.Bottom > sprite.rectangle.Top &&
-           rectangle.Top < sprite.rectangle.Bottom;
-    
-    protected bool IsTouchingRight(Solid sprite)
-       => rectangle.Left + velocity.X < sprite.rectangle.Right &&
-          rectangle.Right > sprite.rectangle.Right &&
-          rectangle.Bottom > sprite.rectangle.Top &&
-          rectangle.Top < sprite.rectangle.Bottom;
-    
-    protected bool IsTouchingTop(Solid sprite)
-        => rectangle.Bottom + velocity.X > sprite.rectangle.Top &&
-           rectangle.Top < sprite.rectangle.Top &&
-           rectangle.Right > sprite.rectangle.Left &&
-           rectangle.Left < sprite.rectangle.Right;
-    
-    protected bool IsTouchingBottom(Solid sprite) 
-        => rectangle.Top + velocity.X < sprite.rectangle.Bottom &&
-           rectangle.Bottom > sprite.rectangle.Bottom &&
-           rectangle.Right > sprite.rectangle.Left &&
-           rectangle.Left < sprite.rectangle.Right;
-    
+    public Vector2 velocity;
+
     #endregion
 }

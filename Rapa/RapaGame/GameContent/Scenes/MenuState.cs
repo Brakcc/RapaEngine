@@ -89,20 +89,23 @@ public sealed class MenuState : State
 
         _hollows = new List<NormalProp>
         {
-            new(testText) {Position = new Vector2(CurrentScreenWidth / 2f, CurrentScreenHeight / 2f), Layer = 3},
-            new(testText) {Position = new Vector2(CurrentScreenWidth / 2f - 8, CurrentScreenHeight / 2f)},
-            new(testText) {Position = new Vector2(CurrentScreenWidth / 2f - 16, CurrentScreenHeight / 2f)},
-            new(testText) {Position = new Vector2(CurrentScreenWidth / 2f + 8, CurrentScreenHeight / 2f)},
-            new(testText) {Position = new Vector2(CurrentScreenWidth / 2f + 16, CurrentScreenHeight / 2f)},
-            new(testText) {Position = new Vector2(CurrentScreenWidth / 2f + 16, CurrentScreenHeight / 2f - 8)}
+            new(testText, 8, 8) 
+                {Position = new Vector2(CurrentScreenWidth / 2f, CurrentScreenHeight / 2f), Layer = 3},
+            new(testText, 8, 8) 
+                {Position = new Vector2(CurrentScreenWidth / 2f - 8, CurrentScreenHeight / 2f)},
+            new(testText, 8, 8) 
+                {Position = new Vector2(CurrentScreenWidth / 2f - 16, CurrentScreenHeight / 2f)},
+            new(testText, 8, 8) 
+                {Position = new Vector2(CurrentScreenWidth / 2f + 8, CurrentScreenHeight / 2f)},
+            new(testText, 8, 8) 
+                {Position = new Vector2(CurrentScreenWidth / 2f + 16, CurrentScreenHeight / 2f)},
+            new(testText, 8, 8) 
+                {Position = new Vector2(CurrentScreenWidth / 2f + 16, CurrentScreenHeight / 2f - 8)}
         };
         
         _hollows[1].AddComponent(new BaseSprite(_hollows[1], testText2, 1));
         
-        _solid = new Solid(anims)
-        {
-            Position = new Vector2(CurrentScreenWidth / 2f - 8, CurrentScreenHeight / 2f)
-        };
+        _solid = new Solid(testText2) { Position = new Vector2(CurrentScreenWidth / 2f - 8, CurrentScreenHeight / 2f) };
         
         _graphicsDeviceManager = graphManager;
 

@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Rapa.RapaGame.RapaduraEngine.Components;
 using Rapa.RapaGame.RapaduraEngine.Components.Colliders;
+using Rapa.RapaGame.RapaduraEngine.Physics.CollisionPhysics;
 
 namespace Rapa.RapaGame.RapaduraEngine.Entities;
 
@@ -9,7 +10,7 @@ public abstract class Entity
 {
     #region properties
 
-    protected ComponentList Components { get; init; }
+    public ComponentList Components { get; init; }
     
     public float X
     {
@@ -29,27 +30,9 @@ public abstract class Entity
         set => _collider = value;
     }
 
-    public float Width
-    {
-        get
-        {
-            if (Collider == null)
-                return 0;
+    public float Width => Collider?.Width ?? _width;
 
-            return Collider.Width;
-        }
-    }
-
-    public float Height
-    {
-        get
-        {
-            if (Collider == null)
-                return 0;
-
-            return Collider.Height;
-        }
-    }
+    public float Height => Collider?.Height ?? _height;
 
     public float Top
     {
@@ -277,6 +260,12 @@ public abstract class Entity
         Start();
     }
 
+    protected Entity(float width, float height)
+    {
+        _width = width;
+        _height = height;
+    }
+
     #endregion
     
     #region methodes
@@ -311,6 +300,12 @@ public abstract class Entity
     {
         Components.RemoveComponent(comp);
     }
+
+    #region collisions
+
+    public bool IsColliding(Entity e) => CollideCalc.CheckCollision(this, e);
+
+    #endregion
     
     #endregion
     
@@ -318,6 +313,10 @@ public abstract class Entity
 
     public Vector2 Position;
 
+    private readonly float _width;
+
+    private readonly float _height;
+    
     private Collider _collider;
 
     public bool collidable;

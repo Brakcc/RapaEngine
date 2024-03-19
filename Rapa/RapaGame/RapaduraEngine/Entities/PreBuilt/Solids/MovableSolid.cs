@@ -1,11 +1,10 @@
-﻿using System.Collections.Generic;
-using Rapa.RapaGame.RapaduraEngine.Components.Sprites.Animations;
+﻿using Microsoft.Xna.Framework.Graphics;
 
 namespace Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Solids;
 
 public class MovableSolid : Solid
 {
-    public MovableSolid(Dictionary<string, Animation> animations) : base(animations)
+    public MovableSolid(Texture2D texture) : base(texture)
     {
     }
 }

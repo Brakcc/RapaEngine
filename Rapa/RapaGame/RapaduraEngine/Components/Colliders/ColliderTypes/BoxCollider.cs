@@ -1,4 +1,7 @@
-﻿using Rapa.RapaGame.RapaduraEngine.Entities;
+﻿using Microsoft.Xna.Framework;
+using Rapa.RapaGame.RapaduraEngine.Entities;
+using Rapa.RapaGame.RapaduraEngine.Mathematics;
+using Rapa.RapaGame.RapaduraEngine.Physics.CollisionPhysics;
 
 namespace Rapa.RapaGame.RapaduraEngine.Components.Colliders.ColliderTypes;
 
@@ -46,7 +49,7 @@ public class BoxCollider : Collider
     
     #region constructor
     
-    public BoxCollider(Entity entityRef, int width, int height, float xPos = 0, float yPos = 0) : base(entityRef, xPos, yPos)
+    public BoxCollider(Entity entityRef, float width, float height, float xPos = 0, float yPos = 0) : base(entityRef, xPos, yPos)
     {
         _width = width;
         _height = height;
@@ -56,9 +59,31 @@ public class BoxCollider : Collider
 
     #region methodes
 
-    public override void Collide()
+    public override void Draw(Color color)
     {
+        Drawer.DrawHollowRect(EntityDepX, EntityDepY, Width, Height, Color.Red);
     }
+
+    public override bool Collide(Vector2 point)
+        => CollideCalc.RectPointCollision(EntityDepX, EntityDepY, Width, Height, point);
+
+    public override bool Collide(Rectangle rect)
+        => EntityDepRight > rect.Left &&
+           EntityDepBottom > rect.Top &&
+           EntityDepLeft < rect.Right &&
+           EntityDepTop < rect.Bottom;
+
+    public override bool Collide(BoxCollider box)
+        => EntityDepLeft < box.EntityDepRight &&
+           EntityDepRight > box.EntityDepLeft &&
+           EntityDepBottom > box.EntityDepTop &&
+           EntityDepTop < box.EntityDepBottom;
+    
+    public override bool Collide(BoxTrigger trigger)
+        => EntityDepLeft < trigger.EntityDepRight &&
+           EntityDepRight > trigger.EntityDepLeft &&
+           EntityDepBottom > trigger.EntityDepTop &&
+           EntityDepTop < trigger.EntityDepBottom;
 
     #endregion
 

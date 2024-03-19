@@ -1,4 +1,6 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
+using Rapa.RapaGame.RapaduraEngine.Components.Colliders.ColliderTypes;
 using Rapa.RapaGame.RapaduraEngine.Entities;
 
 namespace Rapa.RapaGame.RapaduraEngine.Components.Colliders;
@@ -208,7 +210,24 @@ public abstract class Collider
 
     #region methodes
 
-    public abstract void Collide();
+    public virtual void Draw(Color color) {}
+
+    public bool Collide(Entity entity) => Collide(entity.Collider);
+    
+    public bool Collide(Collider collider) => collider switch
+    { 
+        BoxCollider boxCollider => Collide(boxCollider),
+        BoxTrigger trigger => Collide(trigger),
+        _ => throw new Exception("No methode is available to collide on this collider type")
+    };
+
+    public abstract bool Collide(Vector2 point);
+
+    public abstract bool Collide(Rectangle rect);
+
+    public abstract bool Collide(BoxCollider box);
+
+    public abstract bool Collide(BoxTrigger trigger);
 
     #endregion
 

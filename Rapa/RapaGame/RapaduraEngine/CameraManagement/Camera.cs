@@ -10,13 +10,13 @@ public class Camera
     public void Follow (Player target)
     {
         var offset = Matrix.CreateTranslation(
-            Rapadura.CurrentScreenWidth / 2,
-            Rapadura.CurrentScreenHeight / 2,
+            Rapadura.CurrentScreenWidth / 2f,
+            Rapadura.CurrentScreenHeight / 2f,
             0);
 
         var pos = Matrix.CreateTranslation(
-            -target.Position.X + target.rectangle.Width / 2,
-            -target.Position.Y + target.rectangle.Height / 2,
+            -target.Position.X + target.Width / 2,
+            -target.Position.Y + target.Height / 2,
             0);
 
         Transform = pos * offset;
