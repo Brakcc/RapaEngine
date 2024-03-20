@@ -9,7 +9,6 @@ using Rapa.RapaGame.RapaduraEngine.Components.Sprites.Animations;
 using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Props;
 using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Solids;
 using Rapa.RapaGame.RapaduraEngine.InputSettings;
-using Rapa.RapaGame.RapaduraEngine.Mathematics;
 using Rapa.RapaGame.RapaduraEngine.SceneManagement;
 
 namespace Rapa.RapaGame.GameContent.Scenes;
@@ -86,12 +85,12 @@ public class GameState : State
 
         _normalSprite = new List<NormalProp>
         {
-            new(sands[0], 8, 8, debugMode:true) {Position = Vector2.Zero},
-            new(sands[1], 8, 8, debugMode:true) {Position = new Vector2(8, 0)},
-            new(sands[2], 8, 8, debugMode:true) {Position = new Vector2(16, 0)},
-            new(sands[3], 8, 8, debugMode:true) {Position = new Vector2(24, 0)},
-            new(sands[4], 8, 8, debugMode:true) {Position = new Vector2(32, 0)},
-            new(sands[5], 8, 8, debugMode:true) {Position = new Vector2(40, 0)}
+            new(sands[0], 8, 8, debugMode:true) {Position = Vector2.Zero, Layer = -1},
+            new(sands[1], 8, 8, debugMode:true) {Position = new Vector2(8, 0), Layer = -1},
+            new(sands[2], 8, 8, debugMode:true) {Position = new Vector2(16, 0), Layer = -1},
+            new(sands[3], 8, 8, debugMode:true) {Position = new Vector2(24, 0), Layer = -1},
+            new(sands[4], 8, 8, debugMode:true) {Position = new Vector2(32, 0), Layer = -1},
+            new(sands[5], 8, 8, debugMode:true) {Position = new Vector2(40, 0), Layer = -1}
         };
 
         parallaxes = new List<Parallaxe>
@@ -102,18 +101,18 @@ public class GameState : State
 
         _hollowSprites = new List<AnimatedProp>
         {
-            new(back, 8, 8, debugMode:true) { Position = new Vector2(50, 0) }, 
-            new(back, 8, 8, debugMode:true) { Position = new Vector2(60, 0) }
+            new(back, 8, 8, debugMode:true) { Position = new Vector2(50, 0), Layer = -1 }, 
+            new(back, 8, 8, debugMode:true) { Position = new Vector2(60, 0), Layer = -1 }
         };
 
         _solidSprites = new List<Solid>
         {
-            new(testText, debugMode:true) { Position = new Vector2(0, 8) },
-            new(testText, debugMode:true) { Position = new Vector2(24, 8) },
-            new(testText, debugMode:true) { Position = new Vector2(48, 8) },
-            new(testText, debugMode:true) { Position = new Vector2(72, 8) },
-            new(testText, debugMode:true) { Position = new Vector2(96, 8) },
-            new(testText, debugMode:true) { Position = new Vector2(120, 8) }
+            new(testText, debugMode:true) { Position = new Vector2(0, 8), Layer = 1 },
+            new(testText, debugMode:true) { Position = new Vector2(24, 8), Layer = 1 },
+            new(testText, debugMode:true) { Position = new Vector2(48, 8), Layer = 1 },
+            new(testText, debugMode:true) { Position = new Vector2(72, 8), Layer = 1 },
+            new(testText, debugMode:true) { Position = new Vector2(96, 8), Layer = 1 },
+            new(testText, debugMode:true) { Position = new Vector2(120, 8), Layer = 1 }
         };
     }
 

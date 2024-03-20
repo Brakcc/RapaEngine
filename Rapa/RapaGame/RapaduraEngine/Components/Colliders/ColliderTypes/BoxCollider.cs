@@ -59,9 +59,9 @@ public class BoxCollider : Collider
 
     #region methodes
 
-    public override void Draw(Color color)
+    public override void Draw(Color color, float layer = 0)
     {
-        Drawer.DrawHollowRect(Boundaries, Color.Red);
+        Drawer.DrawHollowRect(Boundaries, Color.Red, layer);
     }
 
     public override bool Collide(Vector2 point)

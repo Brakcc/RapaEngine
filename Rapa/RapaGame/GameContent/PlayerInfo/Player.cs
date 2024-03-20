@@ -2,7 +2,6 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Rapa.RapaGame.RapaduraEngine.Components.Sprites.Animations;
 using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Solids;
 using Rapa.RapaGame.RapaduraEngine.InputSettings;
 

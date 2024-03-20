@@ -263,15 +263,13 @@ public abstract class Entity
         _debugMode = debugMode;
         
         //lien avec EntityPool à faire pour tracker l'entity
-        Start();
     }
 
     #endregion
     
     #region methodes
 
-    private void Start() => Init();
-    protected virtual void Init()
+    public virtual void Init()
     {
         Components?.InitList();
     }

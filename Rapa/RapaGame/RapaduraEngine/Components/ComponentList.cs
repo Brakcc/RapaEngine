@@ -150,7 +150,6 @@ public class ComponentList
             default:
                 throw new Exception("How did u managed to get this error wtf ?");
         }
-        
     }
 
     private void SetLockMode(CompLockMode lockMode)

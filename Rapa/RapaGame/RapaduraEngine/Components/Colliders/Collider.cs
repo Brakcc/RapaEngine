@@ -210,7 +210,7 @@ public abstract class Collider
 
     #region methodes
 
-    public virtual void Draw(Color color) {}
+    public virtual void Draw(Color color, float layer = 0) {}
 
     public bool Collide(Entity entity) => Collide(entity.Collider);
     

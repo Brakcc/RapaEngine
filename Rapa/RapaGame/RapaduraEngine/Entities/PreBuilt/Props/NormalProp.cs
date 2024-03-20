@@ -5,7 +5,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Rapa.RapaGame.RapaduraEngine.Components;
 using Rapa.RapaGame.RapaduraEngine.Components.Sprites;
-using Rapa.RapaGame.RapaduraEngine.Mathematics;
 
 namespace Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Props;
 

@@ -19,30 +19,30 @@ public static class Drawer
         Console.WriteLine(Calculus.RandomPick(test));
     }
 
-    public static void DrawHollowRect(Rectangle rect, Color color)
+    public static void DrawHollowRect(Rectangle rect, Color color, float layer = 0)
     {
-        DrawHollowRect(rect.X, rect.Y, rect.Width, rect.Height, color);
+        DrawHollowRect(rect.X, rect.Y, rect.Width, rect.Height, color, layer);
     }
 
-    public static void DrawHollowRect(float x ,float y, float width, float height, Color color)
+    public static void DrawHollowRect(float x ,float y, float width, float height, Color color, float layer = 0)
     {
         var rect = new Rectangle((int)x, (int)y, (int)width, 1);
         
-        SpriteBatch.Draw(Pixel, rect, PixelRect, color);
+        SpriteBatch.Draw(Pixel, rect, PixelRect, color, 0, Vector2.Zero, SpriteEffects.None, layer);
 
         rect.Y += (int)height - 1;
         
-        SpriteBatch.Draw(Pixel, rect, PixelRect, color);
+        SpriteBatch.Draw(Pixel, rect, PixelRect, color, 0, Vector2.Zero, SpriteEffects.None, layer);
 
         rect.Y -= (int)height - 1;
         rect.Width = 1;
         rect.Height = (int)height;
         
-        SpriteBatch.Draw(Pixel, rect, PixelRect, color);
+        SpriteBatch.Draw(Pixel, rect, PixelRect, color, 0, Vector2.Zero, SpriteEffects.None, layer);
 
         rect.X += (int)width - 1;
         
-        SpriteBatch.Draw(Pixel, rect, PixelRect, color);
+        SpriteBatch.Draw(Pixel, rect, PixelRect, color, 0, Vector2.Zero, SpriteEffects.None, layer);
     }
     
     public static void DrawParticule(Vector2 pos)
