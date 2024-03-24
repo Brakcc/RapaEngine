@@ -37,10 +37,10 @@ public class EntityPool
         _toRemove = new List<Entity>();
     }
 
-    public EntityPool(Scene entityRef, List<Entity> components)
+    public EntityPool(Scene entityRef, List<Entity> entities)
     {
         SceneRef = entityRef;
-        _entities = components;
+        _entities = entities;
         _toAdd = new List<Entity>();
         _toRemove = new List<Entity>();
     }

@@ -276,12 +276,12 @@ public abstract class Entity
     
     public virtual void Update(GameTime gameTime)
     {
-        Components.Update(gameTime);
+        Components?.Update(gameTime);
     }
 
     public virtual void Draw(SpriteBatch spriteBatch)
     {
-        Components.Draw(spriteBatch);
+        Components?.Draw(spriteBatch);
         
         if (!_debugMode)
             return;

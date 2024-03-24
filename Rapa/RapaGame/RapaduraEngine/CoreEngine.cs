@@ -5,6 +5,8 @@ using System.Runtime;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Rapa.RapaGame.GameContent.Scenes;
+using Rapa.RapaGame.GameContent.Scenes.Pools;
 using Rapa.RapaGame.RapaduraEngine.Mathematics;
 using Rapa.RapaGame.RapaduraEngine.SceneManagement;
 
@@ -110,6 +112,9 @@ public class CoreEngine : Game
 		GCSettings.LatencyMode = GCLatencyMode.SustainedLowLatency;
 		SpriteBatch = new SpriteBatch(GraphicsDevice);
 		
+		
+		Scene = new MenuScene(new MenuPool(Scene));
+			
 		Drawer.InitDrawer(SpriteBatch);
 	}
 
@@ -193,6 +198,12 @@ public class CoreEngine : Game
 			return;
 		}
 
+		if (scene != null)
+		{
+			scene.BeforeUpdate();
+			scene.Update(gameTime);
+		}
+
 		if (scene != nextScene)
 		{
 			var from = scene;
@@ -213,7 +224,6 @@ public class CoreEngine : Game
 
 		GraphicsDevice.SetRenderTarget(RenderScreen);
 		GraphicsDevice.Clear(ClearColor);
-		//currentState.Draw(spriteBatch);
 		
 		RenderCore();
 		base.Draw(gameTime);
@@ -232,16 +242,23 @@ public class CoreEngine : Game
 	protected virtual void RenderCore()
 	{
 		scene?.BeforeRender();
-
-		GraphicsDevice.SetRenderTarget(null);
-		GraphicsDevice.Viewport = Viewport;
-		GraphicsDevice.Clear(ClearColor);
-		
 		if (scene == null)
 			return;
-		
-		scene.Render();
+		SpriteBatch.Begin(samplerState: SamplerState.PointClamp, transformMatrix:ScreenMatrix);
+		scene.Draw(SpriteBatch);
 		scene.AfterRender();
+		SpriteBatch.End();
+		
+		
+		//GraphicsDevice.SetRenderTarget(null);
+		//GraphicsDevice.Viewport = Viewport;
+		//GraphicsDevice.Clear(ClearColor);
+		
+		GraphicsDevice.SetRenderTarget(null);
+		GraphicsDevice.Clear(Color.Black);
+		SpriteBatch.Begin(samplerState: SamplerState.PointClamp);
+		SpriteBatch.Draw(RenderScreen, RenderRect, Color.White);
+		SpriteBatch.End();
 	}
 
 	public void RunGame()

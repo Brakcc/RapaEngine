@@ -30,7 +30,7 @@ public sealed class Player : Solid
 
     #region methodes
     
-    public void Update(GameTime gameTime, List<Solid> sprites)
+    public override void Update(GameTime gameTime)
     {
         directionalSpeedX.Y = speed;
             
@@ -47,6 +47,8 @@ public sealed class Player : Solid
         //Animate();
 
         Position += velocity;
+        
+        base.Update(gameTime);
     }
 
     private void MoveX(Vector2 dirSpeed)

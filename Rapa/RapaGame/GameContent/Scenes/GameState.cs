@@ -65,7 +65,7 @@ public class GameState : State
             _content.Load<Texture2D>("ArtContent/Tiles/SandTiles/TestSandTile6")
         };
 
-        camera = new Camera();
+        camera = new Camera(player);
 
         //Appel du Perso
         player = new Player(testText)
@@ -173,7 +173,7 @@ public class GameState : State
             normal.Update(gameTime);
         }
         
-        player.Update(gameTime, _solidSprites);
+        player.Update(gameTime);
         
         //suivi du joueur avec la cam
         camera.Follow(player);
