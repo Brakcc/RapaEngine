@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using Rapa.RapaGame.GameContent.PlayerInfo;
 using Rapa.RapaGame.RapaduraEngine.Entities;
 
 namespace Rapa.RapaGame.RapaduraEngine.CameraManagement;
@@ -8,17 +7,17 @@ public class Camera : Entity
 {
     #region properties
     
-    public Player PlayerRef { get; init; }
+    public Entity FocusPoint { get; init; }
     
     public Matrix Transform { get; private set; }
-
+    
     #endregion
 
     #region constructor
 
-    public Camera(Player playerRef)
+    public Camera(Entity focus)
     {
-        PlayerRef = playerRef;
+        FocusPoint = focus;
     }
 
     #endregion
@@ -27,10 +26,10 @@ public class Camera : Entity
 
     public override void Update(GameTime gameTime)
     {
-        Follow(PlayerRef);
+        Follow(FocusPoint);
     }
 
-    public void Follow (Player target)
+    public void Follow (Entity target)
     {
         var offset = Matrix.CreateTranslation(
             Rapadura.CurrentScreenWidth / 2f,
@@ -42,7 +41,7 @@ public class Camera : Entity
             -target.Y + target.Height / 2,
             0);
         
-        Transform = pos * offset;
+        Transform = offset * pos;
 
         //à refaire d'urgence
         CoreEngine.ScreenMatrix = Transform;

@@ -24,6 +24,8 @@ public abstract class Entity
         get => Position.Y;
         set => Position.Y = value;
     }
+    
+    public float Layer { get; init; }
 
     public Collider Collider
     {

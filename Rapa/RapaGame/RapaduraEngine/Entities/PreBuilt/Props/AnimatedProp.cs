@@ -11,7 +11,7 @@ public sealed class AnimatedProp : Entity
 {
     #region Accessors
 
-    public float Layer { get; init; }
+    //no
     
     #endregion
     
@@ -21,7 +21,7 @@ public sealed class AnimatedProp : Entity
     {
         Components = new ComponentList(this, new List<Component>
         {
-            new AnimatedSprite(this, animations, Layer)
+            new AnimatedSprite(this, animations)
         });
         //à retirer evidemment c'est pour le debug
         _canMove = true;
@@ -36,7 +36,7 @@ public sealed class AnimatedProp : Entity
         if (Keyboard.GetState().IsKeyDown(Keys.Space) && _canMove)
         {
             _canMove = false;
-            Position += new Vector2(0, 1);
+            //Position += new Vector2(0, 1);
         }
 
         if (Keyboard.GetState().IsKeyUp(Keys.Space) && !_canMove)

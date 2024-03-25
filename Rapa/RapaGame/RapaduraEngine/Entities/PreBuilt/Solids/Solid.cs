@@ -13,8 +13,8 @@ namespace Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Solids;
 public class Solid : Entity
 {
     #region properties
-
-    public float Layer { get; init; }
+    
+    //yeaaaa nooooooo
 
     #endregion
     
@@ -24,7 +24,7 @@ public class Solid : Entity
     {
         Components = new ComponentList(this, new List<Component>
         {
-            new BaseSprite(this, texture, Layer)
+            new BaseSprite(this, texture)
         });
         Collider = new BoxCollider(this, 8, 8, X, Y);
         collidable = true;
@@ -34,7 +34,7 @@ public class Solid : Entity
     {
         Components = new ComponentList(this, new List<Component>
         {
-            new AnimatedSprite(this, animations, Layer)
+            new AnimatedSprite(this, animations)
         });
         Collider = new BoxCollider(this, 8, 8, X, Y);
         collidable = true;

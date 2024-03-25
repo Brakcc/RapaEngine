@@ -11,19 +11,19 @@ public sealed class AnimatedSprite : Component
 {
     #region constructor
     
-    public AnimatedSprite(Entity entityRef, Dictionary<string, Animation> anims, float layer = 0f) : base(entityRef)
+    public AnimatedSprite(Entity entityRef, Dictionary<string, Animation> anims) : base(entityRef)
     {
         _animations = anims;
-        _layer = layer;
         _animator = new Animator(_animations.First().Value, EntityRef);
     }
     
     #endregion
 
     #region methodes
-
+    
     public override void Update(GameTime gameTime)
     {
+        _animator?.Update(gameTime);
     }
 
     public override void Draw(SpriteBatch spriteBatch)
@@ -43,8 +43,6 @@ public sealed class AnimatedSprite : Component
     private readonly Animator _animator;
     
     private readonly Dictionary<string, Animation> _animations;
-    
-    private readonly float _layer;
 
     #endregion
 }

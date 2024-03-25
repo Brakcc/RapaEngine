@@ -26,7 +26,7 @@ public class Animator
                 0,
                 _animation._frameWidth,
                 _animation._frameHeight),
-            Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, _animation._layer);
+            Color.White);
     }
 
     public void Play(Animation anim) 

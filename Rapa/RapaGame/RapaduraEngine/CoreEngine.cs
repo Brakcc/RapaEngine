@@ -103,12 +103,11 @@ public class CoreEngine : Game
 			Graphics.IsFullScreen = false;
 		}
 		RenderScreen = new RenderTarget2D(GraphicsDevice, renderWidth, renderHeight);
-		
+		SpriteBatch = new SpriteBatch(GraphicsDevice);
 		Content.RootDirectory = "Content";
 		IsMouseVisible = true;
 		ExitOnEscapeKeypress = false;
 		GCSettings.LatencyMode = GCLatencyMode.SustainedLowLatency;
-		SpriteBatch = new SpriteBatch(GraphicsDevice);
 			
 		Drawer.InitDrawer(SpriteBatch);
 	}
@@ -130,6 +129,7 @@ public class CoreEngine : Game
 		Graphics.PreferredBackBufferWidth = Window.ClientBounds.Width;
 		Graphics.PreferredBackBufferHeight = Window.ClientBounds.Height;
 		UpdateView();
+		
 		resizing = false;
 	}
 
@@ -237,6 +237,7 @@ public class CoreEngine : Game
      			return;
 		
 		GraphicsDevice.SetRenderTarget(RenderScreen);
+		//GraphicsDevice.Viewport = Viewport;
 		GraphicsDevice.Clear(ClearColor);
 		scene.BeforeRender();
 		

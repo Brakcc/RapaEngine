@@ -26,6 +26,18 @@
 /processorParam:TextureFormat=Color
 /build:ArtContent/BackGrounds/BackGround1.png
 
+#begin ArtContent/BackGrounds/BProps/StarA.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:ArtContent/BackGrounds/BProps/StarA.png
+
 #begin ArtContent/BackGrounds/TextTileMap.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -152,6 +164,18 @@
 /processorParam:PremultiplyAlpha=True
 /processorParam:TextureFormat=Compressed
 /build:ArtContent/Fonts/fontTest.spritefont
+
+#begin ArtContent/MockUps/MockUpDesert.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:ArtContent/MockUps/MockUpDesert.png
 
 #begin ArtContent/Shaders/File.fx
 /importer:EffectImporter

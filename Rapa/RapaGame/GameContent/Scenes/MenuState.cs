@@ -81,7 +81,7 @@ public sealed class MenuState : State
         
         var anims = new Dictionary<string, Animation>
         {
-            {"back", new Animation(_content.Load<Texture2D>("ArtContent/Tiles/TestCrystile"), 1, 1f, 0.5f) }
+            {"back", new Animation(_content.Load<Texture2D>("ArtContent/Tiles/TestCrystile"), 1, 1f) }
         };
 
         var testText = _content.Load<Texture2D>("ArtContent/Tiles/TestCrystile");
@@ -90,7 +90,7 @@ public sealed class MenuState : State
         _hollows = new List<NormalProp>
         {
             new(testText, 8, 8) 
-                {Position = new Vector2(CurrentScreenWidth / 2f, CurrentScreenHeight / 2f), Layer = 3},
+                {Position = new Vector2(CurrentScreenWidth / 2f, CurrentScreenHeight / 2f)},
             new(testText, 8, 8) 
                 {Position = new Vector2(CurrentScreenWidth / 2f - 8, CurrentScreenHeight / 2f)},
             new(testText, 8, 8) 
@@ -103,7 +103,7 @@ public sealed class MenuState : State
                 {Position = new Vector2(CurrentScreenWidth / 2f + 16, CurrentScreenHeight / 2f - 8)}
         };
         
-        _hollows[1].AddComponent(new BaseSprite(_hollows[1], testText2, 1));
+        _hollows[1].AddComponent(new BaseSprite(_hollows[1], testText2));
         
         _solid = new Solid(testText2) { Position = new Vector2(CurrentScreenWidth / 2f - 8, CurrentScreenHeight / 2f) };
         

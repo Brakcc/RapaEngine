@@ -8,10 +8,9 @@ public sealed class BaseSprite : Component
 {
     #region constructor
     
-    public BaseSprite(Entity entityRef, Texture2D texture = null, float layer = 0f) : base(entityRef)
+    public BaseSprite(Entity entityRef, Texture2D texture = null) : base(entityRef)
     {
         _texture = texture;
-        _layer = layer;
     }
     
     #endregion
@@ -24,7 +23,7 @@ public sealed class BaseSprite : Component
 
     public override void Draw(SpriteBatch spriteBatch)
     {
-        spriteBatch.Draw(_texture, EntityRef.Position, null, Color.White, 0, Vector2.Zero, 1f, SpriteEffects.None , _layer);
+        spriteBatch.Draw(_texture, EntityRef.Position, null, Color.White);
         base.Draw(spriteBatch);
     }
 
@@ -33,8 +32,6 @@ public sealed class BaseSprite : Component
     #region fields
 
     private readonly Texture2D _texture;
-
-    private readonly float _layer;
 
     #endregion
 }

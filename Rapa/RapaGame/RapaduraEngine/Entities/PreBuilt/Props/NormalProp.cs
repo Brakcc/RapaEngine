@@ -11,8 +11,8 @@ namespace Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Props;
 public class NormalProp : Entity
 {
     #region properties
-
-    public float Layer { get; init; }
+    
+    //yes
 
     #endregion
     
@@ -22,7 +22,7 @@ public class NormalProp : Entity
     {
         Components = new ComponentList(this, new List<Component>
         {
-            new BaseSprite(this, texture, Layer)
+            new BaseSprite(this, texture)
         });
         collidable = false;
     }

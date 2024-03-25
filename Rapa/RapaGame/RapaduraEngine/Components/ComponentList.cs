@@ -14,6 +14,17 @@ public class ComponentList
 
     public int Count => _components.Count;
 
+    public Component this[int id]
+    {
+        get
+        {
+            if (id < 0 || id >= _components.Count)
+                throw new IndexOutOfRangeException();
+
+            return _components[id];
+        }
+    }
+    
     public CompLockMode LockMode
     {
         get => _lockMode;

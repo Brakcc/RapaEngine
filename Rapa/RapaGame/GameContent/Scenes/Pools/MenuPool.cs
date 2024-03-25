@@ -7,6 +7,7 @@ using Rapa.RapaGame.RapaduraEngine;
 using Rapa.RapaGame.RapaduraEngine.CameraManagement;
 using Rapa.RapaGame.RapaduraEngine.Components.Sprites.Animations;
 using Rapa.RapaGame.RapaduraEngine.Entities;
+using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt;
 using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Props;
 using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Solids;
 using Rapa.RapaGame.RapaduraEngine.InputSettings;
@@ -17,24 +18,24 @@ namespace Rapa.RapaGame.GameContent.Scenes.Pools;
 
 public class MenuPool : EntityPool
 {
-    private List<Entity> Full()
+    private static List<Entity> Full()
     {
         var list = new List<Entity>();
         
         //Inits des anims des Components
         var anims = new Dictionary<string, Animation>
         {
-            { "Idle", new Animation(CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/Chara/TestChara"), 5, 0.2f, 0.8f) },
-            { "WalkRight", new Animation(CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/Chara/TestChara"), 5, 0.2f, 0.8f) },
-            { "WalkLeft" , new Animation(CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/Chara/TestChara"), 5, 0.2f, 0.8f) }
+            { "Idle", new Animation(CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/Chara/TestChara"), 5, 0.2f) },
+            { "WalkRight", new Animation(CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/Chara/TestChara"), 5, 0.2f) },
+            { "WalkLeft" , new Animation(CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/Chara/TestChara"), 5, 0.2f) }
         };
         var back = new Dictionary<string, Animation>
         {
-            {"back", new Animation(CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/BackGrounds/UnitTileTest"), 1, 1f, 1f) }
+            {"back", new Animation(CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/BackGrounds/UnitTileTest"), 1, 1f) }
         };
         var front = new Dictionary<string, Animation>
         {
-            {"front", new Animation(CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/BackGrounds/UnitTileTest"), 1, 1f, 1f) }
+            {"front", new Animation(CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/BackGrounds/UnitTileTest"), 1, 1f) }
         };
 
         var testText = CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/Tiles/TestCrystile");
@@ -48,6 +49,13 @@ public class MenuPool : EntityPool
             CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/Tiles/SandTiles/TestSandTile5"),
             CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/Tiles/SandTiles/TestSandTile6")
         };
+
+        var star = new Dictionary<string, Animation>
+        {
+            {"idle", new Animation(CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/BackGrounds/BProps/StarA"), 4, 0.35f)}
+        };
+
+        var mock = CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/MockUps/MockUpDesert");
         
         //Appel du Perso
         var player = new Player(testText)
@@ -62,15 +70,16 @@ public class MenuPool : EntityPool
                 Jump = Keys.Space,
                 Special = Keys.CapsLock
             },
-            speed = 1f
+            speed = 1f,
+            Layer = -3f
         };
-        
-        var camera = new Camera(player);
-        list.Add(camera);
-        list.Add(player);
+
+        var focus = new Empty { Position = new Vector2(320f / 2, 180f / 2) };
+        var camera = new Camera(focus);
 
         var _normalSprite = new List<NormalProp>
         {
+            new(mock) {Position = Vector2.Zero, Layer = -2},
             new(sands[0], 8, 8, debugMode:true) {Position = Vector2.Zero, Layer = -1},
             new(sands[1], 8, 8, debugMode:true) {Position = new Vector2(8, 0), Layer = -1},
             new(sands[2], 8, 8, debugMode:true) {Position = new Vector2(16, 0), Layer = -1},
@@ -101,6 +110,19 @@ public class MenuPool : EntityPool
             new(testText, debugMode:true) { Position = new Vector2(120, 8), Layer = 1 }
         };
 
+        var stars = new List<AnimatedProp>
+        {
+            new(star, 11, 11) { Position = new Vector2(100, 100), Layer = -3f},
+            new(star, 11, 11) { Position = new Vector2(180, 75), Layer = -3f },
+            new(star, 11, 11) { Position = new Vector2(220, 55), Layer = -3f }
+        };
+        
+        
+
+        foreach (var s in _normalSprite)
+        {
+            list.Add(s);
+        }
         foreach (var s in _solidSprites)
         {
             list.Add(s);
@@ -109,15 +131,16 @@ public class MenuPool : EntityPool
         {
             list.Add(s);
         }
-        foreach (var s in parallaxes)
+        foreach (var s in stars)
         {
             list.Add(s);
         }
-        foreach (var s in _normalSprite)
-        {
-            list.Add(s);
-        }
-
+        
+        
+        list.Add(camera);
+        list.Add(focus);
+        list.Add(player);
+        
         return list;
     }
 

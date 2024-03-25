@@ -21,7 +21,7 @@ public class EntityPool
             if (id < 0 || id >= _entities.Count)
                 throw new IndexOutOfRangeException();
                 
-            return _entities [id];
+            return _entities[id];
         }
     }
 
@@ -35,6 +35,7 @@ public class EntityPool
         _entities = new List<Entity>();
         _toAdd = new List<Entity>();
         _toRemove = new List<Entity>();
+        _shuffled = true;
     }
 
     public EntityPool(Scene entityRef, List<Entity> entities)
@@ -43,6 +44,7 @@ public class EntityPool
         _entities = entities;
         _toAdd = new List<Entity>();
         _toRemove = new List<Entity>();
+        _shuffled = true;
     }
     
     #endregion
@@ -134,6 +136,7 @@ public class EntityPool
                 _entities.Add(add);
             }
             _toAdd.Clear();
+            _shuffled = true;
         }
         if (_toRemove.Count > 0)
         {
@@ -143,6 +146,12 @@ public class EntityPool
             }
             _toRemove.Clear();
         }
+
+        if (!_shuffled)
+            return;
+        
+        _shuffled = false;
+        _entities.Sort(CompareLayer);
     }
     
     public T GetFirstEntity<T>() where T : Entity
@@ -168,7 +177,7 @@ public class EntityPool
         return list;
     }
 
-    public bool TryGetEntity<T>(out T entity) where T : Entity
+    public bool TryGetFirstEntity<T>(out T entity) where T : Entity
     {
         foreach (var ent in _entities)
         {
@@ -181,16 +190,35 @@ public class EntityPool
         entity = null;
         return false;
     }
+
+    public bool TryGetAllEntities<T>(out List<T> entities) where T : Entity
+    {
+        entities = new List<T>();
+        var hasEnt = false;
+        foreach (var ent in _entities)
+        {
+            if (ent is not T entTest)
+                continue;
+            
+            entities.Add(entTest);
+            hasEnt = true;
+        }
+        return hasEnt;
+    }
     
     #endregion
     
     #region fields
 
+    private bool _shuffled;
+    
     private readonly List<Entity> _entities;
 
     private readonly List<Entity> _toAdd;
 
     private readonly List<Entity> _toRemove;
+
+    private static readonly Comparison<Entity> CompareLayer = (a, b) => MathF.Sign(b.Layer - a.Layer);
 
     #endregion
 }

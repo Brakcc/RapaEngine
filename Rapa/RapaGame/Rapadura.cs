@@ -46,7 +46,6 @@ public class Rapadura : CoreEngine
         CurrentScreenWidth = RenderScreenWidth;
         
         Graphics.ApplyChanges();
-        //AllStates();
         
         base.Initialize();
     }
@@ -64,7 +63,7 @@ public class Rapadura : CoreEngine
     {
         nextState = state;
     }
-    
+
     #endregion
     
     #region fields
