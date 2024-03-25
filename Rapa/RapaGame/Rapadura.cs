@@ -1,6 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Rapa.RapaGame.GameContent.Scenes;
+﻿using Rapa.RapaGame.GameContent.Scenes;
 using Rapa.RapaGame.GameContent.Scenes.Pools;
 using Rapa.RapaGame.RapaduraEngine;
 using Rapa.RapaGame.RapaduraEngine.SceneManagement;
@@ -30,6 +28,7 @@ public class Rapadura : CoreEngine
         true)
     {
         hasStarted = true;
+        Scene = new MenuScene(new MenuPool(Scene));
     }
 
     #endregion
@@ -64,37 +63,6 @@ public class Rapadura : CoreEngine
     public void ChangeState(State state)
     {
         nextState = state;
-    }
-
-    protected override void Update(GameTime gameTime)
-    {
-        //état du jeu
-        /*if (nextState != null)
-        {
-            currentState = nextState;
-            nextState = null;
-        }
-
-        currentState.Update(gameTime);
-        currentState.PostUpdate(gameTime);
-
-        //verif du lacement du exe
-        if (!hasStarted)
-            return;*/
-
-        base.Update(gameTime);
-    }
-
-    protected override void RenderCore()
-    {
-        //currentState.Draw(SpriteBatch);
-        
-        // GraphicsDevice.SetRenderTarget(null);
-        // GraphicsDevice.Clear(Color.Black);
-        // SpriteBatch.Begin(samplerState: SamplerState.PointClamp);
-        // SpriteBatch.Draw(RenderScreen, RenderRect, Color.White);
-        // SpriteBatch.End();
-        base.RenderCore();
     }
     
     #endregion

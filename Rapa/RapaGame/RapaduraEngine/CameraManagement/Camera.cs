@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Rapa.RapaGame.GameContent.PlayerInfo;
 using Rapa.RapaGame.RapaduraEngine.Entities;
 
@@ -42,11 +41,10 @@ public class Camera : Entity
             -target.X + target.Width / 2,
             -target.Y + target.Height / 2,
             0);
-
-        Console.WriteLine(target.X);
         
         Transform = pos * offset;
 
+        //à refaire d'urgence
         CoreEngine.ScreenMatrix = Transform;
     }
     
