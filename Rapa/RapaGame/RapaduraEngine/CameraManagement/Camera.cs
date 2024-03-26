@@ -1,4 +1,6 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 using Rapa.RapaGame.RapaduraEngine.Entities;
 
 namespace Rapa.RapaGame.RapaduraEngine.CameraManagement;
@@ -7,17 +9,16 @@ public class Camera : Entity
 {
     #region properties
     
-    public Entity FocusPoint { get; init; }
-    
     public Matrix Transform { get; private set; }
     
     #endregion
 
     #region constructor
 
-    public Camera(Entity focus)
+    public Camera()
     {
-        FocusPoint = focus;
+        X = 320f;
+        Y = 180f;
     }
 
     #endregion
@@ -26,25 +27,48 @@ public class Camera : Entity
 
     public override void Update(GameTime gameTime)
     {
-        Follow(FocusPoint);
+        SetCam(X, Y);
+        
+        if (Keyboard.GetState().IsKeyDown(Keys.C))
+            EasedTraveling(new Vector2(640, 180), 0.05f);
+        //if (Keyboard.GetState().IsKeyDown(Keys.H))
+            //Shake(Position, 0.05f);
+        
+        if (Keyboard.GetState().IsKeyDown(Keys.E))
+            X += 3;
+        if (Keyboard.GetState().IsKeyDown(Keys.A))
+            X -= 3;
     }
 
-    public void Follow (Entity target)
+    private void SetCam (float x, float y)
     {
         var offset = Matrix.CreateTranslation(
             Rapadura.CurrentScreenWidth / 2f,
             Rapadura.CurrentScreenHeight / 2f,
             0);
 
-        var pos = Matrix.CreateTranslation(
-            -target.X + target.Width / 2,
-            -target.Y + target.Height / 2,
-            0);
+        var pos = Matrix.CreateTranslation(-x / 2, -y / 2, 0);
         
         Transform = offset * pos;
 
         //à refaire d'urgence
         CoreEngine.ScreenMatrix = Transform;
+    }
+
+    public void EasedTraveling(Vector2 focusPoint, float speed)
+    {
+        Position += (focusPoint - Position) * speed;
+    }
+    
+    public void Shake(Vector2 focusPoint, float speed)
+    {
+        var coef = focusPoint - Position;
+        if (coef.Length() <= 1)
+        {
+            coef = Vector2.One;
+            speed = 1;
+        }
+        Position += coef * speed;
     }
     
     #endregion

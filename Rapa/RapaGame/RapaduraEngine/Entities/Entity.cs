@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Rapa.RapaGame.RapaduraEngine.Components;
 using Rapa.RapaGame.RapaduraEngine.Components.Colliders;
@@ -265,6 +266,11 @@ public abstract class Entity
         _debugMode = debugMode;
         
         //lien avec EntityPool à faire pour tracker l'entity
+    }
+
+    ~Entity()
+    {
+        Console.WriteLine("entity disposed");
     }
 
     #endregion

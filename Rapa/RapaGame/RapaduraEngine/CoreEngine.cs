@@ -82,9 +82,8 @@ public class CoreEngine : Game
 		Graphics.PreferredDepthStencilFormat = DepthFormat.Depth24Stencil8;
 		Window.AllowUserResizing = true;
 		Window.ClientSizeChanged += OnClientSizeChanged;
-		Window.Title = windowTitle;
-		Window.AllowAltF4 = true;
-		Title = windowTitle;
+		Window.AllowAltF4 = true;  
+		title = windowTitle;
 		if (fullscreen)
 		{
 			Graphics.PreferredBackBufferWidth = renderWidth;
@@ -108,7 +107,6 @@ public class CoreEngine : Game
 		IsMouseVisible = true;
 		ExitOnEscapeKeypress = false;
 		GCSettings.LatencyMode = GCLatencyMode.SustainedLowLatency;
-			
 		Drawer.InitDrawer(SpriteBatch);
 	}
 
@@ -171,6 +169,7 @@ public class CoreEngine : Game
 
 	protected override void Initialize()
 	{
+		Window.Title = title;
 		GetRectTarget();
 		base.Initialize();
 	}
@@ -192,7 +191,7 @@ public class CoreEngine : Game
 			base.Update(gameTime);
 			return;
 		}
-
+		
 		if (scene != null)
 		{
 			scene.BeforeUpdate();
@@ -340,8 +339,8 @@ public class CoreEngine : Game
 	#endregion
 
 	#region fields
-	
-	public string Title;
+
+	private readonly string title;
 
 	public Version Version;
 

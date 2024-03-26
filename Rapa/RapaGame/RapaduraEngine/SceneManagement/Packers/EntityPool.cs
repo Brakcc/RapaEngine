@@ -218,7 +218,7 @@ public class EntityPool
 
     private readonly List<Entity> _toRemove;
 
-    private static readonly Comparison<Entity> CompareLayer = (a, b) => MathF.Sign(b.Layer - a.Layer);
+    private readonly Comparison<Entity> CompareLayer = (a, b) => MathF.Sign(b.Layer - a.Layer);
 
     #endregion
 }

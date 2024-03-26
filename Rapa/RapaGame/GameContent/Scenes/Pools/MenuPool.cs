@@ -75,7 +75,7 @@ public class MenuPool : EntityPool
         };
 
         var focus = new Empty { Position = new Vector2(320f / 2, 180f / 2) };
-        var camera = new Camera(focus);
+        var camera = new Camera();
 
         var _normalSprite = new List<NormalProp>
         {
@@ -90,8 +90,8 @@ public class MenuPool : EntityPool
 
         var parallaxes = new List<Parallaxe>
         {
-            new(CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/BackGrounds/BackGround1"), player, 8f) { layer = 0f }, 
-            new(CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/BackGrounds/TextTileMap"), player, 5f) { layer = 0.5f },
+            //new(CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/BackGrounds/BackGround1"), player, 8f) { layer = 0f }, 
+            //new(CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/BackGrounds/TextTileMap"), player, 5f) { layer = 0.5f },
         };
 
         var _hollowSprites = new List<AnimatedProp>
@@ -116,8 +116,6 @@ public class MenuPool : EntityPool
             new(star, 11, 11) { Position = new Vector2(180, 75), Layer = -3f },
             new(star, 11, 11) { Position = new Vector2(220, 55), Layer = -3f }
         };
-        
-        
 
         foreach (var s in _normalSprite)
         {
