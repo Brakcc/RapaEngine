@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Rapa.RapaGame.RapaduraEngine.Entities;
+using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Actors;
 using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Props;
 using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Solids;
 
@@ -15,7 +16,7 @@ public class Parallaxe : Entity
     private float _layer;
     private readonly float _scrollingSpeed;
     private readonly List<NormalProp> _sprites;
-    private readonly Solid _player;
+    private readonly Actor _player;
     private float _speed;
     public float layer
     {
@@ -30,13 +31,18 @@ public class Parallaxe : Entity
         }
     }
         
-    public Parallaxe(Texture2D texture, Solid player, float scrollingSpeed, bool constantSpeed = false)
-        : this(new List<Texture2D> { texture, texture }, player, scrollingSpeed, constantSpeed)
+    public Parallaxe(Texture2D texture, Actor player, float scrollingSpeed, bool constantSpeed = false)
     {
-
+        _sprites = new List<NormalProp>
+        {
+            new(texture)
+        };
+        _player = player;
+        _scrollingSpeed = scrollingSpeed;
+        _constantSpeed = constantSpeed;
     }
 
-    private Parallaxe(IReadOnlyList<Texture2D> textures, Solid player, float scrollingSpeed, bool constantSpeed = false)
+    private Parallaxe(IReadOnlyList<Texture2D> textures, Actor player, float scrollingSpeed, bool constantSpeed = false)
     {
         _player = player;
         _sprites = new List<NormalProp>();
@@ -72,9 +78,9 @@ public class Parallaxe : Entity
     {
         _speed = (float)(_scrollingSpeed * gameTime.ElapsedGameTime.TotalSeconds);
 
-        if (!_constantSpeed || _player.velocity.X > 0)
+        if (!_constantSpeed || _player.Velocity.X > 0)
         {
-            _speed *= _player.velocity.X;
+            _speed *= _player.Velocity.X;
         }
 
         foreach (var sprite in _sprites)

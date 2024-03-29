@@ -1,12 +1,14 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Actors;
 using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Solids;
 using Rapa.RapaGame.RapaduraEngine.InputSettings;
 
 namespace Rapa.RapaGame.GameContent.PlayerInfo;
 
-public sealed class Player : Solid
+public sealed class Player : Actor
 {
     #region fields
     
@@ -28,7 +30,14 @@ public sealed class Player : Solid
     #endregion
 
     #region methodes
-    
+
+    public override void Init()
+    {
+        base.Init();
+        
+        Console.WriteLine(SceneRef);
+    }
+
     public override void Update(GameTime gameTime)
     {
         directionalSpeedX.Y = speed;
@@ -41,9 +50,6 @@ public sealed class Player : Solid
     
         MoveX(directionalSpeedX);
         MoveY(directionalSpeedY);
-        
-        //Console.WriteLine(velocity);
-        //Animate();
 
         Position += velocity;
         

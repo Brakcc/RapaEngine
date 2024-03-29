@@ -213,21 +213,21 @@ public abstract class Collider
     public virtual void Draw(Color color, float layer = 0) {}
 
     public bool Collide(Entity entity) => Collide(entity.Collider);
-    
-    public bool Collide(Collider collider) => collider switch
+
+    private bool Collide(Collider collider) => collider switch
     { 
         BoxCollider boxCollider => Collide(boxCollider),
         BoxTrigger trigger => Collide(trigger),
         _ => throw new Exception("No methode is available to collide on this collider type")
     };
 
-    public abstract bool Collide(Vector2 point);
+    protected abstract bool Collide(Vector2 point);
 
-    public abstract bool Collide(Rectangle rect);
+    protected abstract bool Collide(Rectangle rect);
 
-    public abstract bool Collide(BoxCollider box);
+    protected abstract bool Collide(BoxCollider box);
 
-    public abstract bool Collide(BoxTrigger trigger);
+    protected abstract bool Collide(BoxTrigger trigger);
 
     #endregion
 

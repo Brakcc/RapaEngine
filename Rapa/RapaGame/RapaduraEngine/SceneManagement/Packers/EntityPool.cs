@@ -9,8 +9,10 @@ namespace Rapa.RapaGame.RapaduraEngine.SceneManagement.Packers;
 public class EntityPool
 {
     #region properties
+
+    public Dictionary<Type, List<Entity>> Entities { get; private set; }
     
-    public Scene SceneRef { get; private set; }
+    public Scene SceneRef { get; set; }
 
     public int Count => _entities.Count;
 
@@ -29,18 +31,18 @@ public class EntityPool
     
     #region constructor
 
-    public EntityPool(Scene entityRef)
+    public EntityPool()
     {
-        SceneRef = entityRef;
+        Entities = new Dictionary<Type, List<Entity>>();
         _entities = new List<Entity>();
         _toAdd = new List<Entity>();
         _toRemove = new List<Entity>();
         _shuffled = true;
     }
 
-    public EntityPool(Scene entityRef, List<Entity> entities)
+    public EntityPool(List<Entity> entities)
     {
-        SceneRef = entityRef;
+        Entities = new Dictionary<Type, List<Entity>>();
         _entities = entities;
         _toAdd = new List<Entity>();
         _toRemove = new List<Entity>();
@@ -59,6 +61,12 @@ public class EntityPool
         foreach (var ent in _entities)
         {
             ent.Init();
+            var t = ent.GetType();
+            
+            if (!Entities.ContainsKey(t))
+                Entities.Add(t, new List<Entity>());
+            
+            Entities[t].Add(ent);
         }
     }
     
@@ -212,7 +220,7 @@ public class EntityPool
 
     private bool _shuffled;
     
-    private readonly List<Entity> _entities;
+    protected readonly List<Entity> _entities;
 
     private readonly List<Entity> _toAdd;
 

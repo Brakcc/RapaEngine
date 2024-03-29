@@ -64,22 +64,22 @@ public class BoxCollider : Collider
         Drawer.DrawHollowRect(Boundaries, Color.Red, layer);
     }
 
-    public override bool Collide(Vector2 point)
+    protected override bool Collide(Vector2 point)
         => CollideCalc.RectPointCollision(EntityDepX, EntityDepY, Width, Height, point);
 
-    public override bool Collide(Rectangle rect)
+    protected override bool Collide(Rectangle rect)
         => EntityDepRight > rect.Left &&
            EntityDepBottom > rect.Top &&
            EntityDepLeft < rect.Right &&
            EntityDepTop < rect.Bottom;
 
-    public override bool Collide(BoxCollider box)
+    protected override bool Collide(BoxCollider box)
         => EntityDepLeft < box.EntityDepRight &&
            EntityDepRight > box.EntityDepLeft &&
            EntityDepBottom > box.EntityDepTop &&
            EntityDepTop < box.EntityDepBottom;
-    
-    public override bool Collide(BoxTrigger trigger)
+
+    protected override bool Collide(BoxTrigger trigger)
         => EntityDepLeft < trigger.EntityDepRight &&
            EntityDepRight > trigger.EntityDepLeft &&
            EntityDepBottom > trigger.EntityDepTop &&

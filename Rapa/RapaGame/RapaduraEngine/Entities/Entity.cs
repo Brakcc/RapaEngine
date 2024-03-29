@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Rapa.RapaGame.RapaduraEngine.Components;
 using Rapa.RapaGame.RapaduraEngine.Components.Colliders;
 using Rapa.RapaGame.RapaduraEngine.Mathematics;
 using Rapa.RapaGame.RapaduraEngine.Physics.CollisionPhysics;
+using Rapa.RapaGame.RapaduraEngine.SceneManagement;
 
 namespace Rapa.RapaGame.RapaduraEngine.Entities;
 
@@ -12,6 +14,8 @@ public abstract class Entity
 {
     #region properties
 
+    public Scene SceneRef { get; set; }
+    
     public ComponentList Components { get; init; }
     
     public float X
@@ -280,6 +284,7 @@ public abstract class Entity
     public virtual void Init()
     {
         Components?.InitList();
+        SceneRef = CoreEngine.Scene;
     }
     
     public virtual void Update(GameTime gameTime)
@@ -321,6 +326,38 @@ public abstract class Entity
     #region collisions
 
     public bool IsColliding(Entity e) => CollideCalc.CheckCollision(this, e);
+
+    public bool IsCollidingAt<T>(Vector2 at) where T : Entity => IsCollidingAt(SceneRef.EntityPool.Entities[typeof(T)], at);
+    
+    public bool IsCollidingAt(List<Entity> col, Vector2 at) => CollideCalc.CheckCollisionAt(this, col, at);
+
+    public bool IsCollidingAll(List<Entity> entities)
+    {
+        foreach (var e in entities)
+        {
+            if (IsColliding(e))
+                return true;
+        }
+        return false;
+    }
+
+    public T IsCollidingFirst<T>(List<Entity> entities) where T : Entity => CollideCalc.GetEntityCollided(this, entities) as T;
+
+    public bool CollideAllAction<T>(List<Entity> entities, Action<T> collision) where T : Entity
+    {
+        var res = false;
+        foreach (var e in entities)
+        {
+            if (!IsColliding(e))
+                continue;
+            
+            res = true;
+            collision(e as T);
+        }
+
+        return res;
+    }
+    
 
     #endregion
     

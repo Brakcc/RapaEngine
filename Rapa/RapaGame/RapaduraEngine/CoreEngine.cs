@@ -108,6 +108,7 @@ public class CoreEngine : Game
 		ExitOnEscapeKeypress = false;
 		GCSettings.LatencyMode = GCLatencyMode.SustainedLowLatency;
 		Drawer.InitDrawer(SpriteBatch);
+		nextScene = null;
 	}
 
 	#endregion
@@ -191,12 +192,6 @@ public class CoreEngine : Game
 			base.Update(gameTime);
 			return;
 		}
-		
-		if (scene != null)
-		{
-			scene.BeforeUpdate();
-			scene.Update(gameTime);
-		}
 
 		if (scene != nextScene)
 		{
@@ -207,6 +202,12 @@ public class CoreEngine : Game
 			OnSceneTransition(from, nextScene);
 			
 			scene?.Begin();
+		}
+		
+		if (scene != null)
+		{
+			scene.BeforeUpdate();
+			scene.Update(gameTime);
 		}
 
 		base.Update(gameTime);

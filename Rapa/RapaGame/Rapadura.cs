@@ -27,8 +27,8 @@ public class Rapadura : CoreEngine
         false,
         true)
     {
+        Scene = new MenuScene(new MenuPool());
         hasStarted = true;
-        Scene = new MenuScene(new MenuPool(Scene));
     }
 
     #endregion

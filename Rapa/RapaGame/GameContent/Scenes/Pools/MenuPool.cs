@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -11,14 +12,13 @@ using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt;
 using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Props;
 using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Solids;
 using Rapa.RapaGame.RapaduraEngine.InputSettings;
-using Rapa.RapaGame.RapaduraEngine.SceneManagement;
 using Rapa.RapaGame.RapaduraEngine.SceneManagement.Packers;
 
 namespace Rapa.RapaGame.GameContent.Scenes.Pools;
 
 public class MenuPool : EntityPool
 {
-    private static List<Entity> Full()
+    public MenuPool()
     {
         var list = new List<Entity>();
         
@@ -79,7 +79,7 @@ public class MenuPool : EntityPool
 
         var _normalSprite = new List<NormalProp>
         {
-            new(mock) {Position = Vector2.Zero, Layer = -2},
+            new(mock) {Position = Vector2.Zero, Layer = 2},
             new(sands[0], 8, 8, debugMode:true) {Position = Vector2.Zero, Layer = -1},
             new(sands[1], 8, 8, debugMode:true) {Position = new Vector2(8, 0), Layer = -1},
             new(sands[2], 8, 8, debugMode:true) {Position = new Vector2(16, 0), Layer = -1},
@@ -105,7 +105,7 @@ public class MenuPool : EntityPool
             new(testText, debugMode:true) { Position = new Vector2(0, 8), Layer = 1 },
             new(testText, debugMode:true) { Position = new Vector2(24, 8), Layer = 1 },
             new(testText, debugMode:true) { Position = new Vector2(48, 8), Layer = 1 },
-            new(testText, debugMode:true) { Position = new Vector2(72, 8), Layer = 1 },
+            new(testText, debugMode:true) { Position = new Vector2(72, 8), Layer = -3 },
             new(testText, debugMode:true) { Position = new Vector2(96, 8), Layer = 1 },
             new(testText, debugMode:true) { Position = new Vector2(120, 8), Layer = 1 }
         };
@@ -119,39 +119,24 @@ public class MenuPool : EntityPool
 
         foreach (var s in _normalSprite)
         {
-            list.Add(s);
+            _entities.Add(s);
         }
         foreach (var s in _solidSprites)
         {
-            list.Add(s);
+            _entities.Add(s);
         }
         foreach (var s in _hollowSprites)
         {
-            list.Add(s);
+            _entities.Add(s);
         }
         foreach (var s in stars)
         {
-            list.Add(s);
+            _entities.Add(s);
         }
         
+        _entities.Add(camera);
+        _entities.Add(focus);
+        _entities.Add(player);
         
-        list.Add(camera);
-        list.Add(focus);
-        list.Add(player);
-        
-        return list;
-    }
-
-    public MenuPool(Scene entityRef) : base(entityRef)
-    {
-        var l = Full();
-        foreach (var e in l)
-        {
-            AddEntity(e);
-        }
-    }
-
-    public MenuPool(Scene entityRef, List<Entity> entities) : base(entityRef, entities)
-    {
     }
 }
