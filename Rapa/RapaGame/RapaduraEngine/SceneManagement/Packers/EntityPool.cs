@@ -31,7 +31,7 @@ public class EntityPool
     
     #region constructor
 
-    public EntityPool()
+    protected EntityPool()
     {
         Entities = new Dictionary<Type, List<Entity>>();
         _entities = new List<Entity>();
@@ -40,7 +40,7 @@ public class EntityPool
         _shuffled = true;
     }
 
-    public EntityPool(List<Entity> entities)
+    protected EntityPool(List<Entity> entities)
     {
         Entities = new Dictionary<Type, List<Entity>>();
         _entities = entities;
@@ -61,6 +61,7 @@ public class EntityPool
         foreach (var ent in _entities)
         {
             ent.Init();
+            ent.SceneRef = SceneRef;
             var t = ent.GetType();
             
             if (!Entities.ContainsKey(t))

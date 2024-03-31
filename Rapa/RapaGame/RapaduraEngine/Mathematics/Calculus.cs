@@ -9,13 +9,18 @@ public static class Calculus
     #region methodes
     
     public static T[] Array<T>(params T[] array) => array;
+
+    public static float CompareVals(float val, float target, float maxVal)
+    {
+        return val <= target ? Math.Min(val + maxVal, target) : Math.Max(val - maxVal, target);
+    }
     
     public static T RandomPick<T>(params T[] pool) => pool[Rand.Next(pool.Length)];
     
     public static T RandomPick<T>(List<T> pool) => pool[Rand.Next(pool.Count)];
     
     public static float Angle(Vector2 from, Vector2 to) => (float)Math.Atan2(to.Y - from.Y, to.X - from.X);
-
+    
     public static void Max(params int[] values)
     {
         var max = values[0];

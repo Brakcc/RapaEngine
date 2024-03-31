@@ -4,7 +4,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Rapa.RapaGame.RapaduraEngine.Entities;
 using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Actors;
 using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Props;
-using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Solids;
 
 namespace Rapa.RapaGame.RapaduraEngine.CameraManagement;
 

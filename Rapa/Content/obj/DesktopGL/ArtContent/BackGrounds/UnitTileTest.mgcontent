@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/c.strappazzonmarques/Desktop/Rapa/Rapa/Content/ArtContent/BackGrounds/UnitTileTest.png</SourceFile>
-  <SourceTime>2024-02-19T19:25:44.266952+01:00</SourceTime>
-  <DestFile>C:/Users/c.strappazzonmarques/Desktop/Rapa/Rapa/Content/bin/DesktopGL/ArtContent/BackGrounds/UnitTileTest.xnb</DestFile>
-  <DestTime>2024-03-25T12:50:42.174872+01:00</DestTime>
+  <SourceFile>C:/Users/cleme/Documents/Projects/RapaEngine/Rapa/Content/ArtContent/BackGrounds/UnitTileTest.png</SourceFile>
+  <SourceTime>2024-02-21T00:16:51.5217822+01:00</SourceTime>
+  <DestFile>C:/Users/cleme/Documents/Projects/RapaEngine/Rapa/Content/bin/DesktopGL/ArtContent/BackGrounds/UnitTileTest.xnb</DestFile>
+  <DestTime>2024-04-01T00:48:59.9820558+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T13:44:56+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

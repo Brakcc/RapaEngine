@@ -281,10 +281,15 @@ public abstract class Entity
     
     #region methodes
 
+    public void RemoveSelf()
+    {
+        SceneRef?.EntityPool.RemoveEntity(this);
+    }
+    
     public virtual void Init()
     {
         Components?.InitList();
-        SceneRef = CoreEngine.Scene;
+        //SceneRef = CoreEngine.Scene;
     }
     
     public virtual void Update(GameTime gameTime)
@@ -327,9 +332,11 @@ public abstract class Entity
 
     public bool IsColliding(Entity e) => CollideCalc.CheckCollision(this, e);
 
+    public bool IsCollidingAt(Entity e, Vector2 at) => CollideCalc.CheckCollisionAt(this, e, at);
+
     public bool IsCollidingAt<T>(Vector2 at) where T : Entity => IsCollidingAt(SceneRef.EntityPool.Entities[typeof(T)], at);
     
-    public bool IsCollidingAt(List<Entity> col, Vector2 at) => CollideCalc.CheckCollisionAt(this, col, at);
+    public bool IsCollidingAt(IEnumerable<Entity> col, Vector2 at) => CollideCalc.CheckCollisionAt(this, col, at);
 
     public bool IsCollidingAll(List<Entity> entities)
     {
@@ -341,7 +348,11 @@ public abstract class Entity
         return false;
     }
 
-    public T IsCollidingFirst<T>(List<Entity> entities) where T : Entity => CollideCalc.GetEntityCollided(this, entities) as T;
+    public T IsCollidingFirst<T>(IEnumerable<Entity> entities) where T : Entity => CollideCalc.GetEntityCollided(this, entities) as T;
+    
+    public T IsCollidingFirstAt<T>(IEnumerable<Entity> entities, Vector2 at) where T : Entity => CollideCalc.GetEntityCollidedAt(this, entities, at) as T;
+    
+    public T IsCollidingFirstAt<T>(Vector2 at) where T : Entity => IsCollidingFirstAt<T>(SceneRef.EntityPool.Entities[typeof(T)], at);
 
     public bool CollideAllAction<T>(List<Entity> entities, Action<T> collision) where T : Entity
     {

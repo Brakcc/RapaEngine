@@ -1,6 +1,6 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using Rapa.RapaGame.RapaduraEngine;
 using Rapa.RapaGame.RapaduraEngine.SceneManagement;
 using Rapa.RapaGame.RapaduraEngine.SceneManagement.Packers;
 
@@ -13,6 +13,7 @@ public class MenuScene : Scene
     public MenuScene(EntityPool entityPool) : base(entityPool)
     {
         _canRemove = true;
+        EntityPool.SceneRef = this;
     }
     
     #endregion

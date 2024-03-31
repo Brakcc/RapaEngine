@@ -1,9 +1,11 @@
-﻿namespace Rapa.RapaGame.RapaduraEngine.Mathematics;
+﻿using System;
+
+namespace Rapa.RapaGame.RapaduraEngine.Mathematics;
 
 public static class Ease
 {
     #region methodes
-
+    
     public static float Lerp(float a, float b, float t) => a + (b - a) * t;
 
     public static float QuadraticLerp(float a, float b, float t) => Lerp(a, b, BaseFunctions.QuadraticIn(t));
