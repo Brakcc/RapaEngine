@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -33,13 +32,6 @@ public sealed class Player : Actor
     #endregion
 
     #region methodes
-
-    public override void Init()
-    {
-        base.Init();
-        
-        Console.WriteLine(SceneRef);
-    }
 
     public override void Update(GameTime gameTime)
     {

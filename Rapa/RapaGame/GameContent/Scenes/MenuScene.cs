@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
-using Rapa.RapaGame.RapaduraEngine;
 using Rapa.RapaGame.RapaduraEngine.SceneManagement;
 using Rapa.RapaGame.RapaduraEngine.SceneManagement.Packers;
 

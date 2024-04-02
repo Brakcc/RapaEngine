@@ -18,37 +18,6 @@ public class MenuPool : EntityPool
 {
     public MenuPool()
     {
-        //Inits des anims des Components
-        var anims = new Dictionary<string, Animation>
-        {
-            {
-                "Idle",
-                new Animation(CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/Chara/TestChara"), 5, 0.2f)
-            },
-            {
-                "WalkRight",
-                new Animation(CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/Chara/TestChara"), 5, 0.2f)
-            },
-            {
-                "WalkLeft",
-                new Animation(CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/Chara/TestChara"), 5, 0.2f)
-            }
-        };
-        var back = new Dictionary<string, Animation>
-        {
-            {
-                "back",
-                new Animation(CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/BackGrounds/UnitTileTest"), 1, 1f)
-            }
-        };
-        var front = new Dictionary<string, Animation>
-        {
-            {
-                "front",
-                new Animation(CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/BackGrounds/UnitTileTest"), 1, 1f)
-            }
-        };
-
         var testText = CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/Tiles/TestCrystile");
 
         var solidSands = new[]
@@ -58,7 +27,41 @@ public class MenuPool : EntityPool
             CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/Tiles/SandTilesV2/ST4"),
             CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/Tiles/SandTilesV2/ST5"),
             CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/Tiles/SandTilesV2/ST6"),
-            CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/Tiles/SandTilesV2/ST7")
+            CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/Tiles/SandTilesV2/ST7"),
+            CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/Tiles/SandTilesV2/ST8"),
+            CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/Tiles/SandTilesV2/ST9"),
+            CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/Tiles/SandTilesV2/ST10"),
+            CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/Tiles/SandTilesV2/ST11"),
+            CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/Tiles/SandTilesV2/ST12"),
+            CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/Tiles/SandTilesV2/ST13"),
+            CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/Tiles/SandTilesV2/ST14"),
+            CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/Tiles/SandTilesV2/ST15"),
+            CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/Tiles/SandTilesV2/ST16"),
+            CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/Tiles/SandTilesV2/ST18"),
+            CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/Tiles/SandTilesV2/ST19"),
+            CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/Tiles/SandTilesV2/ST20"),
+            CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/Tiles/SandTilesV2/ST21"),
+            CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/Tiles/SandTilesV2/ST22"),
+            CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/Tiles/SandTilesV2/ST23"),
+            CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/Tiles/SandTilesV2/ST24"),
+            CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/Tiles/SandTilesV2/ST25"),
+            CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/Tiles/SandTilesV2/ST26"),
+            CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/Tiles/SandTilesV2/ST27"),
+            CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/Tiles/SandTilesV2/ST28"),
+            CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/Tiles/SandTilesV2/ST29"),
+            CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/Tiles/SandTilesV2/ST30"),
+            CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/Tiles/SandTilesV2/ST31"),
+            CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/Tiles/SandTilesV2/ST32"),
+            CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/Tiles/SandTilesV2/ST33"),
+            CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/Tiles/SandTilesV2/ST34"),
+            CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/Tiles/SandTilesV2/ST35"),
+            CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/Tiles/SandTilesV2/ST36"),
+            CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/Tiles/SandTilesV2/ST37"),
+            CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/Tiles/SandTilesV2/ST38"),
+            CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/Tiles/SandTilesV2/ST39"),
+            CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/Tiles/SandTilesV2/ST40"),
+            CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/Tiles/SandTilesV2/ST41"),
+            CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/Tiles/SandTilesV2/ST42")
         };
 
         var star = new Dictionary<string, Animation>
@@ -85,7 +88,7 @@ public class MenuPool : EntityPool
                 Jump = Keys.Space,
                 Special = Keys.CapsLock
             },
-            speed = 0.45f,
+            speed = 0.35f,
             Layer = -3f
         };
 
@@ -94,35 +97,17 @@ public class MenuPool : EntityPool
 
         var _normalSprite = new List<NormalProp>
         {
-            new(mock) { Position = Vector2.Zero, Layer = 2 },
-            new(solidSands[0], 8, 8, debugMode: true) { Position = Vector2.Zero, Layer = -1 },
-            new(solidSands[1], 8, 8, debugMode: true) { Position = new Vector2(8, 0), Layer = -1 },
-            new(solidSands[2], 8, 8, debugMode: true) { Position = new Vector2(16, 0), Layer = -1 },
-            new(solidSands[3], 8, 8, debugMode: true) { Position = new Vector2(24, 0), Layer = -1 },
-            new(solidSands[4], 8, 8, debugMode: true) { Position = new Vector2(32, 0), Layer = -1 },
-            new(solidSands[5], 8, 8, debugMode: true) { Position = new Vector2(40, 0), Layer = -1 }
-        };
-
-        var parallaxes = new List<Parallaxe>
-        {
-            //new(CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/BackGrounds/BackGround1"), player, 8f) { layer = 0f }, 
-            //new(CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/BackGrounds/TextTileMap"), player, 5f) { layer = 0.5f },
-        };
-
-        var _hollowSprites = new List<AnimatedProp>
-        {
-            //new(back, 8, 8, debugMode: true) { Position = new Vector2(50, 0), Layer = -1 },
-            //new(back, 8, 8, debugMode: true) { Position = new Vector2(60, 0), Layer = -1 }
+            new(mock, 320, 180) { Position = Vector2.Zero, Layer = 2 }
         };
 
         var _solidSprites = new List<Solid>
         {
-            new(testText/*, debugMode: true*/) { Position = new Vector2(0, 32), Layer = 1 },
-            new(testText/*, debugMode: true*/) { Position = new Vector2(24, 32), Layer = 1 },
-            new(testText/*, debugMode: true*/) { Position = new Vector2(48, 32), Layer = 1 },
-            new(testText/*, debugMode: true*/) { Position = new Vector2(72, 32), Layer = -3 },
-            new(testText/*, debugMode: true*/) { Position = new Vector2(96, 32), Layer = 1 },
-            new(testText/*, debugMode: true*/) { Position = new Vector2(120, 32), Layer = 1 }
+            new(testText, debugMode:true) { Position = new Vector2(0, 32), Layer = 1 },
+            new(testText) { Position = new Vector2(24, 32), Layer = 1 },
+            new(testText) { Position = new Vector2(48, 32), Layer = 1 },
+            new(testText) { Position = new Vector2(72, 32), Layer = 1 },
+            new(testText) { Position = new Vector2(96, 32), Layer = 1 },
+            new(testText) { Position = new Vector2(120, 32), Layer = 1 }
         };
 
         var stars = new List<AnimatedProp>
@@ -133,24 +118,13 @@ public class MenuPool : EntityPool
         };
 
         foreach (var s in _normalSprite)
-        {
             _entities.Add(s);
-        }
 
         foreach (var s in _solidSprites)
-        {
             _entities.Add(s);
-        }
-
-        foreach (var s in _hollowSprites)
-        {
-            //_entities.Add(s);
-        }
-
+        
         foreach (var s in stars)
-        {
             _entities.Add(s);
-        }
 
         _entities.Add(camera);
         _entities.Add(focus);

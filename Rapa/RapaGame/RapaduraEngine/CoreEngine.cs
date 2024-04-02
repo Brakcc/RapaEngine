@@ -28,9 +28,9 @@ public class CoreEngine : Game
 
 	private static int ViewHeight { get; set; }
 
-	protected RenderTarget2D RenderScreen { get; set; }
+	private RenderTarget2D RenderScreen { get; set; }
 
-	protected Rectangle RenderRect => _renderRect;
+	private Rectangle RenderRect => _renderRect;
 
 	public static int ViewPadding
 	{

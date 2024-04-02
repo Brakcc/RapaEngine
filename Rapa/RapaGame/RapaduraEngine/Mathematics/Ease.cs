@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Rapa.RapaGame.RapaduraEngine.Mathematics;
+﻿namespace Rapa.RapaGame.RapaduraEngine.Mathematics;
 
 public static class Ease
 {

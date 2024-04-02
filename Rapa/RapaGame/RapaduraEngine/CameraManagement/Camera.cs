@@ -29,14 +29,15 @@ public class Camera : Entity
         SetCam(X, Y);
         
         if (Keyboard.GetState().IsKeyDown(Keys.C))
-            EasedTraveling(new Vector2(640, 180), 0.05f);
-        //if (Keyboard.GetState().IsKeyDown(Keys.H))
-            //Shake(Position, 0.05f);
+            EasedTraveling(new Vector2(640, 180), 0.25f);
         
         if (Keyboard.GetState().IsKeyDown(Keys.E))
-            X += 3;
+            X += 6;
         if (Keyboard.GetState().IsKeyDown(Keys.A))
-            X -= 3;
+            X -= 6;
+        
+        if (Keyboard.GetState().IsKeyDown(Keys.Y))
+            Shake(Position, 0.05f);
     }
 
     private void SetCam (float x, float y)
@@ -54,12 +55,12 @@ public class Camera : Entity
         CoreEngine.ScreenMatrix = Transform;
     }
 
-    public void EasedTraveling(Vector2 focusPoint, float speed)
+    private void EasedTraveling(Vector2 focusPoint, float speed)
     {
         Position += (focusPoint - Position) * speed;
     }
-    
-    public void Shake(Vector2 focusPoint, float speed)
+
+    private void Shake(Vector2 focusPoint, float speed)
     {
         var coef = focusPoint - Position;
         if (coef.Length() <= 1)
