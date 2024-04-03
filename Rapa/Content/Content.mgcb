@@ -783,3 +783,6 @@
 /processorParam:TextureFormat=Color
 /build:ArtContent/Tiles/TestCrystile.png
 
+#begin NewTestMap.txt
+/copy:NewTestMap.txt
+

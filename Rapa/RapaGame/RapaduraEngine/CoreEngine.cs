@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Rapa.RapaGame.RapaduraEngine.Mathematics;
 using Rapa.RapaGame.RapaduraEngine.SceneManagement;
+using Rapa.RapaGame.RapaduraEngine.SceneManagement.MapManagement;
 
 namespace Rapa.RapaGame.RapaduraEngine;
 
@@ -82,7 +83,7 @@ public class CoreEngine : Game
 		Graphics.PreferredDepthStencilFormat = DepthFormat.Depth24Stencil8;
 		Window.AllowUserResizing = true;
 		Window.ClientSizeChanged += OnClientSizeChanged;
-		Window.AllowAltF4 = true;  
+		Window.AllowAltF4 = true;
 		title = windowTitle;
 		if (fullscreen)
 		{
@@ -173,6 +174,7 @@ public class CoreEngine : Game
 		Window.Title = title;
 		GetRectTarget();
 		base.Initialize();
+		TileMapGenerator.GetMapMatrix<int>("la");
 	}
 
 	protected override void Update(GameTime gameTime)

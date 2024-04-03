@@ -102,7 +102,7 @@ public class MenuPool : EntityPool
 
         var _solidSprites = new List<Solid>
         {
-            new(testText, debugMode:true) { Position = new Vector2(0, 32), Layer = 1 },
+            new(testText) { Position = new Vector2(0, 32), Layer = 1 },
             new(testText) { Position = new Vector2(24, 32), Layer = 1 },
             new(testText) { Position = new Vector2(48, 32), Layer = 1 },
             new(testText) { Position = new Vector2(72, 32), Layer = 1 },
