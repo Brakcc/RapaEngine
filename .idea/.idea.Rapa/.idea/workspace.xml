@@ -8,14 +8,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f0714bac-edba-468d-9430-461c15a3c0e4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Rapa/Content/NewTestMap.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Rapa/Content/bin/DesktopGL/NewTestMap.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/SceneManagement/MapManagement/TileMapGenerator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Rapa/bin/Debug/net6.0/Content/ArtContent/TestMap.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Rapa/.idea/.name" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/Rapa/Content/TestMap2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Rapa/Content/bin/DesktopGL/Content/TestMap2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Rapa/Content/bin/DesktopGL/TestMap2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Rapa/bin/Debug/net6.0/Content/TestMap2.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Rapa/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Rapa/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa.sln.DotSettings" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa.sln.DotSettings" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/Content/Content.mgcb" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/Content.mgcb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rapa/Content/NewTestMap.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/NewTestMap.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rapa/Content/bin/DesktopGL/Content/NewTestMap.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/bin/DesktopGL/Content/NewTestMap.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rapa/Content/bin/DesktopGL/NewTestMap.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/bin/DesktopGL/NewTestMap.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/.mgcontent" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/.mgstats" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/.mgstats" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/ArtContent/BackGrounds/BProps/StarA.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/ArtContent/BackGrounds/BProps/StarA.mgcontent" afterDir="false" />
@@ -151,6 +152,9 @@
       <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/Tiles/TestCrystile.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/Tiles/TestCrystile.mgcontent" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/GameContent/Scenes/Pools/MenuPool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/GameContent/Scenes/Pools/MenuPool.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/CoreEngine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/CoreEngine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Mathematics/Calculus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Mathematics/Calculus.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/SceneManagement/MapManagement/TileMapGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/SceneManagement/MapManagement/TileMapGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rapa/bin/Debug/net6.0/Content/NewTestMap.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/bin/Debug/net6.0/Content/NewTestMap.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/bin/Debug/net6.0/Rapa.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/bin/Debug/net6.0/Rapa.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/bin/Debug/net6.0/Rapa.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/bin/Debug/net6.0/Rapa.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/bin/Debug/net6.0/Rapa.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/bin/Debug/net6.0/Rapa.pdb" afterDir="false" />
@@ -184,6 +188,8 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/02e45a41b756dd147fc39297df7649d86fa245e7/src/coreclr/System.Private.CoreLib/src/System/Math.CoreCLR.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/02e45a41b756dd147fc39297df7649d86fa245e7/src/libraries/System.Collections/src/System/Collections/BitArray.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/02e45a41b756dd147fc39297df7649d86fa245e7/src/libraries/System.Private.CoreLib/src/System/Globalization/CultureInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/02e45a41b756dd147fc39297df7649d86fa245e7/src/libraries/System.Private.CoreLib/src/System/Int32.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/02e45a41b756dd147fc39297df7649d86fa245e7/src/libraries/System.Private.CoreLib/src/System/Math.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/777f4218e4a0469dbc075c5f54bf5f721c5a00/63/6f94919e/Matrix.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/777f4218e4a0469dbc075c5f54bf5f721c5a00/a9/e8ed39b2/Vector2.cs" root0="SKIP_HIGHLIGHTING" />
@@ -223,9 +229,9 @@
   },
   "keyToStringList": {
     "rider.external.source.directories": [
-      "C:\\Users\\c.strappazzonmarques\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache",
-      "C:\\Users\\c.strappazzonmarques\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache",
-      "C:\\Users\\c.strappazzonmarques\\AppData\\Local\\Symbols\\src"
+      "C:\\Users\\cleme\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache",
+      "C:\\Users\\cleme\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache",
+      "C:\\Users\\cleme\\AppData\\Local\\Symbols\\src"
     ]
   }
 }]]></component>
@@ -309,6 +315,7 @@
       <workItem from="1711980157633" duration="10039000" />
       <workItem from="1712133676423" duration="209000" />
       <workItem from="1712134217936" duration="7025000" />
+      <workItem from="1712171126448" duration="12955000" />
     </task>
     <servers />
   </component>

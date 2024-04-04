@@ -174,7 +174,6 @@ public class CoreEngine : Game
 		Window.Title = title;
 		GetRectTarget();
 		base.Initialize();
-		TileMapGenerator.GetMapMatrix<int>("la");
 	}
 
 	protected override void Update(GameTime gameTime)

@@ -786,3 +786,6 @@
 #begin NewTestMap.txt
 /copy:NewTestMap.txt
 
+#begin TestMap2.txt
+/copy:TestMap2.txt
+

@@ -10,6 +10,7 @@ using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt;
 using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Props;
 using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Solids;
 using Rapa.RapaGame.RapaduraEngine.InputSettings;
+using Rapa.RapaGame.RapaduraEngine.SceneManagement.MapManagement;
 using Rapa.RapaGame.RapaduraEngine.SceneManagement.Packers;
 
 namespace Rapa.RapaGame.GameContent.Scenes.Pools;
@@ -117,6 +118,16 @@ public class MenuPool : EntityPool
             new(star, 11, 11) { Position = new Vector2(220, 55), Layer = -3f }
         };
 
+        var ijenf = new List<Solid>();
+        foreach (var i in TileMapGenerator.GetMapMatrix("Content/TestMap2.txt"))
+        {
+            foreach (var j in i)
+            {
+                if (j != 0)
+                    ijenf.Add(new Solid(TileMapGenerator.TextureLoader("ArtContent/Tiles/SandTilesV2/", "ST", j)));
+            }
+        }
+        
         foreach (var s in _normalSprite)
             _entities.Add(s);
 
@@ -126,6 +137,9 @@ public class MenuPool : EntityPool
         foreach (var s in stars)
             _entities.Add(s);
 
+        foreach (var s in ijenf) 
+            _entities.Add(s);
+        
         _entities.Add(camera);
         _entities.Add(focus);
         _entities.Add(player);

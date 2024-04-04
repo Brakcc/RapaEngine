@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using Microsoft.Xna.Framework;
 
 namespace Rapa.RapaGame.RapaduraEngine.Mathematics;
@@ -64,6 +65,25 @@ public static class Calculus
     public static float ToDeg(float radVal) => (float)(radVal / Math.PI * 180);
     
     public static float ToRad(float degVal) => (float)(degVal / 180 * Math.PI);
+
+    public static int[] DivideDatas(string dataString, char sep = ',')
+    {
+        var dataList = dataString.Split(sep);
+        var newList = new int[dataList.Length];
+        for (var i = 0; i < dataList.Length; i++)
+        {
+            newList[i] = int.Parse(dataList[i], CultureInfo.InvariantCulture);
+        }
+        return newList;
+    }
+
+    public static string UnpackDatas(string dataString, char packTop = '[', char packBottom = ']')
+    {
+        if (dataString.StartsWith(packTop) && dataString.EndsWith(packBottom))
+            dataString = dataString.Substring(1, dataString.Length - 2);
+
+        return dataString;
+    }
     
     #endregion
 

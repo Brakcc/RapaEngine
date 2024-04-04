@@ -181,3 +181,5 @@ C:\Users\c.strappazzonmarques\Desktop\Rapa\Rapa\bin\Debug\net6.0\Content\ArtCont
 C:\Users\c.strappazzonmarques\Desktop\Rapa\Rapa\bin\Debug\net6.0\Content\ArtContent\Tiles\SandTilesV2\ST8.xnb
 C:\Users\c.strappazzonmarques\Desktop\Rapa\Rapa\bin\Debug\net6.0\Content\ArtContent\Tiles\SandTilesV2\ST9.xnb
 C:\Users\c.strappazzonmarques\Desktop\Rapa\Rapa\bin\Debug\net6.0\Content\NewTestMap.txt
+C:\Users\cleme\Documents\Projects\RapaEngine\Rapa\bin\Debug\net6.0\Content\NewTestMap.txt
+C:\Users\cleme\Documents\Projects\RapaEngine\Rapa\bin\Debug\net6.0\Content\TestMap2.txt
