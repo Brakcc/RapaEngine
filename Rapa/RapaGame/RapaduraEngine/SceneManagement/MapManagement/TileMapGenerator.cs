@@ -8,7 +8,7 @@ namespace Rapa.RapaGame.RapaduraEngine.SceneManagement.MapManagement;
 
 public static class TileMapGenerator
 {
-    public static IEnumerable<int[]> GetMapMatrix(string matrixFilePath)
+    public static int[][] GetMapMatrix(string matrixFilePath)
     {
         var path = AppContext.BaseDirectory + matrixFilePath;
         var matLines = File.ReadAllLines(path);

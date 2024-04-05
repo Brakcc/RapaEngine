@@ -117,16 +117,6 @@ public class MenuPool : EntityPool
             new(star, 11, 11) { Position = new Vector2(180, 75), Layer = -3f },
             new(star, 11, 11) { Position = new Vector2(220, 55), Layer = -3f }
         };
-
-        var ijenf = new List<Solid>();
-        foreach (var i in TileMapGenerator.GetMapMatrix("Content/TestMap2.txt"))
-        {
-            foreach (var j in i)
-            {
-                if (j != 0)
-                    ijenf.Add(new Solid(TileMapGenerator.TextureLoader("ArtContent/Tiles/SandTilesV2/", "ST", j)));
-            }
-        }
         
         foreach (var s in _normalSprite)
             _entities.Add(s);
@@ -135,9 +125,6 @@ public class MenuPool : EntityPool
             _entities.Add(s);
         
         foreach (var s in stars)
-            _entities.Add(s);
-
-        foreach (var s in ijenf) 
             _entities.Add(s);
         
         _entities.Add(camera);
