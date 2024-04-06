@@ -7,7 +7,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Rapa.RapaGame.RapaduraEngine.Mathematics;
 using Rapa.RapaGame.RapaduraEngine.SceneManagement;
-using Rapa.RapaGame.RapaduraEngine.SceneManagement.MapManagement;
 
 namespace Rapa.RapaGame.RapaduraEngine;
 

@@ -10,7 +10,7 @@ public class EntityPool
 {
     #region properties
 
-    public Dictionary<Type, List<Entity>> Entities { get; private set; }
+    public Dictionary<Type, List<Entity>> Entities { get; }
     
     public Scene SceneRef { get; set; }
 

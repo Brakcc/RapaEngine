@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Rapa.RapaGame.RapaduraEngine.Components;
 using Rapa.RapaGame.RapaduraEngine.Components.Colliders;
+using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Solids;
 using Rapa.RapaGame.RapaduraEngine.Mathematics;
 using Rapa.RapaGame.RapaduraEngine.Physics.CollisionPhysics;
 using Rapa.RapaGame.RapaduraEngine.SceneManagement;
@@ -330,13 +331,17 @@ public abstract class Entity
 
     #region collisions
 
-    public bool IsColliding(Entity e) => CollideCalc.CheckCollision(this, e);
+    private bool IsColliding(Entity e) => CollideCalc.CheckCollision(this, e);
 
-    public bool IsCollidingAt(Entity e, Vector2 at) => CollideCalc.CheckCollisionAt(this, e, at);
+    protected bool IsCollidingAt(Entity e, Vector2 at) => CollideCalc.CheckCollisionAt(this, e, at);
 
-    public bool IsCollidingAt<T>(Vector2 at) where T : Entity => IsCollidingAt(SceneRef.EntityPool.Entities[typeof(T)], at);
-    
-    public bool IsCollidingAt(IEnumerable<Entity> col, Vector2 at) => CollideCalc.CheckCollisionAt(this, col, at);
+    protected bool IsCollidingAt<T>(Vector2 at) where T : Entity
+    {
+        var others = SceneRef.EntityPool.Entities;
+        return others.ContainsKey(typeof(T)) && IsCollidingAt(others[typeof(T)], at);
+    }
+
+    private bool IsCollidingAt(IEnumerable<Entity> col, Vector2 at) => CollideCalc.CheckCollisionAt(this, col, at);
 
     public bool IsCollidingAll(List<Entity> entities)
     {
@@ -348,11 +353,15 @@ public abstract class Entity
         return false;
     }
 
-    public T IsCollidingFirst<T>(IEnumerable<Entity> entities) where T : Entity => CollideCalc.GetEntityCollided(this, entities) as T;
-    
-    public T IsCollidingFirstAt<T>(IEnumerable<Entity> entities, Vector2 at) where T : Entity => CollideCalc.GetEntityCollidedAt(this, entities, at) as T;
-    
-    public T IsCollidingFirstAt<T>(Vector2 at) where T : Entity => IsCollidingFirstAt<T>(SceneRef.EntityPool.Entities[typeof(T)], at);
+    protected T IsCollidingFirst<T>(IEnumerable<Entity> entities) where T : Entity => CollideCalc.GetEntityCollided(this, entities) as T;
+
+    private T IsCollidingFirstAt<T>(IEnumerable<Entity> entities, Vector2 at) where T : Entity => CollideCalc.GetEntityCollidedAt(this, entities, at) as T;
+
+    protected Solid IsCollidingFirstAt<T>(Vector2 at) where T : Entity
+    {
+        var others = SceneRef.EntityPool.Entities;
+        return others.ContainsKey(typeof(T)) ? IsCollidingFirstAt<Solid>(others[typeof(Solid)], at) : null;
+    }
 
     public bool CollideAllAction<T>(List<Entity> entities, Action<T> collision) where T : Entity
     {

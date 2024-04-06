@@ -1,27 +1,28 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
+using Rapa.RapaGame.RapaduraEngine.Components.Sprites.Animations;
 using Rapa.RapaGame.RapaduraEngine.Entities;
-using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt;
+using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Props;
 using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Solids;
 
 namespace Rapa.RapaGame.RapaduraEngine.SceneManagement.MapManagement;
 
-public class TileMap : IEnumerable<Entity>
+public sealed class TileMap<T> where T : Entity
 {
     #region properties
+    
+    public List<T> Tiles { get; }
 
     public Entity this[int id]
     {
         get
         {
-            if (id < 0 || id >= _tiles.Count)
+            if (id < 0 || id >= Tiles.Count)
             {
                 throw new IndexOutOfRangeException("Id out of range of the map");
             }
-
-            return _tiles[id];
+            return Tiles[id];
         }
     }
 
@@ -29,14 +30,16 @@ public class TileMap : IEnumerable<Entity>
     
     #region constructor
         
-    public TileMap(int tileWidth, int tileHeight, int tileOffset, string mapPath, string tileKey)
+    public TileMap(int tileWidth, int tileHeight, int layer, Vector2 tileOffset, string mapPath, string tilePath, string tileKey)
     {
         _tileWidth = tileWidth;
         _tileHeight = tileHeight;
+        _layer = layer;
         _tileOffset = tileOffset;
         _mapPath = mapPath;
+        _tilePath = tilePath;
         _tileKey = tileKey;
-        _tiles = new List<Entity>();
+        Tiles = new List<T>();
 
         GenerateMap();
     }
@@ -49,44 +52,94 @@ public class TileMap : IEnumerable<Entity>
     {
         var mapData = TileMapGenerator.GetMapMatrix(_mapPath);
         
-        for (var i = 0; i <= mapData.Length; i++)
+        for (var i = 0; i < mapData.Length; i++)
         {
-            for (var j = 0; j <= mapData[i].Length; j++)
+            for (var j = 0; j < mapData[i].Length; j++)
             {
-                if (mapData[i][j] != 0)
-                {
-                    AddEntity(new Empty());
-                }
+                if (mapData[i][j] == 0)
+                    continue;
+                
+                var pos = new Vector2(_tileWidth * j + _tileOffset.X, _tileHeight * i + _tileOffset.Y);
+
+                if (typeof(T) == typeof(Tile))
+                    AddTile(mapData[i][j], pos);
+
+                if (typeof(T) == typeof(Solid))
+                    AddSolid(mapData[i][j], pos);
+                
+                else if (typeof(T) == typeof(NormalProp))
+                    AddProp(mapData[i][j], pos);
+                
+                else if (typeof(T) == typeof(AnimatedProp))
+                    AddAnimProp(mapData[i][j], pos);
             }
         }
     }
 
-    protected virtual void AddEntity<T>(T ent) where T : Entity
+    private void AddTile(int id, Vector2 pos)
     {
-        _tiles.Add(ent);
+        var tempEnt = new Tile(TileMapGenerator.TextureLoader(_tilePath, _tileKey, id))
+        {
+            Position = pos,
+            Layer = _layer
+        };
+        Tiles.Add(tempEnt as T);
     }
-    
-    public IEnumerator<Entity> GetEnumerator() => _tiles.GetEnumerator();
-    
-    IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+
+    private void AddSolid(int id, Vector2 pos)
+    {
+        var tempEnt = new Solid(TileMapGenerator.TextureLoader(_tilePath, _tileKey, id))
+        {
+            Position = pos,
+            Layer = _layer
+        };
+        Tiles.Add(tempEnt as T);
+    }
+
+    private void AddProp(int id, Vector2 pos)
+    {
+        var tempEnt = new NormalProp(TileMapGenerator.TextureLoader(_tilePath, _tileKey, id))
+        {
+            Position = pos,
+            Layer = _layer
+        };
+        Tiles.Add(tempEnt as T);
+    }
+
+    private void AddAnimProp(int id, Vector2 pos)
+    {
+        var anims = new Dictionary<string, Animation>
+        {
+            {
+                "idle", new Animation(TileMapGenerator.TextureLoader(_tilePath, _tileKey, id), 1, 1)
+            }
+        };
+        
+        var tempEnt = new AnimatedProp(anims)
+        {
+            Position = pos,
+            Layer = _layer
+        };
+        Tiles.Add(tempEnt as T);
+    }
 
     #endregion
 
     #region fields
 
-    private List<Entity> _tiles;
+    private readonly Vector2 _tileOffset;
     
-    private int _tileOffset;
+    private readonly int _tileWidth;
     
-    private int _tileWidth;
-    
-    private int _tileHeight;
+    private readonly int _tileHeight;
 
-    private string _mapPath;
+    private readonly int _layer;
 
-    private string _tileKey;
+    private readonly string _mapPath;
+
+    private readonly string _tilePath;
+    
+    private readonly string _tileKey;
 
     #endregion
-
-
 }

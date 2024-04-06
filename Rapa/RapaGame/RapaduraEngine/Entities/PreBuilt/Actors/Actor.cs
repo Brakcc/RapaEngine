@@ -32,6 +32,8 @@ public class Actor : Entity
         });
         Collider = new BoxCollider(this, 8, 8, X, Y);
         collidable = true;
+
+        trapRes = OnTrap;
     }
 
     protected Actor(Dictionary<string, Animation> animations, float width = 0, float height = 0, bool debugMode = false) : base(width, height, debugMode)
@@ -42,19 +44,21 @@ public class Actor : Entity
         });
         Collider = new BoxCollider(this, 8, 8, X, Y);
         collidable = true;
+
+        trapRes = OnTrap;
     }
     
     #endregion
 
     #region methodes
 
-    protected virtual void OnTrap()
+    protected virtual void OnTrap(CollisionDatas datas)
     {
-        if (!TryEscapeTrap())
+        if (!TryEscapeTrap(datas))
             RemoveSelf();
     }
 
-    protected virtual bool TryEscapeTrap()
+    protected virtual bool TryEscapeTrap(CollisionDatas datas)
     {
         return true;
     }
@@ -72,7 +76,9 @@ public class Actor : Entity
     
     public virtual bool IsRiding(Solid solid) => IsCollidingAt(solid, Position + Vector2.UnitY);
     
-    private bool IsGrounded(int checkLength = 1) => IsCollidingAt<Solid>(Position + Vector2.UnitY * checkLength);
+    private bool IsGrounded(int checkLength = 1) => IsCollidingAt<Solid>(Position + Vector2.UnitY * checkLength) ||
+                                                    IsCollidingAt<Tile>(Position + Vector2.UnitY * checkLength) || 
+                                                    IsCollidingAt<MovableSolid>(Position + Vector2.UnitY * checkLength);
     
     public bool IsGroundedAt(int checkLength, Vector2 at)
     {
@@ -193,6 +199,8 @@ public class Actor : Entity
 
     #region fields
 
+    public Collision trapRes;
+    
     protected Vector2 velocity;
 
     protected bool isGrounded;
