@@ -8,16 +8,19 @@ public class Camera : Entity
 {
     #region properties
     
+    public Entity EntRef { get; init; }
+    
     public Matrix Transform { get; private set; }
     
     #endregion
 
     #region constructor
 
-    public Camera()
+    public Camera(Entity entRef = null)
     {
-        X = 320f;
-        Y = 180f;
+        //X = 320f;
+        //Y = 180f;
+        EntRef = entRef;
     }
 
     #endregion
@@ -26,18 +29,15 @@ public class Camera : Entity
 
     public override void Update(GameTime gameTime)
     {
-        SetCam(X, Y);
-        
-        if (Keyboard.GetState().IsKeyDown(Keys.C))
-            EasedTraveling(new Vector2(640, 180), 0.25f);
+        SetCam(EntRef.X, EntRef.Y);
         
         if (Keyboard.GetState().IsKeyDown(Keys.E))
-            X += 6;
+            EntRef.X += 6;
         if (Keyboard.GetState().IsKeyDown(Keys.A))
-            X -= 6;
+            EntRef.X -= 6;
         
         if (Keyboard.GetState().IsKeyDown(Keys.Y))
-            Shake(Position, 0.05f);
+            Shake(EntRef.Position, 0.05f);
     }
 
     private void SetCam (float x, float y)

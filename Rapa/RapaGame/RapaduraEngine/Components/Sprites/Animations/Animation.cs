@@ -12,11 +12,11 @@ public class Animation
     public bool _isLooping { get; set; }
     public Texture2D _texture { get; }
 
-    public Animation(Texture2D texture, int frameCount, float frameSpeed)
+    public Animation(Texture2D texture, int frameCount, float frameSpeed, bool isLooping = true)
     {
-            _texture = texture;
-            _frameCount = frameCount;
-            _isLooping = true;
-            _frameSpeed = frameSpeed;
-        }
+        _texture = texture;
+        _frameCount = frameCount;
+        _isLooping = isLooping;
+        _frameSpeed = frameSpeed;
+    }
 }

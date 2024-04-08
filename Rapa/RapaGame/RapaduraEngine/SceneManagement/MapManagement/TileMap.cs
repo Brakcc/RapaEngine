@@ -30,7 +30,7 @@ public sealed class TileMap<T> where T : Entity
     
     #region constructor
         
-    public TileMap(int tileWidth, int tileHeight, int layer, Vector2 tileOffset, string mapPath, string tilePath, string tileKey)
+    public TileMap(int tileWidth, int tileHeight, int layer, Vector2 tileOffset, string mapPath, string tilePath, string tileKey, bool debugMod = false)
     {
         _tileWidth = tileWidth;
         _tileHeight = tileHeight;
@@ -39,13 +39,14 @@ public sealed class TileMap<T> where T : Entity
         _mapPath = mapPath;
         _tilePath = tilePath;
         _tileKey = tileKey;
+        _debugMod = debugMod;
         Tiles = new List<T>();
 
         GenerateMap();
     }
     
     #endregion
-
+    
     #region methodes
 
     private void GenerateMap()
@@ -78,7 +79,7 @@ public sealed class TileMap<T> where T : Entity
 
     private void AddTile(int id, Vector2 pos)
     {
-        var tempEnt = new Tile(TileMapGenerator.TextureLoader(_tilePath, _tileKey, id))
+        var tempEnt = new Tile(TileMapGenerator.TextureLoader(_tilePath, _tileKey, id), _tileWidth, _tileHeight, debugMode:_debugMod)
         {
             Position = pos,
             Layer = _layer
@@ -88,7 +89,7 @@ public sealed class TileMap<T> where T : Entity
 
     private void AddSolid(int id, Vector2 pos)
     {
-        var tempEnt = new Solid(TileMapGenerator.TextureLoader(_tilePath, _tileKey, id))
+        var tempEnt = new Solid(TileMapGenerator.TextureLoader(_tilePath, _tileKey, id), _tileWidth, _tileHeight, debugMode:_debugMod)
         {
             Position = pos,
             Layer = _layer
@@ -98,7 +99,7 @@ public sealed class TileMap<T> where T : Entity
 
     private void AddProp(int id, Vector2 pos)
     {
-        var tempEnt = new NormalProp(TileMapGenerator.TextureLoader(_tilePath, _tileKey, id))
+        var tempEnt = new NormalProp(TileMapGenerator.TextureLoader(_tilePath, _tileKey, id), _tileWidth, _tileHeight, debugMode:_debugMod)
         {
             Position = pos,
             Layer = _layer
@@ -115,7 +116,7 @@ public sealed class TileMap<T> where T : Entity
             }
         };
         
-        var tempEnt = new AnimatedProp(anims)
+        var tempEnt = new AnimatedProp(anims, _tileWidth, _tileHeight, debugMode:_debugMod)
         {
             Position = pos,
             Layer = _layer
@@ -140,6 +141,8 @@ public sealed class TileMap<T> where T : Entity
     private readonly string _tilePath;
     
     private readonly string _tileKey;
+
+    private readonly bool _debugMod;
 
     #endregion
 }

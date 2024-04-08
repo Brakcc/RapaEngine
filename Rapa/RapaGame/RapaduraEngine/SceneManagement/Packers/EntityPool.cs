@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Rapa.RapaGame.RapaduraEngine.Entities;
+using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Solids;
 
 namespace Rapa.RapaGame.RapaduraEngine.SceneManagement.Packers;
 
@@ -66,6 +67,12 @@ public class EntityPool
             
             if (!Entities.ContainsKey(t))
                 Entities.Add(t, new List<Entity>());
+
+            if (t == typeof(Solid) || t == typeof(Tile) || t == typeof(MovableSolid))
+            {
+                Entities[typeof(Solid)].Add(ent);
+                continue;
+            }
             
             Entities[t].Add(ent);
         }

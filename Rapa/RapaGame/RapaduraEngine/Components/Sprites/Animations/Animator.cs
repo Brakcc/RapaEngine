@@ -12,6 +12,7 @@ public class Animator
     {
         _animation = anim;
         _entityRef = entityRef;
+        _canLoop = true;
     }
 
     #endregion
@@ -47,6 +48,9 @@ public class Animator
 
     public void Update(GameTime gameTime) 
     {
+        if (!_canLoop)
+            return;
+        
         _timer += (float)gameTime.ElapsedGameTime.TotalSeconds;
         if (!(_timer > _animation._frameSpeed))
             return;
@@ -58,6 +62,9 @@ public class Animator
             return;
         
         _animation._currentFrame = 0;
+
+        if (!_animation._isLooping)
+            _canLoop = false;
     }
     
     #endregion
@@ -69,6 +76,8 @@ public class Animator
     private float _timer;
     
     private readonly Entity _entityRef;
-              
+
+    private bool _canLoop;
+
     #endregion
 }

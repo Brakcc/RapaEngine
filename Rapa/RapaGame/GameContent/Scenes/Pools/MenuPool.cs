@@ -49,8 +49,8 @@ public class MenuPool : EntityPool
             Layer = -3f
         };
 
-        var focus = new Empty { Position = new Vector2(320f / 2, 180f / 2) };
-        var camera = new Camera();
+        var focus = new Empty { Position = new Vector2(320f, 180f) };
+        var camera = new Camera(focus);
 
         var _normalSprite = new List<NormalProp>
         {
@@ -74,7 +74,14 @@ public class MenuPool : EntityPool
             new(star, 11, 11) { Position = new Vector2(220, 55), Layer = -3f }
         };
 
-        var map = new TileMap<Solid>(8, 8, 0, Vector2.Zero, "Content/NewTestMap.txt", "ArtContent/Tiles/SandTilesV2/", "ST");
+        var map = new TileMap<Tile>(8, 8, 0, Vector2.Zero, "Content/NewTestMap.txt", "ArtContent/Tiles/SandTilesV2/", "ST");
+
+        var map2 = new TileMap<Tile>(8, 8, 0, new Vector2(320, 0), "Content/NewTestMap.txt",
+            "ArtContent/Tiles/SandTilesV2/", "ST");
+        
+        var map3 = new TileMap<Tile>(8, 8, 0, new Vector2(640, 0), "Content/NewTestMap.txt",
+            "ArtContent/Tiles/SandTilesV2/", "ST");
+        
         
         foreach (var s in _normalSprite)
             _entities.Add(s);
@@ -86,6 +93,12 @@ public class MenuPool : EntityPool
             _entities.Add(s);
 
         foreach (var t in map.Tiles)
+            _entities.Add(t);
+
+        foreach (var t in map2.Tiles)
+            _entities.Add(t);
+        
+        foreach (var t in map3.Tiles)
             _entities.Add(t);
         
         _entities.Add(camera);
