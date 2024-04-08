@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.Xna.Framework;
+﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 using Rapa.RapaGame.RapaduraEngine.Components;
 using Rapa.RapaGame.RapaduraEngine.Components.Sprites;
 
@@ -31,24 +28,7 @@ public class NormalProp : Entity
 
     #region methodes
     
-    public override void Update(GameTime gameTime)
-    {
-        if (Keyboard.GetState().IsKeyDown(Keys.Enter))
-            Components.GetComponent<BaseSprite>().SetVisible(false);
-
-        if (!Keyboard.GetState().IsKeyDown(Keys.P))
-            return;
-
-        if (Components.TryGetComponent<AnimatedSprite>(out var test))
-        {
-            test.SetVisible(false);
-            return;
-        }
-        
-        Console.WriteLine("Nope");
-        
-        base.Update(gameTime);
-    }
+    //lourd
 
     #endregion
     

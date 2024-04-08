@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -47,18 +46,7 @@ public class Solid : Entity
     public override void Update(GameTime gameTime)
     {
         if (Keyboard.GetState().IsKeyDown(Keys.Enter))
-            Components.GetComponent<BaseSprite>().SetVisible(false);
-
-        if (!Keyboard.GetState().IsKeyDown(Keys.P))
-            return;
-
-        if (Components.TryGetComponent<AnimatedSprite>(out var test))
-        {
-            test.SetVisible(false);
-            return;
-        }
-        
-        Console.WriteLine("Nope");
+            collidable = false;
         
         base.Update(gameTime);
     }
