@@ -33,7 +33,7 @@ public class MenuPool : EntityPool
         var mock = CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/MockUps/MockUpDesert");
 
         //Appel du Perso
-        var player = new Player(testText, debugMode:true)
+        var player = new Player(testText, debugMode:false)
         {
             Position = new Vector2(8, 146),
             input = new Inputs
@@ -66,7 +66,7 @@ public class MenuPool : EntityPool
             new(testText) { Position = new Vector2(96, 32), Layer = 1 },
             new(testText) { Position = new Vector2(120, 32), Layer = 1 }
         };
-
+        
         var stars = new List<AnimatedProp>
         {
             new(star, 11, 11) { Position = new Vector2(100, 100), Layer = -3f },

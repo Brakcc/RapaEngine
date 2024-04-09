@@ -183,3 +183,4 @@ C:\Users\c.strappazzonmarques\Desktop\Rapa\Rapa\bin\Debug\net6.0\Content\ArtCont
 C:\Users\c.strappazzonmarques\Desktop\Rapa\Rapa\bin\Debug\net6.0\Content\NewTestMap.txt
 C:\Users\cleme\Documents\Projects\RapaEngine\Rapa\bin\Debug\net6.0\Content\NewTestMap.txt
 C:\Users\cleme\Documents\Projects\RapaEngine\Rapa\bin\Debug\net6.0\Content\TestMap2.txt
+C:\Users\c.strappazzonmarques\Desktop\Rapa\Rapa\bin\Debug\net6.0\Content\TestMap2.txt

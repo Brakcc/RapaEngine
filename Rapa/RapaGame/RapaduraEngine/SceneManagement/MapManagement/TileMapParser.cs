@@ -5,7 +5,7 @@ using Rapa.RapaGame.RapaduraEngine.Mathematics;
 
 namespace Rapa.RapaGame.RapaduraEngine.SceneManagement.MapManagement;
 
-public static class TileMapGenerator
+public static class TileMapParser
 {
     public static int[][] GetMapMatrix(string matrixFilePath)
     {

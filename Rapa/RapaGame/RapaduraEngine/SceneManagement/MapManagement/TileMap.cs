@@ -40,18 +40,17 @@ public sealed class TileMap<T> where T : Entity
         _tilePath = tilePath;
         _tileKey = tileKey;
         _debugMod = debugMod;
-        Tiles = new List<T>();
-
-        GenerateMap();
+        Tiles = GenerateMap();
     }
     
     #endregion
     
     #region methodes
 
-    private void GenerateMap()
+    private List<T> GenerateMap()
     {
-        var mapData = TileMapGenerator.GetMapMatrix(_mapPath);
+        var mapData = TileMapParser.GetMapMatrix(_mapPath);
+        var tempMap = new List<T>();
         
         for (var i = 0; i < mapData.Length; i++)
         {
@@ -63,56 +62,58 @@ public sealed class TileMap<T> where T : Entity
                 var pos = new Vector2(_tileWidth * j + _tileOffset.X, _tileHeight * i + _tileOffset.Y);
 
                 if (typeof(T) == typeof(Tile))
-                    AddTile(mapData[i][j], pos);
+                    tempMap.Add(GetTile(mapData[i][j], pos) as T);
 
                 if (typeof(T) == typeof(Solid))
-                    AddSolid(mapData[i][j], pos);
+                    tempMap.Add(GetSolid(mapData[i][j], pos) as T);
                 
                 else if (typeof(T) == typeof(NormalProp))
-                    AddProp(mapData[i][j], pos);
+                    tempMap.Add(GetProp(mapData[i][j], pos) as T);
                 
                 else if (typeof(T) == typeof(AnimatedProp))
-                    AddAnimProp(mapData[i][j], pos);
+                    tempMap.Add(GetAnimProp(mapData[i][j], pos) as T);
             }
         }
+
+        return tempMap;
     }
 
-    private void AddTile(int id, Vector2 pos)
+    private Tile GetTile(int id, Vector2 pos)
     {
-        var tempEnt = new Tile(TileMapGenerator.TextureLoader(_tilePath, _tileKey, id), _tileWidth, _tileHeight, debugMode:_debugMod)
+        var tempEnt = new Tile(TileMapParser.TextureLoader(_tilePath, _tileKey, id), _tileWidth, _tileHeight, debugMode:_debugMod)
         {
             Position = pos,
             Layer = _layer
         };
-        Tiles.Add(tempEnt as T);
+        return tempEnt;
     }
 
-    private void AddSolid(int id, Vector2 pos)
+    private Solid GetSolid(int id, Vector2 pos)
     {
-        var tempEnt = new Solid(TileMapGenerator.TextureLoader(_tilePath, _tileKey, id), _tileWidth, _tileHeight, debugMode:_debugMod)
+        var tempEnt = new Solid(TileMapParser.TextureLoader(_tilePath, _tileKey, id), _tileWidth, _tileHeight, debugMode:_debugMod)
         {
             Position = pos,
             Layer = _layer
         };
-        Tiles.Add(tempEnt as T);
+        return tempEnt;
     }
 
-    private void AddProp(int id, Vector2 pos)
+    private NormalProp GetProp(int id, Vector2 pos)
     {
-        var tempEnt = new NormalProp(TileMapGenerator.TextureLoader(_tilePath, _tileKey, id), _tileWidth, _tileHeight, debugMode:_debugMod)
+        var tempEnt = new NormalProp(TileMapParser.TextureLoader(_tilePath, _tileKey, id), _tileWidth, _tileHeight, debugMode:_debugMod)
         {
             Position = pos,
             Layer = _layer
         };
-        Tiles.Add(tempEnt as T);
+        return tempEnt;
     }
 
-    private void AddAnimProp(int id, Vector2 pos)
+    private AnimatedProp GetAnimProp(int id, Vector2 pos)
     {
         var anims = new Dictionary<string, Animation>
         {
             {
-                "idle", new Animation(TileMapGenerator.TextureLoader(_tilePath, _tileKey, id), 1, 1)
+                "idle", new Animation(TileMapParser.TextureLoader(_tilePath, _tileKey, id), 1, 1)
             }
         };
         
@@ -121,7 +122,7 @@ public sealed class TileMap<T> where T : Entity
             Position = pos,
             Layer = _layer
         };
-        Tiles.Add(tempEnt as T);
+        return tempEnt;
     }
 
     #endregion

@@ -68,11 +68,8 @@ public class EntityPool
             if (!Entities.ContainsKey(t))
                 Entities.Add(t, new List<Entity>());
 
-            if (t == typeof(Solid) || t == typeof(Tile) || t == typeof(MovableSolid))
-            {
+            if (ent is Solid)
                 Entities[typeof(Solid)].Add(ent);
-                continue;
-            }
             
             Entities[t].Add(ent);
         }

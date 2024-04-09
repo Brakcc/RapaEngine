@@ -21,8 +21,6 @@ public sealed class AnimatedProp : Entity
         {
             new AnimatedSprite(this, animations)
         });
-        //à retirer evidemment c'est pour le debug
-        _canMove = true;
     }
 
     #endregion
@@ -36,8 +34,6 @@ public sealed class AnimatedProp : Entity
     #region fields
               
     //toujours rien :D
-              
-    private bool _canMove;
                   
     #endregion
 }

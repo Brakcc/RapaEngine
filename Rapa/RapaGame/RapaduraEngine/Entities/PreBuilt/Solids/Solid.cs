@@ -27,6 +27,7 @@ public class Solid : Entity
         });
         Collider = new BoxCollider(this, width, height, X, Y);
         collidable = true;
+        _wasPressed = false;
     }
     
     public Solid(Dictionary<string, Animation> animations, float width = 8, float height = 8, bool debugMode = false) : base(width, height, debugMode)
@@ -37,6 +38,7 @@ public class Solid : Entity
         });
         Collider = new BoxCollider(this, width, height, X, Y);
         collidable = true;
+        _wasPressed = false;
     }
     
     #endregion
@@ -45,8 +47,14 @@ public class Solid : Entity
 
     public override void Update(GameTime gameTime)
     {
-        if (Keyboard.GetState().IsKeyDown(Keys.Enter))
-            collidable = false;
+        if (Keyboard.GetState().IsKeyDown(Keys.Enter) && !_wasPressed)
+        {
+            collidable = !collidable;
+            _wasPressed = true;
+        }
+
+        if (Keyboard.GetState().IsKeyUp(Keys.Enter))
+            _wasPressed = false;
         
         base.Update(gameTime);
     }
@@ -56,6 +64,8 @@ public class Solid : Entity
     #region fields
 
     public Vector2 velocity;
+
+    private bool _wasPressed;
 
     #endregion
 }

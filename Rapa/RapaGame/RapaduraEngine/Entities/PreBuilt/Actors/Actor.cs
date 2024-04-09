@@ -9,9 +9,11 @@ using Rapa.RapaGame.RapaduraEngine.Components.Sprites.Animations;
 using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Solids;
 using Rapa.RapaGame.RapaduraEngine.Mathematics;
 using Rapa.RapaGame.RapaduraEngine.Physics.CollisionPhysics;
+using Rapa.RapaGame.RapaduraEngine.SceneManagement.Packers;
 
 namespace Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Actors;
 
+[ColTracked]
 public class Actor : Entity
 {
     #region properties
@@ -75,10 +77,8 @@ public class Actor : Entity
     }
     
     public virtual bool IsRiding(Solid solid) => IsCollidingAt(solid, Position + Vector2.UnitY);
-    
-    private bool IsGrounded(int checkLength = 1) => IsCollidingAt<Solid>(Position + Vector2.UnitY * checkLength) ||
-                                                    IsCollidingAt<Tile>(Position + Vector2.UnitY * checkLength) || 
-                                                    IsCollidingAt<MovableSolid>(Position + Vector2.UnitY * checkLength);
+
+    private bool IsGrounded(int checkLength = 1) => IsCollidingAt<Solid>(Position + Vector2.UnitY * checkLength);
     
     public bool IsGroundedAt(int checkLength, Vector2 at)
     {

@@ -374,7 +374,7 @@ public abstract class Entity
             res = true;
             collision(e as T);
         }
-
+        
         return res;
     }
     
