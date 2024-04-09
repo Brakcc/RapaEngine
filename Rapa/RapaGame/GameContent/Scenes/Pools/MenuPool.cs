@@ -74,7 +74,8 @@ public class MenuPool : EntityPool
             new(star, 11, 11) { Position = new Vector2(220, 55), Layer = -3f }
         };
 
-        var map = new TileMap<Tile>(8, 8, 0, Vector2.Zero, "Content/NewTestMap.txt", "ArtContent/Tiles/SandTilesV2/", "ST");
+        var map = new TileMap<Tile>(8, 8, 0, Vector2.Zero, "Content/NewTestMap.txt", 
+            "ArtContent/Tiles/SandTilesV2/", "ST");
 
         var map2 = new TileMap<Tile>(8, 8, 0, new Vector2(320, 0), "Content/NewTestMap.txt",
             "ArtContent/Tiles/SandTilesV2/", "ST");

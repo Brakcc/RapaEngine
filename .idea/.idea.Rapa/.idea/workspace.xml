@@ -8,11 +8,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f0714bac-edba-468d-9430-461c15a3c0e4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/SceneManagement/Packers/ColTracked.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Rapa/.idea/.name" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Rapa/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Rapa/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Content/NewTestMap.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/NewTestMap.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Content/bin/DesktopGL/Content/NewTestMap.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/bin/DesktopGL/Content/NewTestMap.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/.mgcontent" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/BackGrounds/BProps/StarA.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/BackGrounds/BProps/StarA.mgcontent" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/BackGrounds/BackGround1.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/BackGrounds/BackGround1.mgcontent" afterDir="false" />
@@ -80,14 +76,6 @@
       <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/Tiles/SandTilesV2/ST9.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/Tiles/SandTilesV2/ST9.mgcontent" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/Tiles/TestCrystile.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/Tiles/TestCrystile.mgcontent" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/GameContent/Scenes/Pools/MenuPool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/GameContent/Scenes/Pools/MenuPool.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Entities/Entity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Entities/Entity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Entities/PreBuilt/Actors/Actor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Entities/PreBuilt/Actors/Actor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Entities/PreBuilt/Props/AnimatedProp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Entities/PreBuilt/Props/AnimatedProp.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Entities/PreBuilt/Solids/Solid.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Entities/PreBuilt/Solids/Solid.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/SceneManagement/MapManagement/TileMap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/SceneManagement/MapManagement/TileMap.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/SceneManagement/MapManagement/TileMapGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/SceneManagement/MapManagement/TileMapParser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/SceneManagement/Packers/EntityPool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/SceneManagement/Packers/EntityPool.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/bin/Debug/net6.0/Content/NewTestMap.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/bin/Debug/net6.0/Content/NewTestMap.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/bin/Debug/net6.0/Rapa.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/bin/Debug/net6.0/Rapa.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/bin/Debug/net6.0/Rapa.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/bin/Debug/net6.0/Rapa.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/bin/Debug/net6.0/Rapa.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/bin/Debug/net6.0/Rapa.pdb" afterDir="false" />
@@ -95,13 +83,10 @@
       <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.assets.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.csproj.AssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.csproj.FileListAbsolute.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.genruntimeconfig.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.genruntimeconfig.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/apphost.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/ref/Rapa.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/ref/Rapa.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/refint/Rapa.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/refint/Rapa.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/obj/Rapa.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Rapa.csproj.nuget.dgspec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/obj/Rapa.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Rapa.csproj.nuget.g.props" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/project.assets.json" afterDir="false" />
@@ -157,9 +142,9 @@
   },
   "keyToStringList": {
     "rider.external.source.directories": [
-      "C:\\Users\\c.strappazzonmarques\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache",
-      "C:\\Users\\c.strappazzonmarques\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache",
-      "C:\\Users\\c.strappazzonmarques\\AppData\\Local\\Symbols\\src"
+      "C:\\Users\\cleme\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache",
+      "C:\\Users\\cleme\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache",
+      "C:\\Users\\cleme\\AppData\\Local\\Symbols\\src"
     ]
   }
 }]]></component>
@@ -250,6 +235,7 @@
       <workItem from="1712519521320" duration="7662000" />
       <workItem from="1712539118292" duration="474000" />
       <workItem from="1712650541013" duration="9253000" />
+      <workItem from="1712690984230" duration="2128000" />
     </task>
     <servers />
   </component>
