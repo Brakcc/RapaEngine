@@ -12,7 +12,6 @@ public class MenuScene : Scene
     public MenuScene(EntityPool entityPool) : base(entityPool)
     {
         _canRemove = true;
-        EntityPool.SceneRef = this;
     }
     
     #endregion

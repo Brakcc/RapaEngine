@@ -8,7 +8,11 @@ public abstract class Scene
 {
     #region properties
 
-    public EntityPool EntityPool { get; set; }
+    public EntityPool EntityPool { get; }
+    
+    public CollisionsTracker CollisionsTracker { get; }
+    
+    public RendererTracker RendererTracker { get; }
 
     #endregion
 
@@ -16,7 +20,10 @@ public abstract class Scene
 
     protected Scene(EntityPool entityPool)
     {
+        CollisionsTracker = new CollisionsTracker();
+        RendererTracker = new RendererTracker();
         EntityPool = entityPool;
+        EntityPool.SceneRef = this;
     }
 
     #endregion

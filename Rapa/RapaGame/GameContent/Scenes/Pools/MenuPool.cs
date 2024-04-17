@@ -45,7 +45,7 @@ public class MenuPool : EntityPool
                 Jump = Keys.Space,
                 Special = Keys.CapsLock
             },
-            speed = 0.35f,
+            speed = 0.45f,
             Layer = -3f
         };
 

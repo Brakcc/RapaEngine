@@ -290,7 +290,6 @@ public abstract class Entity
     public virtual void Init()
     {
         Components?.InitList();
-        //SceneRef = CoreEngine.Scene;
     }
     
     public virtual void Update(GameTime gameTime)
@@ -337,8 +336,8 @@ public abstract class Entity
 
     protected bool IsCollidingAt<T>(Vector2 at) where T : Entity
     {
-        var others = SceneRef.EntityPool.Entities;
-        return others.ContainsKey(typeof(T)) && IsCollidingAt(others[typeof(T)], at);
+        var others = SceneRef.CollisionsTracker.Colliders;
+        return IsCollidingAt(others, at);
     }
 
     private bool IsCollidingAt(IEnumerable<Entity> col, Vector2 at) => CollideCalc.CheckCollisionAt(this, col, at);
@@ -359,8 +358,8 @@ public abstract class Entity
 
     protected Solid IsCollidingFirstAt<T>(Vector2 at) where T : Entity
     {
-        var others = SceneRef.EntityPool.Entities;
-        return others.ContainsKey(typeof(T)) ? IsCollidingFirstAt<Solid>(others[typeof(Solid)], at) : null;
+        var others = SceneRef.CollisionsTracker.Colliders;
+        return IsCollidingFirstAt<Solid>(others, at);
     }
 
     public bool CollideAllAction<T>(List<Entity> entities, Action<T> collision) where T : Entity
