@@ -24,7 +24,6 @@ public sealed class BaseSprite : Component
     public override void Draw(SpriteBatch spriteBatch)
     {
         spriteBatch.Draw(_texture, EntityRef.Position, null, Color.White);
-        base.Draw(spriteBatch);
     }
 
     #endregion

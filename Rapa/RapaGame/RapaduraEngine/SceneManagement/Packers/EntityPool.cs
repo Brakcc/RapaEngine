@@ -7,7 +7,7 @@ using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Solids;
 
 namespace Rapa.RapaGame.RapaduraEngine.SceneManagement.Packers;
 
-public class EntityPool
+public abstract class EntityPool
 {
     #region properties
 
@@ -67,9 +67,9 @@ public class EntityPool
             
             if (!Entities.ContainsKey(t))
                 Entities.Add(t, new List<Entity>());
-
+            
             if (ent is Solid)
-                Entities[typeof(Solid)].Add(ent);
+                SceneRef.CollisionsTracker.Colliders.Add(ent);
             
             Entities[t].Add(ent);
         }

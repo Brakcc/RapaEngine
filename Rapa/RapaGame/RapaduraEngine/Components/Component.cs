@@ -37,10 +37,10 @@ public abstract class Component
     #region methodes
     
     public virtual void Init() {}
-    
-    public virtual void Update(GameTime gameTime) {}
 
-    public virtual void Draw(SpriteBatch spriteBatch) {}
+    public abstract void Update(GameTime gameTime);
+
+    public abstract void Draw(SpriteBatch spriteBatch);
 
     public virtual void End() {}
     
