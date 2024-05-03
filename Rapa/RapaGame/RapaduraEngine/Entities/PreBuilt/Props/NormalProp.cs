@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using Rapa.RapaGame.RapaduraEngine.Components;
 using Rapa.RapaGame.RapaduraEngine.Components.Sprites;
 
@@ -29,6 +31,20 @@ public class NormalProp : Entity
     #region methodes
     
     //lourd
+
+    public override void Update(GameTime gameTime)
+    {
+        if (Keyboard.GetState().IsKeyDown(Keys.P))
+        {
+            TopLeft = Vector2.Zero;
+        }
+        if (Keyboard.GetState().IsKeyDown(Keys.O))
+        {
+            BottomRight = new Vector2(0, 180);
+        }
+        
+        base.Update(gameTime);
+    }
 
     #endregion
     

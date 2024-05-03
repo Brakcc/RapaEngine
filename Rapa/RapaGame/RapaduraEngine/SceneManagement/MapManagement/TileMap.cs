@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
-using Rapa.RapaGame.RapaduraEngine.Components.Sprites.Animations;
 using Rapa.RapaGame.RapaduraEngine.Entities;
-using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Props;
 using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Solids;
 
 namespace Rapa.RapaGame.RapaduraEngine.SceneManagement.MapManagement;
@@ -66,12 +64,6 @@ public sealed class TileMap<T> where T : Entity
 
                 if (typeof(T) == typeof(Solid))
                     tempMap.Add(GetSolid(mapData[i][j], pos) as T);
-                
-                else if (typeof(T) == typeof(NormalProp))
-                    tempMap.Add(GetProp(mapData[i][j], pos) as T);
-                
-                else if (typeof(T) == typeof(AnimatedProp))
-                    tempMap.Add(GetAnimProp(mapData[i][j], pos) as T);
             }
         }
 
@@ -91,33 +83,6 @@ public sealed class TileMap<T> where T : Entity
     private Solid GetSolid(int id, Vector2 pos)
     {
         var tempEnt = new Solid(TileMapParser.TextureLoader(_tilePath, _tileKey, id), _tileWidth, _tileHeight, debugMode:_debugMod)
-        {
-            Position = pos,
-            Layer = _layer
-        };
-        return tempEnt;
-    }
-
-    private NormalProp GetProp(int id, Vector2 pos)
-    {
-        var tempEnt = new NormalProp(TileMapParser.TextureLoader(_tilePath, _tileKey, id), _tileWidth, _tileHeight, debugMode:_debugMod)
-        {
-            Position = pos,
-            Layer = _layer
-        };
-        return tempEnt;
-    }
-
-    private AnimatedProp GetAnimProp(int id, Vector2 pos)
-    {
-        var anims = new Dictionary<string, Animation>
-        {
-            {
-                "idle", new Animation(TileMapParser.TextureLoader(_tilePath, _tileKey, id), 1, 1)
-            }
-        };
-        
-        var tempEnt = new AnimatedProp(anims, _tileWidth, _tileHeight, debugMode:_debugMod)
         {
             Position = pos,
             Layer = _layer

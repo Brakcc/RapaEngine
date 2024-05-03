@@ -69,7 +69,7 @@ public abstract class Entity
         get
         {
             if (Collider == null)
-                return Position.Y;
+                return Position.Y + Height;
 
             return Position.Y + Collider.Bottom;
         }
@@ -77,7 +77,7 @@ public abstract class Entity
         {
             if (Collider == null)
             {
-                Position.Y = value;
+                Position.Y = value - Height;
                 return;
             }
 
@@ -111,7 +111,7 @@ public abstract class Entity
         get
         {
             if (Collider == null)
-                return Position.X;
+                return Position.X + Width;
 
             return Position.X + Collider.Right;
         }
@@ -119,7 +119,7 @@ public abstract class Entity
         {
             if (Collider == null)
             {
-                Position.X = value;
+                Position.X = value - Width;
                 return;
             }
 
@@ -132,7 +132,7 @@ public abstract class Entity
         get
         {
             if (Collider == null)
-                return Position.X;
+                return Position.X + Width / 2;
 
             return Position.X + Collider.CenterX;
         }
@@ -140,7 +140,7 @@ public abstract class Entity
         {
             if (Collider == null)
             {
-                Position.X = value;
+                Position.X = value - Width / 2;
                 return;
             }
 
@@ -153,7 +153,7 @@ public abstract class Entity
         get
         {
             if (Collider == null)
-                return Position.Y;
+                return Position.Y + Height / 2;
 
             return Position.Y + Collider.CenterY;
         }
@@ -161,7 +161,7 @@ public abstract class Entity
         {
             if (Collider == null)
             {
-                Position.Y = value;
+                Position.Y = value - Height / 2;
                 return;
             }
 
