@@ -87,8 +87,8 @@ public class MenuPool : EntityPool
         foreach (var s in _normalSprite)
             _entities.Add(s);
 
-        foreach (var s in _solidSprites)
-            _entities.Add(s);
+        //foreach (var s in _solidSprites)
+            //_entities.Add(s);
         
         foreach (var s in stars)
             _entities.Add(s);
