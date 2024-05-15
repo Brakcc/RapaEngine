@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using Rapa.RapaGame.RapaduraEngine.Components;
 using Rapa.RapaGame.RapaduraEngine.Components.Colliders.ColliderTypes;
 using Rapa.RapaGame.RapaduraEngine.Components.Sprites;
@@ -54,6 +55,11 @@ public class Actor : Entity
 
     #region methodes
 
+    public override void Init()
+    {
+        keyboardState = new KeyboardState();
+    }
+    
     protected virtual void OnTrap(CollisionDatas datas)
     {
         if (!TryEscapeTrap(datas))
@@ -74,6 +80,10 @@ public class Actor : Entity
         {
             //Console.WriteLine("grounded");
         }
+
+        keyboardState = Keyboard.GetState();
+        if (keyboardState[Keys.A] == KeyState.Down)
+            Console.WriteLine("line");
     }
     
     public virtual bool IsRiding(Solid solid) => IsCollidingAt(solid, Position + Vector2.UnitY);
@@ -204,6 +214,8 @@ public class Actor : Entity
     protected Vector2 velocity;
 
     protected bool isGrounded;
+
+    private KeyboardState keyboardState;
 
     #endregion
 }
