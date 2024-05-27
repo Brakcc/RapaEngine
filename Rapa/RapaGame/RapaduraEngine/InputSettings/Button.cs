@@ -35,7 +35,7 @@ public class Button : Entity
     public override void Draw(SpriteBatch spriteBatch)
     {
         var color = Color.White;
-
+        
         if (_isHoverIng)
         {
             color = Color.MonoGameOrange;
