@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/c.strappazzonmarques/Desktop/Rapa/Rapa/Content/ArtContent/Chara/walljump2.png</SourceFile>
-  <SourceTime>2024-02-06T10:20:43.0889316+01:00</SourceTime>
-  <DestFile>C:/Users/c.strappazzonmarques/Desktop/Rapa/Rapa/Content/bin/DesktopGL/Content/ArtContent/Chara/walljump2.xnb</DestFile>
-  <DestTime>2024-05-09T20:17:29.7210057+02:00</DestTime>
+  <SourceFile>C:/Users/cleme/Documents/Projects/RapaEngine/Rapa/Content/ArtContent/Chara/walljump2.png</SourceFile>
+  <SourceTime>2024-09-08T20:01:39.2823208+02:00</SourceTime>
+  <DestFile>C:/Users/cleme/Documents/Projects/RapaEngine/Rapa/Content/bin/DesktopGL/Content/ArtContent/Chara/walljump2.xnb</DestFile>
+  <DestTime>2024-09-08T20:06:55.8534702+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T13:44:56+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

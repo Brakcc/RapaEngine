@@ -31,7 +31,7 @@ public abstract class Entity
         set => Position.Y = value;
     }
     
-    public float Layer { get; init; }
+    public int Layer { get; init; }
 
     public Collider Collider
     {
@@ -39,9 +39,9 @@ public abstract class Entity
         set => _collider = value;
     }
 
-    public float Width => Collider?.Width ?? _width;
+    public virtual float Width => Collider?.Width ?? _width;
 
-    public float Height => Collider?.Height ?? _height;
+    public virtual float Height => Collider?.Height ?? _height;
 
     public float Top
     {

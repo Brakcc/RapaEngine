@@ -83,7 +83,9 @@ public class Actor : Entity
 
         keyboardState = Keyboard.GetState();
         if (keyboardState[Keys.A] == KeyState.Down)
-            Console.WriteLine("line");
+        {
+            //Console.WriteLine("line");
+        }
     }
     
     public virtual bool IsRiding(Solid solid) => IsCollidingAt(solid, Position + Vector2.UnitY);

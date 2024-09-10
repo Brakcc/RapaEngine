@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -35,15 +36,20 @@ public sealed class Player : Actor
 
     public override void Update(GameTime gameTime)
     {
+        _actualSpeed = (Keyboard.GetState().IsKeyDown(input.Up) || Keyboard.GetState().IsKeyDown(input.Down))
+                       && (Keyboard.GetState().IsKeyDown(input.Left) || Keyboard.GetState().IsKeyDown(input.Right))
+            ? speed / (float)Math.Sqrt(2)
+            : speed;
+        
         if (Keyboard.GetState().IsKeyDown(input.Up))
-            MoveY(-speed);
+            MoveY(-_actualSpeed);
         if (Keyboard.GetState().IsKeyDown(input.Down))
-            MoveY(speed);
+            MoveY(_actualSpeed);
         if (Keyboard.GetState().IsKeyDown(input.Left))
-            MoveX(-speed);
+            MoveX(-_actualSpeed);
         if (Keyboard.GetState().IsKeyDown(input.Right))
-            MoveX(speed);
-
+            MoveX(_actualSpeed);
+        
         Position += velocity;
         base.Update(gameTime);
     }
@@ -51,6 +57,8 @@ public sealed class Player : Actor
     #endregion
 
     #region fields
+
+    private float _actualSpeed;
 
     //private float yRemainder;
 

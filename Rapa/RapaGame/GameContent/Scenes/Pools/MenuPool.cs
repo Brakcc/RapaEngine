@@ -19,6 +19,7 @@ public class MenuPool : EntityPool
 {
     public MenuPool()
     {
+        //sprites
         var testText = CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/Tiles/TestCrystile");
 
         var star = new Dictionary<string, Animation>
@@ -32,7 +33,11 @@ public class MenuPool : EntityPool
 
         var mock = CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/MockUps/MockUpDesert");
 
-        //Appel du Perso
+        //Empty and cam
+        var focus = new Empty { Position = new Vector2(320f, 180f) };
+        var camera = new Camera(focus);
+        
+        //player
         var player = new Player(testText, debugMode:false)
         {
             Position = new Vector2(8, 146),
@@ -46,34 +51,25 @@ public class MenuPool : EntityPool
                 Special = Keys.CapsLock
             },
             speed = 0.45f,
-            Layer = -3f
+            Layer = -3
         };
 
-        var focus = new Empty { Position = new Vector2(320f, 180f) };
-        var camera = new Camera(focus);
-
-        var _normalSprite = new List<NormalProp>
+        //BackGrounds
+        var normalSprite = new List<NormalProp>
         {
-            new(mock, 320, 180) { Position = Vector2.Zero, Layer = 2 }
-        };
-
-        var _solidSprites = new List<Solid>
-        {
-            new(testText) { Position = new Vector2(0, 0), Layer = 1 },
-            new(testText) { Position = new Vector2(24, 32), Layer = 1 },
-            new(testText) { Position = new Vector2(48, 32), Layer = 1 },
-            new(testText) { Position = new Vector2(72, 32), Layer = 1 },
-            new(testText) { Position = new Vector2(96, 32), Layer = 1 },
-            new(testText) { Position = new Vector2(120, 32), Layer = 1 }
+            new(mock, 320, 180) { Position = Vector2.Zero, Layer = 2 },
+            new(mock) {Position = new Vector2(320, 0), Layer = 2},
+            new(mock) {Position = new Vector2(640, 0), Layer = 2}
         };
         
         var stars = new List<AnimatedProp>
         {
-            new(star, 11, 11) { Position = new Vector2(100, 100), Layer = -3f },
-            new(star, 11, 11) { Position = new Vector2(180, 75), Layer = -3f },
-            new(star, 11, 11) { Position = new Vector2(220, 55), Layer = -3f }
+            new(star, 11, 11) { Position = new Vector2(100, 100), Layer = -3 },
+            new(star, 11, 11) { Position = new Vector2(180, 75), Layer = -3 },
+            new(star, 11, 11) { Position = new Vector2(220, 55), Layer = -3 }
         };
 
+        //Maps
         var map = new TileMap<Tile>(8, 8, 0, Vector2.Zero, "Content/NewTestMap.txt", 
             "ArtContent/Tiles/SandTilesV2/", "ST");
 
@@ -83,12 +79,9 @@ public class MenuPool : EntityPool
         var map3 = new TileMap<Tile>(8, 8, 0, new Vector2(640, 0), "Content/NewTestMap.txt",
             "ArtContent/Tiles/SandTilesV2/", "ST");
         
-        
-        foreach (var s in _normalSprite)
+        //Entity adding
+        foreach (var s in normalSprite)
             _entities.Add(s);
-
-        //foreach (var s in _solidSprites)
-            //_entities.Add(s);
         
         foreach (var s in stars)
             _entities.Add(s);
@@ -101,8 +94,6 @@ public class MenuPool : EntityPool
         
         foreach (var t in map3.Tiles)
             _entities.Add(t);
-        
-        _entities.Add(_solidSprites[0]);
         
         _entities.Add(camera);
         _entities.Add(focus);
