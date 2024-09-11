@@ -22,11 +22,11 @@ public sealed class Player : Actor
     
     #region constructor
     
-    public Player(Texture2D texture, float width = 0, float height = 0, bool debugMode = false) : base(texture, width, height, debugMode)
+    public Player(Texture2D texture, int width = 0, int height = 0, bool debugMode = false) : base(texture, width, height, debugMode)
     {
     }
     
-    public Player(Dictionary<string, Animation> animations, float width = 0, float height = 0, bool debugMode = false) : base(animations, width, height, debugMode)
+    public Player(Dictionary<string, Animation> animations, int width = 0, int height = 0, bool debugMode = false) : base(animations, width, height, debugMode)
     {
     }
     
@@ -41,10 +41,10 @@ public sealed class Player : Actor
             ? speed / (float)Math.Sqrt(2)
             : speed;
         
-        if (Keyboard.GetState().IsKeyDown(input.Up))
+        /*if (Keyboard.GetState().IsKeyDown(input.Up))
             MoveY(-_actualSpeed);
         if (Keyboard.GetState().IsKeyDown(input.Down))
-            MoveY(_actualSpeed);
+            MoveY(_actualSpeed);*/
         if (Keyboard.GetState().IsKeyDown(input.Left))
             MoveX(-_actualSpeed);
         if (Keyboard.GetState().IsKeyDown(input.Right))
@@ -52,6 +52,20 @@ public sealed class Player : Actor
         
         Position += velocity;
         base.Update(gameTime);
+
+        if (!isGrounded)
+            MoveY(speed);
+
+        if (_jumpCoolDownCounter < JumpCoolDow)
+        {
+            _jumpCoolDownCounter += (float)gameTime.ElapsedGameTime.TotalSeconds;
+        }
+        
+        if (Keyboard.GetState().IsKeyDown(input.Jump) && isGrounded && _jumpCoolDownCounter >= JumpCoolDow)
+        {
+            MoveY(-speed * 25);
+            _jumpCoolDownCounter = 0;
+        }
     }
     
     #endregion
@@ -59,8 +73,12 @@ public sealed class Player : Actor
     #region fields
 
     private float _actualSpeed;
-
+    
     //private float yRemainder;
+    
+    private float _jumpCoolDownCounter = 0;
+
+    private const float JumpCoolDow = 1;
 
     #endregion
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -17,7 +18,7 @@ public class NormalProp : Entity
     
     #region constructor
     
-    public NormalProp(Texture2D texture, float width = 0, float height = 0, bool debugMode = false) : base(width, height, debugMode)
+    public NormalProp(Texture2D texture, int width = 0, int height = 0, bool debugMode = false) : base(width, height, debugMode)
     {
         Components = new ComponentList(this, new List<Component>
         {

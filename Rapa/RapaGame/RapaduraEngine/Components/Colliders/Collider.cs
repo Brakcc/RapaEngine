@@ -11,9 +11,9 @@ public abstract class Collider
 
     public Entity EntityRef { get; private init; }
     
-    public abstract float Width { get; set; }
+    public abstract int Width { get; set; }
     
-    public abstract float Height { get; set; }
+    public abstract int Height { get; set; }
     
     public abstract float Top { get; protected set; }
     
@@ -25,14 +25,14 @@ public abstract class Collider
 
     public float CenterX
     {
-        get => Left + Width / 2;
-        private set => Left = value - Width / 2;
+        get => Left + (float)Width / 2;
+        private set => Left = value - (float)Width / 2;
     }
 
     public float CenterY
     {
-        get => Top + Height / 2;
-        private set => Top = value - Height / 2;
+        get => Top + (float)Height / 2;
+        private set => Top = value - (float)Height / 2;
     }
 
     public Vector2 TopLeft

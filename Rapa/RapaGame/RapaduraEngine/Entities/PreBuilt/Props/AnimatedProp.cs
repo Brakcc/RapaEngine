@@ -15,7 +15,7 @@ public sealed class AnimatedProp : Entity
     
     #region Constructor
     
-    public AnimatedProp(Dictionary<string, Animation> animations, float width = 0, float height = 0, bool debugMode = false) : base(width, height, debugMode)
+    public AnimatedProp(Dictionary<string, Animation> animations, int width = 0, int height = 0, bool debugMode = false) : base(width, height, debugMode)
     {
         Components = new ComponentList(this, new List<Component>
         {

@@ -27,7 +27,7 @@ public class Actor : Entity
     
     #region constructor
 
-    protected Actor(Texture2D texture, float width = 0, float height = 0, bool debugMode = false) : base(width, height, debugMode)
+    protected Actor(Texture2D texture, int width = 0, int height = 0, bool debugMode = false) : base(width, height, debugMode)
     {
         Components = new ComponentList(this, new List<Component>
         {
@@ -39,7 +39,7 @@ public class Actor : Entity
         trapRes = OnTrap;
     }
 
-    protected Actor(Dictionary<string, Animation> animations, float width = 0, float height = 0, bool debugMode = false) : base(width, height, debugMode)
+    protected Actor(Dictionary<string, Animation> animations, int width = 0, int height = 0, bool debugMode = false) : base(width, height, debugMode)
     {
         Components = new ComponentList(this, new List<Component>
         {

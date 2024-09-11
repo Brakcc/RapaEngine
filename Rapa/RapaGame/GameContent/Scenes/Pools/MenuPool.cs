@@ -40,7 +40,7 @@ public class MenuPool : EntityPool
         //player
         var player = new Player(testText, debugMode:false)
         {
-            Position = new Vector2(8, 146),
+            Position = new Vector2(8, 46),
             input = new Inputs
             {
                 Up = Keys.Z,

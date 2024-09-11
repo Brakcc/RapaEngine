@@ -7,12 +7,18 @@ namespace Rapa.RapaGame.RapaduraEngine.Components.Sprites;
 public sealed class BaseSprite : Component
 {
     #region constructor
-    
-    public BaseSprite(Entity entityRef, Texture2D texture = null) : base(entityRef)
+
+    public BaseSprite(Entity entityRef, Texture2D texture) : base(entityRef)
     {
         _texture = texture;
+
+        if (entityRef.Width == 0)
+            entityRef.Width = texture.Width;
+
+        if (entityRef.Height == 0)
+            entityRef.Height = texture.Height;
     }
-    
+
     #endregion
 
     #region methodes

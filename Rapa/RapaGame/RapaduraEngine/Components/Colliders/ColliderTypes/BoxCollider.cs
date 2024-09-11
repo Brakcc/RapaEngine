@@ -9,13 +9,13 @@ public class BoxCollider : Collider
 {
     #region properties
     
-    public override float Width
+    public override int Width
     {
         get => _width;
         set => _width = value;
     }
 
-    public override float Height
+    public override int Height
     {
         get => _height;
         set => _height = value;
@@ -49,7 +49,7 @@ public class BoxCollider : Collider
     
     #region constructor
     
-    public BoxCollider(Entity entityRef, float width, float height, float xPos = 0, float yPos = 0) : base(entityRef, xPos, yPos)
+    public BoxCollider(Entity entityRef, int width, int height, float xPos = 0, float yPos = 0) : base(entityRef, xPos, yPos)
     {
         _width = width;
         _height = height;
@@ -89,9 +89,9 @@ public class BoxCollider : Collider
 
     #region fields
 
-    private float _width;
+    private int _width;
 
-    private float _height;
+    private int _height;
 
     #endregion
 }

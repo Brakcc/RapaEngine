@@ -19,7 +19,7 @@ public class Solid : Entity
     
     #region constructor
 
-    public Solid(Texture2D texture, float width = 8, float height = 8, bool debugMode = false) : base(width, height, debugMode)
+    public Solid(Texture2D texture, int width = 8, int height = 8, bool debugMode = false) : base(width, height, debugMode)
     {
         Components = new ComponentList(this, new List<Component>
         {
@@ -30,7 +30,7 @@ public class Solid : Entity
         _wasPressed = false;
     }
     
-    public Solid(Dictionary<string, Animation> animations, float width = 8, float height = 8, bool debugMode = false) : base(width, height, debugMode)
+    public Solid(Dictionary<string, Animation> animations, int width = 8, int height = 8, bool debugMode = false) : base(width, height, debugMode)
     {
         Components = new ComponentList(this, new List<Component>
         {

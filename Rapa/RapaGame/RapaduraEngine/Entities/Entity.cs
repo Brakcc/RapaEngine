@@ -39,22 +39,31 @@ public abstract class Entity
         set => _collider = value;
     }
 
-    public virtual float Width => Collider?.Width ?? _width;
+    public virtual int Width
+    {
+        get => Collider?.Width ?? _width;
+        set => _width = value;
+    }
 
-    public virtual float Height => Collider?.Height ?? _height;
+
+    public virtual int Height
+    {
+        get => Collider?.Height ?? _height;
+        set => _height = value;
+    }
 
     public float Top
     {
         get
         {
-            if (Collider == null)
+            if (Collider is null)
                 return Position.Y;
 
             return Position.Y + Collider.Top;
         }
         set
         {
-            if (Collider == null)
+            if (Collider is null)
             {
                 Position.Y = value;
                 return;
@@ -68,14 +77,14 @@ public abstract class Entity
     {
         get
         {
-            if (Collider == null)
+            if (Collider is null)
                 return Position.Y + Height;
 
             return Position.Y + Collider.Bottom;
         }
         set
         {
-            if (Collider == null)
+            if (Collider is null)
             {
                 Position.Y = value - Height;
                 return;
@@ -89,14 +98,14 @@ public abstract class Entity
     {
         get
         {
-            if (Collider == null)
+            if (Collider is null)
                 return Position.X;
 
             return Position.X + Collider.Left;
         }
         set
         {
-            if (Collider == null)
+            if (Collider is null)
             {
                 Position.X = value;
                 return;
@@ -110,14 +119,14 @@ public abstract class Entity
     {
         get
         {
-            if (Collider == null)
+            if (Collider is null)
                 return Position.X + Width;
 
             return Position.X + Collider.Right;
         }
         set
         {
-            if (Collider == null)
+            if (Collider is null)
             {
                 Position.X = value - Width;
                 return;
@@ -131,16 +140,16 @@ public abstract class Entity
     {
         get
         {
-            if (Collider == null)
-                return Position.X + Width / 2;
+            if (Collider is null)
+                return Position.X + (float)Width / 2;
 
             return Position.X + Collider.CenterX;
         }
         set
         {
-            if (Collider == null)
+            if (Collider is null)
             {
-                Position.X = value - Width / 2;
+                Position.X = value - (float)Width / 2;
                 return;
             }
 
@@ -152,16 +161,16 @@ public abstract class Entity
     {
         get
         {
-            if (Collider == null)
-                return Position.Y + Height / 2;
+            if (Collider is null)
+                return Position.Y + (float)Height / 2;
 
             return Position.Y + Collider.CenterY;
         }
         set
         {
-            if (Collider == null)
+            if (Collider is null)
             {
-                Position.Y = value - Height / 2;
+                Position.Y = value - (float)Height / 2;
                 return;
             }
 
@@ -263,7 +272,7 @@ public abstract class Entity
 
     #region constructors
 
-    protected Entity(float width = 0, float height = 0, bool debugMode = false)
+    protected Entity(int width = 0, int height = 0, bool debugMode = false)
     {
         _width = width;
         _height = height;
@@ -388,9 +397,9 @@ public abstract class Entity
     
     private Collider _collider;
 
-    private readonly float _width;
+    private int _width;
 
-    private readonly float _height;
+    private int _height;
 
     public bool collidable;
 

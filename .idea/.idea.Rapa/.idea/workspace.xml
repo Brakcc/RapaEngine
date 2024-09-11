@@ -10,7 +10,6 @@
     <list default="true" id="f0714bac-edba-468d-9430-461c15a3c0e4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Rapa/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Rapa/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/Content/bin/DesktopGL/Content/ArtContent/Fonts/fontTest.xnb" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/bin/DesktopGL/Content/ArtContent/Fonts/fontTest.xnb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Content/bin/DesktopGL/Content/NewTestMap.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/bin/DesktopGL/Content/NewTestMap.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/.mgcontent" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/.mgstats" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/.mgstats" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/BackGrounds/BProps/StarA.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/BackGrounds/BProps/StarA.mgcontent" afterDir="false" />
@@ -80,11 +79,17 @@
       <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/Tiles/TestCrystile.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/Tiles/TestCrystile.mgcontent" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/GameContent/PlayerInfo/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/GameContent/PlayerInfo/Player.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/GameContent/Scenes/Pools/MenuPool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/GameContent/Scenes/Pools/MenuPool.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Components/Colliders/Collider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Components/Colliders/Collider.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Components/Colliders/ColliderTypes/BoxCollider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Components/Colliders/ColliderTypes/BoxCollider.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Components/Colliders/ColliderTypes/BoxTrigger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Components/Colliders/ColliderTypes/BoxTrigger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Components/Sprites/BaseSprite.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Components/Sprites/BaseSprite.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Entities/Entity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Entities/Entity.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Entities/PreBuilt/Actors/Actor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Entities/PreBuilt/Actors/Actor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Entities/PreBuilt/Props/AnimatedProp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Entities/PreBuilt/Props/AnimatedProp.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Entities/PreBuilt/Props/NormalProp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Entities/PreBuilt/Props/NormalProp.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Entities/PreBuilt/Solids/Solid.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Entities/PreBuilt/Solids/Solid.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Entities/PreBuilt/Solids/Tile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Entities/PreBuilt/Solids/Tile.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/bin/Debug/net6.0/Content/ArtContent/Fonts/fontTest.xnb" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/bin/Debug/net6.0/Content/ArtContent/Fonts/fontTest.xnb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/bin/Debug/net6.0/Content/NewTestMap.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/bin/Debug/net6.0/Content/NewTestMap.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/bin/Debug/net6.0/Rapa.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/bin/Debug/net6.0/Rapa.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/bin/Debug/net6.0/Rapa.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/bin/Debug/net6.0/Rapa.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/bin/Debug/net6.0/Rapa.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/bin/Debug/net6.0/Rapa.pdb" afterDir="false" />
@@ -93,7 +98,6 @@
       <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.assets.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.csproj.CopyComplete" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.csproj.FileListAbsolute.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.dll" afterDir="false" />
@@ -158,9 +162,9 @@
   },
   "keyToStringList": {
     "rider.external.source.directories": [
-      "C:\\Users\\cleme\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
-      "C:\\Users\\cleme\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
-      "C:\\Users\\cleme\\AppData\\Local\\Symbols\\src"
+      "C:\\Users\\c.strappazzonmarques\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
+      "C:\\Users\\c.strappazzonmarques\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
+      "C:\\Users\\c.strappazzonmarques\\AppData\\Local\\Symbols\\src"
     ]
   }
 }]]></component>
@@ -264,6 +268,7 @@
       <workItem from="1725840742450" duration="2139000" />
       <workItem from="1725842907932" duration="502000" />
       <workItem from="1726006127622" duration="3132000" />
+      <workItem from="1726049246163" duration="9703000" />
     </task>
     <servers />
   </component>
