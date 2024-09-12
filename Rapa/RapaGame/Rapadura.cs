@@ -53,23 +53,14 @@ public class Rapadura : CoreEngine
     protected override void LoadContent()
     {
     }
-
-    private void AllStates()
-    {
-        currentState = new MenuState(this, Graphics.GraphicsDevice, Content, SpriteBatch, Graphics);
-    }
     
     public void ChangeState(State state)
     {
-        nextState = state;
     }
 
     #endregion
     
     #region fields
-    
-    private State currentState;
-    private State nextState;
 
     private const int RenderScreenWidth = 320;
     private const int RenderScreenHeight = 180;

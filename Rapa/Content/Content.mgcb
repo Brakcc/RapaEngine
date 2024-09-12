@@ -783,8 +783,8 @@
 /processorParam:TextureFormat=Color
 /build:ArtContent/Tiles/TestCrystile.png
 
-#begin NewTestMap.txt
-/copy:NewTestMap.txt
+#begin NewTestMap.rapa
+/copy:NewTestMap.rapa
 
 #begin TestMap2.txt
 /copy:TestMap2.txt

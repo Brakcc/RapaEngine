@@ -105,12 +105,12 @@ public class CoreEngine : Game
 		SpriteBatch = new SpriteBatch(GraphicsDevice);
 		Content.RootDirectory = "Content";
 		IsMouseVisible = true;
-		ExitOnEscapeKeypress = false;
+		ExitOnEscapeKeypress = true;
 		GCSettings.LatencyMode = GCLatencyMode.SustainedLowLatency;
 		Drawer.InitDrawer(SpriteBatch);
 		nextScene = null;
 	}
-
+	
 	#endregion
 	
 	#region methodes
@@ -178,7 +178,7 @@ public class CoreEngine : Game
 	protected override void Update(GameTime gameTime)
 	{
 		RawDeltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
-		DeltaTime = RawDeltaTime * TimeRate * TimeRateB;
+		DeltaTime = RawDeltaTime * TimeScale * GucciTimeRate;
 		FrameCounter += 1UL;
 		if (ExitOnEscapeKeypress && Keyboard.GetState().IsKeyDown(Keys.Escape))
 		{
@@ -270,7 +270,7 @@ public class CoreEngine : Game
 	{
 		GC.Collect();
 		GC.WaitForPendingFinalizers();
-		TimeRate = 1f;
+		TimeScale = 1f;
 	}
 
 	public static void SetWindowed(int width, int height)
@@ -351,9 +351,9 @@ public class CoreEngine : Game
 
 	private static bool resizing;
 
-	private static float TimeRate = 1f;
+	private static float TimeScale = 1f; //slowdown
 
-	private const float TimeRateB = 1f;
+	private const float GucciTimeRate = 1f; //adjust 
 
 	public static float FreezeTimer;
 

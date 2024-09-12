@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -16,9 +17,9 @@ public static class Drawer
         Particule = CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/DefaultPixel");
 
         var test = new object[] {1, 'e', "T", true, Pixel};
-        Console.WriteLine(Calculus.RandomPick(Calculus.Array(test)));
+        //Console.WriteLine(Calculus.RandomPick(Calculus.Array(test)));
     }
-
+    
     public static void DrawHollowRect(Rectangle rect, Color color, float layer = 0)
     {
         DrawHollowRect(rect.X, rect.Y, rect.Width, rect.Height, color, layer);

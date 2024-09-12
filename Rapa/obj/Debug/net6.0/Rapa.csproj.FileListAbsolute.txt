@@ -278,3 +278,4 @@ C:\Users\c.strappazzonmarques\Documents\Projects\RapaEngine\Rapa\obj\Debug\net6.
 C:\Users\c.strappazzonmarques\Documents\Projects\RapaEngine\Rapa\obj\Debug\net6.0\Rapa.pdb
 C:\Users\c.strappazzonmarques\Documents\Projects\RapaEngine\Rapa\obj\Debug\net6.0\Rapa.genruntimeconfig.cache
 C:\Users\c.strappazzonmarques\Documents\Projects\RapaEngine\Rapa\obj\Debug\net6.0\ref\Rapa.dll
+C:\Users\c.strappazzonmarques\Documents\Projects\RapaEngine\Rapa\bin\Debug\net6.0\Content\NewTestMap.rapa

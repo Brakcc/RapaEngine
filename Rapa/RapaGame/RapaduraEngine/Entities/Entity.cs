@@ -42,14 +42,28 @@ public abstract class Entity
     public virtual int Width
     {
         get => Collider?.Width ?? _width;
-        set => _width = value;
+        set
+        {
+            if (Collider is null)
+                _width = value;
+
+            else
+                Collider.Width = value;
+        }
     }
 
 
     public virtual int Height
     {
         get => Collider?.Height ?? _height;
-        set => _height = value;
+        set
+        {
+            if (Collider is null)
+                _height = value;
+
+            else
+                Collider.Height = value;
+        }
     }
 
     public float Top
@@ -386,7 +400,6 @@ public abstract class Entity
         return res;
     }
     
-
     #endregion
     
     #endregion

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Rapa.RapaGame.RapaduraEngine;
 using Rapa.RapaGame.RapaduraEngine.Components.Sprites.Animations;
 using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Actors;
 using Rapa.RapaGame.RapaduraEngine.InputSettings;
@@ -58,7 +59,7 @@ public sealed class Player : Actor
 
         if (_jumpCoolDownCounter < JumpCoolDow)
         {
-            _jumpCoolDownCounter += (float)gameTime.ElapsedGameTime.TotalSeconds;
+            _jumpCoolDownCounter += CoreEngine.DeltaTime;
         }
         
         if (Keyboard.GetState().IsKeyDown(input.Jump) && isGrounded && _jumpCoolDownCounter >= JumpCoolDow)

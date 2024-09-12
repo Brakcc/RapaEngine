@@ -228,6 +228,10 @@ public abstract class Collider
     protected abstract bool Collide(BoxCollider box);
 
     protected abstract bool Collide(BoxTrigger trigger);
+    
+    //ajouter methodes pour les collision avec cercles
+    
+    //collisions polygones ?
 
     #endregion
 

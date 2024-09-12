@@ -40,7 +40,7 @@ public class MenuPool : EntityPool
         //player
         var player = new Player(testText, debugMode:false)
         {
-            Position = new Vector2(8, 46),
+            Position = new Vector2(0, 0),
             input = new Inputs
             {
                 Up = Keys.Z,
@@ -70,13 +70,13 @@ public class MenuPool : EntityPool
         };
 
         //Maps
-        var map = new TileMap<Tile>(8, 8, 0, Vector2.Zero, "Content/NewTestMap.txt", 
+        var map = new TileMap<Tile>(8, 8, 0, Vector2.Zero, "Content/NewTestMap.rapa", 
             "ArtContent/Tiles/SandTilesV2/", "ST");
 
-        var map2 = new TileMap<Tile>(8, 8, 0, new Vector2(320, 0), "Content/NewTestMap.txt",
+        var map2 = new TileMap<Tile>(8, 8, 0, new Vector2(320, 0), "Content/NewTestMap.rapa",
             "ArtContent/Tiles/SandTilesV2/", "ST");
         
-        var map3 = new TileMap<Tile>(8, 8, 0, new Vector2(640, 0), "Content/NewTestMap.txt",
+        var map3 = new TileMap<Tile>(8, 8, 0, new Vector2(640, 0), "Content/NewTestMap.rapa",
             "ArtContent/Tiles/SandTilesV2/", "ST");
         
         //Entity adding

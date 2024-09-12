@@ -51,7 +51,7 @@ public class Animator
         if (!_canLoop)
             return;
         
-        _timer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+        _timer += CoreEngine.DeltaTime;
         if (!(_timer > _animation._frameSpeed))
             return;
         
