@@ -7,7 +7,7 @@ public class CollisionsTracker
 {
     #region properties
 
-    public List<Entity> Colliders { get; set; } = new();
+    public List<Entity> Colliders { get; } = new();
 
     #endregion
 }

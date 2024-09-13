@@ -81,22 +81,22 @@ public class MenuPool : EntityPool
         
         //Entity adding
         foreach (var s in normalSprite)
-            _entities.Add(s);
+            entities.Add(s);
         
         foreach (var s in stars)
-            _entities.Add(s);
+            entities.Add(s);
 
         foreach (var t in map.Tiles)
-            _entities.Add(t);
+            entities.Add(t);
 
         foreach (var t in map2.Tiles)
-            _entities.Add(t);
+            entities.Add(t);
         
         foreach (var t in map3.Tiles)
-            _entities.Add(t);
+            entities.Add(t);
         
-        _entities.Add(camera);
-        _entities.Add(focus);
-        _entities.Add(player);
+        entities.Add(camera);
+        entities.Add(focus);
+        entities.Add(player);
     }
 }

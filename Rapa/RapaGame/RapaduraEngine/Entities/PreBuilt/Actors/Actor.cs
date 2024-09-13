@@ -34,7 +34,7 @@ public class Actor : Entity
             new BaseSprite(this, texture)
         });
         Collider = new BoxCollider(this, 8, 8, X, Y);
-        collidable = true;
+        Collidable = true;
 
         trapRes = OnTrap;
     }
@@ -46,7 +46,7 @@ public class Actor : Entity
             new AnimatedSprite(this, animations)
         });
         Collider = new BoxCollider(this, 8, 8, X, Y);
-        collidable = true;
+        Collidable = true;
 
         trapRes = OnTrap;
     }

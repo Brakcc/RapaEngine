@@ -8,31 +8,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f0714bac-edba-468d-9430-461c15a3c0e4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Rapa/.idea/projectSettingsUpdater.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Rapa/.idea/projectSettingsUpdater.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Rapa/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Rapa/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Content/Content.mgcb" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/Content.mgcb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Content/NewTestMap.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/NewTestMap.rapa" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/GameContent/PlayerInfo/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/GameContent/PlayerInfo/Player.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/GameContent/Scenes/Pools/MenuPool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/GameContent/Scenes/Pools/MenuPool.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/Rapadura.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/Rapadura.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Components/Colliders/Collider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Components/Colliders/Collider.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Components/Sprites/Animations/Animator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Components/Sprites/Animations/Animator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/CoreEngine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/CoreEngine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Components/ComponentList.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Components/ComponentList.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Entities/Entity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Entities/Entity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Entities/PreBuilt/Actors/Actor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Entities/PreBuilt/Actors/Actor.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Entities/PreBuilt/Props/NormalProp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Entities/PreBuilt/Props/NormalProp.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Entities/PreBuilt/Solids/Tile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Entities/PreBuilt/Solids/Tile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Mathematics/Drawer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Mathematics/Drawer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/bin/Debug/net6.0/Rapa.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/bin/Debug/net6.0/Rapa.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/bin/Debug/net6.0/Rapa.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/bin/Debug/net6.0/Rapa.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/ref/Rapa.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/ref/Rapa.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/refint/Rapa.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/refint/Rapa.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/obj/Rapa.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Rapa.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/rider.project.model.nuget.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Entities/PreBuilt/Solids/Solid.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Entities/PreBuilt/Solids/Solid.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Physics/CollisionPhysics/CollideCalc.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Physics/CollisionPhysics/CollideCalc.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/SceneManagement/Packers/ColTracked.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/SceneManagement/Packers/ColTracked.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/SceneManagement/Packers/CollisionsTracker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/SceneManagement/Packers/CollisionsTracker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/SceneManagement/Packers/EntityPool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/SceneManagement/Packers/EntityPool.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/SceneManagement/Packers/RendererTracker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/SceneManagement/Packers/RendererTracker.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +32,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Brakcc&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Brakcc/RapaEngine.git&quot;,
+    &quot;accountId&quot;: &quot;5ee47298-83b2-49f6-972a-ef4910d510a5&quot;
+  }
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Rapa/RapaGame/GameContent/PlayerInfo/Player.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -185,8 +184,18 @@
       <workItem from="1726127871936" duration="4214000" />
       <workItem from="1726136242815" duration="4239000" />
       <workItem from="1726146238346" duration="151000" />
-      <workItem from="1726146401308" duration="4517000" />
+      <workItem from="1726146401308" duration="5177000" />
+      <workItem from="1726229089031" duration="4219000" />
     </task>
+    <task id="LOCAL-00001" summary="Va falloir s'organiser">
+      <option name="closed" value="true" />
+      <created>1726153308305</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1726153308305</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -209,6 +218,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="Va falloir s'organiser" />
+    <option name="LAST_COMMIT_MESSAGE" value="Va falloir s'organiser" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

@@ -6,6 +6,7 @@ using Rapa.RapaGame.RapaduraEngine.Components;
 using Rapa.RapaGame.RapaduraEngine.Components.Colliders.ColliderTypes;
 using Rapa.RapaGame.RapaduraEngine.Components.Sprites;
 using Rapa.RapaGame.RapaduraEngine.Components.Sprites.Animations;
+using Rapa.RapaGame.RapaduraEngine.SceneManagement.Packers;
 
 namespace Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Solids;
 
@@ -26,7 +27,7 @@ public class Solid : Entity
             new BaseSprite(this, texture)
         });
         Collider = new BoxCollider(this, width, height, X, Y);
-        collidable = true;
+        Collidable = true;
         _wasPressed = false;
     }
     
@@ -37,7 +38,7 @@ public class Solid : Entity
             new AnimatedSprite(this, animations)
         });
         Collider = new BoxCollider(this, width, height, X, Y);
-        collidable = true;
+        Collidable = true;
         _wasPressed = false;
     }
     
@@ -49,7 +50,7 @@ public class Solid : Entity
     {
         if (Keyboard.GetState().IsKeyDown(Keys.Enter) && !_wasPressed)
         {
-            collidable = !collidable;
+            Collidable = !Collidable;
             _wasPressed = true;
         }
 

@@ -7,7 +7,7 @@ namespace Rapa.RapaGame.RapaduraEngine.Physics.CollisionPhysics;
 public static class CollideCalc
 {
     public static bool CheckCollision(Entity a, Entity b)
-        => a.Collider != null && b.Collider != null && a != b && b.collidable && a.Collider.Collide(b);
+        => a.Collider != null && b.Collider != null && a != b && b.Collidable && a.Collider.Collide(b);
 
     public static bool CheckCollision(Entity a, IEnumerable<Entity> b)
     {

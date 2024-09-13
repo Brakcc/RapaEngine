@@ -43,8 +43,8 @@ public class ComponentList
     {
         EntityRef = entityRef;
         _components = new List<Component>();
-        _toAdd = new List<Component>();
-        _toRemove = new List<Component>();
+        _toAdd = new HashSet<Component>();
+        _toRemove = new HashSet<Component>();
         _lockMode = CompLockMode.Unlocked;
     }
 
@@ -52,8 +52,8 @@ public class ComponentList
     {
         EntityRef = entityRef;
         _components = components;
-        _toAdd = new List<Component>();
-        _toRemove = new List<Component>();
+        _toAdd = new HashSet<Component>();
+        _toRemove = new HashSet<Component>();
         _lockMode = CompLockMode.Unlocked;
     }
     
@@ -130,8 +130,7 @@ public class ComponentList
                 _components.Add(component);
                 break;
             case CompLockMode.Locked:
-                if (!_toAdd.Contains(component))
-                    _toAdd.Add(component);
+                _toAdd.Add(component);
                 break;
             case CompLockMode.DefaultError:
                 Console.WriteLine("Cant modify the componentLists in the mode");
@@ -217,9 +216,9 @@ public class ComponentList
 
     private readonly List<Component> _components;
 
-    private readonly List<Component> _toAdd;
+    private readonly HashSet<Component> _toAdd;
 
-    private readonly List<Component> _toRemove;
+    private readonly HashSet<Component> _toRemove;
     
     private CompLockMode _lockMode;
 

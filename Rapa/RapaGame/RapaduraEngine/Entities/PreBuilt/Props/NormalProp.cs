@@ -23,7 +23,7 @@ public class NormalProp : Entity
         {
             new BaseSprite(this, texture)
         });
-        collidable = false;
+        Collidable = false;
     }
 
     #endregion

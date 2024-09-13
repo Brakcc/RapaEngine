@@ -33,6 +33,12 @@ public abstract class Entity
     
     public int Layer { get; init; }
 
+    public bool Collidable
+    {
+        get => Collider is not null && _collidable;
+        set => _collidable = value;
+    }
+    
     public Collider Collider
     {
         get => _collider;
@@ -414,7 +420,7 @@ public abstract class Entity
 
     private int _height;
 
-    public bool collidable;
+    private bool _collidable;
 
     private readonly bool _debugMode;
 

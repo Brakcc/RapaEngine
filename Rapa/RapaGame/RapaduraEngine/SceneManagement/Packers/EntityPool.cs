@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Rapa.RapaGame.RapaduraEngine.Entities;
-using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Solids;
 
 namespace Rapa.RapaGame.RapaduraEngine.SceneManagement.Packers;
 
@@ -15,16 +14,16 @@ public abstract class EntityPool
     
     public Scene SceneRef { get; set; }
 
-    public int Count => _entities.Count;
+    public int Count => entities.Count;
 
     public Entity this[int id]
     {
         get
         {
-            if (id < 0 || id >= _entities.Count)
+            if (id < 0 || id >= entities.Count)
                 throw new IndexOutOfRangeException();
                 
-            return _entities[id];
+            return entities[id];
         }
     }
 
@@ -35,18 +34,18 @@ public abstract class EntityPool
     protected EntityPool()
     {
         Entities = new Dictionary<Type, List<Entity>>();
-        _entities = new List<Entity>();
-        _toAdd = new List<Entity>();
-        _toRemove = new List<Entity>();
+        entities = new List<Entity>();
+        _toAdd = new HashSet<Entity>();
+        _toRemove = new HashSet<Entity>();
         _shuffled = true;
     }
 
     protected EntityPool(List<Entity> entities)
     {
         Entities = new Dictionary<Type, List<Entity>>();
-        _entities = entities;
-        _toAdd = new List<Entity>();
-        _toRemove = new List<Entity>();
+        this.entities = entities;
+        _toAdd = new HashSet<Entity>();
+        _toRemove = new HashSet<Entity>();
         _shuffled = true;
     }
     
@@ -56,10 +55,10 @@ public abstract class EntityPool
 
     public void InitList()
     {
-        if (_entities == null)
+        if (entities == null)
             return;
         
-        foreach (var ent in _entities)
+        foreach (var ent in entities)
         {
             ent.Init();
             ent.SceneRef = SceneRef;
@@ -68,8 +67,10 @@ public abstract class EntityPool
             if (!Entities.ContainsKey(t))
                 Entities.Add(t, new List<Entity>());
             
-            if (ent is Solid)
+            if (ent.Collidable)
                 SceneRef.CollisionsTracker.Colliders.Add(ent);
+            
+            //Refaire les systeme de RendererList
             
             Entities[t].Add(ent);
         }
@@ -77,10 +78,10 @@ public abstract class EntityPool
     
     public void Update(GameTime gameTime)
     {
-        if (_entities == null)
+        if (entities == null)
             return;
         
-        foreach (var ent in _entities)
+        foreach (var ent in entities)
         {
             ent.Update(gameTime);
         }
@@ -88,10 +89,10 @@ public abstract class EntityPool
 
     public void Draw(SpriteBatch spriteBatch)
     {
-        if (_entities == null)
+        if (entities == null)
             return;
         
-        foreach (var ent in _entities)
+        foreach (var ent in entities)
         {
             ent.Draw(spriteBatch);
         }
@@ -99,10 +100,10 @@ public abstract class EntityPool
 
     public void EndList()
     {
-        if (_entities == null)
+        if (entities == null)
             return;
         
-        foreach (var comp in _entities)
+        foreach (var comp in entities)
         {
             comp.End();
         }
@@ -110,7 +111,7 @@ public abstract class EntityPool
 
     public void AddEntity(Entity entity)
     {
-        if (_entities.Contains(entity) || _toAdd.Contains(entity))
+        if (entities.Contains(entity) || _toAdd.Contains(entity))
             return;
         
         _toAdd.Add(entity);
@@ -126,7 +127,7 @@ public abstract class EntityPool
     
     public void RemoveEntity(Entity entity)
     {
-        if (!_entities.Contains(entity) || _toRemove.Contains(entity))
+        if (!entities.Contains(entity) || _toRemove.Contains(entity))
             return;
         
         _toRemove.Add(entity);
@@ -146,7 +147,7 @@ public abstract class EntityPool
         {
             foreach (var add in _toAdd)
             {
-                _entities.Add(add);
+                entities.Add(add);
             }
             _toAdd.Clear();
             _shuffled = true;
@@ -155,7 +156,7 @@ public abstract class EntityPool
         {
             foreach (var rem in _toRemove)
             {
-                _entities.Remove(rem);
+                entities.Remove(rem);
             }
             _toRemove.Clear();
         }
@@ -164,12 +165,12 @@ public abstract class EntityPool
             return;
         
         _shuffled = false;
-        _entities.Sort(CompareLayer);
+        entities.Sort(_compareLayer);
     }
     
     public T GetFirstEntity<T>() where T : Entity
     {
-        foreach (var ent in _entities)
+        foreach (var ent in entities)
         {
             if (ent is T entity)
                 return entity;
@@ -181,7 +182,7 @@ public abstract class EntityPool
     {
         var list = new List<T>();
         
-        foreach (var ent in _entities)
+        foreach (var ent in entities)
         {
             if (ent is T entity)
                 list.Add(entity);
@@ -192,7 +193,7 @@ public abstract class EntityPool
 
     public bool TryGetFirstEntity<T>(out T entity) where T : Entity
     {
-        foreach (var ent in _entities)
+        foreach (var ent in entities)
         {
             if (ent is not T entTest)
                 continue;
@@ -204,16 +205,16 @@ public abstract class EntityPool
         return false;
     }
 
-    public bool TryGetAllEntities<T>(out List<T> entities) where T : Entity
+    public bool TryGetAllEntities<T>(out List<T> ents) where T : Entity
     {
-        entities = new List<T>();
+        ents = new List<T>();
         var hasEnt = false;
-        foreach (var ent in _entities)
+        foreach (var ent in this.entities)
         {
             if (ent is not T entTest)
                 continue;
             
-            entities.Add(entTest);
+            ents.Add(entTest);
             hasEnt = true;
         }
         return hasEnt;
@@ -225,13 +226,13 @@ public abstract class EntityPool
 
     private bool _shuffled;
     
-    protected readonly List<Entity> _entities;
+    protected readonly List<Entity> entities;
 
-    private readonly List<Entity> _toAdd;
+    private readonly HashSet<Entity> _toAdd;
 
-    private readonly List<Entity> _toRemove;
+    private readonly HashSet<Entity> _toRemove;
 
-    private readonly Comparison<Entity> CompareLayer = (a, b) => MathF.Sign(b.Layer - a.Layer);
+    private readonly Comparison<Entity> _compareLayer = (a, b) => MathF.Sign(b.Layer - a.Layer);
 
     #endregion
 }
