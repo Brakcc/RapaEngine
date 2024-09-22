@@ -111,10 +111,8 @@ public abstract class EntityPool
 
     public void AddEntity(Entity entity)
     {
-        if (entities.Contains(entity) || _toAdd.Contains(entity))
-            return;
-        
-        _toAdd.Add(entity);
+        if (entities.Contains(entity)) 
+            _toAdd.Add(entity);
     }
 
     public void AddEntities(params Entity[] ents)
@@ -127,10 +125,8 @@ public abstract class EntityPool
     
     public void RemoveEntity(Entity entity)
     {
-        if (!entities.Contains(entity) || _toRemove.Contains(entity))
-            return;
-        
-        _toRemove.Add(entity);
+        if (!entities.Contains(entity))
+            _toRemove.Add(entity);
     }
 
     public void RemoveEntities(params Entity[] ents)
@@ -209,7 +205,7 @@ public abstract class EntityPool
     {
         ents = new List<T>();
         var hasEnt = false;
-        foreach (var ent in this.entities)
+        foreach (var ent in entities)
         {
             if (ent is not T entTest)
                 continue;

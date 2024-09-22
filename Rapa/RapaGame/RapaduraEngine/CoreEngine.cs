@@ -80,14 +80,14 @@ public class CoreEngine : Game
 		Graphics.GraphicsProfile = GraphicsProfile.HiDef;
 		Graphics.PreferredBackBufferFormat = SurfaceFormat.Color;
 		Graphics.PreferredDepthStencilFormat = DepthFormat.Depth24Stencil8;
+		Graphics.PreferredBackBufferWidth = renderWidth;
+		Graphics.PreferredBackBufferHeight = renderHeight;
 		Window.AllowUserResizing = true;
 		Window.ClientSizeChanged += OnClientSizeChanged;
 		Window.AllowAltF4 = true;
 		title = windowTitle;
 		if (fullscreen)
 		{
-			Graphics.PreferredBackBufferWidth = renderWidth;
-			Graphics.PreferredBackBufferHeight = renderHeight;
 			Graphics.ApplyChanges();
 			Graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
 			Graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
@@ -96,8 +96,6 @@ public class CoreEngine : Game
 		}
 		else
 		{
-			Graphics.PreferredBackBufferWidth = renderWidth;
-			Graphics.PreferredBackBufferHeight = renderHeight;
 			SetWindowed(windowWidth, windowHeight);
 			Graphics.IsFullScreen = false;
 		}

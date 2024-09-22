@@ -151,8 +151,7 @@ public class ComponentList
                 _components.Remove(component);
                 break;
             case CompLockMode.Locked:
-                if (!_toRemove.Contains(component))
-                    _toRemove.Add(component);
+                _toRemove.Add(component);
                 break;
             case CompLockMode.DefaultError:
                 Console.WriteLine("Cant modify the componentLists in the mode");
