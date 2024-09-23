@@ -1,15 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "IaJBI+ZOeZI=",
+  "dgSpecHash": "2qX/fL3FaPY=",
   "success": true,
-  "projectFilePath": "C:\\Users\\cleme\\Documents\\Projects\\RapaEngine\\Rapa\\Rapa.csproj",
+  "projectFilePath": "C:\\Users\\c.strappazzonmarques\\Documents\\Projects\\RapaEngine\\Rapa\\Rapa.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\cleme\\.nuget\\packages\\monogame.content.builder.task\\3.8.1.303\\monogame.content.builder.task.3.8.1.303.nupkg.sha512",
-    "C:\\Users\\cleme\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.1.303\\monogame.framework.desktopgl.3.8.1.303.nupkg.sha512",
-    "C:\\Users\\cleme\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.32\\microsoft.netcore.app.ref.6.0.32.nupkg.sha512",
-    "C:\\Users\\cleme\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.32\\microsoft.windowsdesktop.app.ref.6.0.32.nupkg.sha512",
-    "C:\\Users\\cleme\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.32\\microsoft.aspnetcore.app.ref.6.0.32.nupkg.sha512",
-    "C:\\Users\\cleme\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.32\\microsoft.netcore.app.host.win-x64.6.0.32.nupkg.sha512"
+    "C:\\Users\\c.strappazzonmarques\\.nuget\\packages\\monogame.content.builder.task\\3.8.1.303\\monogame.content.builder.task.3.8.1.303.nupkg.sha512",
+    "C:\\Users\\c.strappazzonmarques\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.1.303\\monogame.framework.desktopgl.3.8.1.303.nupkg.sha512"
   ],
   "logs": []
 }

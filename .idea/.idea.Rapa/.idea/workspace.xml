@@ -8,8 +8,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f0714bac-edba-468d-9430-461c15a3c0e4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Rapa/IconNewButUgly.bmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Rapa/IconNewButUgly.ico" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Rapa/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Rapa/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/Content/bin/DesktopGL/Content/ArtContent/Fonts/fontTest.xnb" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/bin/DesktopGL/Content/ArtContent/Fonts/fontTest.xnb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/.mgcontent" afterDir="false" />
@@ -79,13 +77,6 @@
       <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/Tiles/SandTilesV2/ST8.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/Tiles/SandTilesV2/ST8.mgcontent" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/Tiles/SandTilesV2/ST9.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/Tiles/SandTilesV2/ST9.mgcontent" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/Tiles/TestCrystile.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/obj/DesktopGL/net6.0/Content/ArtContent/Tiles/TestCrystile.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Icon.bmp" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Icon.bmp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Icon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Icon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/Rapa.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Rapa.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/Rapadura.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/Rapadura.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Components/ComponentList.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Components/ComponentList.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/CoreEngine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/CoreEngine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/SceneManagement/Packers/EntityPool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/SceneManagement/Packers/EntityPool.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/bin/Debug/net6.0/Content/ArtContent/Fonts/fontTest.xnb" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/bin/Debug/net6.0/Content/ArtContent/Fonts/fontTest.xnb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/bin/Debug/net6.0/Rapa.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/bin/Debug/net6.0/Rapa.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/bin/Debug/net6.0/Rapa.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/bin/Debug/net6.0/Rapa.exe" afterDir="false" />
@@ -96,11 +87,9 @@
       <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.assets.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.csproj.AssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.csproj.FileListAbsolute.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.genruntimeconfig.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.genruntimeconfig.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.sourcelink.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/apphost.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/ref/Rapa.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/ref/Rapa.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/refint/Rapa.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/refint/Rapa.dll" afterDir="false" />
@@ -282,6 +271,7 @@
       <workItem from="1726229089031" duration="9070000" />
       <workItem from="1726345685892" duration="1572000" />
       <workItem from="1727024693995" duration="5129000" />
+      <workItem from="1727078000277" duration="2638000" />
     </task>
     <task id="LOCAL-00001" summary="Va falloir s'organiser">
       <option name="closed" value="true" />
