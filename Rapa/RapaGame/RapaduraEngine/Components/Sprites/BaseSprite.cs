@@ -37,6 +37,6 @@ public sealed class BaseSprite : Component
     #region fields
 
     private readonly Texture2D _texture;
-
+    
     #endregion
 }

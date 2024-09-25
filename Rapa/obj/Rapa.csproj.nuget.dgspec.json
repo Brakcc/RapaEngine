@@ -14,7 +14,8 @@
         "outputPath": "C:\\Users\\c.strappazzonmarques\\Documents\\Projects\\RapaEngine\\Rapa\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\c.strappazzonmarques\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\c.strappazzonmarques\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"

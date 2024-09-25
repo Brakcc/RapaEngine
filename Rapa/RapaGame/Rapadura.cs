@@ -1,5 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using Rapa.RapaGame.GameContent.Scenes;
+﻿using Rapa.RapaGame.GameContent.Scenes;
 using Rapa.RapaGame.GameContent.Scenes.Pools;
 using Rapa.RapaGame.RapaduraEngine;
 using Rapa.RapaGame.RapaduraEngine.SceneManagement;

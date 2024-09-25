@@ -310,7 +310,7 @@ public abstract class Entity
     #endregion
     
     #region methodes
-
+    
     public void RemoveSelf()
     {
         SceneRef?.EntityPool.RemoveEntity(this);
@@ -351,7 +351,7 @@ public abstract class Entity
     {
         Components.AddComponent(comp);
     }
-    
+
     public void RemoveComponent(Component comp)
     {
         Components.RemoveComponent(comp);
@@ -411,7 +411,7 @@ public abstract class Entity
     #endregion
     
     #region fields
-
+    
     public Vector2 Position;
     
     private Collider _collider;

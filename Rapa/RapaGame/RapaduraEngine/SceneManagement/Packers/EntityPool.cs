@@ -103,9 +103,9 @@ public abstract class EntityPool
         if (entities == null)
             return;
         
-        foreach (var comp in entities)
+        foreach (var ent in entities)
         {
-            comp.End();
+            ent.End();
         }
     }
 
