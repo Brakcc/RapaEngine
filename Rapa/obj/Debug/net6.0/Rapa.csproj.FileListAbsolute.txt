@@ -272,7 +272,6 @@ C:\Users\c.strappazzonmarques\Documents\Projects\RapaEngine\Rapa\obj\Debug\net6.
 C:\Users\c.strappazzonmarques\Documents\Projects\RapaEngine\Rapa\obj\Debug\net6.0\Rapa.AssemblyInfoInputs.cache
 C:\Users\c.strappazzonmarques\Documents\Projects\RapaEngine\Rapa\obj\Debug\net6.0\Rapa.AssemblyInfo.cs
 C:\Users\c.strappazzonmarques\Documents\Projects\RapaEngine\Rapa\obj\Debug\net6.0\Rapa.csproj.CoreCompileInputs.cache
-C:\Users\c.strappazzonmarques\Documents\Projects\RapaEngine\Rapa\obj\Debug\net6.0\Rapa.csproj.CopyComplete
 C:\Users\c.strappazzonmarques\Documents\Projects\RapaEngine\Rapa\obj\Debug\net6.0\Rapa.dll
 C:\Users\c.strappazzonmarques\Documents\Projects\RapaEngine\Rapa\obj\Debug\net6.0\refint\Rapa.dll
 C:\Users\c.strappazzonmarques\Documents\Projects\RapaEngine\Rapa\obj\Debug\net6.0\Rapa.pdb
@@ -280,3 +279,5 @@ C:\Users\c.strappazzonmarques\Documents\Projects\RapaEngine\Rapa\obj\Debug\net6.
 C:\Users\c.strappazzonmarques\Documents\Projects\RapaEngine\Rapa\obj\Debug\net6.0\ref\Rapa.dll
 C:\Users\c.strappazzonmarques\Documents\Projects\RapaEngine\Rapa\bin\Debug\net6.0\Content\NewTestMap.rapa
 C:\Users\cleme\Documents\Projects\RapaEngine\Rapa\bin\Debug\net6.0\Content\NewTestMap.rapa
+C:\Users\c.strappazzonmarques\Documents\Projects\RapaEngine\Rapa\obj\Debug\net6.0\Rapa.sourcelink.json
+C:\Users\c.strappazzonmarques\Documents\Projects\RapaEngine\Rapa\obj\Debug\net6.0\Rapa.csproj.Up2Date
