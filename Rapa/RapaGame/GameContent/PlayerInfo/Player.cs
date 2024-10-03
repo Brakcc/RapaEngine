@@ -12,15 +12,6 @@ namespace Rapa.RapaGame.GameContent.PlayerInfo;
 
 public sealed class Player : Actor
 {
-    #region fields
-    
-    public bool hasDied = false;
-    public Inputs input;
-    public float jumpForce = 10f;
-    public float speed;
-    
-    #endregion
-    
     #region constructor
     
     public Player(Texture2D texture, int width = 0, int height = 0, bool debugMode = false) : base(texture, width, height, debugMode)
@@ -73,6 +64,14 @@ public sealed class Player : Actor
 
     #region fields
 
+    public bool hasDied = false;
+    
+    public Inputs input;
+    
+    public float jumpForce = 10f;
+    
+    public float speed;
+    
     private float _actualSpeed;
     
     //private float yRemainder;

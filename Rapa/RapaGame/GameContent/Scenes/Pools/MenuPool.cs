@@ -40,7 +40,7 @@ public class MenuPool : EntityPool
         //player
         var player = new Player(testText, debugMode:false)
         {
-            Position = new Vector2(0, 0),
+            Position = new Vector2(0, 124),
             input = new Inputs
             {
                 Up = Keys.Z,
@@ -54,6 +54,12 @@ public class MenuPool : EntityPool
             Layer = -3
         };
 
+        var ball = new Ball(testText, debugMode: false)
+        {
+            Position = new Vector2(0, 148),
+            Layer = 5
+        };
+        
         //BackGrounds
         var normalSprite = new List<NormalProp>
         {
@@ -97,6 +103,7 @@ public class MenuPool : EntityPool
         
         entities.Add(camera);
         entities.Add(focus);
-        entities.Add(player);
+        //entities.Add(player);
+        entities.Add(ball);
     }
 }
