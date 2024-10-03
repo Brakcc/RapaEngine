@@ -57,7 +57,7 @@ public class MenuPool : EntityPool
         var ball = new Ball(testText, debugMode: false)
         {
             Position = new Vector2(0, 148),
-            Layer = 5
+            Layer = -5
         };
         
         //BackGrounds

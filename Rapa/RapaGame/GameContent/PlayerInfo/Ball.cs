@@ -39,7 +39,7 @@ public class Ball : Actor
         if (_initYSpeed < 0.01f)
             return;
         
-        var newPos = new Vector2(_initXSpeed * _elapsedTime + _initPos.X , 0.5f * _g * _elapsedTime * _elapsedTime - _initYSpeed * _elapsedTime + _initPos.Y);
+        var newPos = new Vector2(InitXSpeed * _elapsedTime + _initPos.X , 0.5f * _g * _elapsedTime * _elapsedTime - _initYSpeed * _elapsedTime + _initPos.Y);
         
         Position = newPos;
 
@@ -61,8 +61,8 @@ public class Ball : Actor
     
     private Vector2 _initPos;
 
-    private float _initXSpeed = 5;
-    
+    private const float InitXSpeed = 5;
+
     private float _initYSpeed = 65;
 
     #endregion
