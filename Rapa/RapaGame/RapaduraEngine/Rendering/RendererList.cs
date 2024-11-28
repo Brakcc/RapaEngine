@@ -97,11 +97,11 @@ public sealed class RendererList
     
     private Scene _scene;
     
-    private List<Renderer> _renderers;
+    private readonly List<Renderer> _renderers;
 
-    private List<Renderer> _adding;
+    private readonly List<Renderer> _adding;
     
-    private List<Renderer> _removing;
+    private readonly List<Renderer> _removing;
 
     #endregion
 }

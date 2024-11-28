@@ -32,7 +32,7 @@ public sealed class EntityList
     
     #region fields
     
-    private List<Entity> _entities;
+    private readonly List<Entity> _entities;
     
     
     
