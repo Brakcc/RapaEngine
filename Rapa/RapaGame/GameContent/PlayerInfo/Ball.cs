@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using Rapa.RapaGame.RapaduraEngine;
 using Rapa.RapaGame.RapaduraEngine.Components.Sprites.Animations;
 using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Actors;
@@ -10,17 +12,19 @@ namespace Rapa.RapaGame.GameContent.PlayerInfo;
 public class Ball : Actor
 {
     #region constructors
-    
-    public Ball(Texture2D texture, int width = 0, int height = 0, bool debugMode = false) : base(texture, width, height, debugMode)
+
+    public Ball(Texture2D texture, int width = 0, int height = 0, bool debugMode = false) : base(texture, width, height,
+        debugMode)
     {
     }
 
-    public Ball(Dictionary<string, Animation> animations, int width = 0, int height = 0, bool debugMode = false) : base(animations, width, height, debugMode)
+    public Ball(Dictionary<string, Animation> animations, int width = 0, int height = 0, bool debugMode = false) : base(
+        animations, width, height, debugMode)
     {
     }
-    
+
     #endregion
-    
+
     #region methodes
 
     public override void Init()
@@ -32,31 +36,131 @@ public class Ball : Actor
     public override void Update(GameTime gameTime)
     {
         base.Update(gameTime);
-        
+
+
+        if (Keyboard.GetState().IsKeyDown(Keys.Space))
+            Console.WriteLine(ConvToUint(RoundPow(0b10000000000000000000000000000110)));
+
         _elapsedTime += CoreEngine.DeltaTime;
-        
+
         if (_initYSpeed < 0.01f)
             return;
-        
-        var newPos = new Vector2(InitXSpeed * _elapsedTime + _initPos.X , 0.5f * _g * _elapsedTime * _elapsedTime - _initYSpeed * _elapsedTime + _initPos.Y);
-        
+
+        var newPos = new Vector2(InitXSpeed * _elapsedTime + _initPos.X,
+            0.5f * G * _elapsedTime * _elapsedTime - _initYSpeed * _elapsedTime + _initPos.Y);
+
         Position = newPos;
 
         if (!isGrounded)
             return;
-        
+
         _elapsedTime = 0;
         _initYSpeed *= 0.90f;
         _initPos = Position;
     }
     
+    private static string Complementaire(uint i)
+    {
+        i ^= ~0U;
+        return Convert.ToString(i, 2).PadLeft(32, '0');
+    }
+    
+    private static string DeleteLwb(uint i)
+    {
+        i &= ~3U;
+        return Convert.ToString(i, 2).PadLeft(32, '0');
+    }
+
+    private static string FourFive(uint i)
+    {
+        i |= 48U;
+        return Convert.ToString(i, 2).PadLeft(32, '0');
+    }
+
+    private static byte CountOne(uint i)
+    {
+        byte c = 0;
+        
+        for (byte j = 0; j < 32; j++)
+        {
+            if ((i & (uint)Math.Pow(2, j)) == (uint)Math.Pow(2, j))
+                c++;
+        }
+
+        return c;
+    }
+
+    private static bool IsTwoPow(uint i) => CountOne(i) == 1;
+    
+    private static bool ZeroOneZeroOne(uint i)
+    {
+        for (byte j = 0; j < 28; j++)
+        {
+            if ((i & 15U) == 5U)
+                return true;
+
+            i >>= 1;
+        }
+
+        return false;
+    }
+
+    private static bool OneOneOne(uint i)
+    {
+        var m = 7U;
+
+        for (byte j = 0; j < 29; j++)
+        {
+            if ((i & m) == m)
+                return true;
+
+            m <<= 1;
+        }
+
+        return false;
+    }
+
+    private static byte DiffBits(uint i, uint j)
+    {
+        byte c = 0;
+        
+        for (byte k = 0; k < 32; k++)
+        {
+            if ((i & (uint)Math.Pow(2, k)) != (j & (uint)Math.Pow(2, k)))
+                c++;
+        }
+
+        return c;
+    }
+
+    private static uint RoundPow(uint i)
+    {
+        var c = 65536U;
+        
+        for (sbyte k = 3; k >= -1; k--)
+        {
+            if (i > c)
+                c <<= 1 << (k < 0 ? 0 : k);
+            
+            else if (i < c)
+                c >>= 1 << (k < 0 ? 0 : k);
+            
+            if ((i & c) == c)
+                return i == c ? c : c == 2147483648U ? c : c << 1;
+        }
+
+        return 0U;
+    }
+
+    private static string ConvToUint(uint i) => Convert.ToString(i, 2).PadLeft(32, '0');
+    
     #endregion
     
     #region fields
 
-    private float _g = 50f;
-    
-    private float _elapsedTime = 0f;
+    private const float G = 50f;
+
+    private float _elapsedTime;
     
     private Vector2 _initPos;
 
