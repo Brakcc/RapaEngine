@@ -39,7 +39,7 @@ public class Ball : Actor
 
 
         if (Keyboard.GetState().IsKeyDown(Keys.Space))
-            Console.WriteLine(ConvToUint(RoundPow(0b10000000000000000000000000000110)));
+            Console.WriteLine(ConvToUint(OptiRound(0b00010000000000000000000000000110)));
 
         _elapsedTime += CoreEngine.DeltaTime;
 
@@ -59,24 +59,12 @@ public class Ball : Actor
         _initPos = Position;
     }
     
-    private static string Complementaire(uint i)
-    {
-        i ^= ~0U;
-        return Convert.ToString(i, 2).PadLeft(32, '0');
-    }
+    private static uint Complementaire(uint i) => i ^ ~0U;
     
-    private static string DeleteLwb(uint i)
-    {
-        i &= ~3U;
-        return Convert.ToString(i, 2).PadLeft(32, '0');
-    }
-
-    private static string FourFive(uint i)
-    {
-        i |= 48U;
-        return Convert.ToString(i, 2).PadLeft(32, '0');
-    }
-
+    private static uint DeleteLwb(uint i) => i & ~3U;
+    
+    private static uint FourFive(uint i) => i | 48U;
+    
     private static byte CountOne(uint i)
     {
         byte c = 0;
@@ -150,6 +138,18 @@ public class Ball : Actor
         }
 
         return 0U;
+    }
+
+    private static uint OptiRound(uint i)
+    {
+        i--;
+        i |= i >> 1;
+        i |= i >> 2;
+        i |= i >> 4;
+        i |= i >> 8;
+        i |= i >> 16;
+        i++;
+        return i;
     }
 
     private static string ConvToUint(uint i) => Convert.ToString(i, 2).PadLeft(32, '0');

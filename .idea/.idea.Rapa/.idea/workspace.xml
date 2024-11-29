@@ -8,6 +8,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f0714bac-edba-468d-9430-461c15a3c0e4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Rendering/EntityRenderer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Rapa/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Rapa/.idea/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Rapa/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Rapa/.idea/encodings.xml" afterDir="false" />
@@ -17,7 +18,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Rapa/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Rapa/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa.sln" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa.sln.DotSettings" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa.sln.DotSettings" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa.sln.DotSettings.user" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/.config/dotnet-tools.json" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/.config/dotnet-tools.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/Content/ArtContent/Fonts/fontTest.spritefont" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/ArtContent/Fonts/fontTest.spritefont" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/Content/ArtContent/Shaders/File.fx" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/Content/ArtContent/Shaders/File.fx" afterDir="false" />
@@ -210,8 +210,8 @@
       <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Rendering/Renderer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Rendering/Renderer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Rendering/RendererList.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Rendering/RendererList.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/SceneManagement/MapManagement/AtlasParser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/SceneManagement/MapManagement/AtlasParser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/SceneManagement/MapManagement/PropsMap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/SceneManagement/MapManagement/PropsMap.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/SceneManagement/MapManagement/SolidsMap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/SceneManagement/MapManagement/SolidsMap.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/SceneManagement/MapManagement/PropsMap.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/SceneManagement/MapManagement/SolidsMap.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/SceneManagement/MapManagement/TileMap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/SceneManagement/MapManagement/TileMap.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/SceneManagement/MapManagement/TileMapParser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/SceneManagement/MapManagement/TileMapParser.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/SceneManagement/Packers/ColTracked.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/SceneManagement/Packers/ColTracked.cs" afterDir="false" />
@@ -253,9 +253,6 @@
       <change beforePath="$PROJECT_DIR$/Rapa/obj/Release/net6.0/Rapa.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Release/net6.0/Rapa.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/project.assets.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/rider.project.model.nuget.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -282,6 +279,7 @@
 }</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7e584c6425e49b4ecbb37645d90d799522422596e708598fcf881c111f8d1/Math.CoreCLR.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../POOL/Assets/Scripts/TrucRandom.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Rapa/RapaGame/GameContent/PlayerInfo/Player.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Rapa/RapaGame/Rapadura.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/CoreEngine.cs" root0="FORCE_HIGHLIGHTING" />
@@ -302,24 +300,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Project.Rapa.executor": "Run",
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "XThreadsFramesViewSplitterKey": "0.3723898",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Project.Rapa.executor&quot;: &quot;Run&quot;,
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.3723898&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Rapa" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -458,6 +456,7 @@
       <workItem from="1730809532989" duration="2606000" />
       <workItem from="1732800388936" duration="2142000" />
       <workItem from="1732802558394" duration="11923000" />
+      <workItem from="1732904371757" duration="10349000" />
     </task>
     <task id="LOCAL-00001" summary="Va falloir s'organiser">
       <option name="closed" value="true" />

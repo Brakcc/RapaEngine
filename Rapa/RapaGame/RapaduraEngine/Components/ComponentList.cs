@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -6,7 +7,7 @@ using Rapa.RapaGame.RapaduraEngine.Entities;
 
 namespace Rapa.RapaGame.RapaduraEngine.Components;
 
-public class ComponentList
+public class ComponentList : IEnumerable<Component>
 {
     #region properties
     
@@ -208,6 +209,10 @@ public class ComponentList
         component = null;
         return false;
     }
+    
+    public IEnumerator<Component> GetEnumerator() => _components.GetEnumerator();
+    
+    IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     
     #endregion
     

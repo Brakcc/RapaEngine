@@ -1,16 +1,18 @@
-﻿namespace Rapa.RapaGame.RapaduraEngine.Rendering;
+﻿using Rapa.RapaGame.RapaduraEngine.SceneManagement;
+
+namespace Rapa.RapaGame.RapaduraEngine.Rendering;
 
 public abstract class Renderer
 {
     #region methodes
     
-    public abstract void Update();
+    public abstract void Update(Scene scene);
 
-    public abstract void BerforeRender();
+    public abstract void BeforeRender(Scene scene);
     
-    public abstract void Render();
+    public abstract void Render(Scene scene);
     
-    public abstract void AfterRender();
+    public abstract void AfterRender(Scene scene);
     
     #endregion
     

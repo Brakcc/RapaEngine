@@ -48,7 +48,7 @@ public sealed class RendererList
     {
         foreach (var r in _renderers)
         {
-            r.Update();
+            r.Update(_scene);
         }
     }
     
@@ -59,7 +59,7 @@ public sealed class RendererList
             if (!r.IsVisible)
                 continue;
             
-            r.BerforeRender();
+            r.BeforeRender(_scene);
         }
     }
     
@@ -70,7 +70,7 @@ public sealed class RendererList
             if (!r.IsVisible)
                 continue;
             
-            r.Render();
+            r.Render(_scene);
         }
     }
 
@@ -81,7 +81,7 @@ public sealed class RendererList
             if (!r.IsVisible)
                 continue;
             
-            r.AfterRender();
+            r.AfterRender(_scene);
         }
     }
 
@@ -95,7 +95,7 @@ public sealed class RendererList
     
     #region fields
     
-    private Scene _scene;
+    private readonly Scene _scene;
     
     private readonly List<Renderer> _renderers;
 

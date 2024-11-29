@@ -172,6 +172,7 @@ public abstract class EntityPool
                 return entity;
         }
         throw new Exception($"No Component of Type {typeof(T)} was found");
+        //throw is a bit violent
     }
 
     public List<T> GetAllEntities<T>() where T : Entity
