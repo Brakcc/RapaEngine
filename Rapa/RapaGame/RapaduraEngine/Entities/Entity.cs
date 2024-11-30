@@ -18,17 +18,26 @@ public abstract class Entity
     public Scene SceneRef { get; set; }
     
     public ComponentList Components { get; init; }
+
+    public uint Tag
+    {
+        get => _tag;
+        set
+        {
+            _tag = value;
+        }
+    }
     
     public float X
     {
-        get => Position.X;
-        set => Position.X = value;
+        get => position.X;
+        set => position.X = value;
     }
     
     public float Y
     {
-        get => Position.Y;
-        set => Position.Y = value;
+        get => position.Y;
+        set => position.Y = value;
     }
     
     public int Layer { get; init; }
@@ -77,19 +86,19 @@ public abstract class Entity
         get
         {
             if (Collider is null)
-                return Position.Y;
+                return position.Y;
 
-            return Position.Y + Collider.Top;
+            return position.Y + Collider.Top;
         }
         set
         {
             if (Collider is null)
             {
-                Position.Y = value;
+                position.Y = value;
                 return;
             }
 
-            Position.Y = value - Collider.Top;
+            position.Y = value - Collider.Top;
         }
     }
 
@@ -98,19 +107,19 @@ public abstract class Entity
         get
         {
             if (Collider is null)
-                return Position.Y + Height;
+                return position.Y + Height;
 
-            return Position.Y + Collider.Bottom;
+            return position.Y + Collider.Bottom;
         }
         set
         {
             if (Collider is null)
             {
-                Position.Y = value - Height;
+                position.Y = value - Height;
                 return;
             }
 
-            Position.Y = value - Collider.Bottom;
+            position.Y = value - Collider.Bottom;
         }
     }
     
@@ -119,19 +128,19 @@ public abstract class Entity
         get
         {
             if (Collider is null)
-                return Position.X;
+                return position.X;
 
-            return Position.X + Collider.Left;
+            return position.X + Collider.Left;
         }
         set
         {
             if (Collider is null)
             {
-                Position.X = value;
+                position.X = value;
                 return;
             }
 
-            Position.X = value - Collider.Left;
+            position.X = value - Collider.Left;
         }
     }
     
@@ -140,19 +149,19 @@ public abstract class Entity
         get
         {
             if (Collider is null)
-                return Position.X + Width;
+                return position.X + Width;
 
-            return Position.X + Collider.Right;
+            return position.X + Collider.Right;
         }
         set
         {
             if (Collider is null)
             {
-                Position.X = value - Width;
+                position.X = value - Width;
                 return;
             }
 
-            Position.X = value - Collider.Right;
+            position.X = value - Collider.Right;
         }
     }
 
@@ -161,19 +170,19 @@ public abstract class Entity
         get
         {
             if (Collider is null)
-                return Position.X + (float)Width / 2;
+                return position.X + (float)Width / 2;
 
-            return Position.X + Collider.CenterX;
+            return position.X + Collider.CenterX;
         }
         set
         {
             if (Collider is null)
             {
-                Position.X = value - (float)Width / 2;
+                position.X = value - (float)Width / 2;
                 return;
             }
 
-            Position.X = value - Collider.CenterX;
+            position.X = value - Collider.CenterX;
         }
     }
     
@@ -182,19 +191,19 @@ public abstract class Entity
         get
         {
             if (Collider is null)
-                return Position.Y + (float)Height / 2;
+                return position.Y + (float)Height / 2;
 
-            return Position.Y + Collider.CenterY;
+            return position.Y + Collider.CenterY;
         }
         set
         {
             if (Collider is null)
             {
-                Position.Y = value - (float)Height / 2;
+                position.Y = value - (float)Height / 2;
                 return;
             }
 
-            Position.Y = value - Collider.CenterY;
+            position.Y = value - Collider.CenterY;
         }
     }
 
@@ -412,7 +421,9 @@ public abstract class Entity
     
     #region fields
     
-    public Vector2 Position;
+    public Vector2 position;
+
+    private uint _tag;
     
     private Collider _collider;
 

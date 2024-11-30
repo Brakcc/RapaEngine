@@ -42,7 +42,7 @@ public sealed class Player : Actor
         if (Keyboard.GetState().IsKeyDown(input.Right))
             MoveX(_actualSpeed);
         
-        Position += velocity;
+        position += velocity;
         base.Update();
 
         if (!isGrounded)

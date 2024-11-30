@@ -31,28 +31,28 @@ public static class CollideCalc
 
     public static Entity GetEntityCollidedAt(Entity a, IEnumerable<Entity> b, Vector2 at)
     {
-        var tempPos = a.Position;
-        a.Position = at;
+        var tempPos = a.position;
+        a.position = at;
         var tempE = GetEntityCollided(a, b);
-        a.Position = tempPos;
+        a.position = tempPos;
         return tempE;
     }
     
     public static bool CheckCollisionAt(Entity a, Entity b, Vector2 at)
     {
-        var tempPos = a.Position;
-        a.Position = at;
+        var tempPos = a.position;
+        a.position = at;
         var res = CheckCollision(a, b);
-        a.Position = tempPos;
+        a.position = tempPos;
         return res;
     }
     
     public static bool CheckCollisionAt(Entity a, IEnumerable<Entity> b, Vector2 at)
     {
-        var tempPos = a.Position;
-        a.Position = at;
+        var tempPos = a.position;
+        a.position = at;
         var res = CheckCollision(a, b);
-        a.Position = tempPos;
+        a.position = tempPos;
         return res;
     }
     

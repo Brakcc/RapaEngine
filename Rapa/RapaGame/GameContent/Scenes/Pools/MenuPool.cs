@@ -34,13 +34,13 @@ public class MenuPool : EntityPool
         var mock = CoreEngine.Instance.Content.Load<Texture2D>("ArtContent/MockUps/MockUpDesert");
 
         //Empty and cam
-        var focus = new Empty { Position = new Vector2(320f, 180f) };
+        var focus = new Empty { position = new Vector2(320f, 180f) };
         var camera = new Camera(focus);
         
         //player
         var player = new Player(testText, debugMode:false)
         {
-            Position = new Vector2(0, 124),
+            position = new Vector2(0, 124),
             input = new Inputs
             {
                 Up = Keys.Z,
@@ -56,23 +56,23 @@ public class MenuPool : EntityPool
 
         var ball = new Ball(testText, debugMode: false)
         {
-            Position = new Vector2(0, 148),
+            position = new Vector2(0, 148),
             Layer = -5
         };
         
         //BackGrounds
         var normalSprite = new List<NormalProp>
         {
-            new(mock, 320, 180) { Position = Vector2.Zero, Layer = 2 },
-            new(mock) {Position = new Vector2(320, 0), Layer = 2},
-            new(mock) {Position = new Vector2(640, 0), Layer = 2}
+            new(mock, 320, 180) { position = Vector2.Zero, Layer = 2 },
+            new(mock) {position = new Vector2(320, 0), Layer = 2},
+            new(mock) {position = new Vector2(640, 0), Layer = 2}
         };
         
         var stars = new List<AnimatedProp>
         {
-            new(star, 11, 11) { Position = new Vector2(100, 100), Layer = -3 },
-            new(star, 11, 11) { Position = new Vector2(180, 75), Layer = -3 },
-            new(star, 11, 11) { Position = new Vector2(220, 55), Layer = -3 }
+            new(star, 11, 11) { position = new Vector2(100, 100), Layer = -3 },
+            new(star, 11, 11) { position = new Vector2(180, 75), Layer = -3 },
+            new(star, 11, 11) { position = new Vector2(220, 55), Layer = -3 }
         };
 
         //Maps

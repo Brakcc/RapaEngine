@@ -37,7 +37,7 @@ public sealed class MenuState : State
         var newGameButton = new Button(buttonTexture, buttonFont)
         {
             //PenColor = Color.DarkRed,
-            Position = new Vector2(CurrentScreenWidth / 2f - buttonTexture.Width / 2f,
+            position = new Vector2(CurrentScreenWidth / 2f - buttonTexture.Width / 2f,
                 CurrentScreenHeight / 2f - buttonTexture.Height / 2f - 24),
             Text = "New Game"
         };
@@ -46,7 +46,7 @@ public sealed class MenuState : State
         var loadGameButton = new Button(buttonTexture, buttonFont)
         {
             //PenColor = Color.DarkRed,
-            Position = new Vector2(CurrentScreenWidth / 2f - buttonTexture.Width / 2f,
+            position = new Vector2(CurrentScreenWidth / 2f - buttonTexture.Width / 2f,
                 CurrentScreenHeight / 2f - buttonTexture.Height / 2f),
             Text = "Load Game"
         };
@@ -56,7 +56,7 @@ public sealed class MenuState : State
         var quitGameButton = new Button(buttonTexture, buttonFont)
         {
             //PenColor = Color.DarkRed,
-            Position = new Vector2(CurrentScreenWidth / 2f - buttonTexture.Width / 2f,
+            position = new Vector2(CurrentScreenWidth / 2f - buttonTexture.Width / 2f,
                 CurrentScreenHeight / 2f - buttonTexture.Height / 2f + 24),
             Text = "quit"
         };
@@ -65,7 +65,7 @@ public sealed class MenuState : State
         var fullScreenButton = new Button(buttonTexture, buttonFont)
         {
             //PenColor = Color.DarkRed,
-            Position = new Vector2(CurrentScreenWidth / 2f - buttonTexture.Width / 2f,
+            position = new Vector2(CurrentScreenWidth / 2f - buttonTexture.Width / 2f,
                 CurrentScreenHeight / 2f - buttonTexture.Height / 2f + 48),
             Text = "fullScreen"
         };
@@ -90,22 +90,22 @@ public sealed class MenuState : State
         _hollows = new List<NormalProp>
         {
             new(testText, 8, 8) 
-                {Position = new Vector2(CurrentScreenWidth / 2f, CurrentScreenHeight / 2f)},
+                {position = new Vector2(CurrentScreenWidth / 2f, CurrentScreenHeight / 2f)},
             new(testText, 8, 8) 
-                {Position = new Vector2(CurrentScreenWidth / 2f - 8, CurrentScreenHeight / 2f)},
+                {position = new Vector2(CurrentScreenWidth / 2f - 8, CurrentScreenHeight / 2f)},
             new(testText, 8, 8) 
-                {Position = new Vector2(CurrentScreenWidth / 2f - 16, CurrentScreenHeight / 2f)},
+                {position = new Vector2(CurrentScreenWidth / 2f - 16, CurrentScreenHeight / 2f)},
             new(testText, 8, 8) 
-                {Position = new Vector2(CurrentScreenWidth / 2f + 8, CurrentScreenHeight / 2f)},
+                {position = new Vector2(CurrentScreenWidth / 2f + 8, CurrentScreenHeight / 2f)},
             new(testText, 8, 8) 
-                {Position = new Vector2(CurrentScreenWidth / 2f + 16, CurrentScreenHeight / 2f)},
+                {position = new Vector2(CurrentScreenWidth / 2f + 16, CurrentScreenHeight / 2f)},
             new(testText, 8, 8) 
-                {Position = new Vector2(CurrentScreenWidth / 2f + 16, CurrentScreenHeight / 2f - 8)}
+                {position = new Vector2(CurrentScreenWidth / 2f + 16, CurrentScreenHeight / 2f - 8)}
         };
         
         _hollows[1].AddComponent(new BaseSprite(_hollows[1], testText2));
         
-        _solid = new Solid(testText2) { Position = new Vector2(CurrentScreenWidth / 2f - 8, CurrentScreenHeight / 2f) };
+        _solid = new Solid(testText2) { position = new Vector2(CurrentScreenWidth / 2f - 8, CurrentScreenHeight / 2f) };
         
         _graphicsDeviceManager = graphManager;
 

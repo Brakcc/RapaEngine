@@ -21,6 +21,6 @@ public class Empty : Entity
 
     private void EasedTraveling(Vector2 focusPoint, float speed)
     {
-        Position += (focusPoint - Position) * speed;
+        position += (focusPoint - position) * speed;
     }
 }

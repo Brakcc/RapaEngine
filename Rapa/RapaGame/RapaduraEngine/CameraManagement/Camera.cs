@@ -37,7 +37,7 @@ public class Camera : Entity
             EntRef.X -= 6;
         
         if (Keyboard.GetState().IsKeyDown(Keys.Y))
-            Shake(EntRef.Position, 0.05f);
+            Shake(EntRef.position, 0.05f);
     }
 
     private void SetCam (float x, float y)
@@ -57,18 +57,18 @@ public class Camera : Entity
 
     private void EasedTraveling(Vector2 focusPoint, float speed)
     {
-        Position += (focusPoint - Position) * speed;
+        position += (focusPoint - position) * speed;
     }
 
     private void Shake(Vector2 focusPoint, float speed)
     {
-        var coef = focusPoint - Position;
+        var coef = focusPoint - position;
         if (coef.Length() <= 1)
         {
             coef = Vector2.One;
             speed = 1;
         }
-        Position += coef * speed;
+        position += coef * speed;
     }
     
     #endregion

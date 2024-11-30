@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Rapa.RapaGame.RapaduraEngine.Entities;
+using Rapa.RapaGame.RapaduraEngine.Rendering;
 using Rapa.RapaGame.RapaduraEngine.SceneManagement.Packers;
 
 namespace Rapa.RapaGame.RapaduraEngine.SceneManagement;
@@ -15,6 +16,8 @@ public abstract class Scene
     
     public CollisionsTracker CollisionsTracker { get; }
     
+    public RendererList Renderers { get; }
+    
     public RendererTracker RendererTracker { get; }
 
     #endregion
@@ -27,6 +30,7 @@ public abstract class Scene
         RendererTracker = new RendererTracker();
         EntityPool = entityPool;
         Entities = new EntityList(this);
+        Renderers = new RendererList(this);
         EntityPool.SceneRef = this;
     }
 

@@ -30,7 +30,7 @@ public class Ball : Actor
     public override void Init()
     {
         base.Init();
-        _initPos = Position;
+        _initPos = position;
     }
 
     public override void Update()
@@ -49,14 +49,14 @@ public class Ball : Actor
         var newPos = new Vector2(InitXSpeed * _elapsedTime + _initPos.X,
             0.5f * G * _elapsedTime * _elapsedTime - _initYSpeed * _elapsedTime + _initPos.Y);
 
-        Position = newPos;
+        position = newPos;
 
         if (!isGrounded)
             return;
 
         _elapsedTime = 0;
         _initYSpeed *= 0.90f;
-        _initPos = Position;
+        _initPos = position;
     }
     
     private static uint Complementaire(uint i) => i ^ ~0U;

@@ -21,7 +21,7 @@ public class Actor : Entity
 
     public Vector2 Velocity => velocity;
 
-    public Vector2 MovedPos => Position + velocity;
+    public Vector2 MovedPos => position + velocity;
 
     #endregion
     
@@ -88,28 +88,28 @@ public class Actor : Entity
         }
     }
     
-    public virtual bool IsRiding(Solid solid) => IsCollidingAt(solid, Position + Vector2.UnitY);
+    public virtual bool IsRiding(Solid solid) => IsCollidingAt(solid, position + Vector2.UnitY);
 
-    private bool IsGrounded(int checkLength = 1) => IsCollidingAt<Solid>(Position + Vector2.UnitY * checkLength);
+    private bool IsGrounded(int checkLength = 1) => IsCollidingAt<Solid>(position + Vector2.UnitY * checkLength);
     
     public bool IsGroundedAt(int checkLength, Vector2 at)
     {
-        var tempPos = Position;
-        Position = at;
+        var tempPos = position;
+        position = at;
         var res = IsGrounded(checkLength);
-        Position = tempPos;
+        position = tempPos;
         return res;
     }
     
     private bool MoveXAbsolute(int moveAmount, Collision onCollide = null, Solid pusher = null)
     {
-        var targetPos = Position + Vector2.UnitX * moveAmount;
+        var targetPos = position + Vector2.UnitX * moveAmount;
         var dir = Math.Sign(moveAmount);
         var distTraveled = 0;
 
         while (moveAmount != 0)
         {
-            var solid = IsCollidingFirstAt<Solid>(Position + Vector2.UnitX * dir);
+            var solid = IsCollidingFirstAt<Solid>(position + Vector2.UnitX * dir);
             if (solid != null)
             {
                 velocity.X = 0;
@@ -134,13 +134,13 @@ public class Actor : Entity
     
     private bool MoveYAbsolute(int moveAmount, Collision onCollide = null, Solid pusher = null)
     {
-        var targetPos = Position + Vector2.UnitY * moveAmount;
+        var targetPos = position + Vector2.UnitY * moveAmount;
         var dir = Math.Sign(moveAmount);
         var distTraveled = 0;
 
         while (moveAmount != 0)
         {
-            var solid = IsCollidingFirstAt<Solid>(Position + Vector2.UnitY * dir);
+            var solid = IsCollidingFirstAt<Solid>(position + Vector2.UnitY * dir);
             if (solid != null)
             {
                 velocity.Y = 0;

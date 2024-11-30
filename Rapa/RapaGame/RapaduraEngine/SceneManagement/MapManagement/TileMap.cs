@@ -74,7 +74,7 @@ public sealed class TileMap<T> where T : Entity
     {
         var tempEnt = new Tile(TileMapParser.TextureLoader(_tilePath, _tileKey, id), _tileWidth, _tileHeight, debugMode:_debugMod)
         {
-            Position = pos,
+            position = pos,
             Layer = _layer
         };
         return tempEnt;
@@ -84,7 +84,7 @@ public sealed class TileMap<T> where T : Entity
     {
         var tempEnt = new Solid(TileMapParser.TextureLoader(_tilePath, _tileKey, id), _tileWidth, _tileHeight, debugMode:_debugMod)
         {
-            Position = pos,
+            position = pos,
             Layer = _layer
         };
         return tempEnt;

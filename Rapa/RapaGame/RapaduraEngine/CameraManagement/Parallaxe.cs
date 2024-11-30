@@ -84,7 +84,7 @@ public class Parallaxe : Entity
 
         foreach (var sprite in _sprites)
         {
-            sprite.Position = sprite.Position with { X = _speed };
+            sprite.position = sprite.position with { X = _speed };
         }
     }
 

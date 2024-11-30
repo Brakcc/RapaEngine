@@ -125,7 +125,7 @@ public abstract class Collider
         }
     }
 
-    public Vector2 EntityDepPosition => EntityRef?.Position ?? position;
+    public Vector2 EntityDepPosition => EntityRef?.position ?? position;
 
     public float EntityDepX
     {

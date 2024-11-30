@@ -21,7 +21,7 @@ public class NewPlayer : NormalProp
     {
         Move();
         _velocity = Vector2.Zero;
-        Position += _velocity;
+        position += _velocity;
 
         base.Update();
     }

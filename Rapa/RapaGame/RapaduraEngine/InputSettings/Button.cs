@@ -14,7 +14,7 @@ public class Button : Entity
     
     public Vector2 FontSize { get; init; }
 
-    private Rectangle Rectangle => new((int)Position.X, (int)Position.Y, _texture.Width, _texture.Height);
+    private Rectangle Rectangle => new((int)position.X, (int)position.Y, _texture.Width, _texture.Height);
 
     public string Text { get; init; }
     

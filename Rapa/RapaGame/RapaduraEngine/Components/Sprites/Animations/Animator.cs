@@ -22,7 +22,7 @@ public class Animator
     public void Draw(SpriteBatch spriteBatch)
     {
         spriteBatch.Draw(_animation._texture,
-            _entityRef.Position,
+            _entityRef.position,
             new Rectangle(_animation._currentFrame * _animation._frameWidth,
                 0,
                 _animation._frameWidth,

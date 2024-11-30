@@ -29,7 +29,7 @@ public sealed class BaseSprite : Component
 
     public override void Render(SpriteBatch spriteBatch)
     {
-        spriteBatch.Draw(_texture, EntityRef.Position, null, Color.White);
+        spriteBatch.Draw(_texture, EntityRef.position, null, Color.White);
     }
 
     #endregion

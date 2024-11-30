@@ -32,14 +32,29 @@ public sealed class EntityList : IEnumerable<Entity>
     
     #region methods
 
-    public void Init()
-    {
-        
-    }
-
     public void UpdateList()
     {
-        
+        if (_adding.Count > 0)
+        {
+            for (int i = 0; i < _adding.Count; i++)
+            {
+                
+            }
+            
+            _toAdd.Clear();
+            _adding.Clear();
+        }
+
+        if (_removing.Count > 0)
+        {
+            for (int i = 0; i < _removing.Count; i++)
+            {
+                
+            }
+            
+            _toRemove.Clear();
+            _removing.Clear();
+        }
     }
     
     public void Update()
@@ -62,12 +77,12 @@ public sealed class EntityList : IEnumerable<Entity>
         }
     }
 
-    public void RenderOnlyWithTag(SpriteBatch spriteBatch, int tags)
+    public void RenderOnlyWithTag(SpriteBatch spriteBatch, uint tags)
     {
         foreach (var e in _entities)
         {
-            //if (pas le bon tag)
-            //    continue;
+            if (e.Tag != tags)
+                continue;
             
             e.Render(spriteBatch);
         }
@@ -77,11 +92,28 @@ public sealed class EntityList : IEnumerable<Entity>
     {
         foreach (var e in _entities)
         {
-            //if (les bons tags)
-            //    continue;
+            if (e.Tag == tags) //TODO tag check func i, entity class  
+                continue;
             
             e.Render(spriteBatch);
         }
+    }
+
+    public void Add(Entity entity)
+    {
+        if (!_adding.Add(entity) && !_current.Contains(entity))
+            return;
+        
+        _toAdd.Add(entity);
+        _sorted = false;
+    }
+
+    public void Remove(Entity entity)
+    {
+        if (!_removing.Add(entity) && _current.Contains(entity))
+            return;
+        
+        _toRemove.Add(entity);
     }
     
     public IEnumerator<Entity> GetEnumerator() => _entities.GetEnumerator();
