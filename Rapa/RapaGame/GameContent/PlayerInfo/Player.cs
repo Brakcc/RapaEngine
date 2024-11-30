@@ -26,7 +26,7 @@ public sealed class Player : Actor
 
     #region methodes
 
-    public override void Update(GameTime gameTime)
+    public override void Update()
     {
         _actualSpeed = (Keyboard.GetState().IsKeyDown(input.Up) || Keyboard.GetState().IsKeyDown(input.Down))
                        && (Keyboard.GetState().IsKeyDown(input.Left) || Keyboard.GetState().IsKeyDown(input.Right))
@@ -43,7 +43,7 @@ public sealed class Player : Actor
             MoveX(_actualSpeed);
         
         Position += velocity;
-        base.Update(gameTime);
+        base.Update();
 
         if (!isGrounded)
             MoveY(speed);
@@ -76,7 +76,7 @@ public sealed class Player : Actor
     
     //private float yRemainder;
     
-    private float _jumpCoolDownCounter = 0;
+    private float _jumpCoolDownCounter;
 
     private const float JumpCoolDow = 1;
 

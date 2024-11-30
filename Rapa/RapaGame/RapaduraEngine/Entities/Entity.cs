@@ -321,14 +321,14 @@ public abstract class Entity
         Components?.InitList();
     }
     
-    public virtual void Update(GameTime gameTime)
+    public virtual void Update()
     {
-        Components?.Update(gameTime);
+        Components?.Update();
     }
 
-    public virtual void Draw(SpriteBatch spriteBatch)
+    public virtual void Render(SpriteBatch spriteBatch)
     {
-        Components?.Draw(spriteBatch);
+        Components?.Render(spriteBatch);
         
         if (!_debugMode)
             return;

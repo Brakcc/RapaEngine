@@ -46,7 +46,7 @@ public class Animator
         _animation._currentFrame = 0;
     }
 
-    public void Update(GameTime gameTime) 
+    public void Update()
     {
         if (!_canLoop)
             return;

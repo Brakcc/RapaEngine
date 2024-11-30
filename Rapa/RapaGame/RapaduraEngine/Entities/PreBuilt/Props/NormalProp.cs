@@ -32,7 +32,7 @@ public class NormalProp : Entity
     
     //lourd
 
-    public override void Update(GameTime gameTime)
+    public override void Update()
     {
         if (Keyboard.GetState().IsKeyDown(Keys.P))
         {
@@ -43,7 +43,7 @@ public class NormalProp : Entity
             BottomRight = new Vector2(0, 180);
         }
         
-        base.Update(gameTime);
+        base.Update();
     }
 
     #endregion

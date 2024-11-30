@@ -122,20 +122,20 @@ public class GameState : State
         
         foreach (var s in _solidSprites)
         {
-            s.Draw(spriteBatch);
+            s.Render(spriteBatch);
         }
         
         foreach(var hollow in _hollowSprites)
         {
-            hollow.Draw(spriteBatch);
+            hollow.Render(spriteBatch);
         }
 
         foreach (var normal in _normalSprite)
         {
-            normal.Draw(spriteBatch);
+            normal.Render(spriteBatch);
         }
         
-        player.Draw(spriteBatch);
+        player.Render(spriteBatch);
         
         spriteBatch.End();
     }
@@ -156,7 +156,7 @@ public class GameState : State
 
         foreach (var hollow in _hollowSprites)
         {
-            hollow.Update(gameTime);
+            hollow.Update();
         }
 
         foreach (var para in parallaxes)
@@ -165,15 +165,15 @@ public class GameState : State
         }
         foreach (var s in _solidSprites)
         {
-            s.Update(gameTime);
+            s.Update();
         }
 
         foreach (var normal in _normalSprite)
         {
-            normal.Update(gameTime);
+            normal.Update();
         }
         
-        player.Update(gameTime);
+        player.Update();
 
         if (timer > 0.25f)
         {

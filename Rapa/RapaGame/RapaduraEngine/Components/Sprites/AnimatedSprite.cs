@@ -21,12 +21,12 @@ public sealed class AnimatedSprite : Component
 
     #region methodes
     
-    public override void Update(GameTime gameTime)
+    public override void Update()
     {
-        _animator?.Update(gameTime);
+        _animator?.Update();
     }
 
-    public override void Draw(SpriteBatch spriteBatch)
+    public override void Render(SpriteBatch spriteBatch)
     {
         _animator?.Draw(spriteBatch);
     }

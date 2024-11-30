@@ -59,23 +59,23 @@ public class Parallaxe : Entity
         _constantSpeed = constantSpeed;
     }
 
-    public override void Update(GameTime gameTime)
+    public override void Update()
     {
-        ApplySpeed(gameTime);
+        ApplySpeed();
         //CheckPosition();
     }
 
-    public override void Draw(SpriteBatch spriteBatch)
+    public override void Render(SpriteBatch spriteBatch)
     {
         foreach (var sprite in _sprites)
         {
-            sprite.Draw(spriteBatch);
+            sprite.Render(spriteBatch);
         }
     }
 
-    private void ApplySpeed(GameTime gameTime)
+    private void ApplySpeed()
     {
-        _speed = (float)(_scrollingSpeed * gameTime.ElapsedGameTime.TotalSeconds);
+        _speed = _scrollingSpeed * CoreEngine.DeltaTime;
 
         if (!_constantSpeed || _player.Velocity.X > 0)
         {

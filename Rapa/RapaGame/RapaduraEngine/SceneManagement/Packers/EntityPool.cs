@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Rapa.RapaGame.RapaduraEngine.Entities;
 
 namespace Rapa.RapaGame.RapaduraEngine.SceneManagement.Packers;
@@ -83,18 +82,18 @@ public abstract class EntityPool
         
         foreach (var ent in entities)
         {
-            ent.Update(gameTime);
+            ent.Update();
         }
     }
 
-    public void Draw(SpriteBatch spriteBatch)
+    public void Render()
     {
         if (entities == null)
             return;
         
         foreach (var ent in entities)
         {
-            ent.Draw(spriteBatch);
+            ent.Render(CoreEngine.SpriteBatch);
         }
     }
 

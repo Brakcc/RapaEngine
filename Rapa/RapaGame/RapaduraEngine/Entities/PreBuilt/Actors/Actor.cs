@@ -71,11 +71,11 @@ public class Actor : Entity
         return true;
     }
 
-    public override void Update(GameTime gameTime)
+    public override void Update()
     {
         isGrounded = IsGrounded();
         
-        base.Update(gameTime);
+        base.Update();
         if (isGrounded)
         {
             //Console.WriteLine("grounded");

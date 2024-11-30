@@ -141,12 +141,12 @@ public sealed class MenuState : State
 
         foreach (var hollow in _hollows)
         {
-            hollow.Draw(spriteBatch);
+            hollow.Render(spriteBatch);
         }
         
         foreach (var component in _components) 
         {
-            component.Draw(spriteBatch);
+            component.Render(spriteBatch);
         }
         
         Drawer.DrawParticule(_pos);
@@ -157,13 +157,13 @@ public sealed class MenuState : State
     {
         foreach (var hollow in _hollows)
         {
-            hollow.Update(gameTime);
+            hollow.Update();
         }
-        _solid.Update(gameTime);
+        _solid.Update();
         
         foreach (var component in _components)
         {
-            component.Update(gameTime);
+            component.Update();
         }
 
         if (_timer == 0)

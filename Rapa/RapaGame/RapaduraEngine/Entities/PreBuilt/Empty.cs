@@ -5,11 +5,9 @@ namespace Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt;
 
 public class Empty : Entity
 {
-    //du lourd mamen
-
-    public override void Update(GameTime gameTime)
+    public override void Update()
     {
-        base.Update(gameTime);
+        base.Update();
         
         if (Keyboard.GetState().IsKeyDown(Keys.C))
             EasedTraveling(new Vector2(960, 180), 0.25f);

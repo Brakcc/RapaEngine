@@ -27,7 +27,7 @@ public class Camera : Entity
     
     #region methodes
 
-    public override void Update(GameTime gameTime)
+    public override void Update()
     {
         SetCam(EntRef.X, EntRef.Y);
         

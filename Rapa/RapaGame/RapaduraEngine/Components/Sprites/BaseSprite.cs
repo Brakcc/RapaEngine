@@ -23,11 +23,11 @@ public sealed class BaseSprite : Component
 
     #region methodes
 
-    public override void Update(GameTime gameTime)
+    public override void Update()
     {
     }
 
-    public override void Draw(SpriteBatch spriteBatch)
+    public override void Render(SpriteBatch spriteBatch)
     {
         spriteBatch.Draw(_texture, EntityRef.Position, null, Color.White);
     }

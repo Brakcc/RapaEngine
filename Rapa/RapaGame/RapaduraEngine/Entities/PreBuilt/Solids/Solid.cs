@@ -45,7 +45,7 @@ public class Solid : Entity
 
     #region methodes
 
-    public override void Update(GameTime gameTime)
+    public override void Update()
     {
         if (Keyboard.GetState().IsKeyDown(Keys.Enter) && !_wasPressed)
         {
@@ -56,7 +56,7 @@ public class Solid : Entity
         if (Keyboard.GetState().IsKeyUp(Keys.Enter))
             _wasPressed = false;
         
-        base.Update(gameTime);
+        base.Update();
     }
     
     #endregion

@@ -38,10 +38,9 @@ public abstract class Component
     
     public virtual void Init() {}
 
-    public abstract void Update(GameTime gameTime);
-    //TODO enlever les gametimes inutiles
+    public abstract void Update();
 
-    public abstract void Draw(SpriteBatch spriteBatch);
+    public abstract void Render(SpriteBatch spriteBatch);
 
     public virtual void End() {}
     

@@ -33,9 +33,9 @@ public class Ball : Actor
         _initPos = Position;
     }
 
-    public override void Update(GameTime gameTime)
+    public override void Update()
     {
-        base.Update(gameTime);
+        base.Update();
 
 
         if (Keyboard.GetState().IsKeyDown(Keys.Space))

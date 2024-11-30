@@ -18,7 +18,7 @@ public class CoreEngine : Game
 
 	protected static GraphicsDeviceManager Graphics { get; private set; }
 
-	protected static SpriteBatch SpriteBatch { get; private set; }
+	public static SpriteBatch SpriteBatch { get; private set; }
 
 	private static int BaseRenderWidth { get; set; }
 
@@ -52,8 +52,8 @@ public class CoreEngine : Game
 	
 	public static Scene Scene
 	{
-		get => Instance.scene;
-		set => Instance.nextScene = value;
+		get => Instance._scene;
+		set => Instance._nextScene = value;
 	}
 
 	private static Viewport Viewport { get; set; }
@@ -85,7 +85,7 @@ public class CoreEngine : Game
 		Window.AllowUserResizing = true;
 		Window.ClientSizeChanged += OnClientSizeChanged;
 		Window.AllowAltF4 = true;
-		title = windowTitle;
+		_title = windowTitle;
 		if (fullscreen)
 		{
 			Graphics.ApplyChanges();
@@ -106,7 +106,7 @@ public class CoreEngine : Game
 		ExitOnEscapeKeypress = true;
 		GCSettings.LatencyMode = GCLatencyMode.SustainedLowLatency;
 		Drawer.InitDrawer(SpriteBatch);
-		nextScene = null;
+		_nextScene = null;
 	}
 	
 	#endregion
@@ -117,58 +117,58 @@ public class CoreEngine : Game
 
 	private void OnClientSizeChanged(object sender, EventArgs e)
 	{
-		if (Window.ClientBounds is not { Width: > 0, Height: > 0 } || resizing)
+		if (Window.ClientBounds is not { Width: > 0, Height: > 0 } || Resizing)
 			return;
 		
-		resizing = true;
+		Resizing = true;
 		
 		GetRectTarget();
 		Graphics.PreferredBackBufferWidth = Window.ClientBounds.Width;
 		Graphics.PreferredBackBufferHeight = Window.ClientBounds.Height;
 		UpdateView();
 		
-		resizing = false;
+		Resizing = false;
 	}
 
 	protected virtual void OnGraphicsReset(object sender, EventArgs e)
 	{
 		UpdateView();
-		scene?.HandleGraphicsReset();
+		_scene?.HandleGraphicsReset();
 
-		if (nextScene != null && nextScene != scene)
+		if (_nextScene != null && _nextScene != _scene)
 		{
-			nextScene.HandleGraphicsReset();
+			_nextScene.HandleGraphicsReset();
 		}
 	}
 
 	protected virtual void OnGraphicsCreate(object sender, EventArgs e)
 	{
 		UpdateView();
-		scene?.HandleGraphicsCreate();
+		_scene?.HandleGraphicsCreate();
 
-		if (nextScene != null && nextScene != scene)
+		if (_nextScene != null && _nextScene != _scene)
 		{
-			nextScene.HandleGraphicsCreate();
+			_nextScene.HandleGraphicsCreate();
 		}
 	}
 
 	protected override void OnActivated(object sender, EventArgs args)
 	{
 		base.OnActivated(sender, args);
-		scene?.GainFocus();
+		_scene?.GainFocus();
 	}
 
 	protected override void OnDeactivated(object sender, EventArgs args)
 	{
 		base.OnDeactivated(sender, args);
-		scene?.LoseFocus();
+		_scene?.LoseFocus();
 	}
 
 	#endregion
 
 	protected override void Initialize()
 	{
-		Window.Title = title;
+		Window.Title = _title;
 		GetRectTarget();
 		base.Initialize();
 	}
@@ -191,21 +191,21 @@ public class CoreEngine : Game
 			return;
 		}
 
-		if (scene != nextScene)
+		if (_scene != _nextScene)
 		{
-			var from = scene;
+			var from = _scene;
 			from?.End();
 
-			scene = nextScene;
-			OnSceneTransition(from, nextScene);
+			_scene = _nextScene;
+			OnSceneTransition(from, _nextScene);
 			
-			scene?.Begin();
+			_scene?.Begin();
 		}
 		
-		if (scene != null)
+		if (_scene != null)
 		{
-			scene.BeforeUpdate();
-			scene.Update(gameTime);
+			_scene.BeforeUpdate();
+			_scene.Update(gameTime);
 		}
 
 		base.Update(gameTime);
@@ -218,30 +218,30 @@ public class CoreEngine : Game
 		RenderCore();
 		base.Draw(gameTime);
 
-		fpsCounter++;
-		counterElapsed += gameTime.ElapsedGameTime;
+		_fpsCounter++;
+		_counterElapsed += gameTime.ElapsedGameTime;
 
-		if (counterElapsed < TimeSpan.FromSeconds(1.0))
+		if (_counterElapsed < TimeSpan.FromSeconds(1.0))
 			return;
 
-		FPS = fpsCounter;
-		fpsCounter = 0;
-		counterElapsed -= TimeSpan.FromSeconds(1.0);
+		FPS = _fpsCounter;
+		_fpsCounter = 0;
+		_counterElapsed -= TimeSpan.FromSeconds(1.0);
 	}
 
 	protected virtual void RenderCore()
 	{
-		if (scene == null)
+		if (_scene == null)
      			return;
 		
 		GraphicsDevice.SetRenderTarget(RenderScreen);
 		//GraphicsDevice.Viewport = Viewport;
 		GraphicsDevice.Clear(ClearColor);
-		scene.BeforeRender();
+		_scene.BeforeRender();
 		
 		SpriteBatch.Begin(samplerState: SamplerState.PointClamp, transformMatrix:ScreenMatrix);
-		scene.Draw(SpriteBatch);
-		scene.AfterRender();
+		_scene.Render();
+		_scene.AfterRender();
 		SpriteBatch.End();
 		
 		GraphicsDevice.SetRenderTarget(null);
@@ -339,7 +339,7 @@ public class CoreEngine : Game
 
 	#region fields
 
-	private readonly string title;
+	private readonly string _title;
 
 	public Version Version;
 
@@ -347,7 +347,7 @@ public class CoreEngine : Game
 
 	private static int viewPadding;
 
-	private static bool resizing;
+	private static bool Resizing;
 
 	private static float TimeScale = 1f; //slowdown
 
@@ -357,9 +357,9 @@ public class CoreEngine : Game
 
 	public static int FPS;
 
-	private TimeSpan counterElapsed = TimeSpan.Zero;
+	private TimeSpan _counterElapsed = TimeSpan.Zero;
 
-	private int fpsCounter;
+	private int _fpsCounter;
 
 	private static readonly string AssemblyDirectory = Path.GetDirectoryName(Assembly.GetEntryAssembly()?.Location);
 
@@ -367,9 +367,9 @@ public class CoreEngine : Game
 
 	private static bool ExitOnEscapeKeypress;
 
-	private Scene scene;
+	private Scene _scene;
 
-	private Scene nextScene;
+	private Scene _nextScene;
 
 	public static Matrix ScreenMatrix;
 

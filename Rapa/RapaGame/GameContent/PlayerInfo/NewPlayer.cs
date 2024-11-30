@@ -9,45 +9,45 @@ namespace Rapa.RapaGame.GameContent.PlayerInfo;
 
 public class NewPlayer : NormalProp
 {
-    private readonly Inputs input;
-    private Vector2 velocity;
+    private readonly Inputs _input;
+    private Vector2 _velocity;
 
     public NewPlayer(Texture2D texture, Inputs input) : base(texture)
     {
-        this.input = input;
+        this._input = input;
     }
 
-    public override void Update(GameTime gameTime)
+    public override void Update()
     {
         Move();
-        velocity = Vector2.Zero;
-        Position += velocity;
+        _velocity = Vector2.Zero;
+        Position += _velocity;
 
-        base.Update(gameTime);
+        base.Update();
     }
 
 
     private void Move()
     {
-        if (input == null)
+        if (_input == null)
         {
             throw new Exception("Please assign a value to 'Input'");
         }
-        if (Keyboard.GetState().IsKeyDown(input.Left))
+        if (Keyboard.GetState().IsKeyDown(_input.Left))
         {
-            velocity.X -= 3;
+            _velocity.X -= 3;
         }
-        if (Keyboard.GetState().IsKeyDown(input.Right))
+        if (Keyboard.GetState().IsKeyDown(_input.Right))
         {
-            velocity.X += -3;
+            _velocity.X += -3;
         }
-        if (Keyboard.GetState().IsKeyDown(input.Up))
+        if (Keyboard.GetState().IsKeyDown(_input.Up))
         {
-            velocity.Y -= -3;
+            _velocity.Y -= -3;
         }
-        if (Keyboard.GetState().IsKeyDown(input.Down))
+        if (Keyboard.GetState().IsKeyDown(_input.Down))
         {
-            velocity.Y += 3;
+            _velocity.Y += 3;
         }
     }
 }

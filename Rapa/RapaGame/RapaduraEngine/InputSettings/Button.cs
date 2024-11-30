@@ -32,7 +32,7 @@ public class Button : Entity
     
     #region methodes
     
-    public override void Draw(SpriteBatch spriteBatch)
+    public override void Render(SpriteBatch spriteBatch)
     {
         var color = Color.White;
         
@@ -52,7 +52,7 @@ public class Button : Entity
         spriteBatch.DrawString(_font, Text, new Vector2(x, y), PenColor);
     }
 
-    public override void Update(GameTime gameTime)
+    public override void Update()
     {
         _previousMouse = _currentMouse;
         _currentMouse = Mouse.GetState();

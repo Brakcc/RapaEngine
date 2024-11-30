@@ -73,7 +73,7 @@ public class ComponentList : IEnumerable<Component>
         }
     }
     
-    public void Update(GameTime gameTime)
+    public void Update()
     {
         LockMode = CompLockMode.Locked;
         
@@ -85,13 +85,13 @@ public class ComponentList : IEnumerable<Component>
             if (!comp.Active)
                 continue;
             
-            comp.Update(gameTime);
+            comp.Update();
         }
 
         LockMode = CompLockMode.Unlocked;
     }
 
-    public void Draw(SpriteBatch spriteBatch)
+    public void Render(SpriteBatch spriteBatch)
     {
         LockMode = CompLockMode.Locked;
         
@@ -103,7 +103,7 @@ public class ComponentList : IEnumerable<Component>
             if (!comp.Visible)
                 continue;
             
-            comp.Draw(spriteBatch);
+            comp.Render(spriteBatch);
         }
 
         LockMode = CompLockMode.Unlocked;

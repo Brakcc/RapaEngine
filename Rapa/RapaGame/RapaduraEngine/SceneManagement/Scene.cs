@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Rapa.RapaGame.RapaduraEngine.Entities;
 using Rapa.RapaGame.RapaduraEngine.SceneManagement.Packers;
 
 namespace Rapa.RapaGame.RapaduraEngine.SceneManagement;
@@ -9,6 +10,8 @@ public abstract class Scene
     #region properties
 
     public EntityPool EntityPool { get; }
+    
+    public EntityList Entities { get; private set; }
     
     public CollisionsTracker CollisionsTracker { get; }
     
@@ -23,6 +26,7 @@ public abstract class Scene
         CollisionsTracker = new CollisionsTracker();
         RendererTracker = new RendererTracker();
         EntityPool = entityPool;
+        Entities = new EntityList(this);
         EntityPool.SceneRef = this;
     }
 
@@ -51,11 +55,12 @@ public abstract class Scene
     {
         //render prio
     }
-    public virtual void Draw(SpriteBatch spriteBatch)
+    
+    public virtual void Render()
     {
         //rendergraph de tt les entités et leurs components
         
-        EntityPool.Draw(spriteBatch);
+        EntityPool.Render();
     }
 
     public virtual void AfterRender()
