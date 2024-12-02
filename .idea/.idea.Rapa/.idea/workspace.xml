@@ -9,28 +9,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f0714bac-edba-468d-9430-461c15a3c0e4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Rapa/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Rapa/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/GameContent/PlayerInfo/Ball.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/GameContent/PlayerInfo/Ball.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/GameContent/PlayerInfo/NewPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/GameContent/PlayerInfo/NewPlayer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/GameContent/PlayerInfo/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/GameContent/PlayerInfo/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/GameContent/Scenes/GameState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/GameContent/Scenes/GameState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/GameContent/Scenes/MenuState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/GameContent/Scenes/MenuState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/GameContent/Scenes/Pools/MenuPool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/GameContent/Scenes/Pools/MenuPool.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/CameraManagement/Camera.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/CameraManagement/Camera.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/CameraManagement/Parallaxe.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/CameraManagement/Parallaxe.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Components/Colliders/Collider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Components/Colliders/Collider.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Components/Sprites/Animations/Animator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Components/Sprites/Animations/Animator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Components/Sprites/BaseSprite.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Components/Sprites/BaseSprite.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Entities/Entity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Entities/Entity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Entities/EntityList.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Entities/EntityList.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Entities/PreBuilt/Actors/Actor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Entities/PreBuilt/Actors/Actor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Entities/PreBuilt/Empty.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Entities/PreBuilt/Empty.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/InputSettings/Button.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/InputSettings/Button.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Physics/CollisionPhysics/CollideCalc.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/Physics/CollisionPhysics/CollideCalc.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/SceneManagement/MapManagement/TileMap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/SceneManagement/MapManagement/TileMap.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/SceneManagement/Scene.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/RapaGame/RapaduraEngine/SceneManagement/Scene.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/Debug/net6.0/Rapa.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rapa/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/Rapa/obj/rider.project.model.nuget.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -237,6 +217,7 @@
       <workItem from="1732904371757" duration="10349000" />
       <workItem from="1732918076349" duration="12390000" />
       <workItem from="1732978870382" duration="10159000" />
+      <workItem from="1733085080653" duration="2167000" />
     </task>
     <task id="LOCAL-00001" summary="Va falloir s'organiser">
       <option name="closed" value="true" />
