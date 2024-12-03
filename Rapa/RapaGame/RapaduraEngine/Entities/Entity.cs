@@ -24,7 +24,8 @@ public abstract class Entity
         get => _tag;
         set
         {
-            _tag = value;
+            _tag = value; 
+            //TODO 
         }
     }
     
