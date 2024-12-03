@@ -18,6 +18,8 @@ public abstract class Scene
     
     public RendererList Renderers { get; }
     
+    public TagList Tags { get; }
+    
     public RendererTracker RendererTracker { get; }
 
     #endregion
@@ -31,6 +33,7 @@ public abstract class Scene
         EntityPool = entityPool;
         Entities = new EntityList(this);
         Renderers = new RendererList(this);
+        Tags = new TagList();
         EntityPool.SceneRef = this;
     }
 

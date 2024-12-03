@@ -24,8 +24,28 @@ public abstract class Entity
         get => _tag;
         set
         {
-            _tag = value; 
-            //TODO 
+            if (_tag == value)
+                return;
+            
+            if (SceneRef is null)
+                return;
+
+            for (var i = 0; i < Tag32.TotalTags; i++)
+            {
+                var o = 1U << i;
+                var flag = (value & o) != 0;
+
+                if ((_tag & o) != 0 != flag)
+                {
+                    SceneRef.Tags[i].Add(this);
+                }
+                else
+                {
+                    SceneRef.Tags[i].Remove(this);
+                }
+            }
+            
+            _tag = value;
         }
     }
     
@@ -342,7 +362,7 @@ public abstract class Entity
         
         if (!_debugMode)
             return;
-
+        
         if (Collider != null)
         {
             Collider.Draw(Color.Firebrick);
@@ -367,6 +387,14 @@ public abstract class Entity
         Components.RemoveComponent(comp);
     }
 
+    public void AddTag(uint t)
+    {
+    }
+
+    public void RemoveTag(uint t)
+    {
+    }
+    
     #region collisions
 
     private bool IsColliding(Entity e) => CollideCalc.CheckCollision(this, e);

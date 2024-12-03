@@ -39,7 +39,7 @@ public class Ball : Actor
 
 
         if (Keyboard.GetState().IsKeyDown(Keys.Space))
-            Console.WriteLine(ConvToUint(OptiRound(0b00010000000000000000000000000110)));
+            Console.WriteLine(ConvToUint(Reverse(0b00010000000000000000000000000110)));
 
         _elapsedTime += CoreEngine.DeltaTime;
 
@@ -150,6 +150,23 @@ public class Ball : Actor
         i |= i >> 16;
         i++;
         return i;
+    }
+
+    private static uint Reverse(uint i)
+    {
+        uint j = 0;
+
+        for (var k = 0; k < 32; k++)
+        {
+            j <<= 1;
+            if ((i & 1) == 1)
+            {
+                j ^= 1;
+            }
+            i >>= 1;
+        }
+
+        return j;
     }
 
     private static string ConvToUint(uint i) => Convert.ToString(i, 2).PadLeft(32, '0');
