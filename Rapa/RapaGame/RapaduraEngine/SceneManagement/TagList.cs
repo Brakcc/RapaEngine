@@ -25,7 +25,10 @@ public class TagList
 
     public TagList()
     {
-        _entities = new List<Entity>[Tag32.TotalTags];
+        //_entities = new List<Entity>[Tag32.TotalTags];
+        _entities = new List<Entity>[32]; //TODO 
+        //on garde pour l'instant 32 comme valeur fixes avant de pouvoir utiliser n vrai level loader et charger les Tags avant d'initialiser la taglist
+        
         for (var i = 0; i < _entities.Length; i++)
         {
             _entities[i] = new List<Entity>();
@@ -36,7 +39,7 @@ public class TagList
     
     #region fields
     
-    private List<Entity>[] _entities;
+    private readonly List<Entity>[] _entities;
     
     #endregion
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Rapa.RapaGame.RapaduraEngine.Entities;
 using Rapa.RapaGame.RapaduraEngine.Rendering;
@@ -19,7 +20,9 @@ public abstract class Scene
     public RendererList Renderers { get; }
     
     public TagList Tags { get; }
-    
+
+    public List<Entity> this[Tag32 tag] => Tags[tag.Id];
+
     public RendererTracker RendererTracker { get; }
 
     #endregion

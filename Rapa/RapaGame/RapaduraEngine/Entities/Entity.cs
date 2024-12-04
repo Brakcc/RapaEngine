@@ -27,12 +27,16 @@ public abstract class Entity
             if (_tag == value)
                 return;
             
+            _tag = value;
+            
             if (SceneRef is null)
                 return;
 
+            var o = 1U;
+            
             for (var i = 0; i < Tag32.TotalTags; i++)
             {
-                var o = 1U << i;
+                o <<= i;
                 var flag = (value & o) != 0;
 
                 if ((_tag & o) != 0 != flag)
@@ -44,8 +48,6 @@ public abstract class Entity
                     SceneRef.Tags[i].Remove(this);
                 }
             }
-            
-            _tag = value;
         }
     }
     
@@ -387,13 +389,13 @@ public abstract class Entity
         Components.RemoveComponent(comp);
     }
 
-    public void AddTag(uint t)
-    {
-    }
+    public void AddTag(uint t) => Tag |= t;
 
-    public void RemoveTag(uint t)
-    {
-    }
+    public void RemoveTag(uint t) => Tag &= ~t;
+    
+    public bool TagFullCheck(uint t) => (_tag & t) == _tag;
+    
+    public bool TagCheck(uint t) => (_tag & t) != 0;
     
     #region collisions
 

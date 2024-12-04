@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework.Input;
 using Rapa.RapaGame.RapaduraEngine;
 using Rapa.RapaGame.RapaduraEngine.Components.Sprites.Animations;
 using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Actors;
+using Rapa.RapaGame.RapaduraEngine.SceneManagement;
 
 namespace Rapa.RapaGame.GameContent.PlayerInfo;
 
@@ -16,6 +17,8 @@ public class Ball : Actor
     public Ball(Texture2D texture, int width = 0, int height = 0, bool debugMode = false) : base(texture, width, height,
         debugMode)
     {
+        Console.WriteLine(Tag32.TotalTags);
+        Tag = new Tag32("Ball");
     }
 
     public Ball(Dictionary<string, Animation> animations, int width = 0, int height = 0, bool debugMode = false) : base(
@@ -31,15 +34,21 @@ public class Ball : Actor
     {
         base.Init();
         _initPos = position;
+
+        var tag32 = new Tag32("NotPlayer");
+        Tag = Tag32.GetTag("Ball") | tag32;
     }
 
     public override void Update()
     {
         base.Update();
 
-
         if (Keyboard.GetState().IsKeyDown(Keys.Space))
-            Console.WriteLine(ConvToUint(Reverse(0b00010000000000000000000000000110)));
+        {
+            //Console.WriteLine(ConvToUint(Reverse(0b00010000000000000000000000000110)));
+            RemoveTag(Tag32.GetTag("Ball"));
+            Console.WriteLine(Convert.ToString(Tag, 2).PadLeft(32, '0'));
+        }
 
         _elapsedTime += CoreEngine.DeltaTime;
 
