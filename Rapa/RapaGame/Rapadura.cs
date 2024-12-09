@@ -1,4 +1,5 @@
-﻿using Rapa.RapaGame.GameContent.Scenes;
+﻿using Rapa.RapaGame.GameContent;
+using Rapa.RapaGame.GameContent.Scenes;
 using Rapa.RapaGame.GameContent.Scenes.Pools;
 using Rapa.RapaGame.RapaduraEngine;
 
@@ -26,7 +27,6 @@ public class Rapadura : CoreEngine
         false,
         true)
     {
-        Scene = new MenuScene(new MenuPool());
         HasStarted = true;
     }
 
@@ -45,8 +45,12 @@ public class Rapadura : CoreEngine
         CurrentScreenWidth = RenderScreenWidth;
         
         Graphics.ApplyChanges();
+
+        GameTags.Init();
         
         base.Initialize();
+        
+        Scene = new MenuScene(new MenuTracker());
     }
 
     protected override void LoadContent()

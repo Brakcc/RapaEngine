@@ -9,18 +9,18 @@ public class MenuScene : Scene
 {
     #region constructor
     
-    public MenuScene(EntityPool entityPool) : base(entityPool)
+    public MenuScene(EntityTracker entityTracker) : base(entityTracker)
     {
         _canRemove = true;
-        LoadMenu(entityPool);
-        Renderers.AddRenderer(new EntityRenderer());
+        LoadMenu(entityTracker);
+        Renderers.AddRenderer(new GameplayRenderer());
     }
     
     #endregion
 
     #region methodes
 
-    private void LoadMenu(EntityPool ep)
+    private void LoadMenu(EntityTracker ep)
     {
         for (var i = 0; i < ep.Count; i++)
         {

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
+using Rapa.RapaGame.GameContent;
 using Rapa.RapaGame.RapaduraEngine.CameraManagement;
 using Rapa.RapaGame.RapaduraEngine.SceneManagement;
 
@@ -31,7 +32,7 @@ public class GameplayRenderer : Renderer
     public override void Render(Scene scene)
     {
         CoreEngine.SpriteBatch.Begin(SpriteSortMode.Deferred, _blendState, _samplerState, DepthStencilState.None, RasterizerState.CullNone, _effect, CoreEngine.ScreenMatrix);
-        scene.Entities.RenderExceptWithTag(CoreEngine.SpriteBatch, Tag32.GetTag("Ball"));
+        scene.Entities.RenderExceptWithTag(CoreEngine.SpriteBatch, GameTags.Test);
         CoreEngine.SpriteBatch.End();
     }
 

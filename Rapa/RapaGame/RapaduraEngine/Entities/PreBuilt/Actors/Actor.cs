@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Rapa.RapaGame.GameContent;
 using Rapa.RapaGame.RapaduraEngine.Components;
 using Rapa.RapaGame.RapaduraEngine.Components.Colliders.ColliderTypes;
 using Rapa.RapaGame.RapaduraEngine.Components.Sprites;
@@ -10,6 +11,7 @@ using Rapa.RapaGame.RapaduraEngine.Components.Sprites.Animations;
 using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Solids;
 using Rapa.RapaGame.RapaduraEngine.Mathematics;
 using Rapa.RapaGame.RapaduraEngine.Physics.CollisionPhysics;
+using Rapa.RapaGame.RapaduraEngine.SceneManagement;
 using Rapa.RapaGame.RapaduraEngine.SceneManagement.Packers;
 
 namespace Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Actors;
@@ -57,7 +59,7 @@ public class Actor : Entity
 
     public override void Init()
     {
-        keyboardState = new KeyboardState();
+        _keyboardState = new KeyboardState();
     }
     
     protected virtual void OnTrap(CollisionDatas datas)
@@ -81,8 +83,8 @@ public class Actor : Entity
             //Console.WriteLine("grounded");
         }
 
-        keyboardState = Keyboard.GetState();
-        if (keyboardState[Keys.A] == KeyState.Down)
+        _keyboardState = Keyboard.GetState();
+        if (_keyboardState[Keys.A] == KeyState.Down)
         {
             //Console.WriteLine("line");
         }
@@ -90,7 +92,7 @@ public class Actor : Entity
     
     public virtual bool IsRiding(Solid solid) => IsCollidingAt(solid, position + Vector2.UnitY);
 
-    private bool IsGrounded(int checkLength = 1) => IsCollidingAt<Solid>(position + Vector2.UnitY * checkLength);
+    private bool IsGrounded(int checkLength = 1) => IsCollidingAt<Solid>(position + Vector2.UnitY * checkLength, GameTags.Default);
     
     public bool IsGroundedAt(int checkLength, Vector2 at)
     {
@@ -109,7 +111,7 @@ public class Actor : Entity
 
         while (moveAmount != 0)
         {
-            var solid = IsCollidingFirstAt<Solid>(position + Vector2.UnitX * dir);
+            var solid = IsCollidingFirstAt<Solid>(position + Vector2.UnitX * dir, GameTags.Default);
             if (solid != null)
             {
                 velocity.X = 0;
@@ -140,7 +142,7 @@ public class Actor : Entity
 
         while (moveAmount != 0)
         {
-            var solid = IsCollidingFirstAt<Solid>(position + Vector2.UnitY * dir);
+            var solid = IsCollidingFirstAt<Solid>(position + Vector2.UnitY * dir, GameTags.Default);
             if (solid != null)
             {
                 velocity.Y = 0;
@@ -217,7 +219,7 @@ public class Actor : Entity
 
     protected bool isGrounded;
 
-    private KeyboardState keyboardState;
+    private KeyboardState _keyboardState;
 
     #endregion
 }

@@ -34,9 +34,8 @@ public class Ball : Actor
     {
         base.Init();
         _initPos = position;
-
-        var tag32 = new Tag32("NotPlayer");
-        Tag = Tag32.GetTag("Ball") | tag32;
+        
+        AddTag(GameTags.Test);
     }
 
     public override void Update()
@@ -46,7 +45,7 @@ public class Ball : Actor
         if (Keyboard.GetState().IsKeyDown(Keys.Space))
         {
             //Console.WriteLine(ConvToUint(Reverse(0b00010000000000000000000000000110)));
-            RemoveTag(Tag32.GetTag("Ball"));
+            RemoveTag(GameTags.Test);
             Console.WriteLine(Convert.ToString(Tag, 2).PadLeft(32, '0'));
         }
 

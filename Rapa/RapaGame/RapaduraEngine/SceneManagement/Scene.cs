@@ -20,16 +20,13 @@ public abstract class Scene
 
     public List<Entity> this[Tag32 tag] => Tags[tag.Id];
 
-    public RendererTracker RendererTracker { get; }
-
     #endregion
 
     #region constructor
 
-    protected Scene(EntityPool entityPool)
+    protected Scene(EntityTracker entityTracker)
     {
         CollisionsTracker = new CollisionsTracker();
-        RendererTracker = new RendererTracker();
         Entities = new EntityList(this);
         Renderers = new RendererList(this);
         Tags = new TagList();
@@ -54,7 +51,7 @@ public abstract class Scene
         
         rawTotalTime += CoreEngine.RawDeltaTime;
         
-        //Tags.UpdateList();
+        Tags.UpdateLists();
         Entities.UpdateList();
         Renderers.UpdateList();
     }

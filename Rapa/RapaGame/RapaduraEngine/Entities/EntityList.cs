@@ -48,7 +48,7 @@ public sealed class EntityList : IEnumerable<Entity>
                 if (SceneRef is null)
                     continue;
                 
-                //SceneRef.TagList.EntityAdded(e);
+                SceneRef.Tags.EntityAdded(e);
                 e.Added(SceneRef);
                 e.Init();
             }
@@ -72,7 +72,7 @@ public sealed class EntityList : IEnumerable<Entity>
                 if (SceneRef is null)
                     continue;
                 
-                //SceneRef.TagList.EntityRemoved(e);
+                SceneRef.Tags.EntityRemoved(e);
                 e.Removed();
             }
             
@@ -179,7 +179,7 @@ public sealed class EntityList : IEnumerable<Entity>
 
     private bool _sorted;
     
-    private static readonly Comparison<Entity> LayerComparison = (a, b) => Math.Sign(b.Layer - a.Layer);
+    public static readonly Comparison<Entity> LayerComparison = (a, b) => Math.Sign(b.Layer - a.Layer);
 
     #endregion
 }

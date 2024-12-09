@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Rapa.RapaGame.GameContent;
 using Rapa.RapaGame.RapaduraEngine.Components;
 using Rapa.RapaGame.RapaduraEngine.Components.Colliders;
 using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Solids;
@@ -330,7 +331,7 @@ public abstract class Entity
         _height = height;
 
         _debugMode = debugMode;
-        
+        Tag = GameTags.Default;
         //lien avec EntityPool à faire pour tracker l'entity
     }
 
@@ -415,6 +416,11 @@ public abstract class Entity
         return IsCollidingAt(others, at);
     }
 
+    protected bool IsCollidingAt<T>(Vector2 at, Tag32 tag) where T : Entity
+    {
+        return IsCollidingAt(SceneRef[tag], at);
+    }
+    
     private bool IsCollidingAt(IEnumerable<Entity> col, Vector2 at) => CollideCalc.CheckCollisionAt(this, col, at);
 
     public bool IsCollidingAll(List<Entity> entities)
@@ -435,6 +441,11 @@ public abstract class Entity
     {
         var others = SceneRef.CollisionsTracker.Colliders;
         return IsCollidingFirstAt<Solid>(others, at);
+    }
+    
+    protected Solid IsCollidingFirstAt<T>(Vector2 at, Tag32 tag) where T : Entity
+    {
+        return IsCollidingFirstAt<Solid>(SceneRef[tag], at);
     }
 
     public bool CollideAllAction<T>(List<Entity> entities, Action<T> collision) where T : Entity
