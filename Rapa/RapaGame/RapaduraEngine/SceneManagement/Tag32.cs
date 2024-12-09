@@ -8,9 +8,9 @@ public class Tag32
 
     public static byte TotalTags { get; private set; }
     
-    public int Id { get; private set; }
-    
-    public uint Value { get; private set; }
+    public int Id { get; }
+
+    private uint Value { get; }
     
     public string Name { get; private set; }
     
@@ -24,7 +24,7 @@ public class Tag32
         Value = 1U << TotalTags;
         Name = tagName;
 
-        TagIDList[Id] = this;
+        TagIdList[Id] = this;
         TagNameList[tagName] = this;
         TotalTags++;
     }
@@ -41,7 +41,7 @@ public class Tag32
     
     #region fields
 
-    private static readonly Tag32[] TagIDList = new Tag32[32];
+    private static readonly Tag32[] TagIdList = new Tag32[32];
     
     private static readonly Dictionary<string, Tag32> TagNameList = new();
 

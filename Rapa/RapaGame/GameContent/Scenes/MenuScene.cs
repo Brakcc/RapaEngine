@@ -1,5 +1,5 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Input;
+﻿using Microsoft.Xna.Framework.Input;
+using Rapa.RapaGame.RapaduraEngine.Rendering;
 using Rapa.RapaGame.RapaduraEngine.SceneManagement;
 using Rapa.RapaGame.RapaduraEngine.SceneManagement.Packers;
 
@@ -12,20 +12,30 @@ public class MenuScene : Scene
     public MenuScene(EntityPool entityPool) : base(entityPool)
     {
         _canRemove = true;
+        LoadMenu(entityPool);
+        Renderers.AddRenderer(new EntityRenderer());
     }
     
     #endregion
 
     #region methodes
 
-    public override void Update(GameTime gameTime)
+    private void LoadMenu(EntityPool ep)
+    {
+        for (var i = 0; i < ep.Count; i++)
+        {
+            Entities.Add(ep[i]);
+        }
+    }
+    
+    public override void Update()
     {
         if (Keyboard.GetState().IsKeyDown(Keys.E) && _canRemove)
         {
             //EntityPool.RemoveEntity(EntityPool[^1]);
             _canRemove = false;
         }
-        base.Update(gameTime);
+        base.Update();
     }
 
     #endregion

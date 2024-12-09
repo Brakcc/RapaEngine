@@ -36,25 +36,55 @@ public sealed class EntityList : IEnumerable<Entity>
     {
         if (_adding.Count > 0)
         {
-            for (int i = 0; i < _adding.Count; i++)
+            for (var i = 0; i < _adding.Count; i++)
             {
+                var e = _toAdd[i];
                 
+                if (!_current.Add(e))
+                    continue;
+                
+                _entities.Add(e);
+                
+                if (SceneRef is null)
+                    continue;
+                
+                //SceneRef.TagList.EntityAdded(e);
+                e.Added(SceneRef);
+                e.Init();
             }
             
-            _toAdd.Clear();
             _adding.Clear();
+            
+            _sorted = false;
         }
 
         if (_removing.Count > 0)
         {
-            for (int i = 0; i < _removing.Count; i++)
+            for (var i = 0; i < _removing.Count; i++)
             {
+                var e = _toRemove[i];
+
+                if (!_current.Remove(e))
+                    continue;
                 
+                _entities.Remove(e);
+                
+                if (SceneRef is null)
+                    continue;
+                
+                //SceneRef.TagList.EntityRemoved(e);
+                e.Removed();
             }
             
             _toRemove.Clear();
             _removing.Clear();
         }
+
+        if (_sorted)
+            return;
+        
+        _entities.Sort(LayerComparison);
+        _sorted = true;
     }
     
     public void Update()
@@ -81,18 +111,29 @@ public sealed class EntityList : IEnumerable<Entity>
     {
         foreach (var e in _entities)
         {
-            if (e.Tag != tags)
+            if (!e.TagCheck(tags))
+                continue;
+            
+            e.Render(spriteBatch);
+        }
+    }
+    
+    public void RenderOnlyWithFullTag(SpriteBatch spriteBatch, uint tags)
+    {
+        foreach (var e in _entities)
+        {
+            if (!e.TagFullCheck(tags))
                 continue;
             
             e.Render(spriteBatch);
         }
     }
 
-    public void RenderExceptWithTag(SpriteBatch spriteBatch, int tags)
+    public void RenderExceptWithTag(SpriteBatch spriteBatch, uint tags)
     {
         foreach (var e in _entities)
         {
-            if (e.Tag == tags) //TODO tag check func i, entity class  
+            if (e.TagCheck(tags)) //TODO tag check func i, entity class  
                 continue;
             
             e.Render(spriteBatch);
@@ -138,7 +179,7 @@ public sealed class EntityList : IEnumerable<Entity>
 
     private bool _sorted;
     
-    private static Comparison<Entity> DepthComparison = (a, b) => Math.Sign(b.Layer - a.Layer);
+    private static readonly Comparison<Entity> LayerComparison = (a, b) => Math.Sign(b.Layer - a.Layer);
 
     #endregion
 }

@@ -104,7 +104,7 @@ public abstract class EntityPool
         
         foreach (var ent in entities)
         {
-            ent.End();
+            ent.End(SceneRef);
         }
     }
 

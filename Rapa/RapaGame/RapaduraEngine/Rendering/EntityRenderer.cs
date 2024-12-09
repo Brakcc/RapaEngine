@@ -30,7 +30,7 @@ public sealed class EntityRenderer : Renderer
 
     public override void Render(Scene scene)
     {
-        CoreEngine.SpriteBatch.Begin(SpriteSortMode.Deferred, _blendState, _samplerState, DepthStencilState.None, RasterizerState.CullNone, _effect);
+        CoreEngine.SpriteBatch.Begin(SpriteSortMode.Deferred, _blendState, _samplerState, DepthStencilState.None, RasterizerState.CullNone, _effect, CoreEngine.ScreenMatrix);
         scene.Entities.Render(CoreEngine.SpriteBatch);
         CoreEngine.SpriteBatch.End();
     }

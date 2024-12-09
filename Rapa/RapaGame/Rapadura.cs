@@ -1,7 +1,6 @@
 ﻿using Rapa.RapaGame.GameContent.Scenes;
 using Rapa.RapaGame.GameContent.Scenes.Pools;
 using Rapa.RapaGame.RapaduraEngine;
-using Rapa.RapaGame.RapaduraEngine.SceneManagement;
 
 namespace Rapa.RapaGame;
 
@@ -12,7 +11,7 @@ public class Rapadura : CoreEngine
     public static int CurrentScreenWidth { get; private set; }
     public static int CurrentScreenHeight { get; private set; }
 
-    private bool hasStarted { get; }
+    private bool HasStarted { get; }
     
     #endregion
 
@@ -28,7 +27,7 @@ public class Rapadura : CoreEngine
         true)
     {
         Scene = new MenuScene(new MenuPool());
-        hasStarted = true;
+        HasStarted = true;
     }
 
     #endregion
@@ -51,10 +50,6 @@ public class Rapadura : CoreEngine
     }
 
     protected override void LoadContent()
-    {
-    }
-    
-    public void ChangeState(State state)
     {
     }
 

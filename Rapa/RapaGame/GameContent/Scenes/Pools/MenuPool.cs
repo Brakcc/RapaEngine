@@ -10,6 +10,7 @@ using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt;
 using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Props;
 using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Solids;
 using Rapa.RapaGame.RapaduraEngine.InputSettings;
+using Rapa.RapaGame.RapaduraEngine.SceneManagement;
 using Rapa.RapaGame.RapaduraEngine.SceneManagement.MapManagement;
 using Rapa.RapaGame.RapaduraEngine.SceneManagement.Packers;
 
@@ -57,7 +58,8 @@ public class MenuPool : EntityPool
         var ball = new Ball(testText, debugMode: false)
         {
             position = new Vector2(0, 148),
-            Layer = -5
+            Layer = -5,
+            Tag = new Tag32("Ball")
         };
         
         //BackGrounds

@@ -343,9 +343,11 @@ public abstract class Entity
     
     #region methodes
     
-    public void RemoveSelf()
+    public void Added(Scene scene) => SceneRef = scene;
+    
+    public void Removed()
     {
-        SceneRef?.EntityPool.RemoveEntity(this);
+        SceneRef = null;
     }
     
     public virtual void Init()
@@ -374,7 +376,11 @@ public abstract class Entity
         Drawer.DrawHollowRect(X, Y, Width, Height, Color.LawnGreen);
     }
 
-    public virtual void End()
+    public virtual void Begin(Scene scene)
+    {
+    }
+    
+    public virtual void End(Scene scene)
     {
         Components?.EndList();
     }

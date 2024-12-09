@@ -63,7 +63,7 @@ public class Actor : Entity
     protected virtual void OnTrap(CollisionDatas datas)
     {
         if (!TryEscapeTrap(datas))
-            RemoveSelf();
+            Removed();
     }
 
     protected virtual bool TryEscapeTrap(CollisionDatas datas)

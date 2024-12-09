@@ -1,6 +1,5 @@
-﻿using System.Collections.Generic;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿using System;
+using System.Collections.Generic;
 using Rapa.RapaGame.RapaduraEngine.Entities;
 using Rapa.RapaGame.RapaduraEngine.Rendering;
 using Rapa.RapaGame.RapaduraEngine.SceneManagement.Packers;
@@ -10,8 +9,6 @@ namespace Rapa.RapaGame.RapaduraEngine.SceneManagement;
 public abstract class Scene
 {
     #region properties
-
-    public EntityPool EntityPool { get; }
     
     public EntityList Entities { get; private set; }
     
@@ -33,11 +30,9 @@ public abstract class Scene
     {
         CollisionsTracker = new CollisionsTracker();
         RendererTracker = new RendererTracker();
-        EntityPool = entityPool;
         Entities = new EntityList(this);
         Renderers = new RendererList(this);
         Tags = new TagList();
-        EntityPool.SceneRef = this;
     }
 
     #endregion
@@ -46,43 +41,63 @@ public abstract class Scene
     
     public virtual void Begin()
     {
-        //Generation et appel des Entités et interComponents
-        
-        EntityPool.InitList();
+        foreach (var e in Entities)
+        {
+            e.Begin(this);
+        }
     }
 
     public virtual void BeforeUpdate()
     {
-        EntityPool.UpdateEntList();
+        if (!isPaused)
+            totalTime += CoreEngine.DeltaTime;
+        
+        rawTotalTime += CoreEngine.RawDeltaTime;
+        
+        //Tags.UpdateList();
+        Entities.UpdateList();
+        Renderers.UpdateList();
     }
 
-    public virtual void Update(GameTime gameTime)
+    public virtual void Update()
     {
-        EntityPool.Update(gameTime);
+        if (isPaused)
+            return;
+        
+        Entities.Update();
+        Renderers.Update();
+    }
+
+    public virtual void LateUpdate()
+    {
+        if (OnEndOfFrame is null)
+            return;
+        
+        OnEndOfFrame.Invoke();
+        OnEndOfFrame = null;
     }
     
     public virtual void BeforeRender()
     {
-        //render prio
+        Renderers.BeforeRender();
     }
     
     public virtual void Render()
     {
-        //rendergraph de tt les entités et leurs components
-        
-        EntityPool.Render();
+        Renderers.Render();
     }
 
     public virtual void AfterRender()
     {
-        //render secondaire
+        Renderers.AfterRender();
     }
 
     public virtual void End()
     {
-        //fin de scene et décharge de datas (save ?)
-        
-        EntityPool.EndList();
+        foreach (var e in Entities)
+        {
+            e.End(this);
+        }
     }
 
     public virtual void LoseFocus()
@@ -108,8 +123,14 @@ public abstract class Scene
     #endregion
     
     #region fields
+
+    public event Action OnEndOfFrame;
     
+    public bool isPaused;
+
+    public float rawTotalTime;
     
-    
+    public float totalTime;
+
     #endregion
 }

@@ -44,7 +44,7 @@ public class CoreEngine : Game
 
 	public static float DeltaTime { get; private set; }
 
-	private static float RawDeltaTime { get; set; }
+	public static float RawDeltaTime { get; private set; }
 
 	private static ulong FrameCounter { get; set; }
 
@@ -205,7 +205,7 @@ public class CoreEngine : Game
 		if (_scene != null)
 		{
 			_scene.BeforeUpdate();
-			_scene.Update(gameTime);
+			_scene.Update();
 		}
 
 		base.Update(gameTime);
@@ -239,10 +239,8 @@ public class CoreEngine : Game
 		GraphicsDevice.Clear(ClearColor);
 		_scene.BeforeRender();
 		
-		SpriteBatch.Begin(samplerState: SamplerState.PointClamp, transformMatrix:ScreenMatrix);
 		_scene.Render();
 		_scene.AfterRender();
-		SpriteBatch.End();
 		
 		GraphicsDevice.SetRenderTarget(null);
 		GraphicsDevice.Clear(Color.Black);
