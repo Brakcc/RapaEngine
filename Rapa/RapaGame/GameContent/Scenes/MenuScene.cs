@@ -9,11 +9,11 @@ public class MenuScene : Scene
 {
     #region constructor
     
-    public MenuScene(EntityTracker entityTracker) : base(entityTracker)
+    public MenuScene(EntityTracker entityTracker)
     {
         _canRemove = true;
         LoadMenu(entityTracker);
-        Renderers.AddRenderer(new GameplayRenderer());
+        Renderers.AddRenderer(new EntityRenderer());
     }
     
     #endregion

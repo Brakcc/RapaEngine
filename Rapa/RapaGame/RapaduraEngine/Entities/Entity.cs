@@ -5,7 +5,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Rapa.RapaGame.GameContent;
 using Rapa.RapaGame.RapaduraEngine.Components;
 using Rapa.RapaGame.RapaduraEngine.Components.Colliders;
-using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Solids;
 using Rapa.RapaGame.RapaduraEngine.Mathematics;
 using Rapa.RapaGame.RapaduraEngine.Physics.CollisionPhysics;
 using Rapa.RapaGame.RapaduraEngine.SceneManagement;
@@ -27,28 +26,28 @@ public abstract class Entity
         {
             if (_tag == value)
                 return;
-            
-            _tag = value;
-            
-            if (SceneRef is null)
-                return;
 
-            var o = 1U;
-            
-            for (var i = 0; i < Tag32.TotalTags; i++)
+            if (SceneRef is not null)
             {
-                o <<= i;
-                var flag = (value & o) != 0;
+                const uint o = 1U;
 
-                if ((_tag & o) != 0 != flag)
+                for (var i = 0; i < Tag32.TotalTags; i++)
                 {
-                    SceneRef.Tags[i].Add(this);
-                }
-                else
-                {
-                    SceneRef.Tags[i].Remove(this);
+                    var flag = (value & (o << i)) != 0;
+
+                    if ((_tag & (o << i)) == 0 && flag)
+                    {
+                        SceneRef.Tags[i].Add(this);
+                        SceneRef.Tags.MarkUnsorted(i);
+                    }
+                    else if ((_tag & (o << i)) != 0 && !flag)
+                    {
+                        SceneRef.Tags[i].Remove(this);
+                    }
                 }
             }
+            
+            _tag = value;
         }
     }
     
@@ -408,20 +407,101 @@ public abstract class Entity
 
     private bool IsColliding(Entity e) => CollideCalc.CheckCollision(this, e);
 
+    #region Coliding At
+    
     protected bool IsCollidingAt(Entity e, Vector2 at) => CollideCalc.CheckCollisionAt(this, e, at);
 
     protected bool IsCollidingAt<T>(Vector2 at) where T : Entity
     {
         var others = SceneRef.CollisionsTracker.Colliders;
-        return IsCollidingAt(others, at);
+        return IsCollidingAt(at, others);
     }
 
     protected bool IsCollidingAt<T>(Vector2 at, Tag32 tag) where T : Entity
     {
-        return IsCollidingAt(SceneRef[tag], at);
+        return IsCollidingAt(at, SceneRef[tag]);
+    }
+
+    protected bool IsCollidingAt<T>(Vector2 at, params Tag32[] tags) where T : Entity
+    {
+        foreach (var t in tags)
+        {
+            if (IsCollidingAt(at, SceneRef[t]))
+                return true;
+        }
+
+        return false;
     }
     
-    private bool IsCollidingAt(IEnumerable<Entity> col, Vector2 at) => CollideCalc.CheckCollisionAt(this, col, at);
+    protected bool IsCollidingAt<T>(Vector2 at, uint tags) where T : Entity
+    {
+        const uint o = 1U;
+        
+        for (var i = 0; i < Tag32.TotalTags; i++)
+        {
+            if ((tags & (o << i)) == 0)
+                continue;
+            
+            if (IsCollidingAt(at, SceneRef.Tags[i]))
+                return true;
+        }
+
+        return false;
+    }
+    
+    private bool IsCollidingAt(Vector2 at, IEnumerable<Entity> col) => CollideCalc.CheckCollisionAt(this, col, at);
+
+    #endregion
+    
+    #region Colliding First At
+    
+    protected T IsCollidingFirst<T>(IEnumerable<Entity> entities) where T : Entity => CollideCalc.GetEntityCollided(this, entities) as T;
+
+    private T IsCollidingFirstAt<T>(Vector2 at, IEnumerable<Entity> entities) where T : Entity => CollideCalc.GetEntityCollidedAt(this, entities, at) as T;
+
+    protected T IsCollidingFirstAt<T>(Vector2 at) where T : Entity
+    {
+        var others = SceneRef.CollisionsTracker.Colliders;
+        return IsCollidingFirstAt<T>(at, others);
+    }
+    
+    protected T IsCollidingFirstAt<T>(Vector2 at, Tag32 tag) where T : Entity
+    {
+        return IsCollidingFirstAt<T>(at, SceneRef[tag]);
+    }
+    
+    protected T IsCollidingFirstAt<T>(Vector2 at, params Tag32[] tags) where T : Entity
+    {
+        foreach (var t in tags)
+        {
+            var e = IsCollidingFirstAt<T>(at, SceneRef[t]);
+            
+            if (e is not null)
+                return e;
+        }
+
+        return null;
+    }
+
+    protected T IsCollidingFirstAt<T>(Vector2 at, uint tags) where T : Entity
+    {
+        const uint o = 1U;
+
+        for (var i = 0; i < Tag32.TotalTags; i++)
+        {
+            if ((tags & (o << i)) == 0)
+                continue;
+            
+            var e = IsCollidingFirstAt<T>(at, SceneRef.Tags[i]);
+
+            if (e is not null)
+                return e;
+        }
+
+        return null;
+    }
+
+    #endregion
 
     public bool IsCollidingAll(List<Entity> entities)
     {
@@ -432,22 +512,7 @@ public abstract class Entity
         }
         return false;
     }
-
-    protected T IsCollidingFirst<T>(IEnumerable<Entity> entities) where T : Entity => CollideCalc.GetEntityCollided(this, entities) as T;
-
-    private T IsCollidingFirstAt<T>(IEnumerable<Entity> entities, Vector2 at) where T : Entity => CollideCalc.GetEntityCollidedAt(this, entities, at) as T;
-
-    protected Solid IsCollidingFirstAt<T>(Vector2 at) where T : Entity
-    {
-        var others = SceneRef.CollisionsTracker.Colliders;
-        return IsCollidingFirstAt<Solid>(others, at);
-    }
     
-    protected Solid IsCollidingFirstAt<T>(Vector2 at, Tag32 tag) where T : Entity
-    {
-        return IsCollidingFirstAt<Solid>(SceneRef[tag], at);
-    }
-
     public bool CollideAllAction<T>(List<Entity> entities, Action<T> collision) where T : Entity
     {
         var res = false;

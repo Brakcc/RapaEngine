@@ -12,9 +12,9 @@ public class NewPlayer : NormalProp
     private readonly Inputs _input;
     private Vector2 _velocity;
 
-    public NewPlayer(Texture2D texture, Inputs input) : base(texture)
+    public NewPlayer(Texture2D texture/*, Inputs input*/) : base(texture)
     {
-        this._input = input;
+        //_input = input;
     }
 
     public override void Update()
@@ -29,7 +29,7 @@ public class NewPlayer : NormalProp
 
     private void Move()
     {
-        if (_input == null)
+        /*if (_input == null)
         {
             throw new Exception("Please assign a value to 'Input'");
         }
@@ -48,6 +48,6 @@ public class NewPlayer : NormalProp
         if (Keyboard.GetState().IsKeyDown(_input.Down))
         {
             _velocity.Y += 3;
-        }
+        }*/
     }
 }

@@ -24,7 +24,7 @@ public abstract class Scene
 
     #region constructor
 
-    protected Scene(EntityTracker entityTracker)
+    protected Scene()
     {
         CollisionsTracker = new CollisionsTracker();
         Entities = new EntityList(this);

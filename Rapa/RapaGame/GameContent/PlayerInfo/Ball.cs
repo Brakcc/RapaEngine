@@ -18,7 +18,6 @@ public class Ball : Actor
         debugMode)
     {
         Console.WriteLine(Tag32.TotalTags);
-        Tag = new Tag32("Ball");
     }
 
     public Ball(Dictionary<string, Animation> animations, int width = 0, int height = 0, bool debugMode = false) : base(
@@ -34,7 +33,7 @@ public class Ball : Actor
     {
         base.Init();
         _initPos = position;
-        
+
         AddTag(GameTags.Test);
     }
 
@@ -45,8 +44,8 @@ public class Ball : Actor
         if (Keyboard.GetState().IsKeyDown(Keys.Space))
         {
             //Console.WriteLine(ConvToUint(Reverse(0b00010000000000000000000000000110)));
-            RemoveTag(GameTags.Test);
-            Console.WriteLine(Convert.ToString(Tag, 2).PadLeft(32, '0'));
+            //RemoveTag(GameTags.Test);
+            //Console.WriteLine(Convert.ToString(Tag, 2).PadLeft(32, '0'));
         }
 
         _elapsedTime += CoreEngine.DeltaTime;

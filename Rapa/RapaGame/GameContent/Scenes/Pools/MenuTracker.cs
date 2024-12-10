@@ -54,12 +54,11 @@ public class MenuTracker : EntityTracker
             speed = 0.45f,
             Layer = -3
         };
-
+        
         var ball = new Ball(testText, debugMode: false)
         {
             position = new Vector2(0, 148),
-            Layer = -5,
-            Tag = new Tag32("Ball")
+            Layer = -5
         };
         
         //BackGrounds

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Rapa")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+206ec055c5cce4232af69657810d86cf2d0f643e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ceab5ec7d389f9651acdf14b6c2c92978291e18a")]
 [assembly: System.Reflection.AssemblyProductAttribute("Rapa")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Rapa")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

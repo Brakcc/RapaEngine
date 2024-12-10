@@ -10,7 +10,7 @@ public sealed class EntityList : IEnumerable<Entity>
 {
     #region properties
 
-    public Scene SceneRef { get; init; }
+    public Scene SceneRef { get; }
 
     #endregion
     
@@ -49,6 +49,7 @@ public sealed class EntityList : IEnumerable<Entity>
                     continue;
                 
                 SceneRef.Tags.EntityAdded(e);
+                //SceneRef.EntityTracker.EntityAdded(e);
                 e.Added(SceneRef);
                 e.Init();
             }
@@ -73,6 +74,7 @@ public sealed class EntityList : IEnumerable<Entity>
                     continue;
                 
                 SceneRef.Tags.EntityRemoved(e);
+                //SceneRef.EntityTracker.EntityRemoved(e);
                 e.Removed();
             }
             

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Rapa.RapaGame.RapaduraEngine;
@@ -54,7 +55,7 @@ public sealed class Player : Actor
         
         if (Keyboard.GetState().IsKeyDown(input.Jump) && isGrounded && _jumpCoolDownCounter >= JumpCoolDow)
         {
-            MoveY(-speed * 25);
+            MoveY(-speed * 30);
             _jumpCoolDownCounter = 0;
         }
     }

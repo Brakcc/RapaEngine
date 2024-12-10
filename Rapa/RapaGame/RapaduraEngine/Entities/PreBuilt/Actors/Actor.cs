@@ -11,7 +11,6 @@ using Rapa.RapaGame.RapaduraEngine.Components.Sprites.Animations;
 using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Solids;
 using Rapa.RapaGame.RapaduraEngine.Mathematics;
 using Rapa.RapaGame.RapaduraEngine.Physics.CollisionPhysics;
-using Rapa.RapaGame.RapaduraEngine.SceneManagement;
 using Rapa.RapaGame.RapaduraEngine.SceneManagement.Packers;
 
 namespace Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Actors;
@@ -38,7 +37,7 @@ public class Actor : Entity
         Collider = new BoxCollider(this, 8, 8, X, Y);
         Collidable = true;
 
-        trapRes = OnTrap;
+        trapRes = OnSquish;
     }
 
     protected Actor(Dictionary<string, Animation> animations, int width = 0, int height = 0, bool debugMode = false) : base(width, height, debugMode)
@@ -50,7 +49,7 @@ public class Actor : Entity
         Collider = new BoxCollider(this, 8, 8, X, Y);
         Collidable = true;
 
-        trapRes = OnTrap;
+        trapRes = OnSquish;
     }
     
     #endregion
@@ -62,13 +61,13 @@ public class Actor : Entity
         _keyboardState = new KeyboardState();
     }
     
-    protected virtual void OnTrap(CollisionDatas datas)
+    protected virtual void OnSquish(CollisionDatas datas)
     {
-        if (!TryEscapeTrap(datas))
+        if (!TryEscapeSquish(datas))
             Removed();
     }
 
-    protected virtual bool TryEscapeTrap(CollisionDatas datas)
+    protected virtual bool TryEscapeSquish(CollisionDatas datas)
     {
         return true;
     }
@@ -92,7 +91,7 @@ public class Actor : Entity
     
     public virtual bool IsRiding(Solid solid) => IsCollidingAt(solid, position + Vector2.UnitY);
 
-    private bool IsGrounded(int checkLength = 1) => IsCollidingAt<Solid>(position + Vector2.UnitY * checkLength, GameTags.Default);
+    private bool IsGrounded(int checkLength = 1) => IsCollidingAt<Solid>(position + Vector2.UnitY * checkLength, GameTags.Default | GameTags.Test);
     
     public bool IsGroundedAt(int checkLength, Vector2 at)
     {
@@ -111,7 +110,7 @@ public class Actor : Entity
 
         while (moveAmount != 0)
         {
-            var solid = IsCollidingFirstAt<Solid>(position + Vector2.UnitX * dir, GameTags.Default);
+            var solid = IsCollidingFirstAt<Solid>(position + Vector2.UnitX * dir, GameTags.Default | GameTags.Test);
             if (solid != null)
             {
                 velocity.X = 0;
@@ -126,6 +125,10 @@ public class Actor : Entity
                 return true;
             }
 
+            var act = IsCollidingFirstAt<Actor>(position + Vector2.UnitX * dir, GameTags.Default | GameTags.Test);
+            if (act != null)
+                return true;
+            
             distTraveled += dir;
             moveAmount -= dir;
             X += dir;
@@ -142,7 +145,7 @@ public class Actor : Entity
 
         while (moveAmount != 0)
         {
-            var solid = IsCollidingFirstAt<Solid>(position + Vector2.UnitY * dir, GameTags.Default);
+            var solid = IsCollidingFirstAt<Solid>(position + Vector2.UnitY * dir, GameTags.Default | GameTags.Test);
             if (solid != null)
             {
                 velocity.Y = 0;

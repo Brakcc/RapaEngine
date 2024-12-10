@@ -53,6 +53,12 @@ public class TagList
         
         _anyUnsorted = false;
     }
+
+    public void MarkUnsorted(int i)
+    {
+        _anyUnsorted = true;
+        _unsorted[i] = true;
+    }
     
     public void EntityAdded(Entity e)
     {
@@ -84,7 +90,7 @@ public class TagList
     
     private readonly List<Entity>[] _entities;
 
-    private bool[] _unsorted;
+    private readonly bool[] _unsorted;
     
     private bool _anyUnsorted;
 

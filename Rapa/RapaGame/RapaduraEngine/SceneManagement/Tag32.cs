@@ -37,6 +37,8 @@ public class Tag32
     
     public static Tag32 GetTag(string tag) => TagNameList[tag]; //Tag32.GetTag(name) to get the direct value
 
+    public static Tag32 GetTag(int id) => TagIdList[id];
+        
     #endregion
     
     #region fields
