@@ -10,7 +10,6 @@ using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt;
 using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Props;
 using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Solids;
 using Rapa.RapaGame.RapaduraEngine.InputSettings;
-using Rapa.RapaGame.RapaduraEngine.SceneManagement;
 using Rapa.RapaGame.RapaduraEngine.SceneManagement.MapManagement;
 using Rapa.RapaGame.RapaduraEngine.SceneManagement.Packers;
 

@@ -107,7 +107,7 @@ public class Actor : Entity
         var targetPos = position + Vector2.UnitX * moveAmount;
         var dir = Math.Sign(moveAmount);
         var distTraveled = 0;
-
+        
         while (moveAmount != 0)
         {
             var solid = IsCollidingFirstAt<Solid>(position + Vector2.UnitX * dir, GameTags.Default | GameTags.Test);

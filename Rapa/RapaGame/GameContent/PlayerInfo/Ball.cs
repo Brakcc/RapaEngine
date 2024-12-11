@@ -35,18 +35,50 @@ public class Ball : Actor
         _initPos = position;
 
         AddTag(GameTags.Test);
+
+        _cc = new SingleChainedList<int>
+        {
+            10,
+            20,
+            30,
+            40,
+            50
+        };
+        _cc.RemoveAt(2);
+        _cc.Add(15);
+        _cc.AddAt(945, 1);
+        _cc[0] = 32;
     }
 
     public override void Update()
     {
         base.Update();
-
+        
         if (Keyboard.GetState().IsKeyDown(Keys.Space))
         {
             //Console.WriteLine(ConvToUint(Reverse(0b00010000000000000000000000000110)));
             //RemoveTag(GameTags.Test);
             //Console.WriteLine(Convert.ToString(Tag, 2).PadLeft(32, '0'));
+            foreach (var c in _cc)
+            {
+                Console.Write(c);
+                Console.Write(' ');
+            }
+            Console.WriteLine('\n');
         }
+        if (Keyboard.GetState().IsKeyDown(Keys.Enter))
+        {
+            Console.WriteLine($"945 removed : {_cc.Remove(945)}");
+        }
+        if (Keyboard.GetState().IsKeyDown(Keys.Back))
+        {
+            Console.WriteLine($"_cc[3] = {_cc[3]}");
+        }
+        if (Keyboard.GetState().IsKeyDown(Keys.NumPad0))
+        {
+            Console.WriteLine($"Contains 549 ? : {_cc.Contains(549)} Contains 40 ? : {_cc.Contains(40)}");
+        }
+        
 
         _elapsedTime += CoreEngine.DeltaTime;
 
@@ -182,6 +214,8 @@ public class Ball : Actor
     
     #region fields
 
+    private SingleChainedList<int> _cc;
+    
     private const float G = 50f;
 
     private float _elapsedTime;

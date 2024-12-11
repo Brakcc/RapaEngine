@@ -1,15 +1,12 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 using Rapa.RapaGame.RapaduraEngine.Entities.PreBuilt.Props;
-using Rapa.RapaGame.RapaduraEngine.InputSettings;
 
 namespace Rapa.RapaGame.GameContent.PlayerInfo;
 
 public class NewPlayer : NormalProp
 {
-    private readonly Inputs _input;
+    //private readonly Inputs _input;
     private Vector2 _velocity;
 
     public NewPlayer(Texture2D texture/*, Inputs input*/) : base(texture)
